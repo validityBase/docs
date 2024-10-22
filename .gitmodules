@@ -1,0 +1,6 @@
+[submodule "docs/vbase-py"]
+	path = docs/vbase-py
+	url = https://github.com/validityBase/vbase-py.git
+[submodule "docs/vbase-py-samples"]
+	path = docs/vbase-py-samples
+	url = https://github.com/validityBase/vbase-py-samples.git
