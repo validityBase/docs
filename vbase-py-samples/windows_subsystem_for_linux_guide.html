@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Windows Subsystem for Linux (WSL) vBase Setup Guide &mdash; vbase-py  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Windows vBase Setup Guide" href="windows_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            vbase-py
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">vBase Python Samples Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_set.html">create_set.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add_string_dataset_record.html">add_string_dataset_record.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add_string_dataset_record_async.html">add_string_dataset_record_async.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore_dataset_provenance.html">restore_dataset_provenance.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows_guide.html">Windows vBase Setup Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Windows Subsystem for Linux (WSL) vBase Setup Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-windows-subsystem-for-linux-wsl">1. Install Windows Subsystem for Linux (WSL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-jupyter-lab">2. Install Jupyter Lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-git">3. Install Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clone-the-vbase-py-samples-git-repository">4. Clone the vbase-py-samples Git Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-jupyter-lab-and-open-a-notebook">5. Run Jupyter Lab and Open a Notebook</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">vbase-py</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Windows Subsystem for Linux (WSL) vBase Setup Guide</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="windows-subsystem-for-linux-wsl-vbase-setup-guide">
+<h1>Windows Subsystem for Linux (WSL) vBase Setup Guide<a class="headerlink" href="#windows-subsystem-for-linux-wsl-vbase-setup-guide" title="Link to this heading"></a></h1>
+<p>This tutorial guides you through setting up Windows Subsystem for Linux (WSL)
+to run vBase samples.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#windows-subsystem-for-linux-wsl-vbase-setup-guide"><span class="xref myst">Windows Subsystem for Linux (WSL) vBase Setup Guide</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#1-install-windows-subsystem-for-linux-wsl"><span class="xref myst">1. Install Windows Subsystem for Linux (WSL)</span></a></p></li>
+<li><p><a class="reference internal" href="#2-install-jupyter-lab"><span class="xref myst">2. Install Jupyter Lab</span></a></p></li>
+<li><p><a class="reference internal" href="#3-install-git"><span class="xref myst">3. Install Git</span></a></p></li>
+<li><p><a class="reference internal" href="#4-clone-the-vbase-py-samples-git-repository"><span class="xref myst">4. Clone the vbase-py-samples Git Repository</span></a></p></li>
+<li><p><a class="reference internal" href="#5-run-jupyter-lab-and-open-a-notebook"><span class="xref myst">5. Run Jupyter Lab and Open a Notebook</span></a></p></li>
+</ul>
+</li>
+</ul>
+<section id="install-windows-subsystem-for-linux-wsl">
+<h2>1. Install Windows Subsystem for Linux (WSL)<a class="headerlink" href="#install-windows-subsystem-for-linux-wsl" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Open PowerShell as Administrator:</strong>
+Right-click the Start button and select “Windows PowerShell (Admin)”.</p></li>
+<li><p><strong>Enable WSL</strong>:
+Type the following command into PowerShell and press Enter:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">dism</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">online</span> <span class="p">/</span><span class="nb">enable-feature</span> <span class="p">/</span><span class="n">featurename</span><span class="p">:</span><span class="n">Microsoft-Windows-Subsystem-Linux</span> <span class="p">/</span><span class="n">all</span> <span class="p">/</span><span class="n">norestart</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Enable VirtualMachinePlatform Feature:</strong>
+Type the following command into PowerShell and press Enter:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">dism</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">online</span> <span class="p">/</span><span class="nb">enable-feature</span> <span class="p">/</span><span class="n">featurename</span><span class="p">:</span><span class="n">VirtualMachinePlatform</span> <span class="p">/</span><span class="n">all</span> <span class="p">/</span><span class="n">norestart</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Restart your PC.</strong></p></li>
+<li><p><strong>Download and Install a Linux Distribution:</strong>
+Go to the Microsoft Store, search for the Ubuntu Linux distribution, and install it.</p></li>
+<li><p><strong>Set WSL 2 as your default version:</strong>
+Open PowerShell as Administrator again and run:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">wsl</span> <span class="p">-</span><span class="n">-set-default-version</span> <span class="n">2</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Launch WSL:</strong>
+After installation, launch WSL from the Start menu. The first launch will take some time due to setup. You will be prompted to create a user account and password.</p></li>
+</ol>
+</section>
+<section id="install-jupyter-lab">
+<h2>2. Install Jupyter Lab<a class="headerlink" href="#install-jupyter-lab" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p><strong>Note:</strong> The following steps assume you have WSL installed and are running commands in the open WSL console window.</p>
+</div></blockquote>
+<ol class="arabic">
+<li><p><strong>Update and Upgrade Packages:</strong>
+Update your Linux package list and upgrade the packages by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install Python3 and pip:</strong>
+Run the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>-y
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install Jupyter Lab:</strong>
+Use pip to install Jupyter Lab:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>jupyterlab
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="install-git">
+<h2>3. Install Git<a class="headerlink" href="#install-git" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Install Git:</strong>
+Run the following command to install git:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>-y
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="clone-the-vbase-py-samples-git-repository">
+<h2>4. Clone the vbase-py-samples Git Repository<a class="headerlink" href="#clone-the-vbase-py-samples-git-repository" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Create the vBase directory:</strong>
+Create the directory where you want to clone vBase repositories and switch to this directory by  running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/validityBase<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/validityBase
+</pre></div>
+</div>
+</li>
+<li><p><strong>Clone the Repository:</strong>
+Once you are in the directory where you want to clone the repository, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/validityBase/vbase-py-samples
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="run-jupyter-lab-and-open-a-notebook">
+<h2>5. Run Jupyter Lab and Open a Notebook<a class="headerlink" href="#run-jupyter-lab-and-open-a-notebook" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Navigate to the Repository Directory:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>vbase-py-samples
+</pre></div>
+</div>
+</li>
+<li><p><strong>Run Jupyter Lab:</strong>
+Start Jupyter Lab by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+<p>This command will start Jupyter Lab and provide you with a URL (including a security access token) to access it from your browser.</p>
+</li>
+<li><p><strong>Access Jupyter Lab:</strong>
+Copy the provided URL and paste it into your browser’s address bar to access Jupyter Lab.</p></li>
+<li><p><strong>Open a Notebook:</strong>
+In Jupyter Lab, navigate through the file explorer to find the notebook you wish to open in the <code class="docutils literal notranslate"><span class="pre">~/validityBase/vbase-py-samples/samples</span></code> folder. Click on it to open and interact with the notebook.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="windows_guide.html" class="btn btn-neutral float-left" title="Windows vBase Setup Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, PIT Labs, Inc..</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

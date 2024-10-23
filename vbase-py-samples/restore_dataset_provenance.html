@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>restore_dataset_provenance.py &mdash; vbase-py  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Windows vBase Setup Guide" href="windows_guide.html" />
+    <link rel="prev" title="add_string_dataset_record_async.py" href="add_string_dataset_record_async.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            vbase-py
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">vBase Python Samples Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_set.html">create_set.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add_string_dataset_record.html">add_string_dataset_record.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add_string_dataset_record_async.html">add_string_dataset_record_async.py</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">restore_dataset_provenance.py</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#detailed-description">Detailed Description</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="windows_guide.html">Windows vBase Setup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows_subsystem_for_linux_guide.html">Windows Subsystem for Linux (WSL) vBase Setup Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">vbase-py</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">restore_dataset_provenance.py</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="restore-dataset-provenance-py">
+<h1>restore_dataset_provenance.py<a class="headerlink" href="#restore-dataset-provenance-py" title="Link to this heading"></a></h1>
+<p>This sample illustrates how a dataset producer can create a dataset
+and how the provenance of the dataset can be restored
+after loss during copying or other transformations.</p>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>When digital objects are copied across physical media, across cloud environments,
+and within a cloud environment, they typically lose provenance information
+such as last modified time.
+This can lead to severe problems in cases where the timestamps are critical provenance metadata.
+For example:</p>
+<ul class="simple">
+<li><p>When security logs are copied, modifications and tampering may not be detectable.</p></li>
+<li><p>When financial datasets are copied, their revision timestamps are lost.</p></li>
+<li><p>Point-in-time and bitemporal data lose the revision timestamps.</p></li>
+</ul>
+<p>This sample illustrates how such timestamps can be restored for vBase datasets
+after the underlying digital objects are copied to a new AWS S3 bucket.</p>
+</section>
+<section id="detailed-description">
+<h2>Detailed Description<a class="headerlink" href="#detailed-description" title="Link to this heading"></a></h2>
+<ul>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">.env</span></code> file defines the following environment variables
+for accessing AWS S3 service and vBase services:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Forwarder config</span>
+<span class="c1"># vBase test forwarder URL</span>
+<span class="nv">VBASE_FORWARDER_URL</span><span class="o">=</span><span class="s2">&quot;https://test.api.vbase.com/forwarder/&quot;</span>
+<span class="c1"># vBaseTest API key</span>
+<span class="nv">VBASE_API_KEY</span><span class="o">=</span><span class="s2">&quot;YOUR_VBASE_API_KEY&quot;</span>
+
+<span class="c1"># Private key for making commitments</span>
+<span class="nv">VBASE_COMMITMENT_SERVICE_PRIVATE_KEY</span><span class="o">=</span><span class="s2">&quot;YOUR_VBASE_COMMITMENT_SERVICE_PRIVATE_KEY&quot;</span>
+
+<span class="c1"># AWS Configuration</span>
+<span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;YOUR_AWS_ACCESS_KEY_ID&quot;</span>
+<span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;YOUR_AWS_SECRET_ACCESS_KEY&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a vBase client object using connection parameters specified in environment variables:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vbc</span> <span class="o">=</span> <span class="n">VBaseClient</span><span class="o">.</span><span class="n">create_instance_from_env</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create an AWS S3 client object using connection parameters specified in environment variables:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">boto_client</span> <span class="o">=</span> <span class="n">create_s3_client_from_env</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create the test dataset.
+If this is a new dataset,
+this operation records that the user with the above VBASE_COMMITMENT_SERVICE_PRIVATE_KEY
+has created the named dataset.
+Dataset creation is idempotent.
+If this is an existing dataset, the call is ignored.
+Such commitments are used to validate that a given collection of user datasets is complete
+and mitigates Sybil attacks (https://en.wikipedia.org/wiki/Sybil_attack).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">VBaseDataset</span><span class="p">(</span><span class="n">vbc</span><span class="p">,</span> <span class="n">SET_NAME</span><span class="p">,</span> <span class="n">VBaseIntObject</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add a record to the dataset.
+Records an object commitment for a set record.
+A set record commitment establishes that a dataset record with a given CID
+has existed at a given time for a given set.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vbase_receipt</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">add_record</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Verify that a given set commitment exists for a given user.
+This will typically be called by the data consumer to verify
+a producer’s claims about dataset provenance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">ds</span><span class="o">.</span><span class="n">verify_commitments</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Copy a folder to another folder.
+This could also be a copy to a different bucket,
+or a different storage.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">copy_s3_bucket</span><span class="p">(</span>
+    <span class="n">boto_client</span><span class="o">=</span><span class="n">boto_client</span><span class="p">,</span>
+    <span class="n">source_bucket_name</span><span class="o">=</span><span class="n">BUCKET_NAME</span><span class="p">,</span>
+    <span class="n">source_folder_name</span><span class="o">=</span><span class="n">FOLDER_NAME</span><span class="p">,</span>
+    <span class="n">destination_bucket_name</span><span class="o">=</span><span class="n">BUCKET_NAME</span><span class="p">,</span>
+    <span class="n">destination_folder_name</span><span class="o">=</span><span class="n">COPY_FOLDER_NAME</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a vBase dataset using the copied objects.
+These objects have lost the original timestamps.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds_copy</span> <span class="o">=</span> <span class="n">VBaseDataset</span><span class="p">(</span><span class="n">vbc</span><span class="p">,</span> <span class="n">SET_NAME</span><span class="p">,</span> <span class="n">VBaseIntObject</span><span class="p">)</span>
+<span class="c1"># Load all objects into the dataset.</span>
+<span class="n">ds_copy</span> <span class="o">=</span> <span class="n">init_vbase_dataset_from_s3_objects</span><span class="p">(</span>
+    <span class="n">ds_copy</span><span class="p">,</span> <span class="n">boto_client</span><span class="p">,</span> <span class="n">BUCKET_NAME</span><span class="p">,</span> <span class="n">COPY_FOLDER_NAME</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Attempt to verify the copied objects.
+Since these have lost the timestamps and the original provenance information,
+the checks will fail:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">success</span><span class="p">,</span> <span class="n">l_log</span> <span class="o">=</span> <span class="n">ds_copy</span><span class="o">.</span><span class="n">verify_commitments</span><span class="p">()</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">success</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Verification log:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">log</span> <span class="ow">in</span> <span class="n">l_log</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Fix the record timestamps using the vBase commitment information
+and verify the corrected provenance data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fix the timestamps.</span>
+<span class="k">assert</span> <span class="n">ds_copy</span><span class="o">.</span><span class="n">try_restore_timestamps_from_index</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataset fixed:&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">ds_copy</span><span class="o">.</span><span class="n">to_pd_object</span><span class="p">())</span>
+
+<span class="c1"># Verify the records again.</span>
+<span class="k">assert</span> <span class="n">ds_copy</span><span class="o">.</span><span class="n">verify_commitments</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="add_string_dataset_record_async.html" class="btn btn-neutral float-left" title="add_string_dataset_record_async.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="windows_guide.html" class="btn btn-neutral float-right" title="Windows vBase Setup Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, PIT Labs, Inc..</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

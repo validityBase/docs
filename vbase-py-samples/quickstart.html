@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vBase Python Samples Quickstart &mdash; vbase-py  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="create_set.py" href="create_set.html" />
+    <link rel="prev" title="vbase-py-samples Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            vbase-py
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">vBase Python Samples Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_set.html">create_set.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add_string_dataset_record.html">add_string_dataset_record.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add_string_dataset_record_async.html">add_string_dataset_record_async.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="restore_dataset_provenance.html">restore_dataset_provenance.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows_guide.html">Windows vBase Setup Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows_subsystem_for_linux_guide.html">Windows Subsystem for Linux (WSL) vBase Setup Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">vbase-py</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">vBase Python Samples Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vbase-python-samples-quickstart">
+<h1>vBase Python Samples Quickstart<a class="headerlink" href="#vbase-python-samples-quickstart" title="Link to this heading"></a></h1>
+<p>The following steps guide you through this process of setting up vBase Python SDK in your local environment:</p>
+<blockquote>
+<div><p><strong>Note for Windows users:</strong>
+If you’re on Windows, the following instructions will work on the Windows Subsystem for Linux (WSL). WSL provides a Linux environment on your Windows OS. Please follow the following guide to set up your WSL environment for vBase: <a class="reference external" href="https://docs.vbase.com/getting-started/windows-subsystem-for-linux-wsl-guide">https://docs.vbase.com/getting-started/windows-subsystem-for-linux-wsl-guide</a></p>
+</div></blockquote>
+<ol class="arabic">
+<li><p><strong>Get a vBase API key:</strong>
+Please <a class="reference external" href="https://www.vbase.com/contact/">contact vBase</a> and request an API key if you wish to have the simplest experience. The API key is needed to access the forwarder API service, which simplifies commitment and validation operations but is not required for interacting with vBase.</p></li>
+<li><p><strong>Create the vBase directory:</strong>
+Create the directory where you want to clone vBase repositories and switch to this directory by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/validityBase<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/validityBase
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install the vBase Python SDK:</strong>
+Install the <code class="docutils literal notranslate"><span class="pre">vbase</span></code> python package that provides the vBase Python SDK from GitHub:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/validityBase/vbase-py.git
+</pre></div>
+</div>
+</li>
+<li><p><strong>Clone the vBase Python SDK Samples:</strong>
+Clone the <code class="docutils literal notranslate"><span class="pre">vbase-py-samples</span></code> GitHub repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/validityBase/vbase-py-samples.git
+</pre></div>
+</div>
+</li>
+<li><p><strong>Set up your environment:</strong></p>
+<ol class="arabic">
+<li><p><strong>Option 1: Copy your existing environment:</strong>
+If you have previously configured vBase access, for instance, when using the <code class="docutils literal notranslate"><span class="pre">vbase-py-tools</span></code> package, you can re-use those settings by copying <code class="docutils literal notranslate"><span class="pre">.env</span></code> file to the <code class="docutils literal notranslate"><span class="pre">vbase-py-samples</span></code> folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>~/validityBase/vbase-py-tools/.env<span class="w"> </span>~/validityBase/vbase-py-samples
+</pre></div>
+</div>
+</li>
+<li><p><strong>Option 2: Create a new environment:</strong>
+If this is your first time working with vBase, you should configure new settings.
+Please install the <code class="docutils literal notranslate"><span class="pre">vbase-py-tools</span></code> package and follow the setup instructions using the <code class="docutils literal notranslate"><span class="pre">config_env</span></code> script provided in that package as instructed at the following link: <a class="reference external" href="https://docs.vbase.com/python-sdk/package-vbase-py-tools/setup">https://docs.vbase.com/python-sdk/package-vbase-py-tools/setup</a></p></li>
+</ol>
+</li>
+<li><p><strong>Verify your environment:</strong>
+Below is a summary of the configuration settings from the resulting <code class="docutils literal notranslate"><span class="pre">.env</span></code> file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the vBase Forwarder URL.</span>
+<span class="c1"># The following is the production vBase Forwarder service URL.</span>
+<span class="c1"># Users should not change this value:</span>
+<span class="nv">VBASE_FORWARDER_URL</span><span class="o">=</span><span class="s2">&quot;https://api.vbase.com/forwarder/&quot;</span>
+<span class="c1"># This is the API key for accessing the vBase Forwarder service.</span>
+<span class="c1"># Users should set this value to the API key they received from vBase.</span>
+<span class="nv">VBASE_API_KEY</span><span class="o">=</span><span class="s2">&quot;USER_VBASE_API_KEY&quot;</span>
+
+<span class="c1"># This is the private key for making stamps/commitments.</span>
+<span class="c1"># This key signs and controls all operations for the user</span>
+<span class="c1"># -- it must be kept secret.</span>
+<span class="c1"># vBase will never request this value.</span>
+<span class="nv">VBASE_COMMITMENT_SERVICE_PRIVATE_KEY</span><span class="o">=</span><span class="s2">&quot;USER_VBASE_COMMITMENT_SERVICE_PRIVATE_KEY&quot;</span>
+</pre></div>
+</div>
+<p>You can keep these values in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file in the working directory of your Python code or add them to your command environment.</p>
+</li>
+<li><p><strong>You are all set!</strong>
+You can make and verify commitments. Please review the samples and their documentation for additional info.</p></li>
+</ol>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="vbase-py-samples Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="create_set.html" class="btn btn-neutral float-right" title="create_set.py" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2024, PIT Labs, Inc..</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
