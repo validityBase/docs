@@ -12,6 +12,8 @@ You can find the implementation in [`stamp_alpaca_portfolio.py`](https://github.
 - [2. (Optional) Sign Up for an Alpaca Account]()
 - [3. (Optional) Enable Paper Trading]()
 - [4. Obtain Your API Keys]()
+- [5. Switch to the Sample Directory]()
+- [6. Install the Alpaca Python Package]()
 - [5. Set Environment Variables]()
 - [6. Run the Sample]()
 
@@ -56,16 +58,31 @@ You can find the implementation in [`stamp_alpaca_portfolio.py`](https://github.
   - **API Secret Key**: Used to authenticate your requests.
 - Store your **API Key ID** and **API Secret Key** securely. You’ll use these in your environment variables that Python scripts will use to access your Alpaca account.
 
+## 5. Switch to the Sample Directory
+
+Open Command Prompt (or PowerShell) and navigate to your project folder:
+
+```bash
+cd C:\Users\%USERNAME%\Projects\validityBase\vbase-py-samples
+```
+
+## 6. Install the Alpaca Python Package
+
+Install the `alpaca_trade_api` Python package:
+
+```bash
+pip install alpaca_trade_api
+```
+
 ## 5. Set Environment Variables
 
-Set the following environment variables for your IB and vBase configuration:
+Set the following environment variables for your IB and vBase configuration.    - Alpaca Configuration:
+- `ALPACA_API_KEY` - The Alpaca API Key.
+- `ALPACA_API_SECRET` - The Alpaca API Secret.
+- `ALPACA_API_BASE_URL` - Base URL for the Alpaca API:
+- https://paper-api.alpaca.markets for paper trading.
+- https://api.alpaca.markets for live trading.
 
-- Alpaca Configuration:
-  - `ALPACA_API_KEY` - The Alpaca API Key.
-  - `ALPACA_API_SECRET` - The Alpaca API Secret.
-  - `ALPACA_API_BASE_URL` - Base URL for the Alpaca API:
-    - https://paper-api.alpaca.markets for paper trading.
-    - https://api.alpaca.markets for live trading.
 - AWS S3 Configuration (Optional if you save the portfolio data elsewhere):
   - `AWS_ACCESS_KEY_ID` - The Access Key used to connect to the S3 service.
   - `AWS_SECRET_ACCESS_KEY` - The Secret Key used to connect to the S3 service.
@@ -78,12 +95,35 @@ Set the following environment variables for your IB and vBase configuration:
   - `VBASE_COMMITMENT_SERVICE_PRIVATE_KEY` - The private key used to sign portfolio stamps.
   - `VBASE_DATASET_NAME` - The name of the vBase dataset that will hold the portfolio history.
 
+You can define these variables in the `.env` file in your `C:\Users\%USERNAME%\Projects\validityBase\vbase-py-samples` folder. Your .env file should look as follows:
+
+```python
+# Alpaca Config
+ALPACA_API_KEY="ALPACA_API_KEY"
+ALPACA_API_SECRET="ALPACA_API_SECRET"
+ALPACA_API_BASE_URL="https://paper-api.alpaca.markets"
+
+# AWS Config
+AWS_ACCESS_KEY_ID="AWS_ACCESS_KEY_ID"
+AWS_SECRET_ACCESS_KEY="AWS_SECRET_ACCESS_KEY"
+AWS_S3_BUCKET_NAME="test-bucket"
+AWS_S3_FOLDER_NAME="portfolio_history/alpaca_portfolio_stamping"
+
+# vBase Config
+VBASE_FORWARDER_URL="https://dev.api.vbase.com/forwarder/"
+VBASE_API_KEY="VBASE_API_KEY"
+VBASE_COMMITMENT_SERVICE_PRIVATE_KEY="VBASE_COMMITMENT_SERVICE_PRIVATE_KEY"
+
+# User Dataset Config
+VBASE_DATASET_NAME="alpaca_portfolio_stamping_test"
+```
+
 ## 6. Run the Sample
 
 Run the sample from the command line:
 
 ```bash
-python3 stamp_alpaca_portfolio.py
+python samples\stamp_alpaca_portfolio.py
 ```
 
 or walk through the sample in an interactive window.
