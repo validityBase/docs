@@ -1,6 +1,10 @@
-# create_set.py
+<!-- omit in toc -->
+
+# Create a Set
 
 This sample creates and validates a vBase set.
+
+You can find the implementation in [`create_set.py`](https://github.com/validityBase/vbase-py-samples/blob/main/samples/create_set.py).
 
 ## Summary
 

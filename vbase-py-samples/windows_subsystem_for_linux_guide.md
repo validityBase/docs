@@ -1,14 +1,15 @@
+<!-- omit in toc -->
+
 # Windows Subsystem for Linux (WSL) vBase Setup Guide
 
 This tutorial guides you through setting up Windows Subsystem for Linux (WSL)
 to run vBase samples.
 
-- [Windows Subsystem for Linux (WSL) vBase Setup Guide]()
-  - [1. Install Windows Subsystem for Linux (WSL)]()
-  - [2. Install Jupyter Lab]()
-  - [3. Install Git]()
-  - [4. Clone the vbase-py-samples Git Repository]()
-  - [5. Run Jupyter Lab and Open a Notebook]()
+- [1. Install Windows Subsystem for Linux (WSL)]()
+- [2. Install Jupyter Lab]()
+- [3. Install Git]()
+- [4. Clone the vbase-py-samples Git Repository]()
+- [5. Run Jupyter Lab and Open a Notebook]()
 
 ## 1. Install Windows Subsystem for Linux (WSL)
 

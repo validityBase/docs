@@ -1,21 +1,27 @@
+<!-- omit in toc -->
+
+# Stamp Interactive Brokers Portfolio
+
 This sample illustrates how to retrieve, save, and stamp an Interactive Brokers (IB) portfolio.
 
 The sample can be run from the command line interactively or as a script if your environment is set appropriately.
 
 The sample will run the **Interactive Brokers (IB) Client Portal Gateway** on your Windows computer and make a request to it using the Web API from Python.
 
+You can find the implementation in [`stamp_interactive_brokers_portfolio.py`](https://github.com/validityBase/vbase-py-samples/blob/main/samples/stamp_interactive_brokers_portfolio.py).
+
 - [1. Prerequisites]()
 - [2. Download and Install Client Portal Gateway]()
 - [3. Set Environment Variables]()
 - [4. Run the Sample]()
 
-# 1. Prerequisites
+## 1. Prerequisites
 
 1. **Interactive Brokers Account**: You must have an IB account (live or paper trading).
 2. **Python**: Ensure Python is installed on your Windows machine.
 3. **vBase**: Follow the [vBase Windows Guide](windows_guide.md) to set up Windows environment to run vBase samples.
 
-# 2. Download and Install Client Portal Gateway
+## 2. Download and Install Client Portal Gateway
 
 Interactive Brokers provides the **Client Portal Gateway** as a lightweight API gateway for accessing account data via a Web API. Follow these steps to download and run the gateway:
 
@@ -43,7 +49,7 @@ Interactive Brokers provides the **Client Portal Gateway** as a lightweight API 
    - You should see the “Client login succeeds” message.
    - Once the gateway is running, it provides a Web API that requires authentication via the session token returned during the login process. The gateway will keep running in the background.
 
-# 3. Set Environment Variables
+## 3. Set Environment Variables
 
 Set the following environment variables for your IB and vBase configuration:
 
@@ -61,7 +67,7 @@ Set the following environment variables for your IB and vBase configuration:
   - `VBASE_COMMITMENT_SERVICE_PRIVATE_KEY` - The private key used to sign portfolio stamps.
   - `VBASE_DATASET_NAME` - The name of the vBase dataset that will hold the portfolio history.
 
-# 4. Run the Sample
+## 4. Run the Sample
 
 Run the sample from the command line:
 

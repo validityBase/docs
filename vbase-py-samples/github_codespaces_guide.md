@@ -1,6 +1,15 @@
+<!-- omit in toc -->
+
+# GitHub Codespaces Guide
+
 This tutorial guides you through setting up GitHub Codespaces to run vBase samples.
 
-# 1. Open a Notebook in GitHub Codespaces
+- [1. Open a Notebook in GitHub Codespaces]()
+- [2. Configure Codespaces Secrets]()
+  - [2.1. Add the Secret to GitHub Repository Secrets]()
+  - [2.2. Use the Secret in Your Codespace]()
+
+## 1. Open a Notebook in GitHub Codespaces
 
 To open a Jupyter notebook from a public GitHub repository in GitHub Codespaces, follow these steps:
 
@@ -27,11 +36,11 @@ To open a Jupyter notebook from a public GitHub repository in GitHub Codespaces,
    - Copy the provided URL from the terminal and paste it into your browser.
    - You should see the Jupyter notebook interface with your notebook file opened and ready to use.
 
-# 2. Configure Codespaces Secrets
+## 2. Configure Codespaces Secrets
 
 To configure an environment variable in GitHub Codespaces that contains a secret you do not want to save directly in your repository, you can use GitHub’s secrets management feature. Here’s how you can achieve this:
 
-## 2.1. Add the Secret to GitHub Repository Secrets
+### 2.1. Add the Secret to GitHub Repository Secrets
 
 1. **Navigate to Your Repository:**
    - Go to your repository on GitHub.
@@ -42,7 +51,7 @@ To configure an environment variable in GitHub Codespaces that contains a secret
    - Click on the `New repository secret` button.
    - Add your secret with a name and its value. For example, you can name it `MY_SECRET` and provide the secret value.
 
-## 2.2. Use the Secret in Your Codespace
+### 2.2. Use the Secret in Your Codespace
 
 To use the secret within your Codespace, you’ll need to reference it in your `devcontainer.json` file.
 
