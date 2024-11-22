@@ -1,5 +1,4 @@
 <!-- omit in toc -->
-
 # Windows vBase Setup Guide
 
 This tutorial guides you through setting up Windows environment
