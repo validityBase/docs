@@ -14,3 +14,6 @@ _book
 *.epub
 *.mobi
 *.pdf
+
+/publish-docs-action/node_modules
+/publish-docs-action/src/*.js
