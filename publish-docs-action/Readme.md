@@ -21,7 +21,7 @@ jobs:
       - name: Publish Documents
         uses: validityBase/docs/publish-docs-action@main
         with:
-          docs-repo-access-token: ${{ secrets.DOCS_REPO_ACCESS_TOKEN }} #source-docs-path: # optional - default is 'docs'
+          docs-repo-access-token: ${{ secrets.DOCS_REPO_ACCESS_TOKEN }}
           #source-docs-path: # optional - default is 'docs'
           #target-docs-path: # optional - default is the name of the current repository
           #target-repository: # optional - default is 'validityBase/docs'
