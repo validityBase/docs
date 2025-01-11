@@ -1,0 +1,27 @@
+name: 'Publish Product Documentation'
+description: 'Copies the end-user documentation Markdown (.md) files from the current repository to the vBase documentation repository.'
+inputs:
+  docs-repo-access-token:
+    description: 'The vBase documentation repository access token.'
+    required: true
+  source-docs-path:
+    description: 'The path to the source documentation folder in the current repository. If not set, "docs" will be used.'
+    required: false
+    default: 'docs'
+  target-docs-path:
+    description: 'The path to the target documentation files in the vBase documentation repository. If not set, the name of the current repository will be used.'
+    required: false
+  target-repository:
+    description: 'The vBase documentation repository. If not set, "validityBase/docs" will be used.'
+    required: true
+    default: 'validityBase/docs'
+  target-repository-branch:
+    description: 'The vBase documentation repository branch. If not set, branch name will be taken from the current product branch.'
+    required: false
+  preprocess-plant-uml:
+    description: 'Preprocess PlantUML diagrams in the markdown files. "true" if not set.'
+    required: false
+    default: 'true'
+runs:
+  using: "node20"
+  main: "index.js"
