@@ -19,12 +19,9 @@ export async function replacePlantUmlDiagramsInFile(filePath: string) {
             throw new Error(`No closing \`\`\` found for PlantUml diagram ${diagramOpeningTag}`);
         }
 
-        console.log(`${diagramStart} to ${diagramEnd}`);
         const diagramContent = lines
             .slice(diagramStart + 1, diagramEnd)
             .join('\n');
-
-        console.log(`Creating PlantUml diagram from \n${diagramContent}`);
 
         // build diagram url
         const encodedPuml = PlantUmlEncoder.encode(diagramContent);
