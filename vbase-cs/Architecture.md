@@ -6,7 +6,7 @@ The software consists of the following components:
 - **Validity Base Forwarder API**: A RESTful API that forwards data to the blockchain on behalf of the client.  
 - **Validity Base Client**: A client application that interacts with the Forwarder API to send data to the blockchain.  
 
-![Abstraction Diagram](https://img.plantuml.biz/plantuml/png/SoWkIImgAStDuUAATix9JCqhYLLGBaZCIKqlIatDu-9ApialJL6evb9GY7RBBofFB4f9BOe5yLnBCbABKajpmPmofyJYL8NWtCIY4WNd_BoIeiJaabYkMYuaGtLrxP2DKB1Iy0W92U125W8hGPYBO2haw-hYiWG0)
+![Abstraction Diagram](https://img.plantuml.biz/plantuml/png/TOsn2i9044Jx_Oe5w_i12ma9YgLWkd35abjKsBkJpPuMmN-NfCarwUODmvjcCb8hKG26JbwSpEFXJS8FPKu0e-GIS0R4uPBrInfO_K9dUx9oYIjyMfeOxv7KiCl9b4Rpy8DAwjofLk0Hhtr_WxfQ9vjtYvYTspk1XbCeKVu0)
 
 ## Client
 
@@ -16,7 +16,7 @@ The client part consists of the following components:
   It is written in .NET Standard 2.0, which makes it compatible with both .NET Core and .NET Framework.  
 - **vBase COM Shim**: A COM shim that enables the **vBase Core** library to be used in a COM environment, such as Visual Basic for Applications.  
 
-![Client Diagram](https://img.plantuml.biz/plantuml/png/RP3DRi8m48JlVefHE1DLVO2gu98Usj9392uHXoLPWaLYHyuMg2hUlR83ugVrRUnlPyVpt0jv-MeRfQoh68bk35l1pEwCTxPbAmb-b0A0ZiejrOnaDwMUaR-yXIUSJX5lK-qyBq4zD4OTDLnxPdi7GNz-8D-ODeBvFNW4C6miPWSk6oocaqWkfXECtaszaLTFtmEHpbcGUMfvx_mMG_m-ulFiVpf4l0NrDNWCLGXZvKHS2xU6La2Sp8LiHRx2O_g0qhKTYLarZBsHpPc9xcGht2PBeTXM2Cv__FFpxEKVZLbvyY4r7phN6rl7qemLzcig-TgjYFsCnqyeygKgvjb9w23qHVm2)
+![Client Diagram](https://img.plantuml.biz/plantuml/png/RP1BRy8m48Jl_XKZE1DL_G4Lu48FRUaX4fU8mv8imSAFo5aULSL_hs90F5hVnlvsTZp3LYZArbcbVAWOFMqDUy74xqmCth6N7dwK0e26oWtLZDvkJ2qZVttldd0-HRhDT8Yy0BNGw3TakOxC_W62_lf4lZOkWVaZU0HmsbXC3bnQpCUZHCx78_G_JBsMjqZV9oARiM0QoV4-n0rEyTk4pwR_qrt4Ur3VWiUk2c4iWqXm22je1QJ9NCXN52iyPqyeWsj8pD8ozaRM5oQvawzmdoo3Ob-XS_xZdrzch_-mPXafTgdvq8JM-3gLPhnmN579jsv5wcSmU46HBrGncvw5xeI-2ZLaNssT_GK0)
 
 ### vBase Core
 
@@ -33,4 +33,4 @@ It consists of the following main classes and interfaces:
   - No additional records were commited within the scope of the dataset.
   - All the records in the dataset were commited.
 
-![vBase Core Class Diagram](https://img.plantuml.biz/plantuml/png/RL31QXin4BthAnxhMwa38TSUWkKQvsJebkHGIfcLPcErAybePbqA_VYoMZVffaOWQPZtvhrvzw9KT8o3CI4fbvuSetcmESQWaPEsNCx1SGCIsDPG9rh8ATn08cYUkBkx3dwwiwsve7Qv_AJYkLo7xbwHUzNJTT3UjbXvcWvMgoy-gxB_-fTttf2m7G8ddQqk6bjI4fuxM_FV4XLpwBwpco6FcyE2tce9wNa9-DOQOrjy-BrUpwjErrpk5jNUjcQBvhR1k_MwljRO-bys8gLVJPKsZvl3pBtefAoCWNj5xYSMy8bFXOMJ2ZeIXdk93Fd4XJJa93U6ayT4VZEY-WK-wf4BZn7TaDqFTwIG_XqaS_Zl3Qg6HqxG8wD6WZPIKTYSQf8t1lXy3799D0XUCkxOqIYCe0RmcMLo1CzzI5pdaTEH1eHu6dWIhkODqES2pqCuyvG-8elGCmiqLzfR0w-xcdjEVep37m00)
+![vBase Core Class Diagram](https://img.plantuml.biz/plantuml/png/RL9TQnin47pNhnZERw4EXBpc8LYkSPuCLKaUIYbxqbwizauoshL3e3--dCvDUgaHw8ETsPaTT2zAHOz3RqnCogKZpsWUR1w6g0CdTLnEqNC34bXdg1Kjv1M-9n4qJzpUNWO_tLfdpgXDBYzK0fVBqCqxSgjwk0pQMeT5e75XiVWMiYg7xtzvfnK9spvoqidghB0c9U6fiZR_3L4nk_Od-mdokDhDw4vBJCzpm0zdZ7Mu-xrSJgEEs_JSp5vRwymQpKs3g-ModjROUfyN1aglJPKsZwlTn3thfAoCdZj5xaOMy8KFXOMJ2beIXd-B3Fd0XJJc9DU6Ky18_j2Y-WK-wvuB7mUqVVQ__9vY-hUHJE5_CgWQ0Jb1zumQ2Tn0HM5pgabU6-3hFievqIXuoxXbJqTXH3L0o2oZ8mJkOkBQZxmUgKSS3ZsFmjMy0RfS4BYF9nxJny0YzCm2pPNsqS3xhEQUKnY_z1y0)
