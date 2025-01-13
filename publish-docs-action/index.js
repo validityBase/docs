@@ -26039,7 +26039,7 @@ const core = __importStar(__nccwpck_require__(5316));
 const constants_1 = __nccwpck_require__(9097);
 const fs = __importStar(__nccwpck_require__(7147));
 const path_1 = __importDefault(__nccwpck_require__(1017));
-const plantuml_encoder_1 = __importDefault(__nccwpck_require__(1951));
+const plant_uml_helpers_1 = __nccwpck_require__(3374);
 const env = process.env;
 // copy the markdown files from the build directory to the docs repository
 function copyDocs() {
@@ -26076,57 +26076,109 @@ function preprocessMdsInDirectory(directory) {
                 continue;
             }
             console.log(`Preprocessing ${files[i]}...`);
-            let content = fs.readFileSync(files[i], 'utf8');
-            content = yield preprocessPlantUmlDiagrams(content, path_1.default.dirname(files[i]));
-            fs.writeFileSync(files[i], content);
+            yield (0, plant_uml_helpers_1.replacePlantUmlDiagramsInFile)(files[i]);
         }
     });
 }
 exports.preprocessMdsInDirectory = preprocessMdsInDirectory;
-function preprocessPlantUmlDiagrams(content, imagesDir) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let processingResult = yield precessFirstUmlDiagram(content, imagesDir);
-        if (!processingResult.diagramCreated) {
-            console.log('No PlantUml diagrams found in the file.');
-            return content;
+function getFiles(dir) {
+    const fsEntries = fs.readdirSync(dir, { withFileTypes: true });
+    let res = [];
+    for (let i = 0; i < fsEntries.length; i++) {
+        if (fsEntries[i].isDirectory()) {
+            res = res.concat(getFiles(path_1.default.join(dir, fsEntries[i].name)));
         }
+        else {
+            res = res.concat([path_1.default.join(dir, fsEntries[i].name)]);
+        }
+    }
+    return res;
+}
+
+
+/***/ }),
+
+/***/ 3374:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.replacePlantUmlDiagramsInFile = void 0;
+const fs = __importStar(__nccwpck_require__(7147));
+const plantuml_encoder_1 = __importDefault(__nccwpck_require__(1951));
+function replacePlantUmlDiagramsInFile(filePath) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const content = fs.readFileSync(filePath, 'utf8');
+        let lines = content.split('\n');
         let numberOfDiagrams = 0;
-        while (processingResult.diagramCreated) {
-            content = processingResult.content;
+        let diagramStart = findDiagramStart(0, lines);
+        while (diagramStart !== -1) {
             numberOfDiagrams++;
-            processingResult = yield precessFirstUmlDiagram(content, imagesDir);
+            const diagramOpeningTag = lines[diagramStart];
+            const diagramEnd = findDiagramEnd(diagramStart + 1, lines);
+            if (diagramEnd === -1) {
+                throw new Error(`No closing \`\`\` found for PlantUml diagram ${diagramOpeningTag}`);
+            }
+            console.log(`${diagramStart} to ${diagramEnd}`);
+            const diagramContent = lines
+                .slice(diagramStart + 1, diagramEnd)
+                .join('\n');
+            console.log(`Creating PlantUml diagram from \n${diagramContent}`);
+            // build diagram url
+            const encodedPuml = plantuml_encoder_1.default.encode(diagramContent);
+            let plantUmlUrl = `https://img.plantuml.biz/plantuml/png/${encodedPuml}`;
+            lines = lines.slice(0, diagramStart)
+                .concat([`![${getDiagramName(lines[diagramStart])}](${plantUmlUrl})`])
+                .concat(lines.slice(diagramEnd + 1));
+            diagramStart = findDiagramStart(diagramStart, lines);
         }
-        console.log(`Preprocessed ${numberOfDiagrams} PlantUml diagrams`);
-        return content;
+        if (numberOfDiagrams > 0) {
+            console.log(`Replaced ${numberOfDiagrams} PlantUml diagrams in ${filePath}`);
+            fs.writeFileSync(filePath, lines.join('\n'));
+        }
+        else {
+            console.log(`No PlantUml diagrams found in ${filePath}`);
+        }
     });
 }
-function precessFirstUmlDiagram(content, imagesDir) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const diagramStartPattern = /```plantuml/g;
-        const diagramEndPattern = /```/g;
-        var lines = content.split('\n');
-        var diagramStart = findDiagramStart(lines);
-        var diagramEnd = findDiagramEnd(diagramStart, lines);
-        // no diagram found
-        if (diagramStart === -1) {
-            return { diagramCreated: false, content: content };
-        }
-        // no closing ``` found
-        if (diagramEnd === -1) {
-            throw new Error('PlantUml diagram is not closed');
-        }
-        let diagramCode = lines.slice(diagramStart + 1, diagramEnd - 1).join('\n');
-        // get UTF8
-        let encodedPuml = plantuml_encoder_1.default.encode(diagramCode);
-        let plantUmlUrl = `https://img.plantuml.biz/plantuml/png/${encodedPuml}`;
-        content = lines.slice(0, diagramStart)
-            .concat([`![${getDiagramName(lines[diagramStart])}](${plantUmlUrl})`])
-            .concat(lines.slice(diagramEnd + 1))
-            .join('\n');
-        return { diagramCreated: true, content: content };
-    });
-}
-function findDiagramStart(lines) {
+exports.replacePlantUmlDiagramsInFile = replacePlantUmlDiagramsInFile;
+function findDiagramStart(startFrom, lines) {
     const diagramStartPattern = /```plantuml/g;
     for (let i = 0; i < lines.length; i++) {
         if (diagramStartPattern.test(lines[i])) {
@@ -26143,19 +26195,6 @@ function findDiagramEnd(startFrom, lines) {
         }
     }
     return -1;
-}
-function getFiles(dir) {
-    const fsEntries = fs.readdirSync(dir, { withFileTypes: true });
-    let res = [];
-    for (let i = 0; i < fsEntries.length; i++) {
-        if (fsEntries[i].isDirectory()) {
-            res = res.concat(getFiles(path_1.default.join(dir, fsEntries[i].name)));
-        }
-        else {
-            res = res.concat([path_1.default.join(dir, fsEntries[i].name)]);
-        }
-    }
-    return res;
 }
 function getDiagramName(openDiagramTag) {
     var groups = /(\()(.+)(\))/g.exec(openDiagramTag);

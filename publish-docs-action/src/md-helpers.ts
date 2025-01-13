@@ -3,6 +3,7 @@ import { Constants } from './constants';
 import * as fs from 'fs';
 import path from 'path';
 import PlantUmlEncoder from 'plantuml-encoder';
+import { replacePlantUmlDiagramsInFile } from './plant-uml-helpers';
 
 const env = process.env as any;
 
@@ -44,82 +45,8 @@ export async function preprocessMdsInDirectory(directory: string): Promise<void>
         }
 
         console.log(`Preprocessing ${files[i]}...`);
-        let content = fs.readFileSync(files[i], 'utf8');
-        content = await preprocessPlantUmlDiagrams(content, path.dirname(files[i]));
-        fs.writeFileSync(files[i], content);
+        await replacePlantUmlDiagramsInFile(files[i]);
     }
-}
-
-async function preprocessPlantUmlDiagrams(content: string, imagesDir: string): Promise<string> {
-
-    let processingResult = await precessFirstUmlDiagram(content, imagesDir)
-
-    if(!processingResult.diagramCreated) {
-        console.log('No PlantUml diagrams found in the file.');
-        return content;
-    }
-    let numberOfDiagrams = 0;
-    while(processingResult.diagramCreated) {
-        content = processingResult.content;
-        numberOfDiagrams++;
-        processingResult = await precessFirstUmlDiagram(content, imagesDir);
-    }
-
-    console.log(`Preprocessed ${numberOfDiagrams} PlantUml diagrams`);
-    return  content;
-}
-
-async function precessFirstUmlDiagram(content: string, imagesDir: string)
-: Promise<{ diagramCreated: boolean, content: string }> {
-    const diagramStartPattern = /```plantuml/g;
-    const diagramEndPattern = /```/g;
-
-    var lines = content.split('\n');
-    var diagramStart = findDiagramStart(lines);
-    var diagramEnd = findDiagramEnd(diagramStart, lines);
-    
-    // no diagram found
-    if(diagramStart === -1) {
-        return { diagramCreated: false, content: content };
-    }
-
-    // no closing ``` found
-    if(diagramEnd === -1) {
-        throw new Error('PlantUml diagram is not closed');
-    }
-
-    let diagramCode = lines.slice(diagramStart + 1, diagramEnd - 1).join('\n');
-    
-    // get UTF8
-    let encodedPuml = PlantUmlEncoder.encode(diagramCode);
-    let plantUmlUrl = `https://img.plantuml.biz/plantuml/png/${encodedPuml}`;
-
-    content = lines.slice(0, diagramStart)
-        .concat([`![${getDiagramName(lines[diagramStart])}](${plantUmlUrl})`])
-        .concat(lines.slice(diagramEnd + 1))
-        .join('\n');
-
-    return { diagramCreated: true, content: content };
-}
-
-function findDiagramStart(lines: Array<string>): number {
-    const diagramStartPattern = /```plantuml/g;
-    for (let i = 0; i < lines.length; i++) {
-        if(diagramStartPattern.test(lines[i])) {
-            return i;
-        }
-    }
-    return -1;
-}
-
-function findDiagramEnd(startFrom: number, lines: Array<string>): number {
-    const diagramEndPattern = /```/g;
-    for (let i = startFrom + 1; i < lines.length; i++) {
-        if(diagramEndPattern.test(lines[i])) {
-            return i;
-        }
-    }
-    return -1;
 }
 
 function getFiles(dir: string): Array<string> {
@@ -133,13 +60,4 @@ function getFiles(dir: string): Array<string> {
       }
     }
     return res;
-}
-
-function getDiagramName(openDiagramTag: string): string {
-    var groups = /(\()(.+)(\))/g.exec(openDiagramTag);
-
-    if(groups && groups.length > 3) {
-        return groups[2];
-    }
-    return 'Diagram';
 }
