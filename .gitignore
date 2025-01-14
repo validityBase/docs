@@ -16,11 +16,12 @@ _book
 *.pdf
 
 # Sphinx build artifacts
-/_build/
-/doctrees/
-/.doctrees/
+*/_build/
+*/doctrees/
+*/.doctrees/
 *.doctree
 
 
 /publish-docs-action/node_modules
 /publish-docs-action/src/*.js
+
