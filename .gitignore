@@ -15,5 +15,10 @@ _book
 *.mobi
 *.pdf
 
+# Sphinx build artifacts
+_build/
+doctrees/
+*.doctree
+
 /publish-docs-action/node_modules
 /publish-docs-action/src/*.js
