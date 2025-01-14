@@ -16,8 +16,9 @@ _book
 *.pdf
 
 # Sphinx build artifacts
-_build/
-doctrees/
+*/_build/
+*/doctrees/
+*/.doctrees/
 *.doctree
 
 /publish-docs-action/node_modules
