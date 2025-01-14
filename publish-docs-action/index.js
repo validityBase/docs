@@ -26052,9 +26052,11 @@ function copyDocs() {
         const sourceDirectory = core.getInput('source-docs-path') + "/";
         const targetDirectory = `${constants_1.Constants.MainDocsDirectory}/${docsSubDirectory}`;
         console.log(`Copying the files from ${sourceDirectory} to ${targetDirectory}...`);
-        if (!fs.existsSync(targetDirectory)) {
-            fs.mkdirSync(targetDirectory);
+        if (fs.existsSync(targetDirectory)) {
+            console.log(`The target directory ${targetDirectory} already exists. Deleting it...`);
+            fs.rmSync(targetDirectory, { recursive: true });
         }
+        fs.mkdirSync(targetDirectory);
         // copy all files recursively
         fs.cpSync(sourceDirectory, targetDirectory, { recursive: true, filter: (src) => {
                 // we use this filter to log the files being copied
