@@ -3,6 +3,12 @@
 
 ## Contents
 
+- [Cid](#T-vBase-Core-Cid 'vBase.Core.Cid')
+  - [#ctor()](#M-vBase-Core-Cid-#ctor-System-Byte[]- 'vBase.Core.Cid.#ctor(System.Byte[])')
+  - [#ctor(data)](#M-vBase-Core-Cid-#ctor-System-String- 'vBase.Core.Cid.#ctor(System.String)')
+  - [Data](#P-vBase-Core-Cid-Data 'vBase.Core.Cid.Data')
+  - [Empty](#P-vBase-Core-Cid-Empty 'vBase.Core.Cid.Empty')
+  - [ToHex()](#M-vBase-Core-Cid-ToHex 'vBase.Core.Cid.ToHex')
 - [CryptoUtils](#T-vBase-Core-Utilities-CryptoUtils 'vBase.Core.Utilities.CryptoUtils')
   - [GetCid(value,size)](#M-vBase-Core-Utilities-CryptoUtils-GetCid-System-Numerics-BigInteger,System-UInt32- 'vBase.Core.Utilities.CryptoUtils.GetCid(System.Numerics.BigInteger,System.UInt32)')
   - [GetCid(value)](#M-vBase-Core-Utilities-CryptoUtils-GetCid-System-String- 'vBase.Core.Utilities.CryptoUtils.GetCid(System.String)')
@@ -19,8 +25,77 @@
   - [FetchStateVariable\`\`1(functionData)](#M-vBase-Core-Web3CommitmentService-Web3CommitmentService-FetchStateVariable``1-System-String- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.FetchStateVariable``1(System.String)')
 - [vBaseClient](#T-vBase-Core-vBaseClient 'vBase.Core.vBaseClient')
 - [vBaseObject](#T-vBase-Core-Dataset-vBaseObjects-vBaseObject 'vBase.Core.Dataset.vBaseObjects.vBaseObject')
+  - [Data](#P-vBase-Core-Dataset-vBaseObjects-vBaseObject-Data 'vBase.Core.Dataset.vBaseObjects.vBaseObject.Data')
+  - [StringData](#P-vBase-Core-Dataset-vBaseObjects-vBaseObject-StringData 'vBase.Core.Dataset.vBaseObjects.vBaseObject.StringData')
+  - [GetCid()](#M-vBase-Core-Dataset-vBaseObjects-vBaseObject-GetCid 'vBase.Core.Dataset.vBaseObjects.vBaseObject.GetCid')
+  - [GetJson()](#M-vBase-Core-Dataset-vBaseObjects-vBaseObject-GetJson 'vBase.Core.Dataset.vBaseObjects.vBaseObject.GetJson')
+  - [InitFromJson(jData)](#M-vBase-Core-Dataset-vBaseObjects-vBaseObject-InitFromJson-Newtonsoft-Json-Linq-JValue- 'vBase.Core.Dataset.vBaseObjects.vBaseObject.InitFromJson(Newtonsoft.Json.Linq.JValue)')
 - [vBaseStringObject](#T-vBase-Core-Dataset-vBaseObjects-vBaseStringObject 'vBase.Core.Dataset.vBaseObjects.vBaseStringObject')
   - [vBaseObjectType](#F-vBase-Core-Dataset-vBaseObjects-vBaseStringObject-vBaseObjectType 'vBase.Core.Dataset.vBaseObjects.vBaseStringObject.vBaseObjectType')
+
+<a name='T-vBase-Core-Cid'></a>
+## Cid `type`
+
+##### Namespace
+
+vBase.Core
+
+##### Summary
+
+Content Identifier (CID) is used to uniquely identify objects.
+
+<a name='M-vBase-Core-Cid-#ctor-System-Byte[]-'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Creates a new CID from the provided byte array.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-vBase-Core-Cid-#ctor-System-String-'></a>
+### #ctor(data) `constructor`
+
+##### Summary
+
+Creates a new CID from the provided hex string.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| data | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
+
+<a name='P-vBase-Core-Cid-Data'></a>
+### Data `property`
+
+##### Summary
+
+The data of the CID.
+
+<a name='P-vBase-Core-Cid-Empty'></a>
+### Empty `property`
+
+##### Summary
+
+Empty CID.
+
+<a name='M-vBase-Core-Cid-ToHex'></a>
+### ToHex() `method`
+
+##### Summary
+
+Returns the CID as a hex string.
+
+##### Returns
+
+Hex string.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-vBase-Core-Utilities-CryptoUtils'></a>
 ## CryptoUtils `type`
@@ -267,6 +342,63 @@ vBase.Core.Dataset.vBaseObjects
 
 Base class for all vBase objects.
 Each implementation should provide a constructor with one object parameter, and parameterless constructor.
+
+<a name='P-vBase-Core-Dataset-vBaseObjects-vBaseObject-Data'></a>
+### Data `property`
+
+##### Summary
+
+The data stored in the object.
+
+<a name='P-vBase-Core-Dataset-vBaseObjects-vBaseObject-StringData'></a>
+### StringData `property`
+
+##### Summary
+
+String representation of the data.
+
+<a name='M-vBase-Core-Dataset-vBaseObjects-vBaseObject-GetCid'></a>
+### GetCid() `method`
+
+##### Summary
+
+Returns the [Cid](#T-vBase-Core-Cid 'vBase.Core.Cid') of the object.
+
+##### Returns
+
+CID (Content Identifiers) for the current object
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-vBase-Core-Dataset-vBaseObjects-vBaseObject-GetJson'></a>
+### GetJson() `method`
+
+##### Summary
+
+Serializes the object to a JSON value.
+
+##### Returns
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-vBase-Core-Dataset-vBaseObjects-vBaseObject-InitFromJson-Newtonsoft-Json-Linq-JValue-'></a>
+### InitFromJson(jData) `method`
+
+##### Summary
+
+Initializes the object from a JSON object.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| jData | [Newtonsoft.Json.Linq.JValue](#T-Newtonsoft-Json-Linq-JValue 'Newtonsoft.Json.Linq.JValue') | Json value. |
 
 <a name='T-vBase-Core-Dataset-vBaseObjects-vBaseStringObject'></a>
 ## vBaseStringObject `type`
