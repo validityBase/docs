@@ -22,6 +22,8 @@
   - [VerifyUserObject(user,objectCid,timestamp)](#M-vBase-Core-ICommitmentService-VerifyUserObject-System-String,vBase-Core-Cid,System-DateTimeOffset- 'vBase.Core.ICommitmentService.VerifyUserObject(System.String,vBase.Core.Cid,System.DateTimeOffset)')
   - [VerifyUserSetObjects(user,setCid,userSetObjectCidSum)](#M-vBase-Core-ICommitmentService-VerifyUserSetObjects-System-String,vBase-Core-Cid,System-Numerics-BigInteger- 'vBase.Core.ICommitmentService.VerifyUserSetObjects(System.String,vBase.Core.Cid,System.Numerics.BigInteger)')
 - [JsonSerializationDto](#T-vBase-Core-Dataset-JsonSerializationDto 'vBase.Core.Dataset.JsonSerializationDto')
+- [Receipt](#T-vBase-Core-Receipt 'vBase.Core.Receipt')
+  - [#ctor()](#M-vBase-Core-Receipt-#ctor-System-DateTimeOffset- 'vBase.Core.Receipt.#ctor(System.DateTimeOffset)')
 - [Utils](#T-vBase-Core-Utilities-Utils 'vBase.Core.Utilities.Utils')
 - [VerificationResult](#T-vBase-Core-Dataset-VerificationResult 'vBase.Core.Dataset.VerificationResult')
   - [VerificationFindings](#P-vBase-Core-Dataset-VerificationResult-VerificationFindings 'vBase.Core.Dataset.VerificationResult.VerificationFindings')
@@ -32,6 +34,8 @@
   - [CallContractFunction(functionName,functionInput)](#M-vBase-Core-Web3CommitmentService-Web3CommitmentService-CallContractFunction-System-String,System-Object[]- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallContractFunction(System.String,System.Object[])')
   - [CallStateVariable\`\`1(stateVariableName,functionInput)](#M-vBase-Core-Web3CommitmentService-Web3CommitmentService-CallStateVariable``1-System-String,System-Object[]- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallStateVariable``1(System.String,System.Object[])')
   - [FetchStateVariable\`\`1(functionData)](#M-vBase-Core-Web3CommitmentService-Web3CommitmentService-FetchStateVariable``1-System-String- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.FetchStateVariable``1(System.String)')
+- [Web3Receipt](#T-vBase-Core-Web3CommitmentService-Web3Receipt 'vBase.Core.Web3CommitmentService.Web3Receipt')
+  - [#ctor()](#M-vBase-Core-Web3CommitmentService-Web3Receipt-#ctor-System-String,System-DateTimeOffset- 'vBase.Core.Web3CommitmentService.Web3Receipt.#ctor(System.String,System.DateTimeOffset)')
 - [vBaseClient](#T-vBase-Core-vBaseClient 'vBase.Core.vBaseClient')
   - [AddNamedSet(name)](#M-vBase-Core-vBaseClient-AddNamedSet-System-String- 'vBase.Core.vBaseClient.AddNamedSet(System.String)')
   - [AddSet(setCid)](#M-vBase-Core-vBaseClient-AddSet-vBase-Core-Cid- 'vBase.Core.vBaseClient.AddSet(vBase.Core.Cid)')
@@ -227,6 +231,10 @@ If the set already exists, no action will be taken.
 
 Adds an object CID to the specified set.
 
+##### Returns
+
+Receipt of the operation.
+
 ##### Parameters
 
 | Name | Type | Description |
@@ -297,6 +305,28 @@ vBase.Core.Dataset
 
 DTO for dataset JSON serialization.
 It's important to keep this class in sync with the Python and other SDKs.
+
+<a name='T-vBase-Core-Receipt'></a>
+## Receipt `type`
+
+##### Namespace
+
+vBase.Core
+
+##### Summary
+
+Represents a transaction receipt.
+
+<a name='M-vBase-Core-Receipt-#ctor-System-DateTimeOffset-'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Represents a transaction receipt.
+
+##### Parameters
+
+This constructor has no parameters.
 
 <a name='T-vBase-Core-Utilities-Utils'></a>
 ## Utils `type`
@@ -442,6 +472,30 @@ Variable value
 | ---- | ----------- |
 | TResultType | Expected result type |
 
+<a name='T-vBase-Core-Web3CommitmentService-Web3Receipt'></a>
+## Web3Receipt `type`
+
+##### Namespace
+
+vBase.Core.Web3CommitmentService
+
+##### Summary
+
+WEB3-specific receipt.
+Additionally to the base timestamp, it contains the transaction hash.
+
+<a name='M-vBase-Core-Web3CommitmentService-Web3Receipt-#ctor-System-String,System-DateTimeOffset-'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+WEB3-specific receipt.
+Additionally to the base timestamp, it contains the transaction hash.
+
+##### Parameters
+
+This constructor has no parameters.
+
 <a name='T-vBase-Core-vBaseClient'></a>
 ## vBaseClient `type`
 
@@ -496,7 +550,7 @@ Adds a new object to the set.
 
 ##### Returns
 
-
+Receipt of the operation.
 
 ##### Parameters
 
@@ -623,7 +677,7 @@ Adds a record to the dataset.
 
 ##### Returns
 
-A task representing the asynchronous operation.
+A transaction receipt.
 
 ##### Parameters
 

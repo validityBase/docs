@@ -31,6 +31,7 @@ Sub BuildAndVerifyDataset()
     Dim vBaseClient As vBase.vBaseClient
     Dim vBaseDataset As vBase.vBaseDataset
     Dim verificationResult As vBase.verificationResult
+    Dim transactionReceipt As vBase.Web3Receipt
 
     Dim datasetName As String
     Dim forwarderUrl As String
@@ -45,9 +46,11 @@ Sub BuildAndVerifyDataset()
     Set vBaseClient = vBaseBuidler.CreateForwarderClient(forwarderUrl, apiKey, privateKey)
     Set vBaseDataset = vBaseBuidler.CreateDataset(vBaseClient, datasetName, vBase.ObjectTypes_String)
 
-    vBaseDataset.AddRecord ("<Record 1 Data>")
+    Set transactionReceipt = vBaseDataset.AddRecord ("<Record 1 Data>")
     ' Add more records
-    vBaseDataset.AddRecord ("<Record N Data>")
+    Set transactionReceipt = vBaseDataset.AddRecord ("<Record N Data>")
+
+    MsgBox "Last transaction hesh: " & transactionReceipt.transactionHash & vbNewLine & "Last transaction timestamp: " & transactionReceipt.timestamp
 
     Set verificationResult = vBaseDataset.VerifyCommitments()
 

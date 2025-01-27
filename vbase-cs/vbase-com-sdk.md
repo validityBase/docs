@@ -5,9 +5,14 @@
 
 - [AssemblyResolver](#T-vBase-Infrastructure-AssemblyResolver 'vBase.Infrastructure.AssemblyResolver')
 - [ComGuids](#T-vBase-ComGuids 'vBase.ComGuids')
+- [IReceipt](#T-vBase-Receipts-IReceipt 'vBase.Receipts.IReceipt')
+  - [Timestamp](#P-vBase-Receipts-IReceipt-Timestamp 'vBase.Receipts.IReceipt.Timestamp')
 - [IVerificationResult](#T-vBase-IVerificationResult 'vBase.IVerificationResult')
   - [VerificationFindings](#P-vBase-IVerificationResult-VerificationFindings 'vBase.IVerificationResult.VerificationFindings')
   - [VerificationPassed](#P-vBase-IVerificationResult-VerificationPassed 'vBase.IVerificationResult.VerificationPassed')
+- [IWeb3Receipt](#T-vBase-Receipts-IWeb3Receipt 'vBase.Receipts.IWeb3Receipt')
+  - [Timestamp](#P-vBase-Receipts-IWeb3Receipt-Timestamp 'vBase.Receipts.IWeb3Receipt.Timestamp')
+  - [TransactionHash](#P-vBase-Receipts-IWeb3Receipt-TransactionHash 'vBase.Receipts.IWeb3Receipt.TransactionHash')
 - [IvBaseBuilder](#T-vBase-IvBaseBuilder 'vBase.IvBaseBuilder')
   - [CreateDataset(client,name,objectType)](#M-vBase-IvBaseBuilder-CreateDataset-vBase-IvBaseClient,System-String,vBase-ObjectTypes- 'vBase.IvBaseBuilder.CreateDataset(vBase.IvBaseClient,System.String,vBase.ObjectTypes)')
   - [CreateDatasetFromJson(client,json)](#M-vBase-IvBaseBuilder-CreateDatasetFromJson-vBase-IvBaseClient,System-String- 'vBase.IvBaseBuilder.CreateDatasetFromJson(vBase.IvBaseClient,System.String)')
@@ -24,6 +29,8 @@
   - [ToJson()](#M-vBase-IvBaseDataset-ToJson 'vBase.IvBaseDataset.ToJson')
   - [VerifyCommitments()](#M-vBase-IvBaseDataset-VerifyCommitments 'vBase.IvBaseDataset.VerifyCommitments')
 - [ObjectTypes](#T-vBase-ObjectTypes 'vBase.ObjectTypes')
+- [ReceiptConverter](#T-vBase-Infrastructure-ReceiptConverter 'vBase.Infrastructure.ReceiptConverter')
+  - [ToCom(receipt)](#M-vBase-Infrastructure-ReceiptConverter-ToCom-vBase-Core-Receipt- 'vBase.Infrastructure.ReceiptConverter.ToCom(vBase.Core.Receipt)')
 - [SecurityProtocolHelper](#T-vBase-Infrastructure-SecurityProtocolHelper 'vBase.Infrastructure.SecurityProtocolHelper')
   - [ResetSecurityProtocol()](#M-vBase-Infrastructure-SecurityProtocolHelper-ResetSecurityProtocol 'vBase.Infrastructure.SecurityProtocolHelper.ResetSecurityProtocol')
 - [ShimInstaller](#T-vBase-Infrastructure-ShimInstaller 'vBase.Infrastructure.ShimInstaller')
@@ -57,6 +64,24 @@ vBase
 
 Contains the GUIDs for the COM interfaces and classes.
 
+<a name='T-vBase-Receipts-IReceipt'></a>
+## IReceipt `type`
+
+##### Namespace
+
+vBase.Receipts
+
+##### Summary
+
+Represents a transaction receipt.
+
+<a name='P-vBase-Receipts-IReceipt-Timestamp'></a>
+### Timestamp `property`
+
+##### Summary
+
+The transaction timestamp in Unix time format (seconds).
+
 <a name='T-vBase-IVerificationResult'></a>
 ## IVerificationResult `type`
 
@@ -81,6 +106,40 @@ A collection of verification findings.
 ##### Summary
 
 Indicates whether the verification passed.
+
+<a name='T-vBase-Receipts-IWeb3Receipt'></a>
+## IWeb3Receipt `type`
+
+##### Namespace
+
+vBase.Receipts
+
+##### Summary
+
+WEB3-specific receipt.
+ Additionally to the base timestamp, it contains the transaction hash.
+
+ In COM interfaces can inherit from one another.
+ However, the .NET implementation that exposes the .NET interface to COM
+ does not support inheritance.
+ Therefore, you must replicate any interface members in a base interface
+ to the derived interface.
+ The interop code does not look at base interface types when building
+ the exposed COM interface.
+
+<a name='P-vBase-Receipts-IWeb3Receipt-Timestamp'></a>
+### Timestamp `property`
+
+##### Summary
+
+The transaction timestamp in Unix time format (seconds).
+
+<a name='P-vBase-Receipts-IWeb3Receipt-TransactionHash'></a>
+### TransactionHash `property`
+
+##### Summary
+
+The transaction hash.
 
 <a name='T-vBase-IvBaseBuilder'></a>
 ## IvBaseBuilder `type`
@@ -329,6 +388,34 @@ vBase
 ##### Summary
 
 Types of objects that can be stored in a dataset.
+
+<a name='T-vBase-Infrastructure-ReceiptConverter'></a>
+## ReceiptConverter `type`
+
+##### Namespace
+
+vBase.Infrastructure
+
+##### Summary
+
+Converts between [Receipt](#T-vBase-Core-Receipt 'vBase.Core.Receipt') and COM-compatible [IReceipt](#T-vBase-Receipts-IReceipt 'vBase.Receipts.IReceipt').
+
+<a name='M-vBase-Infrastructure-ReceiptConverter-ToCom-vBase-Core-Receipt-'></a>
+### ToCom(receipt) `method`
+
+##### Summary
+
+Converts a [Receipt](#T-vBase-Core-Receipt 'vBase.Core.Receipt') to a [IReceipt](#T-vBase-Receipts-IReceipt 'vBase.Receipts.IReceipt').
+
+##### Returns
+
+The converted receipt.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| receipt | [vBase.Core.Receipt](#T-vBase-Core-Receipt 'vBase.Core.Receipt') | The receipt to convert. |
 
 <a name='T-vBase-Infrastructure-SecurityProtocolHelper'></a>
 ## SecurityProtocolHelper `type`
