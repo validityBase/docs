@@ -1,7 +1,5 @@
 # vBase Python SDK
 
-<a id="module-vbase"></a>
-
 vbase
 
 A Python library for interacting with the validityBase (vBase) platform

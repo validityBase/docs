@@ -1,7 +1,5 @@
 # The Process
 
-# The Process
-
 ## Establishing Data Provenance with vBase: A Secure and Lightweight Approach
 
 1. vBase does not interfere with the existing data production process. Producers generate and store data using their established processes and systems.
