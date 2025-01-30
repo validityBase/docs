@@ -1,4 +1,6 @@
-# Package vbase
+# vBase Python SDK
+
+<a id="module-vbase"></a>
 
 vbase
 
