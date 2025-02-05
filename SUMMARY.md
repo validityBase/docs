@@ -19,11 +19,11 @@
 
 ## Python SDK
 
-* [Samples](python-sdk/samples/README.md)
-  * [Creating a Dataset](python-sdk/samples/creating-a-dataset.md)
-  * [Adding a Dataset Record](python-sdk/samples/adding-a-dataset-record.md)
-  * [Adding a Dataset Record Asynchronously](python-sdk/samples/adding-a-dataset-record-asynchronously.md)
-  * [Restoring Dataset Provenance](python-sdk/samples/restoring-dataset-provenance.md)
+* [Samples](vbase-py-samples/index.md)
+  * [Creating a Dataset](vbase-py-samples/create_set.md)
+  * [Adding a Dataset Record](vbase-py-samples/add_string_dataset_record.md)
+  * [Adding a Dataset Record Asynchronously](vbase-py-samples/add_string_dataset_record_async.md)
+  * [Restoring Dataset Provenance](vbase-py-samples/restore_dataset_provenance.md)
 * [Package vbase-py](vbase-py/api.md)
 * [Package vbase-py-tools](vbase-py-tools/index.md)
   * [Setup](vbase-py-tools/setup.md)
@@ -32,4 +32,4 @@
 
 ## Commitment Service
 
-* [Smart Contract Addresses](commitment-service/smart-contract-addresses.md)
+* [Smart Contract Addresses](docs/commitment-service/smart-contract-addresses.md)

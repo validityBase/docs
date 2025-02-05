@@ -1,5 +1,9 @@
 # vBase Python Software Development Kit (SDK) Samples
 
+This section describes the vBase Python SDK samples available in the following location: [https://github.com/validityBase/vbase-py-samples/tree/main/samples](https://github.com/validityBase/vbase-py-samples/tree/main/samples)
+
+The samples are also available as Google Collab notebooks: [https://colab.research.google.com/github/validityBase/vbase-py-samples-collab](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/)
+
 # Contents:
 
 * [vBase Python Samples Quickstart](quickstart.md)
