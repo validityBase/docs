@@ -25,10 +25,10 @@
   * [Adding a Dataset Record Asynchronously](python-sdk/samples/adding-a-dataset-record-asynchronously.md)
   * [Restoring Dataset Provenance](python-sdk/samples/restoring-dataset-provenance.md)
 * [Package vbase-py](vbase-py/api.md)
-* [Package vbase-py-tools](python-sdk/package-vbase-py-tools/README.md)
-  * [Setup](python-sdk/package-vbase-py-tools/setup.md)
-  * [commit\_s3\_objects](python-sdk/package-vbase-py-tools/commit_s3_objects.md)
-  * [verify\_s3\_objects](python-sdk/package-vbase-py-tools/verify_s3_objects.md)
+* [Package vbase-py-tools](vbase-py-tools/index.md)
+  * [Setup](vbase-py-tools/setup.md)
+  * [commit\_s3\_objects](vbase-py-tools/commit_s3_objects.md)
+  * [verify\_s3\_objects](vbase-py-tools/verify_s3_objects.md)
 
 ## Commitment Service
 
