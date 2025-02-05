@@ -11,8 +11,8 @@ The vBase Verify application checks whether any previous stamps have been made f
 
 #### What happens under the hood when you verify a file
 
-When you select a file to verify, the application uses your browser to calculate the file's digital fingerprint (SHA3 Hash). Next, vBase Verify checks whether this digital fingerprint has previously been registered in a vBase smart contract transaction and returns the result.\
-\
+When you select a file to verify, the application uses your browser to calculate the file's digital fingerprint (SHA3 Hash). Next, vBase Verify checks whether this digital fingerprint has previously been registered in a vBase smart contract transaction and returns the result.
+
 
 
 ***

@@ -16,8 +16,8 @@ The vBase Stamper privately records the timestamp, author, and fingerprint (coll
 The Stamper App submits your file's content ID (SHA3 hash) inside a blockchain transaction. Once this transaction appears on the blockchain, you receive a confirmation and stamp details, including a trusted tamperproof timestamp.
 
 **Important Note:**\
-Be sure to securely store a copy of your file. If you lose or change the stamped file, you can no longer verify its provenance.\
-\
+Be sure to securely store a copy of your file. If you lose or change the stamped file, you can no longer verify its provenance.
+
 
 
 ***
