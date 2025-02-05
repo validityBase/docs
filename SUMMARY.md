@@ -3,8 +3,8 @@
 ## Welcome
 
 * [Welcome to vBase](README.md)
-* [How vBase Works](welcome/how-vbase-works.md)
-* [Why Blockchains?](welcome/why-blockchains.md)
+* [How vBase Works](docs/welcome/how-vbase-works.md)
+* [Why Blockchains?](docs/welcome/why-blockchains.md)
 
 ## Getting Started
 
