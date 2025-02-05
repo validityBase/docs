@@ -11,11 +11,11 @@
 * [Python Quickstart](getting-started/python-quickstart/README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
   * [Local Installation](vbase-py-samples/quickstart.md)
-* [Web Tools](getting-started/web-tools/README.md)
-  * [How to use vBase Stamper](getting-started/web-tools/how-to-use-vbase-stamper.md)
-  * [How to use vBase Verify](getting-started/web-tools/how-to-use-vbase-verify.md)
-* [Dataset Commitments](getting-started/dataset-commitments.md)
-* [Windows Subsystem for Linux (WSL) Guide](getting-started/windows-subsystem-for-linux-wsl-guide.md)
+* [Web Tools](docs/web-tools/README.md)
+  * [How to use vBase Stamper](docs/web-tools/how-to-use-vbase-stamper.md)
+  * [How to use vBase Verify](docs/web-tools/how-to-use-vbase-verify.md)
+* [Dataset Commitments](docs/dataset-commitments.md)
+* [Windows Subsystem for Linux (WSL) Guide](docs/windows-subsystem-for-linux-wsl-guide.md)
 
 ## Python SDK
 
