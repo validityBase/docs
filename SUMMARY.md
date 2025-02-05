@@ -9,8 +9,8 @@
 ## Getting Started
 
 * [Python Quickstart](getting-started/python-quickstart/README.md)
-  * [Cloud Notebooks](getting-started/python-quickstart/cloud-notebooks.md)
-  * [Local Installation](getting-started/python-quickstart/local-installation.md)
+  * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
+  * [Local Installation](vbase-py-samples/quickstart.md)
 * [Web Tools](getting-started/web-tools/README.md)
   * [How to use vBase Stamper](getting-started/web-tools/how-to-use-vbase-stamper.md)
   * [How to use vBase Verify](getting-started/web-tools/how-to-use-vbase-verify.md)
