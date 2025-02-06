@@ -6,7 +6,7 @@ The samples are also available as Google Collab notebooks: [https://colab.resear
 
 # Contents:
 
-* [vBase Python Samples Quickstart](quickstart.md)
+* [vBase Python Samples Quickstart](/quickstart.md)
   * [1. Get a vBase API Key](quickstart.md#get-a-vbase-api-key)
   * [2. Create the vBase Directory](quickstart.md#create-the-vbase-directory)
   * [3. Install the vBase Python SDK](quickstart.md#install-the-vbase-python-sdk)
