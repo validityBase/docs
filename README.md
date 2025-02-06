@@ -35,7 +35,7 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
 [how-vbase-works.md](docs/welcome/how-vbase-works.md)
 {% endcontent-ref %}
 
-{% content-ref url="docs/web-tools/readme.md" %}
+{% content-ref url="docs/web-tools/README.md" %}
 [web-tools](docs/web-tools/README.md)
 {% endcontent-ref %}
 
