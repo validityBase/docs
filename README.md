@@ -32,15 +32,15 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
 ## Quick Start Links
 
 {% content-ref url="welcome/how-vbase-works.md" %}
-[how-vbase-works.md](welcome/how-vbase-works.md)
+[how-vbase-works.md](docs/welcome/how-vbase-works.md)
 {% endcontent-ref %}
 
 {% content-ref url="getting-started/web-tools/" %}
-[web-tools](getting-started/web-tools/)
+[web-tools](docs/web-tools/README.md)
 {% endcontent-ref %}
 
 {% content-ref url="getting-started/python-quickstart/" %}
-[python-quickstart](getting-started/python-quickstart/)
+[python-quickstart](docs/python-quickstart-README.md)
 {% endcontent-ref %}
 
 
