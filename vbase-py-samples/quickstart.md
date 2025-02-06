@@ -7,14 +7,15 @@ The following steps guide you through this process of setting up vBase Python SD
 <!-- omit in toc -->
 > **Note for Windows users:**
 > If you’re on Windows, the following instructions will work on the Windows Subsystem for Linux (WSL). WSL provides a Linux environment on your Windows OS. Please follow the following guide to set up your WSL environment for vBase: [https://docs.vbase.com/getting-started/windows-subsystem-for-linux-wsl-guide](https://docs.vbase.com/getting-started/windows-subsystem-for-linux-wsl-guide)
-- [1. Get a vBase API Key](#1-get-a-vbase-api-key)
+- [1. Get a vBase API Key](#get-key)
 - [2. Create the vBase Directory](#2-create-the-vbase-directory)
 - [3. Install the vBase Python SDK](#3-install-the-vbase-python-sdk)
 - [4. Clone the vBase Python SDK Samples](#4-clone-the-vbase-python-sdk-samples)
 - [5. Set up Your Environment](#5-set-up-your-environment)
 - [6. Verify Your Environment](#6-verify-your-environment)
-- [7. You Are All Set!](#7-you-are-all-set)
+- [7. You Are All Set!](#all-set)
 
+<a name="get-key"></a>
 ## 1. Get a vBase API Key
 
 
@@ -81,7 +82,7 @@ VBASE_COMMITMENT_SERVICE_PRIVATE_KEY="USER_VBASE_COMMITMENT_SERVICE_PRIVATE_KEY"
 ```
 You can keep these values in the `.env` file in the working directory of your Python code or add them to your command environment.
 
-
+<a name="all-set"></a>
 ## 7. You Are All Set!
 
 You can make and verify commitments. Please review the samples and their documentation for additional info.
