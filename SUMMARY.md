@@ -24,6 +24,7 @@
   * [Adding a Dataset Record](vbase-py-samples/add_string_dataset_record.md)
   * [Adding a Dataset Record Asynchronously](vbase-py-samples/add_string_dataset_record_async.md)
   * [Restoring Dataset Provenance](vbase-py-samples/restore_dataset_provenance.md)
+  * [Stamp Interactive Brokers Portfolio](vbase-py-samples/stamp_interactive_brokers_portfolio.md)
 * [Package vbase-py](vbase-py/api.md)
 * [Package vbase-py-tools](vbase-py-tools/index.md)
   * [Setup](vbase-py-tools/setup.md)
