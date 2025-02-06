@@ -31,7 +31,7 @@ The samples are also available as Google Collab notebooks: [https://colab.resear
   * [2. Download and Install Client Portal Gateway](stamp_interactive_brokers_portfolio.md#download-and-install-client-portal-gateway)
   * [3. Set Environment Variables](stamp_interactive_brokers_portfolio.md#set-environment-variables)
   * [4. Run the Sample](stamp_interactive_brokers_portfolio.md#run-the-sample)
-* [Stamp Alpaca Portfolio](stamp_alpaca_portfolio.md)
+* [Stamp Alpaca Portfolio](/stamp_alpaca_portfolio.md)
   * [1. Prerequisites](stamp_alpaca_portfolio.md#prerequisites)
   * [2. (Optional) Sign Up for an Alpaca Account](stamp_alpaca_portfolio.md#optional-sign-up-for-an-alpaca-account)
   * [3. (Optional) Enable Paper Trading](stamp_alpaca_portfolio.md#optional-enable-paper-trading)
