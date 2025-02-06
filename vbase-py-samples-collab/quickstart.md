@@ -51,7 +51,7 @@ The easiest way to get started with vBase is by accessing Python notebook sample
 3. **Open notebooks in Collab:**
     Open any of the sample notebooks in Google Collab and get going!
 
-    https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/
+    [https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/)
 
 4. **You are all set!**
     You can make and verify commitments. Please review the samples and their documentation for additional info.
