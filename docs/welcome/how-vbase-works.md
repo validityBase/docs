@@ -18,7 +18,7 @@ This encrypted information is published to a public blockchain. Thus, the stamp 
 
 Here is a graphical example of a vBase Stamp&#x20;
 
-<figure><img src="../.gitbook/assets/vBase Stamp 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="vBase Stamp 2.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -26,7 +26,7 @@ Here is a graphical example of a vBase Stamp&#x20;
 
 vBase serves as an easy button for creating and validating cryptographic commitments. The following chart illustrates a typical vBase data production and validation process:
 
-<figure><img src="../.gitbook/assets/vBase_ProcessSummary_NonTech.svg" alt=""><figcaption><p>The vBase Process</p></figcaption></figure>
+<figure><img src="vBase_ProcessSummary_NonTech.svg" alt=""><figcaption><p>The vBase Process</p></figcaption></figure>
 
 
 

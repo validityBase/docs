@@ -8,7 +8,7 @@
 
 ## Getting Started
 
-* [Python Quickstart](getting-started/python-quickstart/README.md)
+* [Python Quickstart](docs/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
   * [Local Installation](vbase-py-samples/quickstart.md)
 * [Web Tools](docs/web-tools/README.md)
@@ -32,4 +32,4 @@
 
 ## Commitment Service
 
-* [Smart Contract Addresses](docs/commitment-service/smart-contract-addresses.md)
+* [Smart Contract Addresses](vbase-py/addresses.md)
