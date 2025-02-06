@@ -31,11 +31,11 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
 
 ## Quick Start Links
 
-{% content-ref url="welcome/how-vbase-works.md" %}
+{% content-ref url="docs/welcome/how-vbase-works.md" %}
 [how-vbase-works.md](docs/welcome/how-vbase-works.md)
 {% endcontent-ref %}
 
-{% content-ref url="getting-started/web-tools/" %}
+{% content-ref url="docs/web-tools/readme.md" %}
 [web-tools](docs/web-tools/README.md)
 {% endcontent-ref %}
 
