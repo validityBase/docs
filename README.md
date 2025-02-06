@@ -39,7 +39,7 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
 [web-tools](docs/web-tools/README.md)
 {% endcontent-ref %}
 
-{% content-ref url="getting-started/python-quickstart/" %}
+{% content-ref url="docs/python-quickstart-README.md" %}
 [python-quickstart](docs/python-quickstart-README.md)
 {% endcontent-ref %}
 
