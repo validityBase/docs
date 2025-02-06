@@ -5,7 +5,6 @@
 * [Welcome to vBase](welcome.md)
 * [The Process](process.md)
 * [Dataset Commitments](dataset_commitments.md)
-* [vBase Smart Contract Addresses](addresses.md)
 * [vBase Python SDK](api.md)
   * [`ForwarderCommitmentService`](api.md#vbase.ForwarderCommitmentService)
   * [`ForwarderCommitmentServiceTest`](api.md#vbase.ForwarderCommitmentServiceTest)
