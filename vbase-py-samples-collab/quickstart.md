@@ -5,15 +5,15 @@ The easiest way to get started with vBase is by accessing Python notebook sample
 1. **Get a vBase API key:**
     Please [contact vBase](https://www.vbase.com/contact/) and request an API key if you wish to have the simplest experience. The API key is needed to access the forwarder API service, which simplifies commitment and validation operations but is not required for interacting with vBase.
 
-1. **Access Google Collab:**
+2. **Access Google Collab:**
     Access Google Collab via the following link: [https://colab.research.google.com](https://colab.research.google.com)
 
-1. **Open the Google Collab secrets manager:**
+3. **Open the Google Collab secrets manager:**
     Access the secrets manager by clicking on the key icon in the left panel of Google Collab:
 
     ![Google Collab secrets](google_collab_secrets.png "Google Collab secrets")
 
-1. **Set up your Google Collab environment:**
+4. **Set up your Google Collab environment:**
 
    1. **Option 1: Use a Notebook to set up your vBase environment:**
     Once you have the API key, the following notebook will guide you through the steps of setting up your Google Collab environment: [https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/setup.ipynb](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/setup.ipynb)
@@ -21,7 +21,7 @@ The easiest way to get started with vBase is by accessing Python notebook sample
    2. **Option 2: Copy your existing vBase environment:**
     If you have previously configured vBase access, for instance, when using the `vbase-py-tools` package, you can re-use those settings from the `.env` file created during the initialization. Copy `FORWARDER_ENDPOINT_URL`, `FORWARDER_API_KEY`, and `PRIVATE_KEY` values from your `.env` file to the secrets manager.
 
-2. **Verify your environment:**
+5. **Verify your environment:**
     Below is a summary of the configuration settings.
     These are the variables that must be defined in the secrets manager:
 
@@ -48,10 +48,7 @@ The easiest way to get started with vBase is by accessing Python notebook sample
 
         `YOUR_PRIVATE_KEY`
 
-3. **Open notebooks in Collab:**
-    Open any of the sample notebooks in Google Collab and get going!
+6.  **Open notebooks in Collab:** Open any of the sample notebooks in Google Collab and get going!
 
     [https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/)
-
-4. **You are all set!**
-    You can make and verify commitments. Please review the samples and their documentation for additional info.
+7. **You are all set!** You can make and verify commitments. Please review the samples and their documentation for additional info.
