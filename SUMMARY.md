@@ -26,7 +26,6 @@
   * [Restoring Dataset Provenance](vbase-py-samples/restore_dataset_provenance.md)
   * [Stamp Interactive Brokers Portfolio](vbase-py-samples/stamp_interactive_brokers_portfolio.md)
   * [Stamp Alpaca Portfolio](vbase-py-samples/stamp_alpaca_portfolio.md)
-  * [abc](vbase-py-samples/)
 * [Package vbase-py](vbase-py/api.md)
 * [Package vbase-py-tools](vbase-py-tools/index.md)
   * [Setup](vbase-py-tools/setup.md)
