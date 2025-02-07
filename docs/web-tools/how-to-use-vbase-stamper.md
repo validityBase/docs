@@ -27,4 +27,4 @@ Be sure to securely store a copy of your file. If you lose or change the stamped
 * Your browser calculates your file's SHA3-keccak256 content ID on your local computer. Your files remain local and secure and are never seen by vBase.
 * [Example of a stamp](https://polygonscan.com/tx/0xe7dbb99c2f521a5c636d4cc7f6fd3c60cdf427c284230aa0093faac338b9d651) in 3rd party blockchain explorer.
 * Stamp details are stored on the Polygon blockchain and can be verified independently of vBase by using off-the-shelf blockchain query tools like Dune Analytics.
-* [SHA3 is the standard algorithm](https://en.wikipedia.org/wiki/SHA-3) used to secure banking and telecommunications networks, ensuring data security.\
+* [SHA3 is the standard algorithm](https://en.wikipedia.org/wiki/SHA-3) used to secure banking and telecommunications networks, ensuring data security.
