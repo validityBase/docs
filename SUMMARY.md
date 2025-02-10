@@ -27,13 +27,13 @@
   * [How to Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
   * [How to Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
 * [Use Case How-Tos](docs/getting-started/use-cases.md)
-  * [Verifiable Investment Track Record](docs/getting-started/build-a-track-record.md)
-  * [Point-in-Time Dataset](docs/getting-started/build-point-in-time-dataset.md)
-  * [Verifiable Research Portfolio](docs/getting-started/build-research-portfolio.md)
-  * [Verifiable Backtest or Simulation](docs/getting-started/build-research-portfolio.md)
+  * [Verified Investment Track Records](docs/getting-started/build-a-track-record.md)
+  * [Point-in-Time Datasets](docs/getting-started/build-point-in-time-dataset.md)
+  * [Verified Research Portfolios](docs/getting-started/build-research-portfolio.md)
+  * [Verified Backtests and Simulations](docs/getting-started/build-research-portfolio.md)
   * [Predictive Models](docs/getting-started/build-research-portfolio.md)
   * [Shareable Investment Dashboards](docs/getting-started/build-research-portfolio.md)
-  * [Verifiable GitHub Repos](docs/getting-started/build-research-portfolio.md)
+  * [Verified GitHub Repos](docs/getting-started/build-research-portfolio.md)
 
 
 
