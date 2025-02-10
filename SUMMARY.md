@@ -35,7 +35,7 @@
 ## Other SDKs
 
 * [C#]
-  * [COM Libray](vbase-cs/user-guide.md)
+  * [COM Library](vbase-cs/user-guide.md)
   * [vBase\_com\_sdk](vbase-cs/vbase-com-sdk.md)
   * [vBase\_core](vbase-cs/vbase-core.md)
 * [TypeScript](vbase-ts/README.md)
