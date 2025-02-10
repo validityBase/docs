@@ -1,5 +1,9 @@
 # vBase Python Software Development Kit (SDK) Samples
 
+This section describes the vBase Python SDK samples available in the following location: [https://github.com/validityBase/vbase-py-samples/tree/main/samples](https://github.com/validityBase/vbase-py-samples/tree/main/samples)
+
+The samples are also available as Google Collab notebooks: [https://colab.research.google.com/github/validityBase/vbase-py-samples-collab](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/)
+
 # Contents:
 
 * [vBase Python Samples Quickstart](quickstart.md)
@@ -22,11 +26,11 @@
 * [Restore Dataset Provenance](restore_dataset_provenance.md)
   * [Summary](restore_dataset_provenance.md#summary)
   * [Detailed Description](restore_dataset_provenance.md#detailed-description)
-* [Stamp Interactive Brokers Portfolio](stamp_interactive_brokers_portfolio.md)
-  * [1. Prerequisites <a href="#prerequisites" id="#prerequisites"></a>](stamp_interactive_brokers_portfolio.md#prerequisites)
-  * [2. Download and Install Client Portal Gateway <a href="#gateway" id="#gateway"></a>](stamp_interactive_brokers_portfolio.md#download-and-install-client-portal-gateway)
-  * [3. Set Environment Variables<a href="#env-var" id="#env-var"></a>](stamp_interactive_brokers_portfolio.md#set-environment-variables)
-  * [4. Run the Sample<a href="#run-sample" id="#run-sample"></a>](stamp_interactive_brokers_portfolio.md#run-the-sample)
+* [Stamp Interactive Brokers Portfolio](../vbase-py-samples/stamp_alpaca_portfolio.md)
+  * [1. Prerequisites](stamp_interactive_brokers_portfolio.md#prerequisites)
+  * [2. Download and Install Client Portal Gateway](stamp_interactive_brokers_portfolio.md#download-and-install-client-portal-gateway)
+  * [3. Set Environment Variables](stamp_interactive_brokers_portfolio.md#set-environment-variables)
+  * [4. Run the Sample](stamp_interactive_brokers_portfolio.md#run-the-sample)
 * [Stamp Alpaca Portfolio](stamp_alpaca_portfolio.md)
   * [1. Prerequisites<a href="#prereq" id="#prereq"></a>](stamp_alpaca_portfolio.md#prerequisites)
   * [2. (Optional) Sign Up for an Alpaca Account<a href="#signup" id="#signup"></a>](stamp_alpaca_portfolio.md#optional-sign-up-for-an-alpaca-account)

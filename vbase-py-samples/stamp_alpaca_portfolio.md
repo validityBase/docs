@@ -8,14 +8,15 @@ The sample can be run from the command line interactively or as a script if your
 
 You can find the implementation in [`stamp_alpaca_portfolio.py`](https://github.com/validityBase/vbase-py-samples/blob/main/samples/stamp_alpaca_portfolio.py).
 
-- [1. Prerequisites]()
-- [2. (Optional) Sign Up for an Alpaca Account]()
-- [3. (Optional) Enable Paper Trading]()
-- [4. Obtain Your API Keys]()
-- [5. Switch to the Sample Directory]()
-- [6. Install the Alpaca Python Package]()
-- [7. Set Environment Variables]()
-- [8. Run the Sample]()
+- [1. Prerequisites](#prereq)
+- [2. (Optional) Sign Up for an Alpaca Account](#signup)
+- [3. (Optional) Enable Paper Trading](#paper-trading)
+- [4. Obtain Your API Keys](#obtain-keys)
+- [5. Switch to the Sample Directory](#switch-directory)
+- [6. Install the Alpaca Python Package](#install-alpaca)
+- [7. Set Environment Variables](#set-env)
+- [8. Run the Sample](#run-sample)
+
 
 ## 1. Prerequisites<a href="#prereq" id="#prereq"></a>
 
