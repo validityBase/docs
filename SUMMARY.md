@@ -15,7 +15,6 @@
   * [How to use vBase Stamper](docs/web-tools/how-to-use-vbase-stamper.md)
   * [How to use vBase Verify](docs/web-tools/how-to-use-vbase-verify.md)
 * [Dataset Commitments](docs/dataset-commitments.md)
-* [Windows Subsystem for Linux (WSL) Guide](docs/windows-subsystem-for-linux-wsl-guide.md)
 
 ## Python SDK
 
@@ -35,12 +34,15 @@
 
 ## Other SDKs
 
-* [C#](vbase-cs/user-guide.md)
+* [C#]
+  * [COM Libray](vbase-cs/user-guide.md)
   * [vBase\_com\_sdk](vbase-cs/vbase-com-sdk.md)
   * [vBase\_core](vbase-cs/vbase-core.md)
-* [Command Line Interface](vbase-cli/index.md)
-* [Typescript](vbase-ts/README.md)
+* [TypeScript](vbase-ts/README.md)
   
-## Commitment Service
+## Technical Reference
 
+* [Command Line Interface](vbase-cli/index.md)
+* [Windows Subsystem for Linux (WSL) Guide](docs/windows-subsystem-for-linux-wsl-guide.md)
+* [GCE S3 Compatible Bucket Setup](docs/setting_up_gcs_s3_compatible_bucket.md)
 * [Smart Contract Addresses](docs/addresses.md)
