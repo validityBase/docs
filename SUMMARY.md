@@ -21,8 +21,8 @@
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
   * [Local Installation](vbase-py-samples/quickstart.md)
 * [Web Tools](docs/web-tools/README.md)
-  * [How to Stamp a File](docs/web-tools/how-to-use-vbase-stamper.md)
-  * [How to Verify a File or ContentID](docs/web-tools/how-to-use-vbase-verify.md)
+  * [How to Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
+  * [How to Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
   * [How to Build a Collection](docs/web-tools/how-to-use-vbase-verify.md)
   * [How to Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
   * [How to Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
@@ -30,7 +30,7 @@
   * [Verifiable Investment Track Record](docs/getting-started/build-a-track-record.md)
   * [Point-in-Time Dataset](docs/getting-started/build-point-in-time-dataset.md)
   * [Verifiable Research Portfolio](docs/getting-started/build-research-portfolio.md)
-  * [Verifiable Research Portfolio](docs/getting-started/build-research-portfolio.md)
+  * [Shareable Investment Dashboard](docs/getting-started/build-research-portfolio.md)
 
 
 
