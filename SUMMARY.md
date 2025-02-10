@@ -5,16 +5,29 @@
 * [Welcome to vBase](README.md)
 * [How vBase Works](docs/welcome/how-vbase-works.md)
 * [Why Blockchains?](docs/welcome/why-blockchains.md)
+* [Core Concepts](docs/core-concepts.md)
+  * [What is a Stamp?](docs/what-is-a-stamp.md)
+  * [What is a Collection?](docs/what-is-a-collection.md)
+  * [Dataset Commitments](docs/dataset-commitments.md)
+  * [Unique Selling Points, Explained](docs/unique-selling-points.md)
+
+
+
 
 ## Getting Started
 
+* [Sign Up for a Free Account](docs/sign-up.md)
 * [Python Quickstart](docs/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
   * [Local Installation](vbase-py-samples/quickstart.md)
 * [Web Tools](docs/web-tools/README.md)
   * [How to use vBase Stamper](docs/web-tools/how-to-use-vbase-stamper.md)
   * [How to use vBase Verify](docs/web-tools/how-to-use-vbase-verify.md)
-* [Dataset Commitments](docs/dataset-commitments.md)
+* [Use Cases](docs/getting-started/use-cases.md)
+  * [How to Build a Verifiable Investment Track Record](docs/getting-started/build-a-track-record.md)
+  * [How to Build a Point-in-Time Dataset](docs/getting-started/build-point-in-time-dataset.md)
+
+
 
 ## Python SDK
 
