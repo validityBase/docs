@@ -30,7 +30,11 @@
   * [Verifiable Investment Track Record](docs/getting-started/build-a-track-record.md)
   * [Point-in-Time Dataset](docs/getting-started/build-point-in-time-dataset.md)
   * [Verifiable Research Portfolio](docs/getting-started/build-research-portfolio.md)
-  * [Shareable Investment Dashboard](docs/getting-started/build-research-portfolio.md)
+  * [Verifiable Backtest or Simulation](docs/getting-started/build-research-portfolio.md)
+  * [Predictive Models](docs/getting-started/build-research-portfolio.md)
+  * [Shareable Investment Dashboards](docs/getting-started/build-research-portfolio.md)
+  * [Verifiable GitHub Repos](docs/getting-started/build-research-portfolio.md)
+
 
 
 
