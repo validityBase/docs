@@ -15,19 +15,43 @@ layout:
 
 # Welcome to vBase
 
-vBase creates a global auditable record of when data was created, by whom, and how it has changed (collectively, “data provenance”). Data producers can prove the provenance of their data to any external party, increasing its value and marketability. Data consumers can ensure the integrity of historical data and any derivative calculations. The result is trustworthy information that can be put into production quickly without expensive and time-consuming trials.
+vBase creates a globally verifiable record of when data was created, by whom, and how it has changed (collectively, “data provenance”). 
 
-Verifiable provenance establishes the credibility of data and calculations. For example, if you wish to prove investment skill, the recipient must be sure they are receiving a complete and accurate record of your timestamped trades or portfolios.
+Data producers can use vBase to show the provenance of their data to any external party, increasing its value and marketability. Similarly, data consumers can verify the integrity and authenticity of 3rd party data, and any derivative calculations. 
+
+The result? Trustworthy information that can be seamlessly shared and put into production quickly, without expensive and time-consuming trials.
+
+With vBase, creating and consuming provably correct data is as easy as pressing a button.
+
+
+## Use Cases in Finance
+
+Verifiable data provenance is useful in many domains. For example, to demonstrate investment skill, the recipient of a track record must be sure they are seeing a complete, accurate and timely performance history. 
 
 vBase resolves several expensive market failures common to financial data. Some of the areas that benefit include:
 
 * Provably point-in-time datasets
-* Auditable investing track records
-* Sound backtests, historical simulations, and time-series modeling
+* Institutionally credible low-cost investment track records
+* Verifiable backtests and historical simulations
+* Time-series models with verifiable prediction history
 
-vBase services do not require access to the data itself, assuring privacy. They also do not rely on centralized intermediaries, eliminating the technical, operating, and business risks of a trusted party controlling your data and its validation. vBase ensures data security and interoperability that is unattainable with legacy centralized systems. It does so by storing digital fingerprints of data, metadata, and revisions on secure public blockchains.
 
-With vBase, creating and consuming provably correct data is as easy as pressing a button.
+## Unique Advantages
+
+vBase stores digital fingerprints of data, metadata, and revisions on public blockchains, offering key advantages over traditional verification methods:  
+
+1. **Privacy-Preserving** – vBase builds and verifies provenance without accessing the underlying data.  
+2. **Resilient** – Provenance can continue to be built and verified even if validityBase ceases to exist.  
+3. **Auditable** – Third-party tools can independently verify vBase data provenance claims.  
+4. **Protocol-Based** – Like TCP/IP, vBase ensures long-term interoperability without unilateral changes.  
+5. **Future-Proof** – Data provenance remains verifiable for decades or longer.
+
+
+vBase is designed for ease of use, accessible via an intuititive [web application](https://www.vbase.com/) or via our user-friendly devolper tools & SDKs (Python, C#, TypeScript, CLI). 
+
+
+
+
 
 ## Quick Start Links
 
