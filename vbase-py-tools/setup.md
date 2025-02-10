@@ -5,7 +5,7 @@ The following steps guide you through this process of setting up vBase Python To
 `vbase-py-tools` is a set of common Python tools for high-level data science and infrastructure operations.
 
 > **Note for Windows users:**
-> If you’re on Windows, the following instructions will work on the Windows Subsystem for Linux (WSL). WSL provides a Linux environment on your Windows OS. Please follow the following guide to set up your WSL environment for vBase: [https://docs.vbase.com/getting-started/windows-subsystem-for-linux-wsl-guide](https://docs.vbase.com/getting-started/windows-subsystem-for-linux-wsl-guide)
+> If you’re on Windows, the following instructions will work on the Windows Subsystem for Linux (WSL). WSL provides a Linux environment on your Windows OS. Please follow the following guide to set up your WSL environment for vBase: [https://docs.vbase.com/getting-started/windows-subsystem-for-linux-wsl-guide]()
 1. **Get a vBase API key:**
    Please [contact vBase](https://www.vbase.com/contact/) and request an API key if you wish to have the simplest experience. The API key is needed to access the forwarder API service, which simplifies commitment and validation operations but is not required for interacting with vBase.
 2. **Create the vBase directory:**
