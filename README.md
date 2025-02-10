@@ -41,13 +41,13 @@ vBase resolves several expensive market failures common to financial data. Some 
 vBase stores digital fingerprints of data, metadata, and revisions on public blockchains, offering key advantages over traditional verification methods:  
 
 1. **Privacy-Preserving** – vBase builds and verifies provenance without accessing the underlying data.  
-2. **Resilient** – Provenance can continue to be built and verified even if validityBase ceases to exist.  
-3. **Auditable** – Third-party tools can independently verify vBase data provenance claims.  
-4. **Protocol-Based** – Like TCP/IP, vBase ensures long-term interoperability without unilateral changes.  
+2. **Resilient** – Provenance can continue to be built and verified even if validityBase ceases to exist. No centralized intermediaries means no single point of failure.  
+3. **Auditable** – Third-party tools can **independently verify** vBase data provenance claims.  
+4. **Protocol-Based** – Like TCP/IP, vBase ensures long-term interoperability without the risk of unilateral changes.  
 5. **Future-Proof** – Data provenance remains verifiable for decades or longer.
 
 
-vBase is designed for ease of use, accessible via an intuititive [web application](https://www.vbase.com/) or via our user-friendly devolper tools & SDKs (Python, C#, TypeScript, CLI). 
+vBase is designed for ease of use, accessible via an intuititive [web application](https://app.vbase.com/) or via our user-friendly developer tools & SDKs (Python, C#, TypeScript, CLI). 
 
 
 
