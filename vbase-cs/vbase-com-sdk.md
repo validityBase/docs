@@ -5,9 +5,9 @@
 
 - [AssemblyResolver](#t-vbase-infrastructure-assemblyresolver 'vBase.Infrastructure.AssemblyResolver')
 - [ComGuids](#T-vBase-ComGuids 'vBase.ComGuids')
-- [IReceipt](#T-vBase-Receipts-IReceipt 'vBase.Receipts.IReceipt')
+- [IReceipt](#t-vbase-receipts-ireceipt 'vBase.Receipts.IReceipt')
   - [Timestamp](#P-vBase-Receipts-IReceipt-Timestamp 'vBase.Receipts.IReceipt.Timestamp')
-- [IVerificationResult](#T-vBase-IVerificationResult 'vBase.IVerificationResult')
+- [IVerificationResult](#t-vbase-iverificationresult 'vBase.IVerificationResult')
   - [VerificationFindings](#P-vBase-IVerificationResult-VerificationFindings 'vBase.IVerificationResult.VerificationFindings')
   - [VerificationPassed](#P-vBase-IVerificationResult-VerificationPassed 'vBase.IVerificationResult.VerificationPassed')
 - [IWeb3Receipt](#T-vBase-Receipts-IWeb3Receipt 'vBase.Receipts.IWeb3Receipt')
@@ -62,7 +62,7 @@ vBase
 
 Contains the GUIDs for the COM interfaces and classes.
 
-<a name='T-vBase-Receipts-IReceipt'></a>
+<a name='t-vbase-receipts-ireceipt'></a>
 ## IReceipt `type`
 
 ##### Namespace
@@ -80,7 +80,7 @@ Represents a transaction receipt.
 
 The transaction timestamp in Unix time format (seconds).
 
-<a name='T-vBase-IVerificationResult'></a>
+<a  href="#t-vbase-iverificationresult" id="#t-vbase-iverificationresult" name='t-vbase-iverificationresult'></a>
 ## IVerificationResult `type`
 
 ##### Namespace
