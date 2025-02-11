@@ -10,16 +10,51 @@ vBase operates by creating eternally verifiable cryptographic commitments that w
 
 A vBase Stamp includes the following:
 
-1. The unique ID of the user making the stamp
-2. A cryptographic hash of the underlying data records (we call this a content ID)
-3. A cryptographic hash of the dataset name to which the record belongs (setHash)
+1. The blockchain address of the user making the stamp
+2. A unique content identifier of the underlying data records (aka a data fingerprint, aka a cryptographic hash)
+3. A collectionID, which is a hash  of the dataset name to which the record belongs (see [What is a Collection](#collection) below.
 
-This encrypted information is published to a public blockchain. Thus, the stamp is assigned an **immutable tamper-proof timestamp** corresponding to the time it was added to the chain. &#x20;
+This cryptrographic information is published to a public blockchain and serves as a fingerprint for the underlying data. When this fingerprint is published to a public blockchain, its time of publication is established by distributed consensus and thus serves as an **verifiable tamper-proof timestamp** for the underlying data. &#x20;
 
 Here is a graphical example of a vBase Stamp&#x20;
 
-<figure><img src="vBase Stamp 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="vBase Stamp 3.png" alt=""><figcaption></figcaption></figure>
 
+
+
+## What is a vBase Collection <a href="#collection" id="collection"></a>
+
+vBase enables the aggregation of on-chain Stamps into Collections. Each Collection is a set of Stamps with verifiable membership, assured and verifiabvle via on-chain cryptographic commitments.
+
+By aggregating Stamps into Collections, you can identify which of your on-chain fingerprints belong to which dataset. This is useful in verifiably defining individual trading strategies, experiments, sensor readings, risk models, etc. 
+
+
+## Primary Benefits
+
+Using vBase Stamps and Collections, a data user receiving a dataset can verify the following: 
+
+- The dataset is complete&mdash; no data is extra or missing. 
+- The exact timestamp of when each record was created.
+- The total number of other datasets the data producer has created. 
+
+
+
+## Basic Example
+
+If you want to prove when you created invention.pdf, vBase Stamping the file generates a unique fingerprint and records it on a public blockchain, creating a verifiable, permanent timestamp for the file.
+
+Anyone can later verify this timestamp by recalculating the file's fingerprint and checking when it was previously published. 
+
+
+## Expanded Example 
+
+Imagine you generate a new CSV file daily that records all stock trades executed by your algorithm. Each day, after the trades are finalized, you vBase Stamp the CSV file, creating a unique fingerprint and recording it on the blockchain. You assign each CSV to a Collection called "My Winning Strategy"
+
+Over time, this process builds a verifiable track record of your trading strategy. Anyone can later audit the performance of "My Winning Strategy" by checking the sequence of timestamps and verifying that no historical CSVs were modified, ensuring transparency and integrity. 
+
+vBase also makes verifiable whether you ran 100 other strategies or only "My Winning Strategy". 
+
+While this can be verified independently of vBase by comparing the public blockchain records to the data, vBase provides an easy-to-use robust interface for executing the verification process. 
 
 
 ## High-level overview of the vBase process
