@@ -3,7 +3,7 @@
 
 ## Contents
 
-- [AssemblyResolver](#T-vBase-Infrastructure-AssemblyResolver 'vBase.Infrastructure.AssemblyResolver')
+- [AssemblyResolver](#t-vbase-infrastructure-assemblyresolver 'vBase.Infrastructure.AssemblyResolver')
 - [ComGuids](#T-vBase-ComGuids 'vBase.ComGuids')
 - [IReceipt](#T-vBase-Receipts-IReceipt 'vBase.Receipts.IReceipt')
   - [Timestamp](#P-vBase-Receipts-IReceipt-Timestamp 'vBase.Receipts.IReceipt.Timestamp')
@@ -39,7 +39,7 @@
   - [PreprocessException(ex)](#M-vBase-Utils-PreprocessException-System-Exception- 'vBase.Utils.PreprocessException(System.Exception)')
   - [PreprocessException\`\`1(func,logger)](#M-vBase-Utils-PreprocessException``1-System-Func{``0},Microsoft-Extensions-Logging-ILogger- 'vBase.Utils.PreprocessException``1(System.Func{``0},Microsoft.Extensions.Logging.ILogger)')
 
-## AssemblyResolver `type` <a href="#T-vBase-Infrastructure-AssemblyResolver" id="#T-vBase-Infrastructure-AssemblyResolver" name='T-vBase-Infrastructure-AssemblyResolver'></a>
+## AssemblyResolver `type` <a href="#t-vbase-infrastructure-assemblyresolver" id="#t-vbase-infrastructure-assemblyresolver" name='t-vbase-infrastructure-assemblyresolver'></a>
 
 ##### Namespace
 
