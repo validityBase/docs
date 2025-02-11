@@ -39,7 +39,7 @@
   - [PreprocessException(ex)](#M-vBase-Utils-PreprocessException-System-Exception- 'vBase.Utils.PreprocessException(System.Exception)')
   - [PreprocessException\`\`1(func,logger)](#M-vBase-Utils-PreprocessException``1-System-Func{``0},Microsoft-Extensions-Logging-ILogger- 'vBase.Utils.PreprocessException``1(System.Func{``0},Microsoft.Extensions.Logging.ILogger)')
 
-<a name='T-vBase-Infrastructure-AssemblyResolver'></a>
+<a href="#T-vBase-Infrastructure-AssemblyResolver" id="#T-vBase-Infrastructure-AssemblyResolver" name='T-vBase-Infrastructure-AssemblyResolver'></a>
 ## AssemblyResolver `type`
 
 ##### Namespace
@@ -53,7 +53,7 @@ Only the latest version is available in the application folder.
 To resolve older versions at runtime and return the latest version,
 we use the AssemblyResolver class.
 
-<a name='T-vBase-ComGuids'></a>
+<a href="#T-vBase-ComGuids" id="#T-vBase-ComGuids" name='T-vBase-ComGuids'></a>
 ## ComGuids `type`
 
 ##### Namespace
