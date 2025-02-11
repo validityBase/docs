@@ -61,7 +61,6 @@
 
 * [COM Library Overview](vbase-cs/user-guide.md)
 * [COM API Reference](vbase-cs/vbase-com-sdk.md)
-* [COM API Reference TEST](vbase-cs/vbase-com-sdk-test.md)
 * [C#](vbase-cs/vbase-core.md)
 * [TypeScript](vbase-ts/README.md)
 
