@@ -43,14 +43,16 @@ Using vBase Stamps and Collections, a data user receiving a dataset can verify t
 
 If you want to prove when you created invention.pdf, vBase Stamping the file generates a unique fingerprint and records it on a public blockchain, creating a verifiable, permanent timestamp for the file.
 
-Anyone can later verify this timestamp by recalculating the file's fingerprint and checking when it was previously published. 
+Anyone can later verify this timestamp by recalculating the file's fingerprint and checking when the fingerprint was previously published. 
+
+NOTE: invention.pdf was never shared as part of the stamping process, it remained local on your computer. 
 
 
 ## Expanded Example 
 
 Imagine you generate a new CSV file daily that records all stock trades executed by your algorithm. Each day, after the trades are finalized, you vBase Stamp the CSV file, creating a unique fingerprint and recording it on the blockchain. You assign each CSV to a Collection called "My Winning Strategy"
 
-Over time, this process builds a verifiable track record of your trading strategy. Anyone can later audit the performance of "My Winning Strategy" by checking the sequence of timestamps and verifying that no historical CSVs were modified, ensuring transparency and integrity. 
+Over time, this process builds a verifiable track record of your trading strategy. Anyone can later audit the performance of "My Winning Strategy" by checking the sequence of timestamps and verifying that no historical CSVs were modified, no trades have been added and no trades are missing&mdash; ensuring transparency and integrity. 
 
 vBase also makes verifiable whether you ran 100 other strategies or only "My Winning Strategy". 
 
