@@ -513,11 +513,13 @@ Additionally, converts the exception into a VBA-friendly exception.
 Function execution result.
 
 ##### Parameters
+<a href="#ilog" id="ilog"></a>
+
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | func | [System.Func{\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{``0}') | Function to execute. |
-| logger | Microsoft.Extensions.Logging.ILogger<a href="#ilog" id="ilog"></a> | Logger. |
+| logger | Microsoft.Extensions.Logging.ILogger | Logger. |
 
 ##### Generic Types
 
