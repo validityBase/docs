@@ -2,43 +2,43 @@
 
 ## Contents
 
-- [AssemblyResolver](#t-vbase-infrastructure-assemblyresolver 'vBase.Infrastructure.AssemblyResolver')
-- [ComGuids](#t-vbase-comguids 'vBase.ComGuids')
-- [IReceipt](#t-vbase-receipts-ireceipt 'vBase.Receipts.IReceipt')
-  - [Timestamp](#p-vbase-receipts-ireceipt-timestamp 'vBase.Receipts.IReceipt.Timestamp')
-- [IVerificationResult](#t-vbase-iverificationresult 'vBase.IVerificationResult')
-  - [VerificationFindings](#p-vbase-iverificationresult-verificationfindings 'vBase.IVerificationResult.VerificationFindings')
-  - [VerificationPassed](#p-vbase-iverificationresult-verificationpassed 'vBase.IVerificationResult.VerificationPassed')
-- [IWeb3Receipt](#t-vbase-receipts-iweb3receipt 'vBase.Receipts.IWeb3Receipt')
-  - [Timestamp](#p-vbase-receipts-iweb3receipt-timestamp 'vBase.Receipts.IWeb3Receipt.Timestamp')
-  - [TransactionHash](#p-vbase-receipts-iweb3receipt-transactionhash 'vBase.Receipts.IWeb3Receipt.TransactionHash')
-- [IvBaseBuilder](#t-vbase-ivbasebuilder 'vBase.IvBaseBuilder')
-  - [CreateDataset(client,name,objectType)](#m-vbase-ivbasebuilder-createdataset-vbase-ivbaseclientsystem-stringvbase-objecttypes- 'vBase.IvBaseBuilder.CreateDataset(vBase.IvBaseClient,System.String,vBase.ObjectTypes)')
-  - [CreateDatasetFromJson(client,json)](#m-vbase-ivbasebuilder-createdatasetfromjson-vbase-ivbaseclientsystem-string- 'vBase.IvBaseBuilder.CreateDatasetFromJson(vBase.IvBaseClient,System.String)')
-  - [CreateForwarderClient(forwarderUrl,apiKey,privateKey)](#m-vbase-ivbasebuilder-createforwarderclient-system-stringsystem-stringsystem-string- 'vBase.IvBaseBuilder.CreateForwarderClient(System.String,System.String,System.String)')
-- [IvBaseClient](#t-vbase-ivbaseclient 'vBase.IvBaseClient')
-  - [AddNamedSet(name)](#m-vbase-ivbaseclient-addnamedset-system-string- 'vBase.IvBaseClient.AddNamedSet(System.String)')
-  - [AddSet(setCid)](#m-vbase-ivbaseclient-addset-system-string- 'vBase.IvBaseClient.AddSet(System.String)')
-  - [AddSetObject(setCid,objectCid)](#m-vbase-ivbaseclient-addsetobject-system-stringsystem-string- 'vBase.IvBaseClient.AddSetObject(System.String,System.String)')
-  - [UserNamedSetExists(user,name)](#m-vbase-ivbaseclient-usernamedsetexists-system-stringsystem-string- 'vBase.IvBaseClient.UserNamedSetExists(System.String,System.String)')
-  - [VerifyUserObject(user,objectCid,timestamp)](#m-vbase-ivbaseclient-verifyuserobject-system-stringsystem-stringsystem-int64- 'vBase.IvBaseClient.VerifyUserObject(System.String,System.String,System.Int64)')
-  - [VerifyUserSetObjects(user,setCid,userSetObjectsCidSum)](#m-vbase-ivbaseclient-verifyusersetobjects-system-stringsystem-stringsystem-string- 'vBase.IvBaseClient.VerifyUserSetObjects(System.String,System.String,System.String)')
-- [IvBaseDataset](#t-vbase-ivbasedataset 'vBase.IvBaseDataset')
-  - [AddRecord(recordData)](#m-vbase-ivbasedataset-addrecord-system-object- 'vBase.IvBaseDataset.AddRecord(System.Object)')
-  - [ToJson()](#m-vbase-ivbasedataset-tojson 'vBase.IvBaseDataset.ToJson')
-  - [VerifyCommitments()](#m-vbase-ivbasedataset-verifycommitments 'vBase.IvBaseDataset.VerifyCommitments')
-- [ObjectTypes](#t-vbase-objecttypes 'vBase.ObjectTypes')
-- [ReceiptConverter](#t-vbase-infrastructure-receiptconverter 'vBase.Infrastructure.ReceiptConverter')
-  - [ToCom(receipt)](#m-vbase-infrastructure-receiptconverter-tocom-vbase-core-receipt- 'vBase.Infrastructure.ReceiptConverter.ToCom(vBase.Core.Receipt)')
-- [SecurityProtocolHelper](#t-vbase-infrastructure-securityprotocolhelper 'vBase.Infrastructure.SecurityProtocolHelper')
-  - [ResetSecurityProtocol()](#m-vbase-infrastructure-securityprotocolhelper-resetsecurityprotocol 'vBase.Infrastructure.SecurityProtocolHelper.ResetSecurityProtocol')
-- [ShimInstaller](#t-vbase-infrastructure-shiminstaller 'vBase.Infrastructure.ShimInstaller')
-- [Utils](#t-vbase-utils 'vBase.Utils')
-  - [PreprocessException(action,logger)](#m-vbase-utils-preprocessexception-system-actionmicrosoft-extensions-logging-ilogger- 'vBase.Utils.PreprocessException(System.Action,Microsoft.Extensions.Logging.ILogger)')
-  - [PreprocessException(ex)](#m-vbase-utils-preprocessexception-system-exception- 'vBase.Utils.PreprocessException(System.Exception)')
-  - [PreprocessException\`\`1(func,logger)](#m-vbase-utils-preprocessexception1-system-func0microsoft-extensions-logging-ilogger- 'vBase.Utils.PreprocessException``1(System.Func{``0},Microsoft.Extensions.Logging.ILogger)')
+- [AssemblyResolver](#tvbaseinfrastructureassemblyresolver 'vBase.Infrastructure.AssemblyResolver')
+- [ComGuids](#tvbasecomguids 'vBase.ComGuids')
+- [IReceipt](#tvbasereceiptsireceipt 'vBase.Receipts.IReceipt')
+  - [Timestamp](#pvbasereceiptsireceipttimestamp 'vBase.Receipts.IReceipt.Timestamp')
+- [IVerificationResult](#tvbaseiverificationresult 'vBase.IVerificationResult')
+  - [VerificationFindings](#pvbaseiverificationresultverificationfindings 'vBase.IVerificationResult.VerificationFindings')
+  - [VerificationPassed](#pvbaseiverificationresultverificationpassed 'vBase.IVerificationResult.VerificationPassed')
+- [IWeb3Receipt](#tvbasereceiptsiweb3receipt 'vBase.Receipts.IWeb3Receipt')
+  - [Timestamp](#pvbasereceiptsiweb3receipttimestamp 'vBase.Receipts.IWeb3Receipt.Timestamp')
+  - [TransactionHash](#pvbasereceiptsiweb3receipttransactionhash 'vBase.Receipts.IWeb3Receipt.TransactionHash')
+- [IvBaseBuilder](#tvbaseivbasebuilder 'vBase.IvBaseBuilder')
+  - [CreateDataset(client,name,objectType)](#mvbaseivbasebuildercreatedatasetvbaseivbaseclientsystemstringvbaseobjecttypes 'vBase.IvBaseBuilder.CreateDataset(vBase.IvBaseClient,System.String,vBase.ObjectTypes)')
+  - [CreateDatasetFromJson(client,json)](#mvbaseivbasebuildercreatedatasetfromjsonvbaseivbaseclientsystemstring 'vBase.IvBaseBuilder.CreateDatasetFromJson(vBase.IvBaseClient,System.String)')
+  - [CreateForwarderClient(forwarderUrl,apiKey,privateKey)](#mvbaseivbasebuildercreateforwarderclientsystemstringsystemstringsystemstring 'vBase.IvBaseBuilder.CreateForwarderClient(System.String,System.String,System.String)')
+- [IvBaseClient](#tvbaseivbaseclient 'vBase.IvBaseClient')
+  - [AddNamedSet(name)](#mvbaseivbaseclientaddnamedsetsystemstring 'vBase.IvBaseClient.AddNamedSet(System.String)')
+  - [AddSet(setCid)](#mvbaseivbaseclientaddsetsystemstring 'vBase.IvBaseClient.AddSet(System.String)')
+  - [AddSetObject(setCid,objectCid)](#mvbaseivbaseclientaddsetobjectsystemstringsystemstring 'vBase.IvBaseClient.AddSetObject(System.String,System.String)')
+  - [UserNamedSetExists(user,name)](#mvbaseivbaseclientusernamedsetexistssystemstringsystemstring 'vBase.IvBaseClient.UserNamedSetExists(System.String,System.String)')
+  - [VerifyUserObject(user,objectCid,timestamp)](#mvbaseivbaseclientverifyuserobjectsystemstringsystemstringsystemint64 'vBase.IvBaseClient.VerifyUserObject(System.String,System.String,System.Int64)')
+  - [VerifyUserSetObjects(user,setCid,userSetObjectsCidSum)](#mvbaseivbaseclientverifyusersetobjectssystemstringsystemstringsystemstring 'vBase.IvBaseClient.VerifyUserSetObjects(System.String,System.String,System.String)')
+- [IvBaseDataset](#tvbaseivbasedataset 'vBase.IvBaseDataset')
+  - [AddRecord(recordData)](#mvbaseivbasedatasetaddrecordsystemobject 'vBase.IvBaseDataset.AddRecord(System.Object)')
+  - [ToJson()](#mvbaseivbasedatasettojson 'vBase.IvBaseDataset.ToJson')
+  - [VerifyCommitments()](#mvbaseivbasedatasetverifycommitments 'vBase.IvBaseDataset.VerifyCommitments')
+- [ObjectTypes](#tvbaseobjecttypes 'vBase.ObjectTypes')
+- [ReceiptConverter](#tvbaseinfrastructurereceiptconverter 'vBase.Infrastructure.ReceiptConverter')
+  - [ToCom(receipt)](#mvbaseinfrastructurereceiptconvertertocomvbasecorereceipt 'vBase.Infrastructure.ReceiptConverter.ToCom(vBase.Core.Receipt)')
+- [SecurityProtocolHelper](#tvbaseinfrastructuresecurityprotocolhelper 'vBase.Infrastructure.SecurityProtocolHelper')
+  - [ResetSecurityProtocol()](#mvbaseinfrastructuresecurityprotocolhelperresetsecurityprotocol 'vBase.Infrastructure.SecurityProtocolHelper.ResetSecurityProtocol')
+- [ShimInstaller](#tvbaseinfrastructureshiminstaller 'vBase.Infrastructure.ShimInstaller')
+- [Utils](#tvbaseutils 'vBase.Utils')
+  - [PreprocessException(action,logger)](#mvbaseutilspreprocessexceptionsystemactionmicrosoftextensionsloggingilogger 'vBase.Utils.PreprocessException(System.Action,Microsoft.Extensions.Logging.ILogger)')
+  - [PreprocessException(ex)](#mvbaseutilspreprocessexceptionsystemexception 'vBase.Utils.PreprocessException(System.Exception)')
+  - [PreprocessException\`\`1(func,logger)](#mvbaseutilspreprocessexception1systemfunc0microsoftextensionsloggingilogger 'vBase.Utils.PreprocessException``1(System.Func{``0},Microsoft.Extensions.Logging.ILogger)')
 
-## AssemblyResolver `type` <a name="t-vbase-infrastructure-assemblyresolver" id="t-vbase-infrastructure-assemblyresolver" href="#t-vbase-infrastructure-assemblyresolver"></a>
+## AssemblyResolver `type` <a name="tvbaseinfrastructureassemblyresolver" id="tvbaseinfrastructureassemblyresolver" href="#tvbaseinfrastructureassemblyresolver"></a>
 
 ##### Namespace
 
@@ -51,7 +51,7 @@ Only the latest version is available in the application folder.
 To resolve older versions at runtime and return the latest version,
 we use the AssemblyResolver class.
 
-## ComGuids `type` <a name="t-vbase-comguids" id="t-vbase-comguids" href="#t-vbase-comguids"></a>
+## ComGuids `type` <a name="tvbasecomguids" id="tvbasecomguids" href="#tvbasecomguids"></a>
 
 ##### Namespace
 
@@ -61,7 +61,7 @@ vBase
 
 Contains the GUIDs for the COM interfaces and classes.
 
-## IReceipt `type` <a name="t-vbase-receipts-ireceipt" id="t-vbase-receipts-ireceipt" href="#t-vbase-receipts-ireceipt"></a>
+## IReceipt `type` <a name="tvbasereceiptsireceipt" id="tvbasereceiptsireceipt" href="#tvbasereceiptsireceipt"></a>
 
 ##### Namespace
 
@@ -71,13 +71,13 @@ vBase.Receipts
 
 Represents a transaction receipt.
 
-### Timestamp `property` <a name="p-vbase-receipts-ireceipt-timestamp" id="p-vbase-receipts-ireceipt-timestamp" href="#p-vbase-receipts-ireceipt-timestamp"></a>
+### Timestamp `property` <a name="pvbasereceiptsireceipttimestamp" id="pvbasereceiptsireceipttimestamp" href="#pvbasereceiptsireceipttimestamp"></a>
 
 ##### Summary
 
 The transaction timestamp in Unix time format (seconds).
 
-## IVerificationResult `type` <a name="t-vbase-iverificationresult" id="t-vbase-iverificationresult" href="#t-vbase-iverificationresult"></a>
+## IVerificationResult `type` <a name="tvbaseiverificationresult" id="tvbaseiverificationresult" href="#tvbaseiverificationresult"></a>
 
 ##### Namespace
 
@@ -87,19 +87,19 @@ vBase
 
 Represents the result of a verification operation.
 
-### VerificationFindings `property` <a name="p-vbase-iverificationresult-verificationfindings" id="p-vbase-iverificationresult-verificationfindings" href="#p-vbase-iverificationresult-verificationfindings"></a>
+### VerificationFindings `property` <a name="pvbaseiverificationresultverificationfindings" id="pvbaseiverificationresultverificationfindings" href="#pvbaseiverificationresultverificationfindings"></a>
 
 ##### Summary
 
 A collection of verification findings.
 
-### VerificationPassed `property` <a name="p-vbase-iverificationresult-verificationpassed" id="p-vbase-iverificationresult-verificationpassed" href="#p-vbase-iverificationresult-verificationpassed"></a>
+### VerificationPassed `property` <a name="pvbaseiverificationresultverificationpassed" id="pvbaseiverificationresultverificationpassed" href="#pvbaseiverificationresultverificationpassed"></a>
 
 ##### Summary
 
 Indicates whether the verification passed.
 
-## IWeb3Receipt `type` <a name="t-vbase-receipts-iweb3receipt" id="t-vbase-receipts-iweb3receipt" href="#t-vbase-receipts-iweb3receipt"></a>
+## IWeb3Receipt `type` <a name="tvbasereceiptsiweb3receipt" id="tvbasereceiptsiweb3receipt" href="#tvbasereceiptsiweb3receipt"></a>
 
 ##### Namespace
 
@@ -118,19 +118,19 @@ WEB3-specific receipt.
  The interop code does not look at base interface types when building
  the exposed COM interface.
 
-### Timestamp `property` <a name="p-vbase-receipts-iweb3receipt-timestamp" id="p-vbase-receipts-iweb3receipt-timestamp" href="#p-vbase-receipts-iweb3receipt-timestamp"></a>
+### Timestamp `property` <a name="pvbasereceiptsiweb3receipttimestamp" id="pvbasereceiptsiweb3receipttimestamp" href="#pvbasereceiptsiweb3receipttimestamp"></a>
 
 ##### Summary
 
 The transaction timestamp in Unix time format (seconds).
 
-### TransactionHash `property` <a name="p-vbase-receipts-iweb3receipt-transactionhash" id="p-vbase-receipts-iweb3receipt-transactionhash" href="#p-vbase-receipts-iweb3receipt-transactionhash"></a>
+### TransactionHash `property` <a name="pvbasereceiptsiweb3receipttransactionhash" id="pvbasereceiptsiweb3receipttransactionhash" href="#pvbasereceiptsiweb3receipttransactionhash"></a>
 
 ##### Summary
 
 The transaction hash.
 
-## IvBaseBuilder `type` <a name="t-vbase-ivbasebuilder" id="t-vbase-ivbasebuilder" href="#t-vbase-ivbasebuilder"></a>
+## IvBaseBuilder `type` <a name="tvbaseivbasebuilder" id="tvbaseivbasebuilder" href="#tvbaseivbasebuilder"></a>
 
 ##### Namespace
 
@@ -140,7 +140,7 @@ vBase
 
 COM does not support constructors with parameters, so we need to use a factory method to create the objects.
 
-### CreateDataset(client,name,objectType) `method` <a name="m-vbase-ivbasebuilder-createdataset-vbase-ivbaseclientsystem-stringvbase-objecttypes-" id="m-vbase-ivbasebuilder-createdataset-vbase-ivbaseclientsystem-stringvbase-objecttypes-" href="#m-vbase-ivbasebuilder-createdataset-vbase-ivbaseclientsystem-stringvbase-objecttypes-"></a>
+### CreateDataset(client,name,objectType) `method` <a name="mvbaseivbasebuildercreatedatasetvbaseivbaseclientsystemstringvbaseobjecttypes" id="mvbaseivbasebuildercreatedatasetvbaseivbaseclientsystemstringvbaseobjecttypes" href="#mvbaseivbasebuildercreatedatasetvbaseivbaseclientsystemstringvbaseobjecttypes"></a>
 
 ##### Summary
 
@@ -154,11 +154,11 @@ Newly created dataset object.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| client | [vBase.IvBaseClient](#t-vbase-ivbaseclient 'vBase.IvBaseClient') | vBase client. |
+| client | [vBase.IvBaseClient](#tvbaseivbaseclient 'vBase.IvBaseClient') | vBase client. |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the dataset. |
-| objectType | [vBase.ObjectTypes](#t-vbase-objecttypes 'vBase.ObjectTypes') | Type of the objects that will be stored in the dataset. |
+| objectType | [vBase.ObjectTypes](#tvbaseobjecttypes 'vBase.ObjectTypes') | Type of the objects that will be stored in the dataset. |
 
-### CreateDatasetFromJson(client,json) `method` <a name="m-vbase-ivbasebuilder-createdatasetfromjson-vbase-ivbaseclientsystem-string-" id="m-vbase-ivbasebuilder-createdatasetfromjson-vbase-ivbaseclientsystem-string-" href="#m-vbase-ivbasebuilder-createdatasetfromjson-vbase-ivbaseclientsystem-string-"></a>
+### CreateDatasetFromJson(client,json) `method` <a name="mvbaseivbasebuildercreatedatasetfromjsonvbaseivbaseclientsystemstring" id="mvbaseivbasebuildercreatedatasetfromjsonvbaseivbaseclientsystemstring" href="#mvbaseivbasebuildercreatedatasetfromjsonvbaseivbaseclientsystemstring"></a>
 
 ##### Summary
 
@@ -172,10 +172,10 @@ Newly created dataset object.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| client | [vBase.IvBaseClient](#t-vbase-ivbaseclient 'vBase.IvBaseClient') | vBase client. |
+| client | [vBase.IvBaseClient](#tvbaseivbaseclient 'vBase.IvBaseClient') | vBase client. |
 | json | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Json that contains all data records, and dataset properties. |
 
-### CreateForwarderClient(forwarderUrl,apiKey,privateKey) `method` <a name="m-vbase-ivbasebuilder-createforwarderclient-system-stringsystem-stringsystem-string-" id="m-vbase-ivbasebuilder-createforwarderclient-system-stringsystem-stringsystem-string-" href="#m-vbase-ivbasebuilder-createforwarderclient-system-stringsystem-stringsystem-string-"></a>
+### CreateForwarderClient(forwarderUrl,apiKey,privateKey) `method` <a name="mvbaseivbasebuildercreateforwarderclientsystemstringsystemstringsystemstring" id="mvbaseivbasebuildercreateforwarderclientsystemstringsystemstringsystemstring" href="#mvbaseivbasebuildercreateforwarderclientsystemstringsystemstringsystemstring"></a>
 
 ##### Summary
 
@@ -193,7 +193,7 @@ Newly created client object.
 | apiKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | API key. |
 | privateKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Private key. |
 
-## IvBaseClient `type` <a name="t-vbase-ivbaseclient" id="t-vbase-ivbaseclient" href="#t-vbase-ivbaseclient"></a>
+## IvBaseClient `type` <a name="tvbaseivbaseclient" id="tvbaseivbaseclient" href="#tvbaseivbaseclient"></a>
 
 ##### Namespace
 
@@ -204,7 +204,7 @@ vBase
 COM visible client interface for the vBase API.
 It's a shim between the COM client and the vBase.Core client class.
 
-### AddNamedSet(name) `method` <a name="m-vbase-ivbaseclient-addnamedset-system-string-" id="m-vbase-ivbaseclient-addnamedset-system-string-" href="#m-vbase-ivbaseclient-addnamedset-system-string-"></a>
+### AddNamedSet(name) `method` <a name="mvbaseivbaseclientaddnamedsetsystemstring" id="mvbaseivbaseclientaddnamedsetsystemstring" href="#mvbaseivbaseclientaddnamedsetsystemstring"></a>
 
 ##### Summary
 
@@ -217,7 +217,7 @@ The set will be added for the account associated with the client object.
 | ---- | ---- | ----------- |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the set. |
 
-### AddSet(setCid) `method` <a name="m-vbase-ivbaseclient-addset-system-string-" id="m-vbase-ivbaseclient-addset-system-string-" href="#m-vbase-ivbaseclient-addset-system-string-"></a>
+### AddSet(setCid) `method` <a name="mvbaseivbaseclientaddsetsystemstring" id="mvbaseivbaseclientaddsetsystemstring" href="#mvbaseivbaseclientaddsetsystemstring"></a>
 
 ##### Summary
 
@@ -229,7 +229,7 @@ Records a set commitment.
 | ---- | ---- | ----------- |
 | setCid | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The HEX encoded CID (hash) identifying the set. |
 
-### AddSetObject(setCid,objectCid) `method` <a name="m-vbase-ivbaseclient-addsetobject-system-stringsystem-string-" id="m-vbase-ivbaseclient-addsetobject-system-stringsystem-string-" href="#m-vbase-ivbaseclient-addsetobject-system-stringsystem-string-"></a>
+### AddSetObject(setCid,objectCid) `method` <a name="mvbaseivbaseclientaddsetobjectsystemstringsystemstring" id="mvbaseivbaseclientaddsetobjectsystemstringsystemstring" href="#mvbaseivbaseclientaddsetobjectsystemstringsystemstring"></a>
 
 ##### Summary
 
@@ -246,7 +246,7 @@ The transaction timestamp of the record addition in Unix time format (seconds).
 | setCid | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | HEX encoded CID for the set containing the object. |
 | objectCid | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | HEX encoded CID of the object to record. |
 
-### UserNamedSetExists(user,name) `method` <a name="m-vbase-ivbaseclient-usernamedsetexists-system-stringsystem-string-" id="m-vbase-ivbaseclient-usernamedsetexists-system-stringsystem-string-" href="#m-vbase-ivbaseclient-usernamedsetexists-system-stringsystem-string-"></a>
+### UserNamedSetExists(user,name) `method` <a name="mvbaseivbaseclientusernamedsetexistssystemstringsystemstring" id="mvbaseivbaseclientusernamedsetexistssystemstringsystemstring" href="#mvbaseivbaseclientusernamedsetexistssystemstringsystemstring"></a>
 
 ##### Summary
 
@@ -263,7 +263,7 @@ True if the set with the given name exists; False otherwise.
 | user | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The address for the user who recorded the commitment. |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the set. |
 
-### VerifyUserObject(user,objectCid,timestamp) `method` <a name="m-vbase-ivbaseclient-verifyuserobject-system-stringsystem-stringsystem-int64-" id="m-vbase-ivbaseclient-verifyuserobject-system-stringsystem-stringsystem-int64-" href="#m-vbase-ivbaseclient-verifyuserobject-system-stringsystem-stringsystem-int64-"></a>
+### VerifyUserObject(user,objectCid,timestamp) `method` <a name="mvbaseivbaseclientverifyuserobjectsystemstringsystemstringsystemint64" id="mvbaseivbaseclientverifyuserobjectsystemstringsystemstringsystemint64" href="#mvbaseivbaseclientverifyuserobjectsystemstringsystemstringsystemint64"></a>
 
 ##### Summary
 
@@ -281,7 +281,7 @@ True if the commitment has been verified successfully; False otherwise.
 | objectCid | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The HEX encoded CID of the object. |
 | timestamp | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | The timestamp of the object's creation, in Unix time format (seconds). |
 
-### VerifyUserSetObjects(user,setCid,userSetObjectsCidSum) `method` <a name="m-vbase-ivbaseclient-verifyusersetobjects-system-stringsystem-stringsystem-string-" id="m-vbase-ivbaseclient-verifyusersetobjects-system-stringsystem-stringsystem-string-" href="#m-vbase-ivbaseclient-verifyusersetobjects-system-stringsystem-stringsystem-string-"></a>
+### VerifyUserSetObjects(user,setCid,userSetObjectsCidSum) `method` <a name="mvbaseivbaseclientverifyusersetobjectssystemstringsystemstringsystemstring" id="mvbaseivbaseclientverifyusersetobjectssystemstringsystemstringsystemstring" href="#mvbaseivbaseclientverifyusersetobjectssystemstringsystemstringsystemstring"></a>
 
 ##### Summary
 
@@ -299,7 +299,7 @@ True if the commitment has been verified successfully; False otherwise.
 | setCid | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The CID for the set containing the object. |
 | userSetObjectsCidSum | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The sum of all object hashes for the user set. |
 
-## IvBaseDataset `type` <a name="t-vbase-ivbasedataset" id="t-vbase-ivbasedataset" href="#t-vbase-ivbasedataset"></a>
+## IvBaseDataset `type` <a name="tvbaseivbasedataset" id="tvbaseivbasedataset" href="#tvbaseivbasedataset"></a>
 
 ##### Namespace
 
@@ -309,7 +309,7 @@ vBase
 
 Represents a set of records created on the Validity Base platform.
 
-### AddRecord(recordData) `method` <a name="m-vbase-ivbasedataset-addrecord-system-object-" id="m-vbase-ivbasedataset-addrecord-system-object-" href="#m-vbase-ivbasedataset-addrecord-system-object-"></a>
+### AddRecord(recordData) `method` <a name="mvbaseivbasedatasetaddrecordsystemobject" id="mvbaseivbasedatasetaddrecordsystemobject" href="#mvbaseivbasedatasetaddrecordsystemobject"></a>
 
 ##### Summary
 
@@ -321,7 +321,7 @@ Adds a record to the dataset.
 | ---- | ---- | ----------- |
 | recordData | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Record to add. |
 
-### ToJson() `method` <a name="m-vbase-ivbasedataset-tojson" id="m-vbase-ivbasedataset-tojson" href="#m-vbase-ivbasedataset-tojson"></a>
+### ToJson() `method` <a name="mvbaseivbasedatasettojson" id="mvbaseivbasedatasettojson" href="#mvbaseivbasedatasettojson"></a>
 
 ##### Summary
 
@@ -335,7 +335,7 @@ JSON string that can be deserialized using vBase SDK on any other platform.
 
 This method has no parameters.
 
-### VerifyCommitments() `method` <a name="m-vbase-ivbasedataset-verifycommitments" id="m-vbase-ivbasedataset-verifycommitments" href="#m-vbase-ivbasedataset-verifycommitments"></a>
+### VerifyCommitments() `method` <a name="mvbaseivbasedatasetverifycommitments" id="mvbaseivbasedatasetverifycommitments" href="#mvbaseivbasedatasetverifycommitments"></a>
 
 ##### Summary
 
@@ -352,7 +352,7 @@ than exist in this client-side dataset.
 
 This method has no parameters.
 
-## ObjectTypes `type` <a name="t-vbase-objecttypes" id="t-vbase-objecttypes" href="#t-vbase-objecttypes"></a>
+## ObjectTypes `type` <a name="tvbaseobjecttypes" id="tvbaseobjecttypes" href="#tvbaseobjecttypes"></a>
 
 ##### Namespace
 
@@ -362,7 +362,7 @@ vBase
 
 Types of objects that can be stored in a dataset.
 
-## ReceiptConverter `type` <a name="t-vbase-infrastructure-receiptconverter" id="t-vbase-infrastructure-receiptconverter" href="#t-vbase-infrastructure-receiptconverter"></a>
+## ReceiptConverter `type` <a name="tvbaseinfrastructurereceiptconverter" id="tvbaseinfrastructurereceiptconverter" href="#tvbaseinfrastructurereceiptconverter"></a>
 
 ##### Namespace
 
@@ -370,13 +370,13 @@ vBase.Infrastructure
 
 ##### Summary
 
-Converts between [Receipt](#t-vbase-core-receipt 'vBase.Core.Receipt') and COM-compatible [IReceipt](#t-vbase-receipts-ireceipt 'vBase.Receipts.IReceipt').
+Converts between [Receipt](#tvbasecorereceipt 'vBase.Core.Receipt') and COM-compatible [IReceipt](#tvbasereceiptsireceipt 'vBase.Receipts.IReceipt').
 
-### ToCom(receipt) `method` <a name="m-vbase-infrastructure-receiptconverter-tocom-vbase-core-receipt-" id="m-vbase-infrastructure-receiptconverter-tocom-vbase-core-receipt-" href="#m-vbase-infrastructure-receiptconverter-tocom-vbase-core-receipt-"></a>
+### ToCom(receipt) `method` <a name="mvbaseinfrastructurereceiptconvertertocomvbasecorereceipt" id="mvbaseinfrastructurereceiptconvertertocomvbasecorereceipt" href="#mvbaseinfrastructurereceiptconvertertocomvbasecorereceipt"></a>
 
 ##### Summary
 
-Converts a [Receipt](#t-vbase-core-receipt 'vBase.Core.Receipt') to a [IReceipt](#t-vbase-receipts-ireceipt 'vBase.Receipts.IReceipt').
+Converts a [Receipt](#tvbasecorereceipt 'vBase.Core.Receipt') to a [IReceipt](#tvbasereceiptsireceipt 'vBase.Receipts.IReceipt').
 
 ##### Returns
 
@@ -386,9 +386,9 @@ The converted receipt.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| receipt | [vBase.Core.Receipt](#t-vbase-core-receipt 'vBase.Core.Receipt') | The receipt to convert. |
+| receipt | [vBase.Core.Receipt](#tvbasecorereceipt 'vBase.Core.Receipt') | The receipt to convert. |
 
-## SecurityProtocolHelper `type` <a name="t-vbase-infrastructure-securityprotocolhelper" id="t-vbase-infrastructure-securityprotocolhelper" href="#t-vbase-infrastructure-securityprotocolhelper"></a>
+## SecurityProtocolHelper `type` <a name="tvbaseinfrastructuresecurityprotocolhelper" id="tvbaseinfrastructuresecurityprotocolhelper" href="#tvbaseinfrastructuresecurityprotocolhelper"></a>
 
 ##### Namespace
 
@@ -402,7 +402,7 @@ Such a configuration is incompatible with TLS 1.2, which is the protocol used by
 Experimentally, we found that setting the security protocol to 0 (SystemDefault) does not resolve the issue.
 Setting explicitly to Tls12 does.
 
-### ResetSecurityProtocol() `method` <a name="m-vbase-infrastructure-securityprotocolhelper-resetsecurityprotocol" id="m-vbase-infrastructure-securityprotocolhelper-resetsecurityprotocol" href="#m-vbase-infrastructure-securityprotocolhelper-resetsecurityprotocol"></a>
+### ResetSecurityProtocol() `method` <a name="mvbaseinfrastructuresecurityprotocolhelperresetsecurityprotocol" id="mvbaseinfrastructuresecurityprotocolhelperresetsecurityprotocol" href="#mvbaseinfrastructuresecurityprotocolhelperresetsecurityprotocol"></a>
 
 ##### Summary
 
@@ -412,7 +412,7 @@ Updates the security protocol to Tls12.
 
 This method has no parameters.
 
-## ShimInstaller `type` <a name="t-vbase-infrastructure-shiminstaller" id="t-vbase-infrastructure-shiminstaller" href="#t-vbase-infrastructure-shiminstaller"></a>
+## ShimInstaller `type` <a name="tvbaseinfrastructureshiminstaller" id="tvbaseinfrastructureshiminstaller" href="#tvbaseinfrastructureshiminstaller"></a>
 
 ##### Namespace
 
@@ -424,7 +424,7 @@ It's important to register the assembly using both versions of regasm—32-bit a
 Even though the Excel process is 64-bit, it seems that the VBA execution process is 32-bit,
 so it doesn't recognize the registrations in the 64-bit registry.
 
-## Utils `type` <a name="t-vbase-utils" id="t-vbase-utils" href="#t-vbase-utils"></a>
+## Utils `type` <a name="tvbaseutils" id="tvbaseutils" href="#tvbaseutils"></a>
 
 ##### Namespace
 
@@ -434,7 +434,7 @@ vBase
 
 Utility methods.
 
-### PreprocessException(action,logger) `method` <a name="m-vbase-utils-preprocessexception-system-actionmicrosoft-extensions-logging-ilogger-" id="m-vbase-utils-preprocessexception-system-actionmicrosoft-extensions-logging-ilogger-" href="#m-vbase-utils-preprocessexception-system-actionmicrosoft-extensions-logging-ilogger-"></a>
+### PreprocessException(action,logger) `method` <a name="mvbaseutilspreprocessexceptionsystemactionmicrosoftextensionsloggingilogger" id="mvbaseutilspreprocessexceptionsystemactionmicrosoftextensionsloggingilogger" href="#mvbaseutilspreprocessexceptionsystemactionmicrosoftextensionsloggingilogger"></a>
 
 ##### Summary
 
@@ -446,9 +446,9 @@ Additionally, converts the exception into a VBA-friendly exception.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | action | [System.Action](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action') | Action to execute. |
-| logger | [Microsoft.Extensions.Logging.ILogger](#t-microsoft-extensions-logging-ilogger 'Microsoft.Extensions.Logging.ILogger') | Logger. |
+| logger | [Microsoft.Extensions.Logging.ILogger](#tmicrosoftextensionsloggingilogger 'Microsoft.Extensions.Logging.ILogger') | Logger. |
 
-### PreprocessException(ex) `method` <a name="m-vbase-utils-preprocessexception-system-exception-" id="m-vbase-utils-preprocessexception-system-exception-" href="#m-vbase-utils-preprocessexception-system-exception-"></a>
+### PreprocessException(ex) `method` <a name="mvbaseutilspreprocessexceptionsystemexception" id="mvbaseutilspreprocessexceptionsystemexception" href="#mvbaseutilspreprocessexceptionsystemexception"></a>
 
 ##### Summary
 
@@ -465,7 +465,7 @@ A VBA-friendly exception with aggregated information.
 | ---- | ---- | ----------- |
 | ex | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | The original exception. |
 
-### PreprocessException\`\`1(func,logger) `method` <a name="m-vbase-utils-preprocessexception1-system-func0microsoft-extensions-logging-ilogger-" id="m-vbase-utils-preprocessexception1-system-func0microsoft-extensions-logging-ilogger-" href="#m-vbase-utils-preprocessexception1-system-func0microsoft-extensions-logging-ilogger-"></a>
+### PreprocessException\`\`1(func,logger) `method` <a name="mvbaseutilspreprocessexception1systemfunc0microsoftextensionsloggingilogger" id="mvbaseutilspreprocessexception1systemfunc0microsoftextensionsloggingilogger" href="#mvbaseutilspreprocessexception1systemfunc0microsoftextensionsloggingilogger"></a>
 
 ##### Summary
 
@@ -481,7 +481,7 @@ Function execution result.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | func | [System.Func{\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{``0}') | Function to execute. |
-| logger | [Microsoft.Extensions.Logging.ILogger](#t-microsoft-extensions-logging-ilogger 'Microsoft.Extensions.Logging.ILogger') | Logger. |
+| logger | [Microsoft.Extensions.Logging.ILogger](#tmicrosoftextensionsloggingilogger 'Microsoft.Extensions.Logging.ILogger') | Logger. |
 
 ##### Generic Types
 
