@@ -2,64 +2,64 @@
 
 ## Contents
 
-- [Cid](#t-vbase-core-cid 'vBase.Core.Cid')
-  - [#ctor()](#m-vbase-core-cid-%23ctor-system-byte%5B%5D- 'vBase.Core.Cid.#ctor(System.Byte[])')
-  - [#ctor(data)](#m-vbase-core-cid-%23ctor-system-string- 'vBase.Core.Cid.#ctor(System.String)')
-  - [Data](#p-vbase-core-cid-data 'vBase.Core.Cid.Data')
-  - [Empty](#p-vbase-core-cid-empty 'vBase.Core.Cid.Empty')
-  - [ToHex()](#m-vbase-core-cid-tohex 'vBase.Core.Cid.ToHex')
-- [Convert](#t-vbase-core-utilities-convert 'vBase.Core.Utilities.Convert')
-- [CryptoUtils](#t-vbase-core-utilities-cryptoutils 'vBase.Core.Utilities.CryptoUtils')
-  - [GetCid(value,size)](#m-vbase-core-utilities-cryptoutils-getcid-system-numerics-biginteger%2Csystem-uint32- 'vBase.Core.Utilities.CryptoUtils.GetCid(System.Numerics.BigInteger,System.UInt32)')
-  - [GetCid(value)](#m-vbase-core-utilities-cryptoutils-getcid-system-string- 'vBase.Core.Utilities.CryptoUtils.GetCid(System.String)')
-- [ForwarderCommitmentService](#t-vbase-core-web3commitmentservice-forwardercommitmentservice 'vBase.Core.Web3CommitmentService.ForwarderCommitmentService')
-- [ICommitmentService](#t-vbase-core-icommitmentservice 'vBase.Core.ICommitmentService')
-  - [AccountIdentifier](#p-vbase-core-icommitmentservice-accountidentifier 'vBase.Core.ICommitmentService.AccountIdentifier')
-  - [AddSet(setCid)](#m-vbase-core-icommitmentservice-addset-vbase-core-cid- 'vBase.Core.ICommitmentService.AddSet(vBase.Core.Cid)')
-  - [AddSetObject(setCid,objectCid)](#m-vbase-core-icommitmentservice-addsetobject-vbase-core-cid%2Cvbase-core-cid- 'vBase.Core.ICommitmentService.AddSetObject(vBase.Core.Cid,vBase.Core.Cid)')
-  - [UserSetExists(user,setCid)](#m-vbase-core-icommitmentservice-usersetexists-system-string%2Cvbase-core-cid- 'vBase.Core.ICommitmentService.UserSetExists(System.String,vBase.Core.Cid)')
-  - [VerifyUserObject(user,objectCid,timestamp)](#m-vbase-core-icommitmentservice-verifyuserobject-system-string%2Cvbase-core-cid%2Csystem-datetimeoffset- 'vBase.Core.ICommitmentService.VerifyUserObject(System.String,vBase.Core.Cid,System.DateTimeOffset)')
-  - [VerifyUserSetObjects(user,setCid,userSetObjectCidSum)](#m-vbase-core-icommitmentservice-verifyusersetobjects-system-string%2Cvbase-core-cid%2Csystem-numerics-biginteger- 'vBase.Core.ICommitmentService.VerifyUserSetObjects(System.String,vBase.Core.Cid,System.Numerics.BigInteger)')
-- [JsonSerializationDto](#t-vbase-core-dataset-jsonserializationdto 'vBase.Core.Dataset.JsonSerializationDto')
-- [Receipt](#t-vbase-core-receipt 'vBase.Core.Receipt')
-  - [#ctor()](#m-vbase-core-receipt-%23ctor-system-datetimeoffset- 'vBase.Core.Receipt.#ctor(System.DateTimeOffset)')
-- [Utils](#t-vbase-core-utilities-utils 'vBase.Core.Utilities.Utils')
-- [VerificationResult](#t-vbase-core-dataset-verificationresult 'vBase.Core.Dataset.VerificationResult')
-  - [VerificationFindings](#p-vbase-core-dataset-verificationresult-verificationfindings 'vBase.Core.Dataset.VerificationResult.VerificationFindings')
-  - [VerificationPassed](#p-vbase-core-dataset-verificationresult-verificationpassed 'vBase.Core.Dataset.VerificationResult.VerificationPassed')
-  - [AddFinding(finding)](#m-vbase-core-dataset-verificationresult-addfinding-system-string- 'vBase.Core.Dataset.VerificationResult.AddFinding(System.String)')
-- [Web3CommitmentService](#t-vbase-core-web3commitmentservice-web3commitmentservice 'vBase.Core.Web3CommitmentService.Web3CommitmentService')
-  - [CallContractFunction(function,functionData)](#m-vbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-nethereum-contracts-function%2Csystem-string- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallContractFunction(Nethereum.Contracts.Function,System.String)')
-  - [CallContractFunction(functionName,functionInput)](#m-vbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-system-string%2Csystem-object%5B%5D- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallContractFunction(System.String,System.Object[])')
-  - [CallStateVariable\`\`1(stateVariableName,functionInput)](#m-vbase-core-web3commitmentservice-web3commitmentservice-callstatevariable%60%601-system-string%2Csystem-object%5B%5D- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallStateVariable``1(System.String,System.Object[])')
-  - [FetchStateVariable\`\`1(functionData)](#m-vbase-core-web3commitmentservice-web3commitmentservice-fetchstatevariable%60%601-system-string- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.FetchStateVariable``1(System.String)')
-- [Web3Receipt](#t-vbase-core-web3commitmentservice-web3receipt 'vBase.Core.Web3CommitmentService.Web3Receipt')
-  - [#ctor()](#m-vbase-core-web3commitmentservice-web3receipt-%23ctor-system-string%2Csystem-datetimeoffset- 'vBase.Core.Web3CommitmentService.Web3Receipt.#ctor(System.String,System.DateTimeOffset)')
-- [vBaseClient](#t-vbase-core-vbaseclient 'vBase.Core.vBaseClient')
-  - [AddNamedSet(name)](#m-vbase-core-vbaseclient-addnamedset-system-string- 'vBase.Core.vBaseClient.AddNamedSet(System.String)')
-  - [AddSet(setCid)](#m-vbase-core-vbaseclient-addset-vbase-core-cid- 'vBase.Core.vBaseClient.AddSet(vBase.Core.Cid)')
-  - [AddSetObject(setCid,objectCid)](#m-vbase-core-vbaseclient-addsetobject-vbase-core-cid%2Cvbase-core-cid- 'vBase.Core.vBaseClient.AddSetObject(vBase.Core.Cid,vBase.Core.Cid)')
-  - [UserNamedSetExists(user,name)](#m-vbase-core-vbaseclient-usernamedsetexists-system-string%2Csystem-string- 'vBase.Core.vBaseClient.UserNamedSetExists(System.String,System.String)')
-  - [VerifyUserObject(user,objectCid,timestamp)](#m-vbase-core-vbaseclient-verifyuserobject-system-string%2Cvbase-core-cid%2Csystem-datetimeoffset- 'vBase.Core.vBaseClient.VerifyUserObject(System.String,vBase.Core.Cid,System.DateTimeOffset)')
-  - [VerifyUserSetObjects(user,setCid,userSetObjectsCidSum)](#m-vbase-core-vbaseclient-verifyusersetobjects-system-string%2Cvbase-core-cid%2Csystem-numerics-biginteger- 'vBase.Core.vBaseClient.VerifyUserSetObjects(System.String,vBase.Core.Cid,System.Numerics.BigInteger)')
-- [vBaseDataset](#t-vbase-core-dataset-vbasedataset 'vBase.Core.Dataset.vBaseDataset')
-  - [#ctor(vBaseClient,name,recordTypeName)](#m-vbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclient%2Csystem-string%2Csystem-string- 'vBase.Core.Dataset.vBaseDataset.#ctor(vBase.Core.vBaseClient,System.String,System.String)')
-  - [#ctor(vBaseClient,json)](#m-vbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclient%2Csystem-string- 'vBase.Core.Dataset.vBaseDataset.#ctor(vBase.Core.vBaseClient,System.String)')
-  - [AddRecord(recordData)](#m-vbase-core-dataset-vbasedataset-addrecord-system-object- 'vBase.Core.Dataset.vBaseDataset.AddRecord(System.Object)')
-  - [Initialize()](#m-vbase-core-dataset-vbasedataset-initialize 'vBase.Core.Dataset.vBaseDataset.Initialize')
-  - [ToJson()](#m-vbase-core-dataset-vbasedataset-tojson 'vBase.Core.Dataset.vBaseDataset.ToJson')
-  - [VerifyCommitments()](#m-vbase-core-dataset-vbasedataset-verifycommitments 'vBase.Core.Dataset.vBaseDataset.VerifyCommitments')
-- [vBaseException](#t-vbase-core-exceptions-vbaseexception 'vBase.Core.Exceptions.vBaseException')
-- [vBaseObject](#t-vbase-core-dataset-vbaseobjects-vbaseobject 'vBase.Core.Dataset.vBaseObjects.vBaseObject')
-  - [Data](#p-vbase-core-dataset-vbaseobjects-vbaseobject-data 'vBase.Core.Dataset.vBaseObjects.vBaseObject.Data')
-  - [StringData](#p-vbase-core-dataset-vbaseobjects-vbaseobject-stringdata 'vBase.Core.Dataset.vBaseObjects.vBaseObject.StringData')
-  - [GetCid()](#m-vbase-core-dataset-vbaseobjects-vbaseobject-getcid 'vBase.Core.Dataset.vBaseObjects.vBaseObject.GetCid')
-  - [GetJson()](#m-vbase-core-dataset-vbaseobjects-vbaseobject-getjson 'vBase.Core.Dataset.vBaseObjects.vBaseObject.GetJson')
-  - [InitFromJson(jData)](#m-vbase-core-dataset-vbaseobjects-vbaseobject-initfromjson-newtonsoft-json-linq-jvalue- 'vBase.Core.Dataset.vBaseObjects.vBaseObject.InitFromJson(Newtonsoft.Json.Linq.JValue)')
-- [vBaseStringObject](#t-vbase-core-dataset-vbaseobjects-vbasestringobject 'vBase.Core.Dataset.vBaseObjects.vBaseStringObject')
-  - [vBaseObjectType](#f-vbase-core-dataset-vbaseobjects-vbasestringobject-vbaseobjecttype 'vBase.Core.Dataset.vBaseObjects.vBaseStringObject.vBaseObjectType')
+- [Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid')
+  - [#ctor()](#mundefinedvbase-core-cid-%23ctor-system-byte%5B%5D- 'vBase.Core.Cid.#ctor(System.Byte[])')
+  - [#ctor(data)](#mundefinedvbase-core-cid-%23ctor-system-string- 'vBase.Core.Cid.#ctor(System.String)')
+  - [Data](#pundefinedvbase-core-cid-data 'vBase.Core.Cid.Data')
+  - [Empty](#pundefinedvbase-core-cid-empty 'vBase.Core.Cid.Empty')
+  - [ToHex()](#mundefinedvbase-core-cid-tohex 'vBase.Core.Cid.ToHex')
+- [Convert](#tundefinedvbase-core-utilities-convert 'vBase.Core.Utilities.Convert')
+- [CryptoUtils](#tundefinedvbase-core-utilities-cryptoutils 'vBase.Core.Utilities.CryptoUtils')
+  - [GetCid(value,size)](#mundefinedvbase-core-utilities-cryptoutils-getcid-system-numerics-bigintegerundefinedsystem-uint32- 'vBase.Core.Utilities.CryptoUtils.GetCid(System.Numerics.BigInteger,System.UInt32)')
+  - [GetCid(value)](#mundefinedvbase-core-utilities-cryptoutils-getcid-system-string- 'vBase.Core.Utilities.CryptoUtils.GetCid(System.String)')
+- [ForwarderCommitmentService](#tundefinedvbase-core-web3commitmentservice-forwardercommitmentservice 'vBase.Core.Web3CommitmentService.ForwarderCommitmentService')
+- [ICommitmentService](#tundefinedvbase-core-icommitmentservice 'vBase.Core.ICommitmentService')
+  - [AccountIdentifier](#pundefinedvbase-core-icommitmentservice-accountidentifier 'vBase.Core.ICommitmentService.AccountIdentifier')
+  - [AddSet(setCid)](#mundefinedvbase-core-icommitmentservice-addset-vbase-core-cid- 'vBase.Core.ICommitmentService.AddSet(vBase.Core.Cid)')
+  - [AddSetObject(setCid,objectCid)](#mundefinedvbase-core-icommitmentservice-addsetobject-vbase-core-cidundefinedvbase-core-cid- 'vBase.Core.ICommitmentService.AddSetObject(vBase.Core.Cid,vBase.Core.Cid)')
+  - [UserSetExists(user,setCid)](#mundefinedvbase-core-icommitmentservice-usersetexists-system-stringundefinedvbase-core-cid- 'vBase.Core.ICommitmentService.UserSetExists(System.String,vBase.Core.Cid)')
+  - [VerifyUserObject(user,objectCid,timestamp)](#mundefinedvbase-core-icommitmentservice-verifyuserobject-system-stringundefinedvbase-core-cid%2Csystem-datetimeoffset- 'vBase.Core.ICommitmentService.VerifyUserObject(System.String,vBase.Core.Cid,System.DateTimeOffset)')
+  - [VerifyUserSetObjects(user,setCid,userSetObjectCidSum)](#mundefinedvbase-core-icommitmentservice-verifyusersetobjects-system-stringundefinedvbase-core-cid%2Csystem-numerics-biginteger- 'vBase.Core.ICommitmentService.VerifyUserSetObjects(System.String,vBase.Core.Cid,System.Numerics.BigInteger)')
+- [JsonSerializationDto](#tundefinedvbase-core-dataset-jsonserializationdto 'vBase.Core.Dataset.JsonSerializationDto')
+- [Receipt](#tundefinedvbase-core-receipt 'vBase.Core.Receipt')
+  - [#ctor()](#mundefinedvbase-core-receipt-%23ctor-system-datetimeoffset- 'vBase.Core.Receipt.#ctor(System.DateTimeOffset)')
+- [Utils](#tundefinedvbase-core-utilities-utils 'vBase.Core.Utilities.Utils')
+- [VerificationResult](#tundefinedvbase-core-dataset-verificationresult 'vBase.Core.Dataset.VerificationResult')
+  - [VerificationFindings](#pundefinedvbase-core-dataset-verificationresult-verificationfindings 'vBase.Core.Dataset.VerificationResult.VerificationFindings')
+  - [VerificationPassed](#pundefinedvbase-core-dataset-verificationresult-verificationpassed 'vBase.Core.Dataset.VerificationResult.VerificationPassed')
+  - [AddFinding(finding)](#mundefinedvbase-core-dataset-verificationresult-addfinding-system-string- 'vBase.Core.Dataset.VerificationResult.AddFinding(System.String)')
+- [Web3CommitmentService](#tundefinedvbase-core-web3commitmentservice-web3commitmentservice 'vBase.Core.Web3CommitmentService.Web3CommitmentService')
+  - [CallContractFunction(function,functionData)](#mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-nethereum-contracts-functionundefinedsystem-string- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallContractFunction(Nethereum.Contracts.Function,System.String)')
+  - [CallContractFunction(functionName,functionInput)](#mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-system-stringundefinedsystem-object%5B%5D- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallContractFunction(System.String,System.Object[])')
+  - [CallStateVariable\`\`1(stateVariableName,functionInput)](#mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callstatevariableundefined%601-system-stringundefinedsystem-object%5B%5D- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallStateVariable``1(System.String,System.Object[])')
+  - [FetchStateVariable\`\`1(functionData)](#mundefinedvbase-core-web3commitmentservice-web3commitmentservice-fetchstatevariableundefined%601-system-string- 'vBase.Core.Web3CommitmentService.Web3CommitmentService.FetchStateVariable``1(System.String)')
+- [Web3Receipt](#tundefinedvbase-core-web3commitmentservice-web3receipt 'vBase.Core.Web3CommitmentService.Web3Receipt')
+  - [#ctor()](#mundefinedvbase-core-web3commitmentservice-web3receipt-%23ctor-system-stringundefinedsystem-datetimeoffset- 'vBase.Core.Web3CommitmentService.Web3Receipt.#ctor(System.String,System.DateTimeOffset)')
+- [vBaseClient](#tundefinedvbase-core-vbaseclient 'vBase.Core.vBaseClient')
+  - [AddNamedSet(name)](#mundefinedvbase-core-vbaseclient-addnamedset-system-string- 'vBase.Core.vBaseClient.AddNamedSet(System.String)')
+  - [AddSet(setCid)](#mundefinedvbase-core-vbaseclient-addset-vbase-core-cid- 'vBase.Core.vBaseClient.AddSet(vBase.Core.Cid)')
+  - [AddSetObject(setCid,objectCid)](#mundefinedvbase-core-vbaseclient-addsetobject-vbase-core-cidundefinedvbase-core-cid- 'vBase.Core.vBaseClient.AddSetObject(vBase.Core.Cid,vBase.Core.Cid)')
+  - [UserNamedSetExists(user,name)](#mundefinedvbase-core-vbaseclient-usernamedsetexists-system-stringundefinedsystem-string- 'vBase.Core.vBaseClient.UserNamedSetExists(System.String,System.String)')
+  - [VerifyUserObject(user,objectCid,timestamp)](#mundefinedvbase-core-vbaseclient-verifyuserobject-system-stringundefinedvbase-core-cid%2Csystem-datetimeoffset- 'vBase.Core.vBaseClient.VerifyUserObject(System.String,vBase.Core.Cid,System.DateTimeOffset)')
+  - [VerifyUserSetObjects(user,setCid,userSetObjectsCidSum)](#mundefinedvbase-core-vbaseclient-verifyusersetobjects-system-stringundefinedvbase-core-cid%2Csystem-numerics-biginteger- 'vBase.Core.vBaseClient.VerifyUserSetObjects(System.String,vBase.Core.Cid,System.Numerics.BigInteger)')
+- [vBaseDataset](#tundefinedvbase-core-dataset-vbasedataset 'vBase.Core.Dataset.vBaseDataset')
+  - [#ctor(vBaseClient,name,recordTypeName)](#mundefinedvbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclientundefinedsystem-string%2Csystem-string- 'vBase.Core.Dataset.vBaseDataset.#ctor(vBase.Core.vBaseClient,System.String,System.String)')
+  - [#ctor(vBaseClient,json)](#mundefinedvbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclientundefinedsystem-string- 'vBase.Core.Dataset.vBaseDataset.#ctor(vBase.Core.vBaseClient,System.String)')
+  - [AddRecord(recordData)](#mundefinedvbase-core-dataset-vbasedataset-addrecord-system-object- 'vBase.Core.Dataset.vBaseDataset.AddRecord(System.Object)')
+  - [Initialize()](#mundefinedvbase-core-dataset-vbasedataset-initialize 'vBase.Core.Dataset.vBaseDataset.Initialize')
+  - [ToJson()](#mundefinedvbase-core-dataset-vbasedataset-tojson 'vBase.Core.Dataset.vBaseDataset.ToJson')
+  - [VerifyCommitments()](#mundefinedvbase-core-dataset-vbasedataset-verifycommitments 'vBase.Core.Dataset.vBaseDataset.VerifyCommitments')
+- [vBaseException](#tundefinedvbase-core-exceptions-vbaseexception 'vBase.Core.Exceptions.vBaseException')
+- [vBaseObject](#tundefinedvbase-core-dataset-vbaseobjects-vbaseobject 'vBase.Core.Dataset.vBaseObjects.vBaseObject')
+  - [Data](#pundefinedvbase-core-dataset-vbaseobjects-vbaseobject-data 'vBase.Core.Dataset.vBaseObjects.vBaseObject.Data')
+  - [StringData](#pundefinedvbase-core-dataset-vbaseobjects-vbaseobject-stringdata 'vBase.Core.Dataset.vBaseObjects.vBaseObject.StringData')
+  - [GetCid()](#mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-getcid 'vBase.Core.Dataset.vBaseObjects.vBaseObject.GetCid')
+  - [GetJson()](#mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-getjson 'vBase.Core.Dataset.vBaseObjects.vBaseObject.GetJson')
+  - [InitFromJson(jData)](#mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-initfromjson-newtonsoft-json-linq-jvalue- 'vBase.Core.Dataset.vBaseObjects.vBaseObject.InitFromJson(Newtonsoft.Json.Linq.JValue)')
+- [vBaseStringObject](#tundefinedvbase-core-dataset-vbaseobjects-vbasestringobject 'vBase.Core.Dataset.vBaseObjects.vBaseStringObject')
+  - [vBaseObjectType](#fundefinedvbase-core-dataset-vbaseobjects-vbasestringobject-vbaseobjecttype 'vBase.Core.Dataset.vBaseObjects.vBaseStringObject.vBaseObjectType')
 
-## Cid `type` <a name="t-vbase-core-cid" id="t-vbase-core-cid" href="#t-vbase-core-cid"></a>
+## Cid `type` <a name="tundefinedvbase-core-cid" id="tundefinedvbase-core-cid" href="#tundefinedvbase-core-cid"></a>
 
 ##### Namespace
 
@@ -69,7 +69,7 @@ vBase.Core
 
 Content Identifier (CID) is used to uniquely identify objects.
 
-### #ctor() `constructor` <a name="m-vbase-core-cid-%23ctor-system-byte%5B%5D-" id="m-vbase-core-cid-%23ctor-system-byte%5B%5D-" href="#m-vbase-core-cid-%23ctor-system-byte%5B%5D-"></a>
+### #ctor() `constructor` <a name="mundefinedvbase-core-cid-%23ctor-system-byte%5B%5D-" id="mundefinedvbase-core-cid-%23ctor-system-byte%5B%5D-" href="#mundefinedvbase-core-cid-%23ctor-system-byte%5B%5D-"></a>
 
 ##### Summary
 
@@ -79,7 +79,7 @@ Creates a new CID from the provided byte array.
 
 This constructor has no parameters.
 
-### #ctor(data) `constructor` <a name="m-vbase-core-cid-%23ctor-system-string-" id="m-vbase-core-cid-%23ctor-system-string-" href="#m-vbase-core-cid-%23ctor-system-string-"></a>
+### #ctor(data) `constructor` <a name="mundefinedvbase-core-cid-%23ctor-system-string-" id="mundefinedvbase-core-cid-%23ctor-system-string-" href="#mundefinedvbase-core-cid-%23ctor-system-string-"></a>
 
 ##### Summary
 
@@ -91,19 +91,19 @@ Creates a new CID from the provided hex string.
 | ---- | ---- | ----------- |
 | data | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
 
-### Data `property` <a name="p-vbase-core-cid-data" id="p-vbase-core-cid-data" href="#p-vbase-core-cid-data"></a>
+### Data `property` <a name="pundefinedvbase-core-cid-data" id="pundefinedvbase-core-cid-data" href="#pundefinedvbase-core-cid-data"></a>
 
 ##### Summary
 
 The data of the CID.
 
-### Empty `property` <a name="p-vbase-core-cid-empty" id="p-vbase-core-cid-empty" href="#p-vbase-core-cid-empty"></a>
+### Empty `property` <a name="pundefinedvbase-core-cid-empty" id="pundefinedvbase-core-cid-empty" href="#pundefinedvbase-core-cid-empty"></a>
 
 ##### Summary
 
 Empty CID.
 
-### ToHex() `method` <a name="m-vbase-core-cid-tohex" id="m-vbase-core-cid-tohex" href="#m-vbase-core-cid-tohex"></a>
+### ToHex() `method` <a name="mundefinedvbase-core-cid-tohex" id="mundefinedvbase-core-cid-tohex" href="#mundefinedvbase-core-cid-tohex"></a>
 
 ##### Summary
 
@@ -117,7 +117,7 @@ Hex string.
 
 This method has no parameters.
 
-## Convert `type` <a name="t-vbase-core-utilities-convert" id="t-vbase-core-utilities-convert" href="#t-vbase-core-utilities-convert"></a>
+## Convert `type` <a name="tundefinedvbase-core-utilities-convert" id="tundefinedvbase-core-utilities-convert" href="#tundefinedvbase-core-utilities-convert"></a>
 
 ##### Namespace
 
@@ -127,7 +127,7 @@ vBase.Core.Utilities
 
 Provides conversion methods.
 
-## CryptoUtils `type` <a name="t-vbase-core-utilities-cryptoutils" id="t-vbase-core-utilities-cryptoutils" href="#t-vbase-core-utilities-cryptoutils"></a>
+## CryptoUtils `type` <a name="tundefinedvbase-core-utilities-cryptoutils" id="tundefinedvbase-core-utilities-cryptoutils" href="#tundefinedvbase-core-utilities-cryptoutils"></a>
 
 ##### Namespace
 
@@ -137,7 +137,7 @@ vBase.Core.Utilities
 
 Provides cryptographic utilities.
 
-### GetCid(value,size) `method` <a name="m-vbase-core-utilities-cryptoutils-getcid-system-numerics-biginteger%2Csystem-uint32-" id="m-vbase-core-utilities-cryptoutils-getcid-system-numerics-biginteger%2Csystem-uint32-" href="#m-vbase-core-utilities-cryptoutils-getcid-system-numerics-biginteger%2Csystem-uint32-"></a>
+### GetCid(value,size) `method` <a name="mundefinedvbase-core-utilities-cryptoutils-getcid-system-numerics-bigintegerundefinedsystem-uint32-" id="mundefinedvbase-core-utilities-cryptoutils-getcid-system-numerics-bigintegerundefinedsystem-uint32-" href="#mundefinedvbase-core-utilities-cryptoutils-getcid-system-numerics-bigintegerundefinedsystem-uint32-"></a>
 
 ##### Summary
 
@@ -154,7 +154,7 @@ SHA3 256 hash object.
 | value | [System.Numerics.BigInteger](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Numerics.BigInteger 'System.Numerics.BigInteger') | Integer value. |
 | size | [System.UInt32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt32 'System.UInt32') | Size in bits. |
 
-### GetCid(value) `method` <a name="m-vbase-core-utilities-cryptoutils-getcid-system-string-" id="m-vbase-core-utilities-cryptoutils-getcid-system-string-" href="#m-vbase-core-utilities-cryptoutils-getcid-system-string-"></a>
+### GetCid(value) `method` <a name="mundefinedvbase-core-utilities-cryptoutils-getcid-system-string-" id="mundefinedvbase-core-utilities-cryptoutils-getcid-system-string-" href="#mundefinedvbase-core-utilities-cryptoutils-getcid-system-string-"></a>
 
 ##### Summary
 
@@ -170,7 +170,7 @@ SHA3 256 hash object
 | ---- | ---- | ----------- |
 | value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | input string |
 
-## ForwarderCommitmentService `type` <a name="t-vbase-core-web3commitmentservice-forwardercommitmentservice" id="t-vbase-core-web3commitmentservice-forwardercommitmentservice" href="#t-vbase-core-web3commitmentservice-forwardercommitmentservice"></a>
+## ForwarderCommitmentService `type` <a name="tundefinedvbase-core-web3commitmentservice-forwardercommitmentservice" id="tundefinedvbase-core-web3commitmentservice-forwardercommitmentservice" href="#tundefinedvbase-core-web3commitmentservice-forwardercommitmentservice"></a>
 
 ##### Namespace
 
@@ -180,7 +180,7 @@ vBase.Core.Web3CommitmentService
 
 Provides access to the CommitmentService smart contract over vBase forwarder.
 
-## ICommitmentService `type` <a name="t-vbase-core-icommitmentservice" id="t-vbase-core-icommitmentservice" href="#t-vbase-core-icommitmentservice"></a>
+## ICommitmentService `type` <a name="tundefinedvbase-core-icommitmentservice" id="tundefinedvbase-core-icommitmentservice" href="#tundefinedvbase-core-icommitmentservice"></a>
 
 ##### Namespace
 
@@ -190,13 +190,13 @@ vBase.Core
 
 Common interface for commitment services.
 
-### AccountIdentifier `property` <a name="p-vbase-core-icommitmentservice-accountidentifier" id="p-vbase-core-icommitmentservice-accountidentifier" href="#p-vbase-core-icommitmentservice-accountidentifier"></a>
+### AccountIdentifier `property` <a name="pundefinedvbase-core-icommitmentservice-accountidentifier" id="pundefinedvbase-core-icommitmentservice-accountidentifier" href="#pundefinedvbase-core-icommitmentservice-accountidentifier"></a>
 
 ##### Summary
 
 Current user account identifier.
 
-### AddSet(setCid) `method` <a name="m-vbase-core-icommitmentservice-addset-vbase-core-cid-" id="m-vbase-core-icommitmentservice-addset-vbase-core-cid-" href="#m-vbase-core-icommitmentservice-addset-vbase-core-cid-"></a>
+### AddSet(setCid) `method` <a name="mundefinedvbase-core-icommitmentservice-addset-vbase-core-cid-" id="mundefinedvbase-core-icommitmentservice-addset-vbase-core-cid-" href="#mundefinedvbase-core-icommitmentservice-addset-vbase-core-cid-"></a>
 
 ##### Summary
 
@@ -207,9 +207,9 @@ If the set already exists, no action will be taken.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| setCid | [vBase.Core.Cid](#t-vbase-core-cid 'vBase.Core.Cid') | The CID identifying the set. |
+| setCid | [vBase.Core.Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') | The CID identifying the set. |
 
-### AddSetObject(setCid,objectCid) `method` <a name="m-vbase-core-icommitmentservice-addsetobject-vbase-core-cid%2Cvbase-core-cid-" id="m-vbase-core-icommitmentservice-addsetobject-vbase-core-cid%2Cvbase-core-cid-" href="#m-vbase-core-icommitmentservice-addsetobject-vbase-core-cid%2Cvbase-core-cid-"></a>
+### AddSetObject(setCid,objectCid) `method` <a name="mundefinedvbase-core-icommitmentservice-addsetobject-vbase-core-cidundefinedvbase-core-cid-" id="mundefinedvbase-core-icommitmentservice-addsetobject-vbase-core-cidundefinedvbase-core-cid-" href="#mundefinedvbase-core-icommitmentservice-addsetobject-vbase-core-cidundefinedvbase-core-cid-"></a>
 
 ##### Summary
 
@@ -223,10 +223,10 @@ Receipt of the operation.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| setCid | [vBase.Core.Cid](#t-vbase-core-cid 'vBase.Core.Cid') | CID of the set where the objectCid will be added. |
-| objectCid | [vBase.Core.Cid](#t-vbase-core-cid 'vBase.Core.Cid') | Object CID to add. |
+| setCid | [vBase.Core.Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') | CID of the set where the objectCid will be added. |
+| objectCid | [vBase.Core.Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') | Object CID to add. |
 
-### UserSetExists(user,setCid) `method` <a name="m-vbase-core-icommitmentservice-usersetexists-system-string%2Cvbase-core-cid-" id="m-vbase-core-icommitmentservice-usersetexists-system-string%2Cvbase-core-cid-" href="#m-vbase-core-icommitmentservice-usersetexists-system-string%2Cvbase-core-cid-"></a>
+### UserSetExists(user,setCid) `method` <a name="mundefinedvbase-core-icommitmentservice-usersetexists-system-stringundefinedvbase-core-cid-" id="mundefinedvbase-core-icommitmentservice-usersetexists-system-stringundefinedvbase-core-cid-" href="#mundefinedvbase-core-icommitmentservice-usersetexists-system-stringundefinedvbase-core-cid-"></a>
 
 ##### Summary
 
@@ -237,9 +237,9 @@ Checks if the specified object set exists.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | user | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Set owner. |
-| setCid | [vBase.Core.Cid](#t-vbase-core-cid 'vBase.Core.Cid') | CID of the set. |
+| setCid | [vBase.Core.Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') | CID of the set. |
 
-### VerifyUserObject(user,objectCid,timestamp) `method` <a name="m-vbase-core-icommitmentservice-verifyuserobject-system-string%2Cvbase-core-cid%2Csystem-datetimeoffset-" id="m-vbase-core-icommitmentservice-verifyuserobject-system-string%2Cvbase-core-cid%2Csystem-datetimeoffset-" href="#m-vbase-core-icommitmentservice-verifyuserobject-system-string%2Cvbase-core-cid%2Csystem-datetimeoffset-"></a>
+### VerifyUserObject(user,objectCid,timestamp) `method` <a name="mundefinedvbase-core-icommitmentservice-verifyuserobject-system-stringundefinedvbase-core-cid%2Csystem-datetimeoffset-" id="mundefinedvbase-core-icommitmentservice-verifyuserobject-system-stringundefinedvbase-core-cid%2Csystem-datetimeoffset-" href="#mundefinedvbase-core-icommitmentservice-verifyuserobject-system-stringundefinedvbase-core-cid%2Csystem-datetimeoffset-"></a>
 
 ##### Summary
 
@@ -254,10 +254,10 @@ True if the commitment has been verified successfully; False otherwise.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | user | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The address for the user who recorded the commitment. |
-| objectCid | [vBase.Core.Cid](#t-vbase-core-cid 'vBase.Core.Cid') | The CID identifying the object. |
+| objectCid | [vBase.Core.Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') | The CID identifying the object. |
 | timestamp | [System.DateTimeOffset](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTimeOffset 'System.DateTimeOffset') | The timestamp of the transaction. |
 
-### VerifyUserSetObjects(user,setCid,userSetObjectCidSum) `method` <a name="m-vbase-core-icommitmentservice-verifyusersetobjects-system-string%2Cvbase-core-cid%2Csystem-numerics-biginteger-" id="m-vbase-core-icommitmentservice-verifyusersetobjects-system-string%2Cvbase-core-cid%2Csystem-numerics-biginteger-" href="#m-vbase-core-icommitmentservice-verifyusersetobjects-system-string%2Cvbase-core-cid%2Csystem-numerics-biginteger-"></a>
+### VerifyUserSetObjects(user,setCid,userSetObjectCidSum) `method` <a name="mundefinedvbase-core-icommitmentservice-verifyusersetobjects-system-stringundefinedvbase-core-cid%2Csystem-numerics-biginteger-" id="mundefinedvbase-core-icommitmentservice-verifyusersetobjects-system-stringundefinedvbase-core-cid%2Csystem-numerics-biginteger-" href="#mundefinedvbase-core-icommitmentservice-verifyusersetobjects-system-stringundefinedvbase-core-cid%2Csystem-numerics-biginteger-"></a>
 
 ##### Summary
 
@@ -272,10 +272,10 @@ True if the commitment has been verified successfully; False otherwise.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | user | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The address for the user who recorded the commitment. |
-| setCid | [vBase.Core.Cid](#t-vbase-core-cid 'vBase.Core.Cid') | The CID for the set containing the object. |
+| setCid | [vBase.Core.Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') | The CID for the set containing the object. |
 | userSetObjectCidSum | [System.Numerics.BigInteger](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Numerics.BigInteger 'System.Numerics.BigInteger') | The sum of all object hashes for the user set. |
 
-## JsonSerializationDto `type` <a name="t-vbase-core-dataset-jsonserializationdto" id="t-vbase-core-dataset-jsonserializationdto" href="#t-vbase-core-dataset-jsonserializationdto"></a>
+## JsonSerializationDto `type` <a name="tundefinedvbase-core-dataset-jsonserializationdto" id="tundefinedvbase-core-dataset-jsonserializationdto" href="#tundefinedvbase-core-dataset-jsonserializationdto"></a>
 
 ##### Namespace
 
@@ -286,7 +286,7 @@ vBase.Core.Dataset
 DTO for dataset JSON serialization.
 It's important to keep this class in sync with the Python and other SDKs.
 
-## Receipt `type` <a name="t-vbase-core-receipt" id="t-vbase-core-receipt" href="#t-vbase-core-receipt"></a>
+## Receipt `type` <a name="tundefinedvbase-core-receipt" id="tundefinedvbase-core-receipt" href="#tundefinedvbase-core-receipt"></a>
 
 ##### Namespace
 
@@ -296,7 +296,7 @@ vBase.Core
 
 Represents a transaction receipt.
 
-### #ctor() `constructor` <a name="m-vbase-core-receipt-%23ctor-system-datetimeoffset-" id="m-vbase-core-receipt-%23ctor-system-datetimeoffset-" href="#m-vbase-core-receipt-%23ctor-system-datetimeoffset-"></a>
+### #ctor() `constructor` <a name="mundefinedvbase-core-receipt-%23ctor-system-datetimeoffset-" id="mundefinedvbase-core-receipt-%23ctor-system-datetimeoffset-" href="#mundefinedvbase-core-receipt-%23ctor-system-datetimeoffset-"></a>
 
 ##### Summary
 
@@ -306,7 +306,7 @@ Represents a transaction receipt.
 
 This constructor has no parameters.
 
-## Utils `type` <a name="t-vbase-core-utilities-utils" id="t-vbase-core-utilities-utils" href="#t-vbase-core-utilities-utils"></a>
+## Utils `type` <a name="tundefinedvbase-core-utilities-utils" id="tundefinedvbase-core-utilities-utils" href="#tundefinedvbase-core-utilities-utils"></a>
 
 ##### Namespace
 
@@ -316,7 +316,7 @@ vBase.Core.Utilities
 
 Provides utility methods.
 
-## VerificationResult `type` <a name="t-vbase-core-dataset-verificationresult" id="t-vbase-core-dataset-verificationresult" href="#t-vbase-core-dataset-verificationresult"></a>
+## VerificationResult `type` <a name="tundefinedvbase-core-dataset-verificationresult" id="tundefinedvbase-core-dataset-verificationresult" href="#tundefinedvbase-core-dataset-verificationresult"></a>
 
 ##### Namespace
 
@@ -325,21 +325,21 @@ vBase.Core.Dataset
 ##### Summary
 
 Contains a list of verification findings.
-[VerifyCommitments](#m-vbase-core-dataset-vbasedataset-verifycommitments 'vBase.Core.Dataset.vBaseDataset.VerifyCommitments')
+[VerifyCommitments](#mundefinedvbase-core-dataset-vbasedataset-verifycommitments 'vBase.Core.Dataset.vBaseDataset.VerifyCommitments')
 
-### VerificationFindings `property` <a name="p-vbase-core-dataset-verificationresult-verificationfindings" id="p-vbase-core-dataset-verificationresult-verificationfindings" href="#p-vbase-core-dataset-verificationresult-verificationfindings"></a>
+### VerificationFindings `property` <a name="pundefinedvbase-core-dataset-verificationresult-verificationfindings" id="pundefinedvbase-core-dataset-verificationresult-verificationfindings" href="#pundefinedvbase-core-dataset-verificationresult-verificationfindings"></a>
 
 ##### Summary
 
 A collection of verification findings.
 
-### VerificationPassed `property` <a name="p-vbase-core-dataset-verificationresult-verificationpassed" id="p-vbase-core-dataset-verificationresult-verificationpassed" href="#p-vbase-core-dataset-verificationresult-verificationpassed"></a>
+### VerificationPassed `property` <a name="pundefinedvbase-core-dataset-verificationresult-verificationpassed" id="pundefinedvbase-core-dataset-verificationresult-verificationpassed" href="#pundefinedvbase-core-dataset-verificationresult-verificationpassed"></a>
 
 ##### Summary
 
 Indicates whether the verification passed.
 
-### AddFinding(finding) `method` <a name="m-vbase-core-dataset-verificationresult-addfinding-system-string-" id="m-vbase-core-dataset-verificationresult-addfinding-system-string-" href="#m-vbase-core-dataset-verificationresult-addfinding-system-string-"></a>
+### AddFinding(finding) `method` <a name="mundefinedvbase-core-dataset-verificationresult-addfinding-system-string-" id="mundefinedvbase-core-dataset-verificationresult-addfinding-system-string-" href="#mundefinedvbase-core-dataset-verificationresult-addfinding-system-string-"></a>
 
 ##### Summary
 
@@ -351,7 +351,7 @@ Adds a finding to the verification result.
 | ---- | ---- | ----------- |
 | finding | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
 
-## Web3CommitmentService `type` <a name="t-vbase-core-web3commitmentservice-web3commitmentservice" id="t-vbase-core-web3commitmentservice-web3commitmentservice" href="#t-vbase-core-web3commitmentservice-web3commitmentservice"></a>
+## Web3CommitmentService `type` <a name="tundefinedvbase-core-web3commitmentservice-web3commitmentservice" id="tundefinedvbase-core-web3commitmentservice-web3commitmentservice" href="#tundefinedvbase-core-web3commitmentservice-web3commitmentservice"></a>
 
 ##### Namespace
 
@@ -361,7 +361,7 @@ vBase.Core.Web3CommitmentService
 
 Provides access to the CommitmentService smart contract.
 
-### CallContractFunction(function,functionData) `method` <a name="m-vbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-nethereum-contracts-function%2Csystem-string-" id="m-vbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-nethereum-contracts-function%2Csystem-string-" href="#m-vbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-nethereum-contracts-function%2Csystem-string-"></a>
+### CallContractFunction(function,functionData) `method` <a name="mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-nethereum-contracts-functionundefinedsystem-string-" id="mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-nethereum-contracts-functionundefinedsystem-string-" href="#mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-nethereum-contracts-functionundefinedsystem-string-"></a>
 
 ##### Summary
 
@@ -375,10 +375,10 @@ Executes Smart Contract function.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| function | [Nethereum.Contracts.Function](#t-nethereum-contracts-function 'Nethereum.Contracts.Function') | Function descriptor. |
+| function | [Nethereum.Contracts.Function](#tundefinednethereum-contracts-function 'Nethereum.Contracts.Function') | Function descriptor. |
 | functionData | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Data which will be passed as a function arguments. |
 
-### CallContractFunction(functionName,functionInput) `method` <a name="m-vbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-system-string%2Csystem-object%5B%5D-" id="m-vbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-system-string%2Csystem-object%5B%5D-" href="#m-vbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-system-string%2Csystem-object%5B%5D-"></a>
+### CallContractFunction(functionName,functionInput) `method` <a name="mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-system-stringundefinedsystem-object%5B%5D-" id="mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-system-stringundefinedsystem-object%5B%5D-" href="#mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callcontractfunction-system-stringundefinedsystem-object%5B%5D-"></a>
 
 ##### Summary
 
@@ -395,7 +395,7 @@ The result of the contract function execution.
 | functionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the function to call. |
 | functionInput | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | The input parameters for the function. |
 
-### CallStateVariable\`\`1(stateVariableName,functionInput) `method` <a name="m-vbase-core-web3commitmentservice-web3commitmentservice-callstatevariable%60%601-system-string%2Csystem-object%5B%5D-" id="m-vbase-core-web3commitmentservice-web3commitmentservice-callstatevariable%60%601-system-string%2Csystem-object%5B%5D-" href="#m-vbase-core-web3commitmentservice-web3commitmentservice-callstatevariable%60%601-system-string%2Csystem-object%5B%5D-"></a>
+### CallStateVariable\`\`1(stateVariableName,functionInput) `method` <a name="mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callstatevariableundefined%601-system-stringundefinedsystem-object%5B%5D-" id="mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callstatevariableundefined%601-system-stringundefinedsystem-object%5B%5D-" href="#mundefinedvbase-core-web3commitmentservice-web3commitmentservice-callstatevariableundefined%601-system-stringundefinedsystem-object%5B%5D-"></a>
 
 ##### Summary
 
@@ -418,7 +418,7 @@ Variable value
 | ---- | ----------- |
 | TResultType | Expected variable type |
 
-### FetchStateVariable\`\`1(functionData) `method` <a name="m-vbase-core-web3commitmentservice-web3commitmentservice-fetchstatevariable%60%601-system-string-" id="m-vbase-core-web3commitmentservice-web3commitmentservice-fetchstatevariable%60%601-system-string-" href="#m-vbase-core-web3commitmentservice-web3commitmentservice-fetchstatevariable%60%601-system-string-"></a>
+### FetchStateVariable\`\`1(functionData) `method` <a name="mundefinedvbase-core-web3commitmentservice-web3commitmentservice-fetchstatevariableundefined%601-system-string-" id="mundefinedvbase-core-web3commitmentservice-web3commitmentservice-fetchstatevariableundefined%601-system-string-" href="#mundefinedvbase-core-web3commitmentservice-web3commitmentservice-fetchstatevariableundefined%601-system-string-"></a>
 
 ##### Summary
 
@@ -440,7 +440,7 @@ Variable value
 | ---- | ----------- |
 | TResultType | Expected result type |
 
-## Web3Receipt `type` <a name="t-vbase-core-web3commitmentservice-web3receipt" id="t-vbase-core-web3commitmentservice-web3receipt" href="#t-vbase-core-web3commitmentservice-web3receipt"></a>
+## Web3Receipt `type` <a name="tundefinedvbase-core-web3commitmentservice-web3receipt" id="tundefinedvbase-core-web3commitmentservice-web3receipt" href="#tundefinedvbase-core-web3commitmentservice-web3receipt"></a>
 
 ##### Namespace
 
@@ -451,7 +451,7 @@ vBase.Core.Web3CommitmentService
 WEB3-specific receipt.
 Additionally to the base timestamp, it contains the transaction hash.
 
-### #ctor() `constructor` <a name="m-vbase-core-web3commitmentservice-web3receipt-%23ctor-system-string%2Csystem-datetimeoffset-" id="m-vbase-core-web3commitmentservice-web3receipt-%23ctor-system-string%2Csystem-datetimeoffset-" href="#m-vbase-core-web3commitmentservice-web3receipt-%23ctor-system-string%2Csystem-datetimeoffset-"></a>
+### #ctor() `constructor` <a name="mundefinedvbase-core-web3commitmentservice-web3receipt-%23ctor-system-stringundefinedsystem-datetimeoffset-" id="mundefinedvbase-core-web3commitmentservice-web3receipt-%23ctor-system-stringundefinedsystem-datetimeoffset-" href="#mundefinedvbase-core-web3commitmentservice-web3receipt-%23ctor-system-stringundefinedsystem-datetimeoffset-"></a>
 
 ##### Summary
 
@@ -462,7 +462,7 @@ Additionally to the base timestamp, it contains the transaction hash.
 
 This constructor has no parameters.
 
-## vBaseClient `type` <a name="t-vbase-core-vbaseclient" id="t-vbase-core-vbaseclient" href="#t-vbase-core-vbaseclient"></a>
+## vBaseClient `type` <a name="tundefinedvbase-core-vbaseclient" id="tundefinedvbase-core-vbaseclient" href="#tundefinedvbase-core-vbaseclient"></a>
 
 ##### Namespace
 
@@ -472,7 +472,7 @@ vBase.Core
 
 Provides Python validityBase (vBase) access.
 
-### AddNamedSet(name) `method` <a name="m-vbase-core-vbaseclient-addnamedset-system-string-" id="m-vbase-core-vbaseclient-addnamedset-system-string-" href="#m-vbase-core-vbaseclient-addnamedset-system-string-"></a>
+### AddNamedSet(name) `method` <a name="mundefinedvbase-core-vbaseclient-addnamedset-system-string-" id="mundefinedvbase-core-vbaseclient-addnamedset-system-string-" href="#mundefinedvbase-core-vbaseclient-addnamedset-system-string-"></a>
 
 ##### Summary
 
@@ -488,7 +488,7 @@ A task representing the asynchronous operation.
 | ---- | ---- | ----------- |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the set to add. |
 
-### AddSet(setCid) `method` <a name="m-vbase-core-vbaseclient-addset-vbase-core-cid-" id="m-vbase-core-vbaseclient-addset-vbase-core-cid-" href="#m-vbase-core-vbaseclient-addset-vbase-core-cid-"></a>
+### AddSet(setCid) `method` <a name="mundefinedvbase-core-vbaseclient-addset-vbase-core-cid-" id="mundefinedvbase-core-vbaseclient-addset-vbase-core-cid-" href="#mundefinedvbase-core-vbaseclient-addset-vbase-core-cid-"></a>
 
 ##### Summary
 
@@ -502,9 +502,9 @@ A task representing the asynchronous operation.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| setCid | [vBase.Core.Cid](#t-vbase-core-cid 'vBase.Core.Cid') | The identifier of the set. |
+| setCid | [vBase.Core.Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') | The identifier of the set. |
 
-### AddSetObject(setCid,objectCid) `method` <a name="m-vbase-core-vbaseclient-addsetobject-vbase-core-cid%2Cvbase-core-cid-" id="m-vbase-core-vbaseclient-addsetobject-vbase-core-cid%2Cvbase-core-cid-" href="#m-vbase-core-vbaseclient-addsetobject-vbase-core-cid%2Cvbase-core-cid-"></a>
+### AddSetObject(setCid,objectCid) `method` <a name="mundefinedvbase-core-vbaseclient-addsetobject-vbase-core-cidundefinedvbase-core-cid-" id="mundefinedvbase-core-vbaseclient-addsetobject-vbase-core-cidundefinedvbase-core-cid-" href="#mundefinedvbase-core-vbaseclient-addsetobject-vbase-core-cidundefinedvbase-core-cid-"></a>
 
 ##### Summary
 
@@ -518,10 +518,10 @@ Receipt of the operation.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| setCid | [vBase.Core.Cid](#t-vbase-core-cid 'vBase.Core.Cid') | Set CID. |
-| objectCid | [vBase.Core.Cid](#t-vbase-core-cid 'vBase.Core.Cid') | Object to add CID. |
+| setCid | [vBase.Core.Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') | Set CID. |
+| objectCid | [vBase.Core.Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') | Object to add CID. |
 
-### UserNamedSetExists(user,name) `method` <a name="m-vbase-core-vbaseclient-usernamedsetexists-system-string%2Csystem-string-" id="m-vbase-core-vbaseclient-usernamedsetexists-system-string%2Csystem-string-" href="#m-vbase-core-vbaseclient-usernamedsetexists-system-string%2Csystem-string-"></a>
+### UserNamedSetExists(user,name) `method` <a name="mundefinedvbase-core-vbaseclient-usernamedsetexists-system-stringundefinedsystem-string-" id="mundefinedvbase-core-vbaseclient-usernamedsetexists-system-stringundefinedsystem-string-" href="#mundefinedvbase-core-vbaseclient-usernamedsetexists-system-stringundefinedsystem-string-"></a>
 
 ##### Summary
 
@@ -538,7 +538,7 @@ Checks if the user has a set with the specified CID.
 | user | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | User's identifier. |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Name of the set. |
 
-### VerifyUserObject(user,objectCid,timestamp) `method` <a name="m-vbase-core-vbaseclient-verifyuserobject-system-string%2Cvbase-core-cid%2Csystem-datetimeoffset-" id="m-vbase-core-vbaseclient-verifyuserobject-system-string%2Cvbase-core-cid%2Csystem-datetimeoffset-" href="#m-vbase-core-vbaseclient-verifyuserobject-system-string%2Cvbase-core-cid%2Csystem-datetimeoffset-"></a>
+### VerifyUserObject(user,objectCid,timestamp) `method` <a name="mundefinedvbase-core-vbaseclient-verifyuserobject-system-stringundefinedvbase-core-cid%2Csystem-datetimeoffset-" id="mundefinedvbase-core-vbaseclient-verifyuserobject-system-stringundefinedvbase-core-cid%2Csystem-datetimeoffset-" href="#mundefinedvbase-core-vbaseclient-verifyuserobject-system-stringundefinedvbase-core-cid%2Csystem-datetimeoffset-"></a>
 
 ##### Summary
 
@@ -553,10 +553,10 @@ True if the object was stamped; otherwise, false.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | user | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The object owner. |
-| objectCid | [vBase.Core.Cid](#t-vbase-core-cid 'vBase.Core.Cid') | The object identifier. |
+| objectCid | [vBase.Core.Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') | The object identifier. |
 | timestamp | [System.DateTimeOffset](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTimeOffset 'System.DateTimeOffset') | The time when the object was stamped. |
 
-### VerifyUserSetObjects(user,setCid,userSetObjectsCidSum) `method` <a name="m-vbase-core-vbaseclient-verifyusersetobjects-system-string%2Cvbase-core-cid%2Csystem-numerics-biginteger-" id="m-vbase-core-vbaseclient-verifyusersetobjects-system-string%2Cvbase-core-cid%2Csystem-numerics-biginteger-" href="#m-vbase-core-vbaseclient-verifyusersetobjects-system-string%2Cvbase-core-cid%2Csystem-numerics-biginteger-"></a>
+### VerifyUserSetObjects(user,setCid,userSetObjectsCidSum) `method` <a name="mundefinedvbase-core-vbaseclient-verifyusersetobjects-system-stringundefinedvbase-core-cid%2Csystem-numerics-biginteger-" id="mundefinedvbase-core-vbaseclient-verifyusersetobjects-system-stringundefinedvbase-core-cid%2Csystem-numerics-biginteger-" href="#mundefinedvbase-core-vbaseclient-verifyusersetobjects-system-stringundefinedvbase-core-cid%2Csystem-numerics-biginteger-"></a>
 
 ##### Summary
 
@@ -572,10 +572,10 @@ A boolean indicating whether the sums match.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | user | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The set owner. |
-| setCid | [vBase.Core.Cid](#t-vbase-core-cid 'vBase.Core.Cid') | The CID of the set. |
+| setCid | [vBase.Core.Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') | The CID of the set. |
 | userSetObjectsCidSum | [System.Numerics.BigInteger](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Numerics.BigInteger 'System.Numerics.BigInteger') | The sum of the CIDs of all objects belonging to the set. |
 
-## vBaseDataset `type` <a name="t-vbase-core-dataset-vbasedataset" id="t-vbase-core-dataset-vbasedataset" href="#t-vbase-core-dataset-vbasedataset"></a>
+## vBaseDataset `type` <a name="tundefinedvbase-core-dataset-vbasedataset" id="tundefinedvbase-core-dataset-vbasedataset" href="#tundefinedvbase-core-dataset-vbasedataset"></a>
 
 ##### Namespace
 
@@ -585,7 +585,7 @@ vBase.Core.Dataset
 
 vBase dataset.
 
-### #ctor(vBaseClient,name,recordTypeName) `constructor` <a name="m-vbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclient%2Csystem-string%2Csystem-string-" id="m-vbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclient%2Csystem-string%2Csystem-string-" href="#m-vbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclient%2Csystem-string%2Csystem-string-"></a>
+### #ctor(vBaseClient,name,recordTypeName) `constructor` <a name="mundefinedvbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclientundefinedsystem-string%2Csystem-string-" id="mundefinedvbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclientundefinedsystem-string%2Csystem-string-" href="#mundefinedvbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclientundefinedsystem-string%2Csystem-string-"></a>
 
 ##### Summary
 
@@ -595,7 +595,7 @@ Creates a new instance of the vBase dataset.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| vBaseClient | [vBase.Core.vBaseClient](#t-vbase-core-vbaseclient 'vBase.Core.vBaseClient') | The vBaseClient used for communication with the vBase smart protocol. |
+| vBaseClient | [vBase.Core.vBaseClient](#tundefinedvbase-core-vbaseclient 'vBase.Core.vBaseClient') | The vBaseClient used for communication with the vBase smart protocol. |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the dataset. |
 | recordTypeName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The type of records to be stored in the dataset. |
 
@@ -605,7 +605,7 @@ Creates a new instance of the vBase dataset.
 | ---- | ----------- |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if an unknown record type is provided. |
 
-### #ctor(vBaseClient,json) `constructor` <a name="m-vbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclient%2Csystem-string-" id="m-vbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclient%2Csystem-string-" href="#m-vbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclient%2Csystem-string-"></a>
+### #ctor(vBaseClient,json) `constructor` <a name="mundefinedvbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclientundefinedsystem-string-" id="mundefinedvbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclientundefinedsystem-string-" href="#mundefinedvbase-core-dataset-vbasedataset-%23ctor-vbase-core-vbaseclientundefinedsystem-string-"></a>
 
 ##### Summary
 
@@ -615,16 +615,16 @@ Creates a new instance of the vBase dataset from JSON.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| vBaseClient | [vBase.Core.vBaseClient](#t-vbase-core-vbaseclient 'vBase.Core.vBaseClient') | The vBaseClient used for communication with the vBase smart protocol. |
+| vBaseClient | [vBase.Core.vBaseClient](#tundefinedvbase-core-vbaseclient 'vBase.Core.vBaseClient') | The vBaseClient used for communication with the vBase smart protocol. |
 | json | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The JSON representation of the dataset. JSON created by vBase SDKs for other platforms, such as Python or Java, is also supported. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [vBase.Core.Exceptions.vBaseException](#t-vbase-core-exceptions-vbaseexception 'vBase.Core.Exceptions.vBaseException') | Thrown when the current CID generation algorithm does not match the one used to generate the provided JSON. |
+| [vBase.Core.Exceptions.vBaseException](#tundefinedvbase-core-exceptions-vbaseexception 'vBase.Core.Exceptions.vBaseException') | Thrown when the current CID generation algorithm does not match the one used to generate the provided JSON. |
 
-### AddRecord(recordData) `method` <a name="m-vbase-core-dataset-vbasedataset-addrecord-system-object-" id="m-vbase-core-dataset-vbasedataset-addrecord-system-object-" href="#m-vbase-core-dataset-vbasedataset-addrecord-system-object-"></a>
+### AddRecord(recordData) `method` <a name="mundefinedvbase-core-dataset-vbasedataset-addrecord-system-object-" id="mundefinedvbase-core-dataset-vbasedataset-addrecord-system-object-" href="#mundefinedvbase-core-dataset-vbasedataset-addrecord-system-object-"></a>
 
 ##### Summary
 
@@ -640,7 +640,7 @@ A transaction receipt.
 | ---- | ---- | ----------- |
 | recordData | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The record to add. The record type must match the dataset type. |
 
-### Initialize() `method` <a name="m-vbase-core-dataset-vbasedataset-initialize" id="m-vbase-core-dataset-vbasedataset-initialize" href="#m-vbase-core-dataset-vbasedataset-initialize"></a>
+### Initialize() `method` <a name="mundefinedvbase-core-dataset-vbasedataset-initialize" id="mundefinedvbase-core-dataset-vbasedataset-initialize" href="#mundefinedvbase-core-dataset-vbasedataset-initialize"></a>
 
 ##### Summary
 
@@ -654,7 +654,7 @@ A task representing the asynchronous operation.
 
 This method has no parameters.
 
-### ToJson() `method` <a name="m-vbase-core-dataset-vbasedataset-tojson" id="m-vbase-core-dataset-vbasedataset-tojson" href="#m-vbase-core-dataset-vbasedataset-tojson"></a>
+### ToJson() `method` <a name="mundefinedvbase-core-dataset-vbasedataset-tojson" id="mundefinedvbase-core-dataset-vbasedataset-tojson" href="#mundefinedvbase-core-dataset-vbasedataset-tojson"></a>
 
 ##### Summary
 
@@ -668,7 +668,7 @@ A JSON string.
 
 This method has no parameters.
 
-### VerifyCommitments() `method` <a name="m-vbase-core-dataset-vbasedataset-verifycommitments" id="m-vbase-core-dataset-vbasedataset-verifycommitments" href="#m-vbase-core-dataset-vbasedataset-verifycommitments"></a>
+### VerifyCommitments() `method` <a name="mundefinedvbase-core-dataset-vbasedataset-verifycommitments" id="mundefinedvbase-core-dataset-vbasedataset-verifycommitments" href="#mundefinedvbase-core-dataset-vbasedataset-verifycommitments"></a>
 
 ##### Summary
 
@@ -685,7 +685,7 @@ than exist in this client-side dataset.
 
 This method has no parameters.
 
-## vBaseException `type` <a name="t-vbase-core-exceptions-vbaseexception" id="t-vbase-core-exceptions-vbaseexception" href="#t-vbase-core-exceptions-vbaseexception"></a>
+## vBaseException `type` <a name="tundefinedvbase-core-exceptions-vbaseexception" id="tundefinedvbase-core-exceptions-vbaseexception" href="#tundefinedvbase-core-exceptions-vbaseexception"></a>
 
 ##### Namespace
 
@@ -695,7 +695,7 @@ vBase.Core.Exceptions
 
 Base exception for all vBase exceptions.
 
-## vBaseObject `type` <a name="t-vbase-core-dataset-vbaseobjects-vbaseobject" id="t-vbase-core-dataset-vbaseobjects-vbaseobject" href="#t-vbase-core-dataset-vbaseobjects-vbaseobject"></a>
+## vBaseObject `type` <a name="tundefinedvbase-core-dataset-vbaseobjects-vbaseobject" id="tundefinedvbase-core-dataset-vbaseobjects-vbaseobject" href="#tundefinedvbase-core-dataset-vbaseobjects-vbaseobject"></a>
 
 ##### Namespace
 
@@ -706,23 +706,23 @@ vBase.Core.Dataset.vBaseObjects
 Base class for all vBase objects.
 Each implementation should provide a constructor with one object parameter, and parameterless constructor.
 
-### Data `property` <a name="p-vbase-core-dataset-vbaseobjects-vbaseobject-data" id="p-vbase-core-dataset-vbaseobjects-vbaseobject-data" href="#p-vbase-core-dataset-vbaseobjects-vbaseobject-data"></a>
+### Data `property` <a name="pundefinedvbase-core-dataset-vbaseobjects-vbaseobject-data" id="pundefinedvbase-core-dataset-vbaseobjects-vbaseobject-data" href="#pundefinedvbase-core-dataset-vbaseobjects-vbaseobject-data"></a>
 
 ##### Summary
 
 The data stored in the object.
 
-### StringData `property` <a name="p-vbase-core-dataset-vbaseobjects-vbaseobject-stringdata" id="p-vbase-core-dataset-vbaseobjects-vbaseobject-stringdata" href="#p-vbase-core-dataset-vbaseobjects-vbaseobject-stringdata"></a>
+### StringData `property` <a name="pundefinedvbase-core-dataset-vbaseobjects-vbaseobject-stringdata" id="pundefinedvbase-core-dataset-vbaseobjects-vbaseobject-stringdata" href="#pundefinedvbase-core-dataset-vbaseobjects-vbaseobject-stringdata"></a>
 
 ##### Summary
 
 String representation of the data.
 
-### GetCid() `method` <a name="m-vbase-core-dataset-vbaseobjects-vbaseobject-getcid" id="m-vbase-core-dataset-vbaseobjects-vbaseobject-getcid" href="#m-vbase-core-dataset-vbaseobjects-vbaseobject-getcid"></a>
+### GetCid() `method` <a name="mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-getcid" id="mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-getcid" href="#mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-getcid"></a>
 
 ##### Summary
 
-Returns the [Cid](#t-vbase-core-cid 'vBase.Core.Cid') of the object.
+Returns the [Cid](#tundefinedvbase-core-cid 'vBase.Core.Cid') of the object.
 
 ##### Returns
 
@@ -732,7 +732,7 @@ CID (Content Identifiers) for the current object
 
 This method has no parameters.
 
-### GetJson() `method` <a name="m-vbase-core-dataset-vbaseobjects-vbaseobject-getjson" id="m-vbase-core-dataset-vbaseobjects-vbaseobject-getjson" href="#m-vbase-core-dataset-vbaseobjects-vbaseobject-getjson"></a>
+### GetJson() `method` <a name="mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-getjson" id="mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-getjson" href="#mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-getjson"></a>
 
 ##### Summary
 
@@ -746,7 +746,7 @@ Serializes the object to a JSON value.
 
 This method has no parameters.
 
-### InitFromJson(jData) `method` <a name="m-vbase-core-dataset-vbaseobjects-vbaseobject-initfromjson-newtonsoft-json-linq-jvalue-" id="m-vbase-core-dataset-vbaseobjects-vbaseobject-initfromjson-newtonsoft-json-linq-jvalue-" href="#m-vbase-core-dataset-vbaseobjects-vbaseobject-initfromjson-newtonsoft-json-linq-jvalue-"></a>
+### InitFromJson(jData) `method` <a name="mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-initfromjson-newtonsoft-json-linq-jvalue-" id="mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-initfromjson-newtonsoft-json-linq-jvalue-" href="#mundefinedvbase-core-dataset-vbaseobjects-vbaseobject-initfromjson-newtonsoft-json-linq-jvalue-"></a>
 
 ##### Summary
 
@@ -756,9 +756,9 @@ Initializes the object from a JSON object.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| jData | [Newtonsoft.Json.Linq.JValue](#t-newtonsoft-json-linq-jvalue 'Newtonsoft.Json.Linq.JValue') | Json value. |
+| jData | [Newtonsoft.Json.Linq.JValue](#tundefinednewtonsoft-json-linq-jvalue 'Newtonsoft.Json.Linq.JValue') | Json value. |
 
-## vBaseStringObject `type` <a name="t-vbase-core-dataset-vbaseobjects-vbasestringobject" id="t-vbase-core-dataset-vbaseobjects-vbasestringobject" href="#t-vbase-core-dataset-vbaseobjects-vbasestringobject"></a>
+## vBaseStringObject `type` <a name="tundefinedvbase-core-dataset-vbaseobjects-vbasestringobject" id="tundefinedvbase-core-dataset-vbaseobjects-vbasestringobject" href="#tundefinedvbase-core-dataset-vbaseobjects-vbasestringobject"></a>
 
 ##### Namespace
 
@@ -768,7 +768,7 @@ vBase.Core.Dataset.vBaseObjects
 
 vBase Object representing a string data.
 
-### vBaseObjectType `constants` <a name="f-vbase-core-dataset-vbaseobjects-vbasestringobject-vbaseobjecttype" id="f-vbase-core-dataset-vbaseobjects-vbasestringobject-vbaseobjecttype" href="#f-vbase-core-dataset-vbaseobjects-vbasestringobject-vbaseobjecttype"></a>
+### vBaseObjectType `constants` <a name="fundefinedvbase-core-dataset-vbaseobjects-vbasestringobject-vbaseobjecttype" id="fundefinedvbase-core-dataset-vbaseobjects-vbasestringobject-vbaseobjecttype" href="#fundefinedvbase-core-dataset-vbaseobjects-vbasestringobject-vbaseobjecttype"></a>
 
 ##### Summary
 
