@@ -3,8 +3,8 @@
 ## Contents
 
 - [Cid](#tvbasecorecid 'vBase.Core.Cid')
-  - [#ctor()](#mvbasecorecid%23ctorsystembyte%5B%5D 'vBase.Core.Cid.#ctor(System.Byte[])')
-  - [#ctor(data)](#mvbasecorecid%23ctorsystemstring 'vBase.Core.Cid.#ctor(System.String)')
+  - [#ctor()](#mvbasecorecidctorsystembyte%5B%5D 'vBase.Core.Cid.#ctor(System.Byte[])')
+  - [#ctor(data)](#mvbasecorecidctorsystemstring 'vBase.Core.Cid.#ctor(System.String)')
   - [Data](#pvbasecoreciddata 'vBase.Core.Cid.Data')
   - [Empty](#pvbasecorecidempty 'vBase.Core.Cid.Empty')
   - [ToHex()](#mvbasecorecidtohex 'vBase.Core.Cid.ToHex')
@@ -22,7 +22,7 @@
   - [VerifyUserSetObjects(user,setCid,userSetObjectCidSum)](#mvbasecoreicommitmentserviceverifyusersetobjectssystemstringvbasecorecidsystemnumericsbiginteger 'vBase.Core.ICommitmentService.VerifyUserSetObjects(System.String,vBase.Core.Cid,System.Numerics.BigInteger)')
 - [JsonSerializationDto](#tvbasecoredatasetjsonserializationdto 'vBase.Core.Dataset.JsonSerializationDto')
 - [Receipt](#tvbasecorereceipt 'vBase.Core.Receipt')
-  - [#ctor()](#mvbasecorereceipt%23ctorsystemdatetimeoffset 'vBase.Core.Receipt.#ctor(System.DateTimeOffset)')
+  - [#ctor()](#mvbasecorereceiptctorsystemdatetimeoffset 'vBase.Core.Receipt.#ctor(System.DateTimeOffset)')
 - [Utils](#tvbasecoreutilitiesutils 'vBase.Core.Utilities.Utils')
 - [VerificationResult](#tvbasecoredatasetverificationresult 'vBase.Core.Dataset.VerificationResult')
   - [VerificationFindings](#pvbasecoredatasetverificationresultverificationfindings 'vBase.Core.Dataset.VerificationResult.VerificationFindings')
@@ -34,7 +34,7 @@
   - [CallStateVariable\`\`1(stateVariableName,functionInput)](#mvbasecoreweb3commitmentserviceweb3commitmentservicecallstatevariable1systemstringsystemobject%5B%5D 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallStateVariable``1(System.String,System.Object[])')
   - [FetchStateVariable\`\`1(functionData)](#mvbasecoreweb3commitmentserviceweb3commitmentservicefetchstatevariable1systemstring 'vBase.Core.Web3CommitmentService.Web3CommitmentService.FetchStateVariable``1(System.String)')
 - [Web3Receipt](#tvbasecoreweb3commitmentserviceweb3receipt 'vBase.Core.Web3CommitmentService.Web3Receipt')
-  - [#ctor()](#mvbasecoreweb3commitmentserviceweb3receipt%23ctorsystemstringsystemdatetimeoffset 'vBase.Core.Web3CommitmentService.Web3Receipt.#ctor(System.String,System.DateTimeOffset)')
+  - [#ctor()](#mvbasecoreweb3commitmentserviceweb3receiptctorsystemstringsystemdatetimeoffset 'vBase.Core.Web3CommitmentService.Web3Receipt.#ctor(System.String,System.DateTimeOffset)')
 - [vBaseClient](#tvbasecorevbaseclient 'vBase.Core.vBaseClient')
   - [AddNamedSet(name)](#mvbasecorevbaseclientaddnamedsetsystemstring 'vBase.Core.vBaseClient.AddNamedSet(System.String)')
   - [AddSet(setCid)](#mvbasecorevbaseclientaddsetvbasecorecid 'vBase.Core.vBaseClient.AddSet(vBase.Core.Cid)')
@@ -43,8 +43,8 @@
   - [VerifyUserObject(user,objectCid,timestamp)](#mvbasecorevbaseclientverifyuserobjectsystemstringvbasecorecidsystemdatetimeoffset 'vBase.Core.vBaseClient.VerifyUserObject(System.String,vBase.Core.Cid,System.DateTimeOffset)')
   - [VerifyUserSetObjects(user,setCid,userSetObjectsCidSum)](#mvbasecorevbaseclientverifyusersetobjectssystemstringvbasecorecidsystemnumericsbiginteger 'vBase.Core.vBaseClient.VerifyUserSetObjects(System.String,vBase.Core.Cid,System.Numerics.BigInteger)')
 - [vBaseDataset](#tvbasecoredatasetvbasedataset 'vBase.Core.Dataset.vBaseDataset')
-  - [#ctor(vBaseClient,name,recordTypeName)](#mvbasecoredatasetvbasedataset%23ctorvbasecorevbaseclientsystemstringsystemstring 'vBase.Core.Dataset.vBaseDataset.#ctor(vBase.Core.vBaseClient,System.String,System.String)')
-  - [#ctor(vBaseClient,json)](#mvbasecoredatasetvbasedataset%23ctorvbasecorevbaseclientsystemstring 'vBase.Core.Dataset.vBaseDataset.#ctor(vBase.Core.vBaseClient,System.String)')
+  - [#ctor(vBaseClient,name,recordTypeName)](#mvbasecoredatasetvbasedatasetctorvbasecorevbaseclientsystemstringsystemstring 'vBase.Core.Dataset.vBaseDataset.#ctor(vBase.Core.vBaseClient,System.String,System.String)')
+  - [#ctor(vBaseClient,json)](#mvbasecoredatasetvbasedatasetctorvbasecorevbaseclientsystemstring 'vBase.Core.Dataset.vBaseDataset.#ctor(vBase.Core.vBaseClient,System.String)')
   - [AddRecord(recordData)](#mvbasecoredatasetvbasedatasetaddrecordsystemobject 'vBase.Core.Dataset.vBaseDataset.AddRecord(System.Object)')
   - [Initialize()](#mvbasecoredatasetvbasedatasetinitialize 'vBase.Core.Dataset.vBaseDataset.Initialize')
   - [ToJson()](#mvbasecoredatasetvbasedatasettojson 'vBase.Core.Dataset.vBaseDataset.ToJson')
@@ -69,7 +69,7 @@ vBase.Core
 
 Content Identifier (CID) is used to uniquely identify objects.
 
-### #ctor() `constructor` <a name="mvbasecorecid%23ctorsystembyte%5B%5D" id="mvbasecorecid%23ctorsystembyte%5B%5D" href="#mvbasecorecid%23ctorsystembyte%5B%5D"></a>
+### #ctor() `constructor` <a name="mvbasecorecidctorsystembyte%5B%5D" id="mvbasecorecidctorsystembyte%5B%5D" href="#mvbasecorecidctorsystembyte%5B%5D"></a>
 
 ##### Summary
 
@@ -79,7 +79,7 @@ Creates a new CID from the provided byte array.
 
 This constructor has no parameters.
 
-### #ctor(data) `constructor` <a name="mvbasecorecid%23ctorsystemstring" id="mvbasecorecid%23ctorsystemstring" href="#mvbasecorecid%23ctorsystemstring"></a>
+### #ctor(data) `constructor` <a name="mvbasecorecidctorsystemstring" id="mvbasecorecidctorsystemstring" href="#mvbasecorecidctorsystemstring"></a>
 
 ##### Summary
 
@@ -296,7 +296,7 @@ vBase.Core
 
 Represents a transaction receipt.
 
-### #ctor() `constructor` <a name="mvbasecorereceipt%23ctorsystemdatetimeoffset" id="mvbasecorereceipt%23ctorsystemdatetimeoffset" href="#mvbasecorereceipt%23ctorsystemdatetimeoffset"></a>
+### #ctor() `constructor` <a name="mvbasecorereceiptctorsystemdatetimeoffset" id="mvbasecorereceiptctorsystemdatetimeoffset" href="#mvbasecorereceiptctorsystemdatetimeoffset"></a>
 
 ##### Summary
 
@@ -451,7 +451,7 @@ vBase.Core.Web3CommitmentService
 WEB3-specific receipt.
 Additionally to the base timestamp, it contains the transaction hash.
 
-### #ctor() `constructor` <a name="mvbasecoreweb3commitmentserviceweb3receipt%23ctorsystemstringsystemdatetimeoffset" id="mvbasecoreweb3commitmentserviceweb3receipt%23ctorsystemstringsystemdatetimeoffset" href="#mvbasecoreweb3commitmentserviceweb3receipt%23ctorsystemstringsystemdatetimeoffset"></a>
+### #ctor() `constructor` <a name="mvbasecoreweb3commitmentserviceweb3receiptctorsystemstringsystemdatetimeoffset" id="mvbasecoreweb3commitmentserviceweb3receiptctorsystemstringsystemdatetimeoffset" href="#mvbasecoreweb3commitmentserviceweb3receiptctorsystemstringsystemdatetimeoffset"></a>
 
 ##### Summary
 
@@ -585,7 +585,7 @@ vBase.Core.Dataset
 
 vBase dataset.
 
-### #ctor(vBaseClient,name,recordTypeName) `constructor` <a name="mvbasecoredatasetvbasedataset%23ctorvbasecorevbaseclientsystemstringsystemstring" id="mvbasecoredatasetvbasedataset%23ctorvbasecorevbaseclientsystemstringsystemstring" href="#mvbasecoredatasetvbasedataset%23ctorvbasecorevbaseclientsystemstringsystemstring"></a>
+### #ctor(vBaseClient,name,recordTypeName) `constructor` <a name="mvbasecoredatasetvbasedatasetctorvbasecorevbaseclientsystemstringsystemstring" id="mvbasecoredatasetvbasedatasetctorvbasecorevbaseclientsystemstringsystemstring" href="#mvbasecoredatasetvbasedatasetctorvbasecorevbaseclientsystemstringsystemstring"></a>
 
 ##### Summary
 
@@ -605,7 +605,7 @@ Creates a new instance of the vBase dataset.
 | ---- | ----------- |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if an unknown record type is provided. |
 
-### #ctor(vBaseClient,json) `constructor` <a name="mvbasecoredatasetvbasedataset%23ctorvbasecorevbaseclientsystemstring" id="mvbasecoredatasetvbasedataset%23ctorvbasecorevbaseclientsystemstring" href="#mvbasecoredatasetvbasedataset%23ctorvbasecorevbaseclientsystemstring"></a>
+### #ctor(vBaseClient,json) `constructor` <a name="mvbasecoredatasetvbasedatasetctorvbasecorevbaseclientsystemstring" id="mvbasecoredatasetvbasedatasetctorvbasecorevbaseclientsystemstring" href="#mvbasecoredatasetvbasedatasetctorvbasecorevbaseclientsystemstring"></a>
 
 ##### Summary
 
