@@ -3,7 +3,7 @@
 ## Contents
 
 - [Cid](#tvbasecorecid 'vBase.Core.Cid')
-  - [#ctor()](#mvbasecorecidctorsystembyte%5B%5D 'vBase.Core.Cid.#ctor(System.Byte[])')
+  - [#ctor()](#mvbasecorecidctorsystembyte 'vBase.Core.Cid.#ctor(System.Byte[])')
   - [#ctor(data)](#mvbasecorecidctorsystemstring 'vBase.Core.Cid.#ctor(System.String)')
   - [Data](#pvbasecoreciddata 'vBase.Core.Cid.Data')
   - [Empty](#pvbasecorecidempty 'vBase.Core.Cid.Empty')
@@ -30,8 +30,8 @@
   - [AddFinding(finding)](#mvbasecoredatasetverificationresultaddfindingsystemstring 'vBase.Core.Dataset.VerificationResult.AddFinding(System.String)')
 - [Web3CommitmentService](#tvbasecoreweb3commitmentserviceweb3commitmentservice 'vBase.Core.Web3CommitmentService.Web3CommitmentService')
   - [CallContractFunction(function,functionData)](#mvbasecoreweb3commitmentserviceweb3commitmentservicecallcontractfunctionnethereumcontractsfunctionsystemstring 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallContractFunction(Nethereum.Contracts.Function,System.String)')
-  - [CallContractFunction(functionName,functionInput)](#mvbasecoreweb3commitmentserviceweb3commitmentservicecallcontractfunctionsystemstringsystemobject%5B%5D 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallContractFunction(System.String,System.Object[])')
-  - [CallStateVariable\`\`1(stateVariableName,functionInput)](#mvbasecoreweb3commitmentserviceweb3commitmentservicecallstatevariable1systemstringsystemobject%5B%5D 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallStateVariable``1(System.String,System.Object[])')
+  - [CallContractFunction(functionName,functionInput)](#mvbasecoreweb3commitmentserviceweb3commitmentservicecallcontractfunctionsystemstringsystemobject 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallContractFunction(System.String,System.Object[])')
+  - [CallStateVariable\`\`1(stateVariableName,functionInput)](#mvbasecoreweb3commitmentserviceweb3commitmentservicecallstatevariable1systemstringsystemobject 'vBase.Core.Web3CommitmentService.Web3CommitmentService.CallStateVariable``1(System.String,System.Object[])')
   - [FetchStateVariable\`\`1(functionData)](#mvbasecoreweb3commitmentserviceweb3commitmentservicefetchstatevariable1systemstring 'vBase.Core.Web3CommitmentService.Web3CommitmentService.FetchStateVariable``1(System.String)')
 - [Web3Receipt](#tvbasecoreweb3commitmentserviceweb3receipt 'vBase.Core.Web3CommitmentService.Web3Receipt')
   - [#ctor()](#mvbasecoreweb3commitmentserviceweb3receiptctorsystemstringsystemdatetimeoffset 'vBase.Core.Web3CommitmentService.Web3Receipt.#ctor(System.String,System.DateTimeOffset)')
@@ -69,7 +69,7 @@ vBase.Core
 
 Content Identifier (CID) is used to uniquely identify objects.
 
-### #ctor() `constructor` <a name="mvbasecorecidctorsystembyte%5B%5D" id="mvbasecorecidctorsystembyte%5B%5D" href="#mvbasecorecidctorsystembyte%5B%5D"></a>
+### #ctor() `constructor` <a name="mvbasecorecidctorsystembyte" id="mvbasecorecidctorsystembyte" href="#mvbasecorecidctorsystembyte"></a>
 
 ##### Summary
 
@@ -378,7 +378,7 @@ Executes Smart Contract function.
 | function | [Nethereum.Contracts.Function](#tnethereumcontractsfunction 'Nethereum.Contracts.Function') | Function descriptor. |
 | functionData | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Data which will be passed as a function arguments. |
 
-### CallContractFunction(functionName,functionInput) `method` <a name="mvbasecoreweb3commitmentserviceweb3commitmentservicecallcontractfunctionsystemstringsystemobject%5B%5D" id="mvbasecoreweb3commitmentserviceweb3commitmentservicecallcontractfunctionsystemstringsystemobject%5B%5D" href="#mvbasecoreweb3commitmentserviceweb3commitmentservicecallcontractfunctionsystemstringsystemobject%5B%5D"></a>
+### CallContractFunction(functionName,functionInput) `method` <a name="mvbasecoreweb3commitmentserviceweb3commitmentservicecallcontractfunctionsystemstringsystemobject" id="mvbasecoreweb3commitmentserviceweb3commitmentservicecallcontractfunctionsystemstringsystemobject" href="#mvbasecoreweb3commitmentserviceweb3commitmentservicecallcontractfunctionsystemstringsystemobject"></a>
 
 ##### Summary
 
@@ -395,7 +395,7 @@ The result of the contract function execution.
 | functionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the function to call. |
 | functionInput | [System.Object[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object[] 'System.Object[]') | The input parameters for the function. |
 
-### CallStateVariable\`\`1(stateVariableName,functionInput) `method` <a name="mvbasecoreweb3commitmentserviceweb3commitmentservicecallstatevariable1systemstringsystemobject%5B%5D" id="mvbasecoreweb3commitmentserviceweb3commitmentservicecallstatevariable1systemstringsystemobject%5B%5D" href="#mvbasecoreweb3commitmentserviceweb3commitmentservicecallstatevariable1systemstringsystemobject%5B%5D"></a>
+### CallStateVariable\`\`1(stateVariableName,functionInput) `method` <a name="mvbasecoreweb3commitmentserviceweb3commitmentservicecallstatevariable1systemstringsystemobject" id="mvbasecoreweb3commitmentserviceweb3commitmentservicecallstatevariable1systemstringsystemobject" href="#mvbasecoreweb3commitmentserviceweb3commitmentservicecallstatevariable1systemstringsystemobject"></a>
 
 ##### Summary
 
