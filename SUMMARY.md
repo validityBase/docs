@@ -4,20 +4,20 @@
 
 * [Welcome to vBase](README.md)
 * [How vBase Works](docs/welcome/how-vbase-works.md)
-* [Why Blockchains?](docs/welcome/why-blockchains.md)
-* [Core Concepts](docs/core-concepts.md)
-  * [What is a Stamp?](docs/what-is-a-stamp.md)
-  * [What is a Collection?](docs/what-is-a-collection.md)
-  * [Dataset Commitments](docs/dataset-commitments.md)
+* [Technical Overview](docs/welcome/technical-overview.md)
+* Core Concepts
+  * [What is a Stamp?](docs/welcome/what-is-a-stamp.md)
+  * [Why Blockchains?](docs/welcome/why-blockchains.md)
   * [Unique Selling Points, Explained](docs/unique-selling-points.md)
-
+* [Example Use Cases](docs/welcome/example-use-cases.md)
 
 
 
 ## Getting Started
 
-* [Sign Up for a Free Account](docs/sign-up.md)
-* [Python Quickstart](docs/python-quickstart-README.md)
+* [Sign Up for a Free Account](docs/getting-started/sign-up.md)
+* [Best Practices](docs/welcome/dataset-commitments.md)
+* [Python Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
   * [Local Installation](vbase-py-samples/quickstart.md)
 * [Web Tools](docs/web-tools/README.md)
@@ -68,6 +68,6 @@
 ## Technical Reference
 
 * [Command Line Interface](vbase-cli/index.md)
-* [Windows Subsystem for Linux (WSL) Guide](docs/windows-subsystem-for-linux-wsl-guide.md)
-* [GCE S3 Compatible Bucket Setup](docs/setting_up_gcs_s3_compatible_bucket.md)
-* [Smart Contract Addresses](docs/addresses.md)
+* [Windows Subsystem for Linux (WSL) Guide](docs/technical-reference/windows-subsystem-for-linux-wsl-guide.md)
+* [GCE S3 Compatible Bucket Setup](docs/technical-reference/setting_up_gcs_s3_compatible_bucket.md)
+* [Smart Contract Addresses](docs/technical-reference/addresses.md)
