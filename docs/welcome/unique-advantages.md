@@ -6,14 +6,14 @@ vBase builds and verifies provenance without accessing the underlying data.
 
 Traditional data verification often requires one to grant 3rd parties access to data. For example, you share your data with an administrator, an auditor a regulator, a certification body, or some other 3rd party "trusted" service. The trust model in these cases is "we've seen the data, and you can trust us, so if we say the data is valid, you can trust us." 
 
-In the vBase model, you can make your data's timeliness and authenticity permanently verifiable, while sharing it with no-one. Because vBase uses data fingerprints to identify data, we NEVER need to see the underlying data to enable validation. For more details, read [How vBase Works](how-vbase-works.md)
+In the vBase model, you can make your data's timeliness and authenticity permanently verifiable, while sharing it with no-one. Because vBase uses data fingerprints to identify data, we NEVER need to see the underlying data to enable validation. For more details, read [How vBase Works.](how-vbase-works.md)
 
 This is highly advantageous when data is sensitive for reasons of privacy, security, or intellectual property protection. 
 
 
 ## vBase is Highly Resilient 
 
-Even if validityBase disappears, the protocols it uses will still function because it's setup to be a set of openly published rules that does not rely on a single company or server to build or verify data provenance - see [Technical Overview](technical-overview.md)). This makes vBase more trustworthy, durable, and fail-proof than even the most established companies offering similar services.
+Even if validityBase disappears, the protocols it uses will still function because it's setup to be a set of openly published rules that does not rely on a single company or server to build or verify data provenance, see [Technical Overview](technical-overview.md). This makes vBase more trustworthy, durable, and fail-proof than even the most established companies offering similar services.
 
 You can build your reputation without fear of losing it due to the loss of a single business relationship. Your critical verification data can continue to be built and validated even if validityBase were to stop offering service. 
 
