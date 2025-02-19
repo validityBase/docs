@@ -3,7 +3,7 @@
 ## Welcome
 
 * [Welcome to vBase](README.md)
-* [Unique Advantages](docs/welcome/unique-advantages.md)
+* [Unique Advantages - detailed](docs/welcome/unique-advantages.md)
 * Core Concepts
   * [How vBase Works](docs/welcome/how-vbase-works.md)
   * [What is a Stamp?](docs/welcome/what-is-a-stamp.md)
@@ -15,7 +15,7 @@
 
 ## Getting Started
 
-* [Start your Journey](docs/getting-started/sign-up.md)
+* [Start your Journey](docs/getting-started/start-your-journey.md)
 * [Going Live](docs/getting-started/moving-to-production.md)
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
 * [Python Quickstart](docs/getting-started/python-quickstart-README.md)
@@ -24,20 +24,20 @@
 
 ## Web Tools
   * [Introduction](docs/web-tools/readme.md)
-  * [How to Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
-  * [How to Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
-  * [How to Build a Collection](docs/web-tools/how-to-use-vbase-verify.md)
-  * [How to Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
-  * [How to Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
-  * [How to View Stamp History](docs/web-tools/how-to-view-stamp-history.md)
+  * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
+  * [Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
+  * [Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
+  * [Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
+  * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md)
 ## Use Case How-Tos 
-   * [Verified Investment Track Records](docs/getting-started/build-a-track-record.md)
-  * [Point-in-Time Datasets](docs/getting-started/build-point-in-time-dataset.md)
-  * [Verified Research Portfolios](docs/getting-started/build-research-portfolio.md)
-  * [Verified Backtests and Simulations](docs/getting-started/build-research-portfolio.md)
-  * [Predictive Models](docs/getting-started/build-research-portfolio.md)
-  * [Shareable Investment Dashboards](docs/getting-started/build-research-portfolio.md)
-  * [Verified GitHub Repos](docs/getting-started/build-research-portfolio.md)
+  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md)
+  * [Verified Investment Track Records](docs/getting-started/verified-track-record.md)
+  * [Point-in-Time Datasets](docs/use-case-samples/point-in-time-datasets.md)
+  * [Verified Research Portfolios](docs/use-case-samples/verified-research-portfolio.md)
+  * [Verified Backtests and Simulations](docs/use-case-samples/verified-backtest.md)
+  * [Predictive Models](docs/use-case-samples/predictive-model.md)
+  * [Shareable Investment Dashboards](docs/use-case-samples/shareable-investment-dashboard.md)
+  * [Verified GitHub Repos](docs/use-case-samples/verified-github-repo.md)
 
 ## Python SDK
 
