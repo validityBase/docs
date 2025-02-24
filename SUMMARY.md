@@ -58,7 +58,9 @@
 ## Other SDKs
 
 * [COM Library Overview](vbase-cs/user-guide.md)
-* [Working in Excel](vbase-cs/excel.md)
+* Working in Excel
+  * [Via vBase Workbook](vbase-cs/workbook.md)
+  * [Via Excel VBA](vbase-cs/vba.md)
 * [COM API Reference](vbase-cs/vbase-com-sdk.md)
 * [C#](vbase-cs/vbase-core.md)
 * [TypeScript](vbase-ts/README.md)
