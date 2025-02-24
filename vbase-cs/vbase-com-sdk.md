@@ -17,6 +17,7 @@
   - [CreateDatasetFromJson(client,json)](#mvbaseivbasebuildercreatedatasetfromjsonvbaseivbaseclientsystemstring 'vBase.IvBaseBuilder.CreateDatasetFromJson(vBase.IvBaseClient,System.String)')
   - [CreateForwarderClient(forwarderUrl,apiKey,privateKey)](#mvbaseivbasebuildercreateforwarderclientsystemstringsystemstringsystemstring 'vBase.IvBaseBuilder.CreateForwarderClient(System.String,System.String,System.String)')
 - [IvBaseClient](#tvbaseivbaseclient 'vBase.IvBaseClient')
+  - [DefaultUser](#pvbaseivbaseclientdefaultuser 'vBase.IvBaseClient.DefaultUser')
   - [AddNamedSet(name)](#mvbaseivbaseclientaddnamedsetsystemstring 'vBase.IvBaseClient.AddNamedSet(System.String)')
   - [AddSet(setCid)](#mvbaseivbaseclientaddsetsystemstring 'vBase.IvBaseClient.AddSet(System.String)')
   - [AddSetObject(setCid,objectCid)](#mvbaseivbaseclientaddsetobjectsystemstringsystemstring 'vBase.IvBaseClient.AddSetObject(System.String,System.String)')
@@ -203,6 +204,12 @@ vBase
 
 COM visible client interface for the vBase API.
 It's a shim between the COM client and the vBase.Core client class.
+
+### DefaultUser `property` <a name="pvbaseivbaseclientdefaultuser" id="pvbaseivbaseclientdefaultuser" href="#pvbaseivbaseclientdefaultuser"></a>
+
+##### Summary
+
+Return the default user address used in vBase transactions.
 
 ### AddNamedSet(name) `method` <a name="mvbaseivbaseclientaddnamedsetsystemstring" id="mvbaseivbaseclientaddnamedsetsystemstring" href="#mvbaseivbaseclientaddnamedsetsystemstring"></a>
 

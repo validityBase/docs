@@ -14,7 +14,7 @@
   - [GetCid(value)](#mvbasecoreutilitiescryptoutilsgetcidsystemstring 'vBase.Core.Utilities.CryptoUtils.GetCid(System.String)')
 - [ForwarderCommitmentService](#tvbasecoreweb3commitmentserviceforwardercommitmentservice 'vBase.Core.Web3CommitmentService.ForwarderCommitmentService')
 - [ICommitmentService](#tvbasecoreicommitmentservice 'vBase.Core.ICommitmentService')
-  - [AccountIdentifier](#pvbasecoreicommitmentserviceaccountidentifier 'vBase.Core.ICommitmentService.AccountIdentifier')
+  - [DefaultUser](#pvbasecoreicommitmentservicedefaultuser 'vBase.Core.ICommitmentService.DefaultUser')
   - [AddSet(setCid)](#mvbasecoreicommitmentserviceaddsetvbasecorecid 'vBase.Core.ICommitmentService.AddSet(vBase.Core.Cid)')
   - [AddSetObject(setCid,objectCid)](#mvbasecoreicommitmentserviceaddsetobjectvbasecorecidvbasecorecid 'vBase.Core.ICommitmentService.AddSetObject(vBase.Core.Cid,vBase.Core.Cid)')
   - [UserSetExists(user,setCid)](#mvbasecoreicommitmentserviceusersetexistssystemstringvbasecorecid 'vBase.Core.ICommitmentService.UserSetExists(System.String,vBase.Core.Cid)')
@@ -36,6 +36,7 @@
 - [Web3Receipt](#tvbasecoreweb3commitmentserviceweb3receipt 'vBase.Core.Web3CommitmentService.Web3Receipt')
   - [#ctor()](#mvbasecoreweb3commitmentserviceweb3receiptctorsystemstringsystemdatetimeoffset 'vBase.Core.Web3CommitmentService.Web3Receipt.#ctor(System.String,System.DateTimeOffset)')
 - [vBaseClient](#tvbasecorevbaseclient 'vBase.Core.vBaseClient')
+  - [DefaultUser](#pvbasecorevbaseclientdefaultuser 'vBase.Core.vBaseClient.DefaultUser')
   - [AddNamedSet(name)](#mvbasecorevbaseclientaddnamedsetsystemstring 'vBase.Core.vBaseClient.AddNamedSet(System.String)')
   - [AddSet(setCid)](#mvbasecorevbaseclientaddsetvbasecorecid 'vBase.Core.vBaseClient.AddSet(vBase.Core.Cid)')
   - [AddSetObject(setCid,objectCid)](#mvbasecorevbaseclientaddsetobjectvbasecorecidvbasecorecid 'vBase.Core.vBaseClient.AddSetObject(vBase.Core.Cid,vBase.Core.Cid)')
@@ -190,11 +191,11 @@ vBase.Core
 
 Common interface for commitment services.
 
-### AccountIdentifier `property` <a name="pvbasecoreicommitmentserviceaccountidentifier" id="pvbasecoreicommitmentserviceaccountidentifier" href="#pvbasecoreicommitmentserviceaccountidentifier"></a>
+### DefaultUser `property` <a name="pvbasecoreicommitmentservicedefaultuser" id="pvbasecoreicommitmentservicedefaultuser" href="#pvbasecoreicommitmentservicedefaultuser"></a>
 
 ##### Summary
 
-Current user account identifier.
+Current user identifier.
 
 ### AddSet(setCid) `method` <a name="mvbasecoreicommitmentserviceaddsetvbasecorecid" id="mvbasecoreicommitmentserviceaddsetvbasecorecid" href="#mvbasecoreicommitmentserviceaddsetvbasecorecid"></a>
 
@@ -471,6 +472,12 @@ vBase.Core
 ##### Summary
 
 Provides Python validityBase (vBase) access.
+
+### DefaultUser `property` <a name="pvbasecorevbaseclientdefaultuser" id="pvbasecorevbaseclientdefaultuser" href="#pvbasecorevbaseclientdefaultuser"></a>
+
+##### Summary
+
+Return the default user address used in vBase transactions.
 
 ### AddNamedSet(name) `method` <a name="mvbasecorevbaseclientaddnamedsetsystemstring" id="mvbasecorevbaseclientaddnamedsetsystemstring" href="#mvbasecorevbaseclientaddnamedsetsystemstring"></a>
 
