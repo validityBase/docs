@@ -118,7 +118,7 @@ Note: To learn how to create a verifiable collection, see [How to Build a Collec
 
 
 
-### User Profile
+<!-- ### User Profile -->
 
 
 
