@@ -28,6 +28,8 @@ The instructions below guide you through the process using the latest version of
 ## Getting Started
 
 1. Fill in the **Stamping Parameters** table on the `vBase Setup` sheet.
+    - Your API and Private Key, require you to [register for a free vBase account](https://app.vbase.com/accounts/signup/).
+    - Once logged in, these parameters are in the User Profile under [Account Settings](https://app.vbase.com/profile/#account_settings)
 2. Run the vBase functions listed in the `vBase Setup` worksheet to generate new stamped data.
 3. Stamp a range of cells using one of the following methods:
    - **Function Method:**  
