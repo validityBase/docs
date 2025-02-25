@@ -16,20 +16,20 @@
 ## Getting Started
 
 * [Start your Journey](docs/getting-started/start-your-journey.md)
-* [Going Live](docs/getting-started/moving-to-production.md)
+<!-- * [Going Live](docs/getting-started/moving-to-production.md) -->
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
 * [Python Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
   * [Local Installation](vbase-py-samples/quickstart.md)
 
 ## Web Tools
-  * [Introduction](docs/web-tools/readme.md)
+  <!-- * [Introduction](docs/web-tools/readme.md) -->
   * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
   * [Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
-  * [Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
+  <!-- * [Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
   * [Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
-  * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md)
-## Use Case How-Tos 
+  * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md) -->
+<!-- ## Use Case How-Tos 
   * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md)
   * [Verified Investment Track Records](docs/getting-started/verified-track-record.md)
   * [Point-in-Time Datasets](docs/use-case-samples/point-in-time-datasets.md)
@@ -37,7 +37,7 @@
   * [Verified Backtests and Simulations](docs/use-case-samples/verified-backtest.md)
   * [Predictive Models](docs/use-case-samples/predictive-model.md)
   * [Shareable Investment Dashboards](docs/use-case-samples/shareable-investment-dashboard.md)
-  * [Verified GitHub Repos](docs/use-case-samples/verified-github-repo.md)
+  * [Verified GitHub Repos](docs/use-case-samples/verified-github-repo.md) -->
 
 ## Python SDK
 
