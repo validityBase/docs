@@ -28,9 +28,9 @@ The instructions below guide you through the process using the latest version of
 ## Getting Started
 
 1. Fill in the **Stamping Parameters** table on the `vBase Setup` sheet.
-2. Run vBase functions listed in the `vBase Setup` worksheet to generate new stamped data.
+2. Run the vBase functions listed in the `vBase Setup` worksheet to generate new stamped data.
 3. Stamp a range of cells using one of the following methods:
-   - Use the function:  
+   - **Function Method:**  
      ```excel
      =StampRangeDataDefault(Range)
      ```
@@ -38,9 +38,13 @@ The instructions below guide you through the process using the latest version of
      ```excel
      =StampRangeDataDefault(C20:D22)
      ```
-   - Use the shortcut:  
-     **Ctrl + Shift + S** to stamp the selected range via the `StampRange` macro.
-4. Stamps are assigned to a [Collection](../docs/welcome/what-is-a-stamp.md#collection) based on the Collection Name specified Stamping Parameters.
+   - **Keyboard Shortcut:**  
+     Press **Ctrl + Shift + S** to stamp the selected range via the `StampRange` macro.
+
+> **Note:** Stamps are assigned to a [Collection](../docs/welcome/what-is-a-stamp.md#collection) based on the **Collection Name** specified in the Stamping Parameters.
+
+4. You're now ready to start creating verifiable data!
+
 
 
 
