@@ -40,7 +40,7 @@ The instructions below guide you through the process using the latest version of
      ```
    - Use the shortcut:  
      **Ctrl + Shift + S** to stamp the selected range via the `StampRange` macro.
-4. Stamps are automatically assigned to a [Collection](../docs/welcome/what-is-a-stamp.md#collection) based on the Stamping Parameters.
+4. Stamps are assigned to a [Collection](../docs/welcome/what-is-a-stamp.md#collection) based on the Collection Name specified Stamping Parameters.
 
 
 

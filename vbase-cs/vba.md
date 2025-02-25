@@ -7,32 +7,32 @@ The instructions below explain how to create **Stamps** and **Collections** usin
 
 ## Installation
 
-1. **[Download the vBase Excel Library Setup Files](setup.download)**.
-2. **Uninstall any existing version** of the library.
-3. **Install the new version** by running `setup.exe`.
+1. **[Download the vBase Excel Library Setup Files](https://github.com/validityBase/docs/raw/refs/heads/main/vbase-cs/vBase_Excel_Setup_v11.zip)**.
+2. Uninstall any existing version of the library.
+3. **Install** the new version by running `setup.exe`.
 4. **Open Microsoft Excel**.
-5. **Ensure the 'Developer' ribbon tab is visible**:
+5. Ensure the 'Developer' ribbon tab is visible:
     - If it is not, enable it in Excel's options:
         1. Right-click the ribbon and select **Customize the Ribbon**.
         2. Check the **Developer** checkbox.
            ![Customize the Ribbon](images/customize-the-ribbon.png)
 6. **Open the VBA Editor**:
     - Go to the **Developer** tab and click **Visual Basic**.
-7. **Add a reference to the vBase library**:
+7. Add a reference to the vBase library:
     - In the VBA Editor, navigate to **Tools** → **References**.
     - Find and select **vBase**.
       ![Add Reference](images/add-reference.png)
-8. **Insert a new module**:
+8. Insert a new module:
     - In the VBA Editor, go to **Insert** → **Module**.
-9. **Copy and paste the sample VBA code** (provided below) into the new module.
+9. Copy and paste the sample VBA code (provided below) into the new module.
 
 
 
-## Getting Started
+## VBA Sample Stamping Code
 
 The VBA code below demonstrates how to use the vBase library. Copy and paste it into an Excel VBA module to get started.
 
-```vbnet
+```vba
 Sub BuildDataset()
 
     On Error GoTo ErrorHandler
