@@ -3,18 +3,40 @@
 ## Welcome
 
 * [Welcome to vBase](README.md)
-* [How vBase Works](docs/welcome/how-vbase-works.md)
-* [Why Blockchains?](docs/welcome/why-blockchains.md)
+* [Unique Advantages](docs/welcome/unique-advantages.md)
+* Core Concepts
+  * [How vBase Works](docs/welcome/how-vbase-works.md)
+  * [What is a Stamp?](docs/welcome/what-is-a-stamp.md)
+  * [Technical Overview](docs/welcome/technical-overview.md)
+  * [Why Blockchains?](docs/welcome/why-blockchains.md)
+* [Example Use Cases](docs/welcome/example-use-cases.md)
+
+
 
 ## Getting Started
 
-* [Python Quickstart](docs/python-quickstart-README.md)
+* [Start your Journey](docs/getting-started/start-your-journey.md) <!-- * [Going Live](docs/getting-started/moving-to-production.md) -->
+* [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
+* [Python Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
   * [Local Installation](vbase-py-samples/quickstart.md)
-* [Web Tools](docs/web-tools/README.md)
-  * [How to use vBase Stamper](docs/web-tools/how-to-use-vbase-stamper.md)
-  * [How to use vBase Verify](docs/web-tools/how-to-use-vbase-verify.md)
-* [Dataset Commitments](docs/dataset-commitments.md)
+
+## Web Tools
+  <!-- * [Introduction](docs/web-tools/readme.md) -->
+  * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
+  * [Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
+  <!-- * [Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
+  * [Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
+  * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md) -->
+<!-- ## Use Case How-Tos 
+  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md)
+  * [Verified Investment Track Records](docs/getting-started/verified-track-record.md)
+  * [Point-in-Time Datasets](docs/use-case-samples/point-in-time-datasets.md)
+  * [Verified Research Portfolios](docs/use-case-samples/verified-research-portfolio.md)
+  * [Verified Backtests and Simulations](docs/use-case-samples/verified-backtest.md)
+  * [Predictive Models](docs/use-case-samples/predictive-model.md)
+  * [Shareable Investment Dashboards](docs/use-case-samples/shareable-investment-dashboard.md)
+  * [Verified GitHub Repos](docs/use-case-samples/verified-github-repo.md) -->
 
 ## Python SDK
 
@@ -35,6 +57,9 @@
 ## Other SDKs
 
 * [COM Library Overview](vbase-cs/user-guide.md)
+* Working in Excel
+  * [Via vBase Workbook](vbase-cs/workbook.md)
+  * [Via Excel VBA](vbase-cs/vba.md)
 * [COM API Reference](vbase-cs/vbase-com-sdk.md)
 * [C#](vbase-cs/vbase-core.md)
 * [TypeScript](vbase-ts/README.md)
@@ -43,6 +68,6 @@
 ## Technical Reference
 
 * [Command Line Interface](vbase-cli/index.md)
-* [Windows Subsystem for Linux (WSL) Guide](docs/windows-subsystem-for-linux-wsl-guide.md)
-* [GCE S3 Compatible Bucket Setup](docs/setting_up_gcs_s3_compatible_bucket.md)
-* [Smart Contract Addresses](docs/addresses.md)
+* [Windows Subsystem for Linux (WSL) Guide](docs/technical-reference/windows-subsystem-for-linux-wsl-guide.md)
+* [GCE S3 Compatible Bucket Setup](docs/technical-reference/setting_up_gcs_s3_compatible_bucket.md)
+* [Smart Contract Addresses](docs/technical-reference/addresses.md)
