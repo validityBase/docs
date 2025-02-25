@@ -3,7 +3,7 @@
 ## Welcome
 
 * [Welcome to vBase](README.md)
-* [Unique Advantages - detailed](docs/welcome/unique-advantages.md)
+* [Unique Advantages](docs/welcome/unique-advantages.md)
 * Core Concepts
   * [How vBase Works](docs/welcome/how-vbase-works.md)
   * [What is a Stamp?](docs/welcome/what-is-a-stamp.md)
@@ -15,8 +15,7 @@
 
 ## Getting Started
 
-* [Start your Journey](docs/getting-started/start-your-journey.md)
-<!-- * [Going Live](docs/getting-started/moving-to-production.md) -->
+* [Start your Journey](docs/getting-started/start-your-journey.md) <!-- * [Going Live](docs/getting-started/moving-to-production.md) -->
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
 * [Python Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
