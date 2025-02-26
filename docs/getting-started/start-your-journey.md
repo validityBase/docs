@@ -114,7 +114,7 @@ Verifying a Collection compares all the cids of an archive to those previously S
 
 App Shortcut: [https://app.vbase.com/verify/#collection](https://app.vbase.com/verify/#collection)
 
-Note: To learn how to create a verifiable collection, see [How to Build a Collection](../use-case-samples/build-a-verifiable-archive.md) <br><br>
+<!-- Note: To learn how to create a verifiable collection, see [How to Build a Collection](../use-case-samples/build-a-verifiable-archive.md) --> <br><br> 
 
 
 

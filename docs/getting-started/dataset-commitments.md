@@ -15,8 +15,8 @@ vBase commitments and the ability to `rewind the information to "as it actually 
 
 Some non-vBase datasets with support for (low-fidelity) vintage timestamps are important macroeconomic series with frequent revisions:
 
-* ADP: Total Nonfarm Private Payroll Employment: https://alfred.stlouisfed.org/series/downloaddata?seid=ADPWNUSNERSA.
-* U.S. Bureau of Labor Statistics: All Employees, Total Nonfarm: https://alfred.stlouisfed.org/series?seid=PAYEMS
+* ADP: Total Nonfarm Private Payroll Employment: [https://alfred.stlouisfed.org/series/downloaddata?seid=ADPWNUSNERSA](https://alfred.stlouisfed.org/series/downloaddata?seid=ADPWNUSNERSA).
+* U.S. Bureau of Labor Statistics: All Employees, Total Nonfarm: [https://alfred.stlouisfed.org/series?seid=PAYEMS](https://alfred.stlouisfed.org/series?seid=PAYEMS)
 
 ## vBase Commitment Examples
 

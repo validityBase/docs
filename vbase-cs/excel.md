@@ -50,8 +50,11 @@ There are two ways to get started with vBase's Excel Tools
 1. Once `vBase_Stamper.xlsm` is open, click to Enable Macros inside the spreadsheet
 2. Fill in the Stamping Parameters table on the sheet 'vBase Setup'
 3. Now you can run the vBase Functions listed in the 'vBase Setup' worksheet
-3. To Stamp a Range of cells in your workbook, call the function =StampRangeDataDefault(Range) (e.g. StampRangeDataDefault(C20:D22))
+4. To Stamp a Range of cells in your workbook, call the function =StampRangeDataDefault(Range) (e.g. StampRangeDataDefault(C20:D22))
     - Alternatively, you can use the shortcut Ctrl+Shift+E to Stamp the highighted range using the StampRange macro
+5. Stamps made via the Excel become part of a Collection
+
+
 
 
 ## VBA 
