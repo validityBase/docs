@@ -19,7 +19,7 @@
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
 * [Python Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
-  * [Local Installation](/vbase-py-samples/quickstart.md)
+  * [Local Installation](vbase-py-samples/quickstart.md)
 
 ## Web Tools
   <!-- * [Introduction](docs/web-tools/readme.md) -->
@@ -47,6 +47,7 @@
   * [Restoring Dataset Provenance](vbase-py-samples/restore_dataset_provenance.md)
   * [Stamp Interactive Brokers Portfolio](vbase-py-samples/stamp_interactive_brokers_portfolio.md)
   * [Stamp Alpaca Portfolio](vbase-py-samples/stamp_alpaca_portfolio.md)
+* [Windows Setup Guide](vbase-py-samples/windows_guide.md)
 * [Package vbase-py](vbase-py/api.md)
 * [Package vbase-py-tools](vbase-py-tools/index.md)
   * [Setup](vbase-py-tools/setup.md)
@@ -68,6 +69,6 @@
 ## Technical Reference
 
 * [Command Line Interface](vbase-cli/index.md)
-* [Windows Subsystem for Linux (WSL) Guide](/vbase-py-samples/windows_subsystem_for_linux_guide.md)
+* [Windows Subsystem for Linux (WSL) Guide](vbase-py-samples/windows_subsystem_for_linux_guide.md)
 * [GCE S3 Compatible Bucket Setup](docs/technical-reference/setting_up_gcs_s3_compatible_bucket.md)
 * [Smart Contract Addresses](docs/technical-reference/addresses.md)
