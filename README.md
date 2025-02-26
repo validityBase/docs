@@ -65,7 +65,7 @@ vBase is designed for ease of use, accessible via an intuititive [web applicatio
 [web-tools](docs/web-tools/how-to-use-vbase-stamper.md)
 {% endcontent-ref %}
 
-{% content-ref url="docs/python-quickstart-README.md" %}
+{% content-ref url="docs/getting-started/python-quickstart-README.md" %}
 [python-quickstart](docs/getting-started/python-quickstart-README.md)
 {% endcontent-ref %}
 
