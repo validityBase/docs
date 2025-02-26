@@ -19,7 +19,7 @@
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
 * [Python Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
-  * [Local Installation](vbase-py-samples/quickstart.md)
+  * [Local Installation](/vbase-py-samples/quickstart.md)
 
 ## Web Tools
   <!-- * [Introduction](docs/web-tools/readme.md) -->
@@ -68,6 +68,6 @@
 ## Technical Reference
 
 * [Command Line Interface](vbase-cli/index.md)
-* [Windows Subsystem for Linux (WSL) Guide](docs/technical-reference/windows-subsystem-for-linux-wsl-guide.md)
+* [Windows Subsystem for Linux (WSL) Guide](/vbase-py-samples/windows_subsystem_for_linux_guide.md)
 * [GCE S3 Compatible Bucket Setup](docs/technical-reference/setting_up_gcs_s3_compatible_bucket.md)
 * [Smart Contract Addresses](docs/technical-reference/addresses.md)
