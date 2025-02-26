@@ -17,7 +17,7 @@ You can find the implementation in [`stamp_alpaca_portfolio.py`](https://github.
 - [7. Set Environment Variables]()
 - [8. Run the Sample]()
 
-## 1. Prerequisites<a href="#prereq" id="#prereq"></a>
+## 1. Prerequisites<a href="#prerequisites" id="#prerequisites"></a>
 
 1. **Alpaca Account**: You must have an Alpaca account (live or paper trading).
 2. **Python**: Ensure Python is installed on your Windows machine.
@@ -28,7 +28,7 @@ You can find the implementation in [`stamp_alpaca_portfolio.py`](https://github.
    pip install alpaca-trade-api
    ```
 
-## 2. (Optional) Sign Up for an Alpaca Account<a href="#signup" id="#signup"></a>
+## 2. (Optional) Sign Up for an Alpaca Account<a href="#optional-signup-for-an-alpaca-account" id="#optional-signup-for-an-alpaca-account"></a>
 
 1. **Go to Alpaca Website**:
    - Visit [Alpaca Markets](https://alpaca.markets/) and click on **Sign Up**.
@@ -41,7 +41,7 @@ You can find the implementation in [`stamp_alpaca_portfolio.py`](https://github.
    - You may need to set up multi-factor authentication (MFA) with an Authenticator app or SMS.
    - You may need to provide your address, phone number, and identity verification information.
 
-## 3. (Optional) Enable Paper Trading<a href="#paper-trading" id="#paper-trading"></a>
+## 3. (Optional) Enable Paper Trading<a href="#optional-enable-paper-trading" id="#optional-enable-paper-trading"></a>
 
 1. **Go to the Paper Trading Section**:
    - Once your account is set up and verified, log in to your Alpaca account dashboard.
@@ -50,7 +50,7 @@ You can find the implementation in [`stamp_alpaca_portfolio.py`](https://github.
    - Toggle the **Enable Paper Trading** option if it’s not enabled by default.
    - You will receive a starting balance in your paper trading account.
 
-## 4. Obtain Your API Keys<a href="#obtain-keys" id="#obtain-keys"></a>
+## 4. Obtain Your API Keys<a href="#obtain-your-api-keys" id="#obtain-your-api-keys"></a>
 
 - In the dashboard, go to **Your Account** > **API Keys**.
 - Generate API keys for **paper trading**. These include:
@@ -58,7 +58,7 @@ You can find the implementation in [`stamp_alpaca_portfolio.py`](https://github.
   - **API Secret Key**: Used to authenticate your requests.
 - Store your **API Key ID** and **API Secret Key** securely. You’ll use these in your environment variables that Python scripts will use to access your Alpaca account.
 
-## 5. Switch to the Sample Directory<a href="#switch-directory" id="#switch-directory"></a>
+## 5. Switch to the Sample Directory<a href="#switch-to-the-sample-directory" id="#switch-to-the-sample-directory"></a>
 
 Open Command Prompt (or PowerShell) and navigate to your project folder:
 
@@ -66,7 +66,7 @@ Open Command Prompt (or PowerShell) and navigate to your project folder:
 cd C:\Users\%USERNAME%\Projects\validityBase\vbase-py-samples
 ```
 
-## 6. Install the Alpaca Python Package<a href="#install-alpaca" id="#install-alpaca"></a>
+## 6. Install the Alpaca Python Package<a href="#install-the-alpaca-python-package" id="#install-the-alpaca-python-package"></a>
 
 Install the `alpaca_trade_api` Python package:
 
@@ -74,7 +74,7 @@ Install the `alpaca_trade_api` Python package:
 pip install alpaca_trade_api
 ```
 
-## 7. Set Environment Variables<a href="#set-env" id="#set-env"></a>
+## 7. Set Environment Variables<a href="#set-environment-variables" id="#set-environment-variables"></a>
 
 Set the following environment variables for your IB and vBase configuration.    - Alpaca Configuration:
 
@@ -118,7 +118,7 @@ VBASE_COMMITMENT_SERVICE_PRIVATE_KEY="VBASE_COMMITMENT_SERVICE_PRIVATE_KEY"
 VBASE_DATASET_NAME="alpaca_portfolio_stamping_test"
 ```
 
-## 8. Run the Sample<a href="#run-sample" id="#run-sample"></a>
+## 8. Run the Sample<a href="#run-the-sample" id="#run-the-sample"></a>
 
 Run the sample from the command line:
 

@@ -11,7 +11,7 @@ to run vBase samples.
 - [4. Clone the vbase-py-samples Git Repository]()
 - [5. Run Jupyter Lab and Open a Notebook]()
 
-## 1. Install Windows Subsystem for Linux (WSL)
+## 1. Install Windows Subsystem for Linux (WSL)<a href="#install-windows-subsystem-for-linux-wsl" id="#install-windows-subsystem-for-linux-wsl"></a>
 
 1. **Open PowerShell as Administrator:**
    Right-click the Start button and select “Windows PowerShell (Admin)”.
@@ -36,7 +36,7 @@ to run vBase samples.
 7. **Launch WSL:**
    After installation, launch WSL from the Start menu. The first launch will take some time due to setup. You will be prompted to create a user account and password.
 
-## 2. Install Jupyter Lab
+## 2. Install Jupyter Lab<a href="#install-jupyter-lab" id="#install-jupyter-lab"></a>
 
 > **Note:** The following steps assume you have WSL installed and are running commands in the open WSL console window.
 1. **Update and Upgrade Packages:**
@@ -55,7 +55,7 @@ to run vBase samples.
    pip3 install jupyterlab
    ```
 
-## 3. Install Git
+## 3. Install Git<a href="#install-git" id="#install-git"></a>
 
 1. **Install Git:**
    Run the following command to install git:
@@ -63,7 +63,7 @@ to run vBase samples.
    sudo apt install git -y
    ```
 
-## 4. Clone the vbase-py-samples Git Repository
+## 4. Clone the vbase-py-samples Git Repository<a href="#clone-the-vbase-py-samples-git-repository" id="#clone-the-vbase-py-samples-git-repository"></a>
 
 1. **Create the vBase directory:**
    Create the directory where you want to clone vBase repositories and switch to this directory by  running:
@@ -76,7 +76,7 @@ to run vBase samples.
    git clone https://github.com/validityBase/vbase-py-samples
    ```
 
-## 5. Run Jupyter Lab and Open a Notebook
+## 5. Run Jupyter Lab and Open a Notebook<a href="#run-jupyter-lab-and-open-a-notebook" id="#run-jupyter-lab-and-open-a-notebook"></a>
 
 1. **Navigate to the Repository Directory:**
    ```bash
