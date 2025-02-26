@@ -6,7 +6,7 @@ The following steps guide you through this process of setting up vBase Python SD
 
 <!-- omit in toc -->
 > **Note for Windows users:**
-> If you’re on Windows, the following instructions will work on the Windows Subsystem for Linux (WSL). WSL provides a Linux environment on your Windows OS. Please follow [this guide to set up your WSL environment for vBase.](/windows_subsystem_for_linux_guide.md)
+> If you’re on Windows, the following instructions will work on the Windows Subsystem for Linux (WSL). WSL provides a Linux environment on your Windows OS. Please follow [this guide to set up your WSL environment for vBase.](windows_subsystem_for_linux_guide.md)
 - [1. Get a vBase API Key](#get-key)
 - [2. Create the vBase Directory](#create-directory)
 - [3. Install the vBase Python SDK](#install-sdk)
