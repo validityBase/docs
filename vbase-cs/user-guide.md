@@ -1,16 +1,12 @@
 # What Functionality is Covered by the vBase COM Library
-This library allows you to create vBase datasets and add 
-records to them. Additionally, you can verify the commitments 
-of the dataset.
+This library allows you to create vBase datasets and add records to them. 
 
-Data fetching and preparation must be handled on the VBA side by 
-the end user. The library does not implement any data-fetching 
-capabilities from Excel sheets or other sources.
+Data fetching and preparation must be handled on the VBA side by the end user. The library does not implement any data-fetching capabilities from Excel sheets or other sources.
 
 # How to use vBase COM library
 
 1. Uninstall the library if it is already installed on your machine.
-2. Install the new version using `setup.exe`.
+2. Install the new version using the `setup.exe` in the [`vBase COM Setup Files`](https://github.com/validityBase/docs/raw/refs/heads/main/vbase-cs/vBase_Excel_Setup_v11.zip).
 3. Run Microsoft Excel.
 4. Ensure that the 'Developer' ribbon tab is visible. If it is not, enable it in the Excel options:
     1. Right-click on the ribbon and select 'Customize the Ribbon'.
@@ -57,41 +53,6 @@ Sub BuildAndVerifyDataset()
     MsgBox "Verification passed: " & verificationResult.VerificationPassed
 
     Exit Sub
-
-ErrorHandler:
-    MsgBox "Use [Ctrl+Insert] to copy this message to the clipboard." & vbNewLine & "Error: " & Err.Description, vbCritical
-
-End Sub
-```
-
-or
-
-```vbnet
-Sub VerifyDataset()
-
-    On Error GoTo ErrorHandler
-
-    Dim vBaseBuidler As New vBase.vBaseBuilder
-    Dim vBaseClient As vBase.vBaseClient
-    Dim vBaseDataset As vBase.vBaseDataset
-    Dim verificationResult As vBase.verificationResult
-
-    Dim forwarderUrl As String
-    Dim apiKey As String
-    Dim privateKey As String
-
-    datasetName = "<DATASET NAME>"
-    forwarderUrl = "<FORWARDER URL>"
-    apiKey = "<API KEY>"
-    privateKey = "<PRIVATE KEY>"
-
-    Set vBaseClient = vBaseBuidler.CreateForwarderClient(forwarderUrl, apiKey, privateKey)
-    Set vBaseDataset = vBaseBuidler.CreateDatasetFromJson(vBaseClient, "<Dataset JSON>")
-
-    Set verificationResult = vBaseDataset.VerifyCommitments()
-
-    MsgBox "Verification passed: " & verificationResult.VerificationPassed
-Exit Sub
 
 ErrorHandler:
     MsgBox "Use [Ctrl+Insert] to copy this message to the clipboard." & vbNewLine & "Error: " & Err.Description, vbCritical
