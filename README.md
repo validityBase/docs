@@ -66,7 +66,7 @@ vBase is designed for ease of use, accessible via an intuititive [web applicatio
 {% endcontent-ref %}
 
 {% content-ref url="docs/python-quickstart-README.md" %}
-[python-quickstart](docs/python-quickstart-README.md)
+[python-quickstart](docs/getting-started/python-quickstart-README.md)
 {% endcontent-ref %}
 
 
