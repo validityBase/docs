@@ -2,7 +2,9 @@
 
 The vBase Excel Library enables you to generate verifiable data and datasets directly from Excel.
 
-The instructions below guide you through the process using the latest version of `vBase_Excel_Stamper.xlsm`.
+The written instructions below guide you through the process using the latest version of `vBase_Excel_Stamper.xlsm`.
+
+[This instructional video](Excel%20Stamper%20Demo.mp4) may also be helpful in gaining an overview of the setup and stamping process. 
 
 
 
