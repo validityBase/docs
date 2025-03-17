@@ -7,7 +7,7 @@ The following steps guide you through this process of setting up vBase Python SD
 <!-- omit in toc -->
 > **Note for Windows users:**
 > If you’re on Windows, the following instructions will work on the Windows Subsystem for Linux (WSL). WSL provides a Linux environment on your Windows OS. Please follow [this guide to set up your WSL environment for vBase.](windows_subsystem_for_linux_guide.md)
-- [1. Get a vBase API Key](../../vbase-py-samples/docs/quickstart.md#get-a-vbase-api-key)
+- [1. Get a vBase API Key](../../../vbase-py-samples/docs/quickstart.md#get-a-vbase-api-key)
 - [2. Create the vBase Directory](https://docs.vbase.com/getting-started/python-quickstart-readme/quickstart-1#create-the-vbase-directory)
 - [3. Install the vBase Python SDK](https://docs.vbase.com/getting-started/python-quickstart-readme/quickstart-1#install-the-vbase-python-sdk)
 - [4. Clone the vBase Python SDK Samples](https://docs.vbase.com/getting-started/python-quickstart-readme/quickstart-1#clone-the-vbase-python-sdk-samples)
@@ -53,7 +53,7 @@ cp ~/validityBase/vbase-py-tools/.env ~/validityBase/vbase-py-samples
 
 **Option 2: Create a new environment:**
 If this is your first time working with vBase, you should configure new settings.
-Please install the `vbase-py-tools` package and follow the setup instructions using the `config_env` script provided in that package as instructed at the following link: [vBase Py Tools Setup Instructions](../../vbase-py-tools/docs/setup.md).
+Please install the `vbase-py-tools` package and follow the setup instructions using the `config_env` script provided in that package as instructed at the following link: [vBase Py Tools Setup Instructions](../../../vbase-py-tools/docs/setup.md).
 
 ## 6. Verify Your Environment <a href="#verify-your-environment" id="verify-your-environment"></a>
 
