@@ -15,7 +15,7 @@ The following steps guide you through this process of setting up vBase Python SD
 - [6. Verify Your Environment](#verify-your-environment)
 - [7. You Are All Set!](#you-are-all-set)
 
-## 1. Get your vBase API Key <a href="#get-a-vbase-api-key" id="get-a-vbase-api-key"></a>
+## 1. Get a vBase API Key <a href="#get-a-vbase-api-key" id="get-a-vbase-api-key"></a>
 
 Please [access the vBase App](https://app.vbase.com), sign-up, and retrieve the API Key from your user profile if you wish to have the simplest experience. The API key is needed to access the forwarder API service. This service simplifies commitment and validation operations but is not required for interacting with vBase.
 
@@ -53,7 +53,7 @@ cp ~/validityBase/vbase-py-tools/.env ~/validityBase/vbase-py-samples
 
 **Option 2: Create a new environment:**
 If this is your first time working with vBase, you should configure new settings.
-Please install the `vbase-py-tools` package and follow the setup instructions using the `config_env` script provided in that package as instructed at the following link: [vBase Py Tools Setup Instructions]().
+Please install the `vbase-py-tools` package and follow the setup instructions using the `config_env` script provided in that package as instructed at the following link: [vBase Py Tools Setup Instructions](https://docs.vbase.com/python-sdk/index-1/setup).
 
 ## 6. Verify Your Environment <a href="#verify-your-environment" id="verify-your-environment"></a>
 

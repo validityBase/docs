@@ -3,7 +3,7 @@
 # Contents:
 
 * [vBase Python Samples Quickstart](quickstart.md)
-  * [1. Get your vBase API Key <a href="#get-a-vbase-api-key" id="get-a-vbase-api-key"></a>](quickstart.md#get-your-vbase-api-key)
+  * [1. Get a vBase API Key <a href="#get-a-vbase-api-key" id="get-a-vbase-api-key"></a>](quickstart.md#get-a-vbase-api-key)
   * [2. Create the vBase Directory <a href="#create-the-vbase-directory" id="create-the-vbase-directory"></a>](quickstart.md#create-the-vbase-directory)
   * [3. Install the vBase Python SDK <a href="#install-the-vbase-python-sdk" id="install-the-vbase-python-sdk"></a>](quickstart.md#install-the-vbase-python-sdk)
   * [4. Clone the vBase Python SDK Samples <a href="#clone-the-vbase-python-sdk-samples" id="clone-the-vbase-python-sdk-samples"></a>](quickstart.md#clone-the-vbase-python-sdk-samples)
