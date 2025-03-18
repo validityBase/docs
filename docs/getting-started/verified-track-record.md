@@ -2,7 +2,7 @@
 
 ## Introduction
 
-validityBase is a trusted platform for building shareable live verified tickers for any trading strategy. 
+validityBase is a trusted platform for building shareable live global tickers for any trading strategy. 
 
 vBase creates a point-in-time record of your portfolios to build a live Ticker. These portfolios are saved and then used as the basis for calculating live investment performance dashboards for your strategy. 
 
@@ -19,7 +19,7 @@ Use this format to generate a CSV file of your current portfolio.
 
 <<Example File>>
 
-<<Screenshot>>
+<img src="image-2.png" style="width:50%; height:auto;">
 
 
 ### Step 2: First-time Setup
