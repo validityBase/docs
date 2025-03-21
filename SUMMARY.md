@@ -29,9 +29,9 @@
   * [Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
   * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md) -->
 <!-- ## Use Case How-Tos 
-  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md)
+  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md) -->
   * [Verified Investment Track Records](docs/getting-started/verified-track-record.md)
-  * [Point-in-Time Datasets](docs/use-case-samples/point-in-time-datasets.md)
+  <!-- * [Point-in-Time Datasets](docs/use-case-samples/point-in-time-datasets.md)
   * [Verified Research Portfolios](docs/use-case-samples/verified-research-portfolio.md)
   * [Verified Backtests and Simulations](docs/use-case-samples/verified-backtest.md)
   * [Predictive Models](docs/use-case-samples/predictive-model.md)
