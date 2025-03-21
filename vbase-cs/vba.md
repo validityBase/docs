@@ -7,7 +7,7 @@ The instructions below explain how to create **Stamps** and **Collections** usin
 
 ## Installation
 
-1. **[Download the vBase Excel Library Setup Files](https://github.com/validityBase/docs/raw/refs/heads/main/vbase-cs/vBase_Excel_Setup_v11.zip)**.
+1. **[Download the vBase Excel Library Setup Files](https://github.com/validityBase/vbase-cs/releases/download/Excel_Setup_Files/vBase_Excel_Setup_Latest.zip)**.
 2. Uninstall any existing version of the library.
 3. **Install** the new version by running `setup.exe`.
 4. **Open Microsoft Excel**.
