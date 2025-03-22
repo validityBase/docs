@@ -9,7 +9,7 @@ vBase creates a point-in-time record of your portfolios to build a live Ticker. 
 This guide will walk you through the process of getting a live veriifed vBase Ticker for your strategy.<br><br>
 
 
-## Steps to Verify a Track Record
+## Steps to Build a Live Verified Track Record
 
 ### Step 1: Generate a CSV of your **Current** Portfolio
 
@@ -77,4 +77,4 @@ To get your ticker and dashboard link, please e-mail us at [hello@vbase.com](mai
 
 ## Conclusion
 
-validityBase allows anyone to quickly, easily, and cost-effectively build beautiful, globally credible, shareable live track records for their trading and model portfolios. 
+validityBase allows anyone to quickly, easily, and cost-effectively build globally credible, live track records with shareable beautiful dashboards for their trading and model portfolios. 
