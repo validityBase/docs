@@ -1,9 +1,9 @@
-# 🧾 How to Use the vBase Stamper
+# How to Use the vBase Stamper
 
 The **vBase Stamper** records a file’s **timestamp**, **author**, and **digital fingerprint** (SHA3 hash) on a public blockchain. This metadata—known as **provenance**—provides permanent, verifiable proof of a file’s authenticity and timestamp.
 
 
-## 🛠️ How to Make a Stamp  
+## How to Make a Stamp  
 [🎥 Watch the How-to Video](https://www.youtube.com/watch?v=wRJCNvDkKR8)
 
 1. Visit the [vBase App](https://app.vbase.com/)  
@@ -15,7 +15,7 @@ The **vBase Stamper** records a file’s **timestamp**, **author**, and **digita
 7. Click **“Make a Stamp”**
 
 
-## ⛓️ What Happens When You Stamp a File
+## What Happens When You Stamp a File
 
 When you click **“Make a Stamp”**, the following process occurs:
 
@@ -35,7 +35,7 @@ When you click **“Make a Stamp”**, the following process occurs:
 > 💡 **Note:** vBase does not publish or share your actual file, filename, or personal information on-chain. Only cryptographic identifiers are recorded to preserve privacy and ensure long-term verifiability.
 
 
-## 🗂️ What Is a Collection?
+## What Is a Collection?
 
 A **Collection** groups related files—such as portfolios, observations, documents, data points, or project files—under a single identifier. When a file is stamped with a Collection, the blockchain record reflects that relationship, and this relationship itself becomes verifiable.
 
@@ -48,7 +48,7 @@ A **Collection** groups related files—such as portfolios, observations, docume
 > 📌 **Tip:** Collections are optional. Files not in a collection are still independently verifiable.
 
 
-## 🔐 File Backups and Data Integrity
+## File Backups and Data Integrity
 
 By default, vBase saves a **secure backup** of your file to help prevent data loss.  
 You can enable or disable this setting in your [**Account Settings**](https://app.vbase.com/profile/#account_settings) under your profile.
@@ -56,7 +56,7 @@ You can enable or disable this setting in your [**Account Settings**](https://ap
 > ⚠️ **Important:** If backups are disabled, be sure to store your file safely. If the file is lost or changed, its provenance can no longer be verified.
 
 
-## 💬 Quick FAQs
+## Quick FAQs
 
 ### ❌ Can a Stamp Be Revoked?
 
@@ -67,7 +67,7 @@ No. Blockchain stamps are **permanent and immutable**.  You can stamp a new vers
 You’ll need the **original file** and access to the blockchain record.  Follow the guide here: [How to Verify a Stamped File](/how-to-use-vbase-verify.md)
 
 
-## 📝 Additional Notes
+## Additional Notes
 
 - Your file’s content ID (aka hash) is calculated **locally in your browser**. If backup is disabled, your file is **never uploaded** or seen by vBase  
 - [🔗 View a sample stamp](https://polygonscan.com/tx/0xe7dbb99c2f521a5c636d4cc7f6fd3c60cdf427c284230aa0093faac338b9d651) on Polygonscan  

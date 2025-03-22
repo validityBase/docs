@@ -2,7 +2,6 @@
 
 The **vBase Verify** tool checks whether a file—or its content ID (SHA3 hash)—has previously been stamped on the blockchain using vBase. If a match is found, the app displays the full stamp details, including the timestamp, blockchain address, and more.
 
----
 
 ## ✅ Step-by-Step Guide  
 [🎥 Watch the How-To Video](https://youtu.be/nzbC3UphfGM)
@@ -13,7 +12,6 @@ The **vBase Verify** tool checks whether a file—or its content ID (SHA3 hash)�
 4. It queries the blockchain (currently Polygon) for any stamp matching that content ID  
 5. If a match is found, full stamp details are displayed
 
----
 
 ## 🔍 What Happens Behind the Scenes
 
@@ -31,24 +29,8 @@ When you verify a file:
 
 > 💡 This information is pulled directly from the blockchain and is independently verifiable.
 
-In some cases, **additional details**—such as the vBase **Username**, **Collection Name**, or **Identity Verification Status**—may also be shown.  
-These fields are **off-chain metadata** stored in the vBase database and displayed only when available.
+In some cases, **additional details**—such as the vBase **Username**, **Collection Name**, or **Identity Verification Status**—may also be shown. These fields are **off-chain metadata** stored in the vBase database and displayed only when available.
 
----
-
-## 🔐 How Accurate Is This?
-
-vBase Verify checks whether a specific **content ID** (SHA3 hash) was previously published to the vBase smart contract on the Polygon blockchain. If a match is found, and the Stamper provided you with the original file (the **pre-image** of the hash), you can generally conclude that the file was in their possession at the time of the recorded timestamp.
-
-There are rare exceptions—such as **low-entropy data** or cases where the same content ID was previously published by someone else—but these do not apply to most real-world use cases involving private or unique files.
-
-All results include a link to the blockchain transaction for independent validation via tools like:
-
-- [Dune Analytics](https://dune.com/)  
-- [Polygonscan](https://polygonscan.com/)  
-- Public GraphQL / JSON-RPC APIs for Polygon
-
----
 
 ## ⚠️ What If My File Doesn’t Match?
 
@@ -60,7 +42,7 @@ This means:
 - If you've re-saved, edited, or reformatted the file in any way, the hash will not match  
 - You can calculate the SHA3 hash locally using tools like `sha3sum`, `openssl`, or browser-based hash calculators to compare with the content ID
 
----
+
 
 ## 🔢 Can I Verify a Content ID Without Loading a File?
 
@@ -71,7 +53,6 @@ Yes! If you already know your file’s **SHA3 hash**, you can paste it into the 
 3. Paste the SHA3 hash (hex format, e.g., `0xabc123...`)  
 4. The app will search for a match and display any corresponding stamp
 
----
 
 ## 🗂️ How Are Collections Handled?
 
@@ -82,7 +63,6 @@ If the file was originally stamped as part of a **Collection**, the Verify app w
 
 > 📌 This is especially useful when verifying which files belong to specific projects, datasets, or deliverables.
 
----
 
 ## 📝 User Notes
 
@@ -91,7 +71,6 @@ If the file was originally stamped as part of a **Collection**, the Verify app w
 - All stamps are recorded on the **Polygon blockchain** and are independently verifiable  
 - Advanced users can query stamps directly via tools like Dune, Polygonscan, or public Polygon nodes
 
----
 
 ## ❓ Frequently Asked Questions
 
@@ -107,7 +86,6 @@ Stamp records on the **blockchain are permanent**. If the original copy of the f
 ### Can I verify files on blockchains other than Polygon?
 Currently, vBase supports stamping and verification on the **Polygon** blockchain. Support for additional blockchains may be added in the future.
 
----
 
 ## Need Help?
 
