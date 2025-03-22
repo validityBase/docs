@@ -1,9 +1,9 @@
-# 🛡️ How to Use vBase Verify
+# How to Use vBase Verify
 
 The **vBase Verify** tool checks whether a file—or its content ID (SHA3 hash)—has previously been stamped on the blockchain using vBase. If a match is found, the app displays the full stamp details, including the timestamp, blockchain address, and more.
 
 
-## ✅ Step-by-Step Guide  
+## Step-by-Step Guide  
 [🎥 Watch the How-To Video](https://youtu.be/nzbC3UphfGM)
 
 1. Visit [vBase Verify](https://app.vbase.com/verify)  
@@ -13,7 +13,7 @@ The **vBase Verify** tool checks whether a file—or its content ID (SHA3 hash)�
 5. If a match is found, full stamp details are displayed
 
 
-## 🔍 What Happens Behind the Scenes
+## What Happens Behind the Scenes
 
 When you verify a file:
 
@@ -32,7 +32,7 @@ When you verify a file:
 In some cases, **additional details**—such as the vBase **Username**, **Collection Name**, or **Identity Verification Status**—may also be shown. These fields are **off-chain metadata** stored in the vBase database and displayed only when available.
 
 
-## ⚠️ What If My File Doesn’t Match?
+## What If My File Doesn’t Match?
 
 Even a **1-character or 1-byte change** to a file will produce a completely different content ID.
 
@@ -44,7 +44,7 @@ This means:
 
 
 
-## 🔢 Can I Verify a Content ID Without Loading a File?
+## Can I Verify a Content ID Without Loading a File?
 
 Yes! If you already know your file’s **SHA3 hash**, you can paste it into the **"Verify by Content ID"** field:
 
@@ -54,7 +54,7 @@ Yes! If you already know your file’s **SHA3 hash**, you can paste it into the 
 4. The app will search for a match and display any corresponding stamp
 
 
-## 🗂️ How Are Collections Handled?
+## How Are Collections Handled?
 
 If the file was originally stamped as part of a **Collection**, the Verify app will:
 
@@ -64,7 +64,7 @@ If the file was originally stamped as part of a **Collection**, the Verify app w
 > 📌 This is especially useful when verifying which files belong to specific projects, datasets, or deliverables.
 
 
-## 📝 User Notes
+## User Notes
 
 - Your file’s hash is always calculated **locally in your browser**  
 - The file itself is **never uploaded** or seen by vBase during verification
@@ -72,7 +72,7 @@ If the file was originally stamped as part of a **Collection**, the Verify app w
 - Advanced users can query stamps directly via tools like Dune, Polygonscan, or public Polygon nodes
 
 
-## ❓ Frequently Asked Questions
+## Frequently Asked Questions
 
 ### Can multiple people stamp the same file?
 Yes. If a user stamps the same file twice or two users stamp an identical file, it will produce the same content ID. The blockchain will show multiple transactions for that content ID, each with its own timestamp and blockchain address. For real-world data with any reasonable amount of entropy, this is extremely unlikely. 
