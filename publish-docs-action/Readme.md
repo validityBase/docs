@@ -55,6 +55,17 @@ Besides copying the files, it also preprocesses the PlantUML diagrams in the Mar
 
 ## Absolute Links Resolution
 The action also resolves the absolute links in the documentation. It replaces the absolute links to the other vBase repositories with the relative links. The relative links are valid only in scope of the vBase documentation repository. To activate this feature, you need to specify the list of the repositories in the `resolve-absolute-links-repos` input parameter. Only the links to the specified repositories will be resolved.
+For example if you have the following link in the documentation:
+`
+[vBase Py Tools Setup Instructions](https://github.com/validityBase/vbase-py-tools/blob/main/docs/setup.md).
+`
+It'll be replaced with the following link:
+`
+[vBase Py Tools Setup Instructions](../vbase-py-tools/setup.md).
+`
+Assuming that the `vbase-py-tools` is specified in the `resolve-absolute-links-repos` input parameter.
+
+
 
 ## How to do the Changes in the Action  
 1. Install Node.js and npm on your development machine.  
