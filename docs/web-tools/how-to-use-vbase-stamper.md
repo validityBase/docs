@@ -1,6 +1,6 @@
 # How to Use the vBase Stamper
 
-The **vBase Stamper** records a file’s **timestamp**, **author**, and **digital fingerprint** (SHA3 hash) on a public blockchain. This metadata—known as **provenance**—provides permanent, verifiable proof of a file’s authenticity and timestamp.
+The **vBase Stamper** records a file’s **timestamp**, **author**, and **digital fingerprint** (SHA3 hash) on a public blockchain. This metadata—known as [**provenance**](https://www.ibm.com/think/topics/data-provenance)—provides permanent, verifiable proof of a file’s authenticity and timestamp.
 
 
 ## How to Make a Stamp  
