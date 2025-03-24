@@ -29,13 +29,13 @@ When you click **“Make a Stamp”**, the following process occurs:
 - **Blockchain Address**: Your vBase account’s public blockchain address  
 - **Content ID**: The file’s SHA3 hash, serving as its unique digital fingerprint  
 - **Collection ID** *(if applicable)*: The identifier of the Collection the file belongs to  
-<br><br>
 <figure>
     <img src="stamp_example.png" witdth=200%, height=auto>
     <figcaption>Example of vBase Stamp data</figcaption>
 </figure>
 <br>
-**Note:** vBase does not publish or share your actual file, filename, or personal information on-chain. Only cryptographic identifiers are recorded to preserve privacy and ensure long-term verifiability.
+> [!note]
+> **Note:** vBase does not publish or share your actual file, filename, or personal information on-chain. Only cryptographic identifiers are recorded to preserve privacy and ensure long-term verifiability.
 
 
 ## What Is a Collection?
