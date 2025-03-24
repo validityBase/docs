@@ -4,8 +4,9 @@ The **vBase Stamper** records a file’s **timestamp**, **author**, and **digita
 
 
 ## How to Make a Stamp  
-[🎥 Watch the How-to Video](https://www.youtube.com/watch?v=wRJCNvDkKR8)
+For a quick overview, [🎥 Watch the How-to Video](https://www.youtube.com/watch?v=wRJCNvDkKR8)
 
+#### Step-by-Step Instructions
 1. Visit the [vBase App](https://app.vbase.com/)  
 2. Sign in or register for a free account  
 3. Go to the Stamper page: [app.vbase.com/stamp](https://app.vbase.com/stamp)  
@@ -60,13 +61,13 @@ By default, vBase saves a **secure backup** of your file to help prevent data lo
 
 ## Quick FAQs
 
-### Can a Stamp Be Revoked?
+#### Can a Stamp Be Revoked?
 
 No. Blockchain stamps are **permanent and immutable**.  You can stamp a new version of a file, but existing stamps cannot be changed or deleted. 
 
-### How Do I Verify a Stamped File Later?
+#### How Do I Verify a Stamped File Later?
 
-You’ll need the **original file** and access to the blockchain record.  Follow the guide here: [How to Verify a Stamped File](/how-to-use-vbase-verify.md)
+You’ll need the **original file** and access to the blockchain record.  Follow the guide here: [How to Verify a Stamped File](how-to-use-vbase-verify.md)
 
 
 ## Additional Notes
