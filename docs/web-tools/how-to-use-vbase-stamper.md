@@ -31,58 +31,15 @@ When you click **“Make a Stamp”**, the following process occurs:
 - **Content ID**: The file’s SHA3 hash, serving as its unique digital fingerprint  
 - **Collection ID** *(if applicable)*: The identifier of the Collection the file belongs to  
 
-### Example of a vBase Stamp
+#### Example of a vBase Stamp
 
-| Key               | Value                                                                                   |
-|------------------|-----------------------------------------------------------------------------------------|
-| **blockchainAddress** | `0x0bf1504fB66c716161A8bc60906eC38792eA2000`                                             |
-| **contentID**         | `0x49adefb456c981ec67ab09b2b301b22a434922456169244e1f3b7e51d9fe54ee`                     |
-| **collectionID**      | `0x9c22ff5f21f0b81b113e63f7db6da94fedef11b2119b4088b89664fb9a3cb658`                     |
-| **timestamp**         | `2023-08-08 21:34:00+00:00`                                                              |
-
-
-### Example of a vBase Stamp 2
-
-<table>
-  <thead>
-    <tr>
-      <th style="width: 25%;">Key</th>
-      <th style="width: 75%;">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>blockchainAddress</strong></td>
-      <td><code>0x0bf1504fB66c716161A8bc60906eC38792eA2000</code></td>
-    </tr>
-    <tr>
-      <td><strong>contentID</strong></td>
-      <td><code>0x49adefb456c981ec67ab09b2b301b22a434922456169244e1f3b7e51d9fe54ee</code></td>
-    </tr>
-    <tr>
-      <td><strong>collectionID</strong></td>
-      <td><code>0x9c22ff5f21f0b81b113e63f7db6da94fedef11b2119b4088b89664fb9a3cb658</code></td>
-    </tr>
-    <tr>
-      <td><strong>timestamp</strong></td>
-      <td><code>2023-08-08 21:34:00+00:00</code></td>
-    </tr>
-  </tbody>
-</table>
-
-
-### Example of a vBase Stamp 3 
-
-> 📄 **Example of a vBase Stamp**
-> 
 >- **Blockchain Address:** `0x0bf1504fB66c716161A8bc60906eC38792eA2000`  
 >- **Content ID:** `0x49adefb456c981ec67ab09b2b301b22a434922456169244e1f3b7e51d9fe54ee`  
 >- **Collection ID:** `0x9c22ff5f21f0b81b113e63f7db6da94fedef11b2119b4088b89664fb9a3cb658`  
 >- **Timestamp:** `2023-08-08 21:34:00+00:00`
 
 
-
-> **Note:** vBase does not publish or share your actual file, filename, or personal information on-chain. Only cryptographic identifiers are recorded to preserve privacy and ensure long-term verifiability.
+**Note:** vBase does not publish or share your actual file, filename, or personal information on-chain. Only cryptographic identifiers are recorded to preserve privacy and ensure long-term verifiability.
 
 
 ## What Is a Collection?
