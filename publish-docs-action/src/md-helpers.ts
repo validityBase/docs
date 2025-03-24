@@ -2,8 +2,6 @@ import * as core from '@actions/core';
 import { Constants } from './constants';
 import * as fs from 'fs';
 import path from 'path';
-import PlantUmlEncoder from 'plantuml-encoder';
-import { replacePlantUmlDiagramsInFile } from './plant-uml-helpers';
 
 const env = process.env as any;
 
@@ -35,7 +33,7 @@ export async function copyDocs(): Promise<string> {
     return docsSubDirectory;
 }
 
-export async function preprocessMdsInDirectory(directory: string): Promise<void> {
+export async function preprocessMdsInDirectory(directory: string, mdHandler: Function): Promise<void> {
     // iterate over all markdown files in the directory and preprocess them
     console.log(`Preprocessing markdown files in ${directory}...`);
 
@@ -49,7 +47,7 @@ export async function preprocessMdsInDirectory(directory: string): Promise<void>
         }
 
         console.log(`Preprocessing ${files[i]}...`);
-        await replacePlantUmlDiagramsInFile(files[i]);
+        await mdHandler(files[i]);
     }
 }
 
