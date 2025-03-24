@@ -21,7 +21,7 @@ For a quick overview, [🎥 Watch the How-to Video](https://www.youtube.com/watc
 When you click **“Make a Stamp”**, the following process occurs:
 
 - Your file’s **SHA3 hash** (also called the content ID) is calculated locally in your browser  
-- This hash is published to a **public blockchain**, where it’s permanently recorded  
+- This hash is published to a [**public blockchain**](https://www.investopedia.com/terms/b/blockchain.asp), where it’s permanently recorded  
 - A **timestamp** is returned, reflecting when the blockchain included your content ID  
 - This becomes an **independently verifiable record** of your file’s existence and integrity  
 
@@ -30,10 +30,15 @@ When you click **“Make a Stamp”**, the following process occurs:
 - **Blockchain Address**: Your vBase account’s public blockchain address  
 - **Content ID**: The file’s SHA3 hash, serving as its unique digital fingerprint  
 - **Collection ID** *(if applicable)*: The identifier of the Collection the file belongs to  
-<figure>
-    <img src="stamp_example.png" witdth=200%, height=auto>
-    <figcaption>Example of vBase Stamp data</figcaption>
-</figure>
+
+### Example of a vBase Stamp
+
+| Key               | Value                                                                                   |
+|------------------|-----------------------------------------------------------------------------------------|
+| **blockchainAddress** | `0x0bf1504fB66c716161A8bc60906eC38792eA2000`                                             |
+| **contentID**         | `0x49adefb456c981ec67ab09b2b301b22a434922456169244e1f3b7e51d9fe54ee`                     |
+| **collectionID**      | `0x9c22ff5f21f0b81b113e63f7db6da94fedef11b2119b4088b89664fb9a3cb658`                     |
+| **timestamp**         | `2023-08-08 21:34:00+00:00`                                                              |
 
 
 > **Note:** vBase does not publish or share your actual file, filename, or personal information on-chain. Only cryptographic identifiers are recorded to preserve privacy and ensure long-term verifiability.
@@ -74,5 +79,5 @@ You’ll need the **original file** and access to the blockchain record.  Follow
 
 - Your file’s content ID (aka hash) is calculated **locally in your browser**. If backup is disabled, your file is **never uploaded** or seen by vBase  
 - [🔗 View a sample stamp](https://polygonscan.com/tx/0xe7dbb99c2f521a5c636d4cc7f6fd3c60cdf427c284230aa0093faac338b9d651) on Polygonscan  
-- Stamps are stored on the **Polygon blockchain** and can be independently verified using tools like **Dune Analytics** or by querying Polygon nodes directly  
+- Stamps are stored on the **Polygon blockchain** and can be independently verified using tools like [**Dune Analytics**](https://www.dune.com) or by querying Polygon nodes directly  
 - [🔒 SHA3](https://en.wikipedia.org/wiki/SHA-3) is a widely trusted cryptographic standard used in banking, telecom, and secure systems
