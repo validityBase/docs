@@ -1,11 +1,12 @@
-# How to Use vBase Verify
+# Verify an Object
 
 The **vBase Verify** tool checks whether a file—or its content ID (SHA3 hash)—has previously been stamped on the blockchain using vBase. If a match is found, the app displays the full stamp details, including the timestamp, blockchain address, and other stamp details.
 
 
-## Step-by-Step Guide  
+## How to Verify a Stamp
 For a quick overview, [🎥 Watch the How-To Video](https://youtu.be/nzbC3UphfGM)
 
+#### Step-by-Step Instructions
 1. Visit [vBase Verify](https://app.vbase.com/verify)  
 2. Select the file you want to verify  
 3. The app calculates the file’s content ID (SHA3 hash) in your browser  
