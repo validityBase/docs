@@ -25,7 +25,7 @@ When you click **“Make a Stamp”**, the following process occurs:
 - A **timestamp** is returned, reflecting when the blockchain included your content ID  
 - This becomes an **independently verifiable record** of your file’s existence and integrity  
 
-🔒 **The following data is recorded on-chain:**
+🔒 **The following data is recorded to the blockchain:**
 
 - **Blockchain Address**: Your vBase account’s public blockchain address  
 - **Content ID**: The file’s SHA3 hash, serving as its unique digital fingerprint  

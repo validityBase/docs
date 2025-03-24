@@ -1,10 +1,10 @@
 # How to Use vBase Verify
 
-The **vBase Verify** tool checks whether a file—or its content ID (SHA3 hash)—has previously been stamped on the blockchain using vBase. If a match is found, the app displays the full stamp details, including the timestamp, blockchain address, and more.
+The **vBase Verify** tool checks whether a file—or its content ID (SHA3 hash)—has previously been stamped on the blockchain using vBase. If a match is found, the app displays the full stamp details, including the timestamp, blockchain address, and other stamp details.
 
 
 ## Step-by-Step Guide  
-[🎥 Watch the How-To Video](https://youtu.be/nzbC3UphfGM)
+For a quick overview, [🎥 Watch the How-To Video](https://youtu.be/nzbC3UphfGM)
 
 1. Visit [vBase Verify](https://app.vbase.com/verify)  
 2. Select the file you want to verify  
@@ -31,37 +31,11 @@ When you verify a file:
 
 In some cases, **additional details**—such as the vBase **Username**, **Collection Name**, or **Identity Verification Status**—may also be shown. These fields are **off-chain metadata** stored in the vBase database and displayed only when available.
 
+<figure>
+    <img src="Example_VerifyStamp_Output.png" witdth=30%, height=auto>
+    <figcaption><center>Example of vBase Verify Output</center></figcaption>
+</figure>
 
-## What If My File Doesn’t Match?
-
-Even a **1-character or 1-byte change** to a file will produce a completely different content ID.
-
-This means:
-
-- The file must match **exactly**—bit-for-bit—with the originally stamped version  
-- If you've re-saved, edited, or reformatted the file in any way, the hash will not match  
-- You can calculate the SHA3 hash locally using tools like `sha3sum`, `openssl`, or browser-based hash calculators to compare with the content ID
-
-
-
-## Can I Verify a Content ID Without Loading a File?
-
-Yes! If you already know your file’s **SHA3 hash**, you can paste it into the **"Verify by Content ID"** field:
-
-1. Go to [vBase Verify](https://app.vbase.com/verify/?method=hash)  
-2. Click **"Verify by Hash"**  
-3. Paste the SHA3 hash (hex format, e.g., `0xabc123...`)  
-4. The app will search for a match and display any corresponding stamp
-
-
-## How Are Collections Handled?
-
-If the file was originally stamped as part of a **Collection**, the Verify app will:
-
-- Display the **Collection ID** associated with the file  
-- Show the **Collection Name**, if available
-
-> 📌 This is especially useful when verifying which files belong to specific projects, datasets, or deliverables.
 
 
 ## User Notes
@@ -74,20 +48,48 @@ If the file was originally stamped as part of a **Collection**, the Verify app w
 
 ## Frequently Asked Questions
 
-### Can multiple people stamp the same file?
+#### What If My File Doesn’t Match?
+
+Even a **1-character or 1-byte change** to a file will produce a completely different content ID.
+
+This means:
+
+- The file must match **exactly**—bit-for-bit—with the originally stamped version  
+- If you've re-saved, edited, or reformatted the file in any way, the hash will not match  
+- You can calculate the SHA3 hash locally using tools like `sha3sum`, `openssl`, or browser-based hash calculators to compare with the content ID
+
+
+
+#### Can I Verify a Content ID Without Loading a File?
+
+Yes! If you already know your file’s **SHA3 hash**, you can paste it into the **"Verify by Content ID"** field:
+
+1. Go to [vBase Verify](https://app.vbase.com/verify/?method=hash)  
+2. Click **"Verify by Hash"**  
+3. Paste the SHA3 hash (hex format, e.g., `0xabc123...`)  
+4. The app will search for a match and display any corresponding stamp
+
+
+#### How Are Collections Handled?
+
+If the file was originally stamped as part of a **Collection**, the Verify app will:
+
+- Display the **Collection ID** associated with the file  
+- Show the **Collection Name**, if available
+
+> 📌 This is especially useful when verifying which files belong to specific projects, datasets, or deliverables.
+
+#### Can multiple people stamp the same file?
 Yes. If a user stamps the same file twice or two users stamp an identical file, it will produce the same content ID. The blockchain will show multiple transactions for that content ID, each with its own timestamp and blockchain address. For real-world data with any reasonable amount of entropy, this is extremely unlikely. 
 
-### Is there an API for verification?
+#### Is there an API for verification?
 Yes, see the Python SDK samples for verifying via the API. 
 
-### What happens if a stamp is deleted from vBase?
+#### What happens if a stamp is deleted from vBase?
 Stamp records on the **blockchain are permanent**. If the original copy of the file is lost, then the associated Stamp will not be verifiable, however it will still be visible on-chain. 
-
-### Can I verify files on blockchains other than Polygon?
-Currently, vBase supports stamping and verification on the **Polygon** blockchain. Support for additional blockchains may be added in the future.
 
 
 ## Need Help?
 
-- 📖 [How to Stamp a File](./how-to-use-vbase-stamper.md)  
+- 📖 [How to Stamp a File](how-to-use-vbase-stamper.md)  
 - 🧩 [What Is a SHA3 Hash?](https://en.wikipedia.org/wiki/SHA-3)  
