@@ -30,9 +30,9 @@ When you click **“Make a Stamp”**, the following process occurs:
 - **Content ID**: The file’s SHA3 hash, serving as its unique digital fingerprint  
 - **Collection ID** *(if applicable)*: The identifier of the Collection the file belongs to  
 <br><br>
-<img src="stamp_example.png" witdth=100%, height=auto>
+<img src="stamp_example.png" witdth=200%, height=auto>
 <br>
-> 💡 **Note:** vBase does not publish or share your actual file, filename, or personal information on-chain. Only cryptographic identifiers are recorded to preserve privacy and ensure long-term verifiability.
+**Note:** vBase does not publish or share your actual file, filename, or personal information on-chain. Only cryptographic identifiers are recorded to preserve privacy and ensure long-term verifiability.
 
 
 ## What Is a Collection?
@@ -53,7 +53,7 @@ A **Collection** groups related files—such as portfolios, observations, docume
 By default, vBase saves a **secure backup** of your file to help prevent data loss.  
 You can enable or disable this setting in your [**Account Settings**](https://app.vbase.com/profile/#account_settings) under your profile.
 
-> ⚠️ **Important:** If backups are disabled, be sure to store your file safely. If the file is lost or changed, its provenance can no longer be verified.
+**Important:** If backups are disabled, be sure to store your file safely. If the file is lost or changed, its provenance can no longer be verified.
 
 
 ## Quick FAQs
