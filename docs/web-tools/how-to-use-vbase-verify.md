@@ -45,8 +45,8 @@ In some cases, **additional details**—such as the vBase **Username**, **Collec
 
 - Your file’s hash is always calculated **locally in your browser**  
 - The file itself is **never uploaded** or seen by vBase during verification
-- All stamps are recorded on the **Polygon blockchain** and are independently verifiable  
-- Advanced users can query stamps directly via tools like Dune, Polygonscan, or public Polygon nodes
+- All stamps are currently recorded on the **Polygon blockchain** and are independently verifiable  
+- Advanced users can query stamps directly via tools like Dune, Polygonscan, or publicly available Polygon nodes
 
 
 ## Frequently Asked Questions
@@ -59,7 +59,7 @@ This means:
 
 - The file must match **exactly**—bit-for-bit—with the originally stamped version  
 - If you've re-saved, edited, or reformatted the file in any way, the hash will not match  
-- You can calculate the SHA3 hash locally using tools like `sha3sum`, `openssl`, or browser-based hash calculators to compare with the content ID
+- You can calculate the SHA3 hash locally using tools like `sha3sum`, `openssl`, or browser-based hash calculators to compare with the content ID. A few public calculators are available [here](https://emn178.github.io/online-tools/sha3_256_checksum.html) and [here](https://www.browserling.com/tools/sha3-hash). 
 
 
 
