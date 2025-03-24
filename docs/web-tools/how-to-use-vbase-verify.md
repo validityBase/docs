@@ -34,7 +34,7 @@ In some cases, **additional details**—such as the vBase **Username**, **Collec
 
 
 <figure>
-    <img src="Example_VerifyStamp_Output.png" width=800%, height=auto>
+    <img src="Example_VerifyStamp_Output.png" width=400%, height=auto>
     <figcaption>Example of vBase Verify Output</figcaption>
 </figure>
 
