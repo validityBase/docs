@@ -60,11 +60,11 @@ By default, vBase saves a **secure backup** of your file to help prevent data lo
 
 ## Quick FAQs
 
-### ❌ Can a Stamp Be Revoked?
+### Can a Stamp Be Revoked?
 
 No. Blockchain stamps are **permanent and immutable**.  You can stamp a new version of a file, but existing stamps cannot be changed or deleted. 
 
-### ✅ How Do I Verify a Stamped File Later?
+### How Do I Verify a Stamped File Later?
 
 You’ll need the **original file** and access to the blockchain record.  Follow the guide here: [How to Verify a Stamped File](/how-to-use-vbase-verify.md)
 
