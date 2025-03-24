@@ -32,12 +32,12 @@ When you verify a file:
 
 In some cases, **additional details**—such as the vBase **Username**, **Collection Name**, or **Identity Verification Status**—may also be shown. These fields are **off-chain metadata** stored in the vBase database and displayed only when available.
 
-<p align="center">
+
 <figure>
     <img src="Example_VerifyStamp_Output.png" width=50%, height=auto>
     <figcaption>Example of vBase Verify Output</figcaption>
 </figure>
-</p>
+
 
 
 
