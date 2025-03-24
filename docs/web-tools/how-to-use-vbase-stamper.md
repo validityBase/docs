@@ -33,8 +33,8 @@ When you click **“Make a Stamp”**, the following process occurs:
     <img src="stamp_example.png" witdth=200%, height=auto>
     <figcaption>Example of vBase Stamp data</figcaption>
 </figure>
-<br>
-> [!note]
+
+
 > **Note:** vBase does not publish or share your actual file, filename, or personal information on-chain. Only cryptographic identifiers are recorded to preserve privacy and ensure long-term verifiability.
 
 
@@ -53,8 +53,7 @@ A **Collection** groups related files—such as portfolios, observations, docume
 
 ## File Backups and Data Integrity
 
-By default, vBase saves a **secure backup** of your file to help prevent data loss.  
-You can enable or disable this setting in your [**Account Settings**](https://app.vbase.com/profile/#account_settings) under your profile.
+By default, vBase saves a **secure backup** of your file to help prevent data loss. You can enable or disable this setting in your [**Account Settings**](https://app.vbase.com/profile/#account_settings) under your profile.
 
 **Important:** If backups are disabled, be sure to store your file safely. If the file is lost or changed, its provenance can no longer be verified.
 
