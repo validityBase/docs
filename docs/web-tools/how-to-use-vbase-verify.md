@@ -18,35 +18,37 @@ For a quick overview, [🎥 Watch the How-To Video](https://youtu.be/nzbC3UphfGM
 
 When you verify a file:
 
-- The **SHA3 hash** (also called the content ID or digital fingerprint) is calculated **locally in your browser**  
-- vBase uses this content ID to search for matching stamp transactions on the relevant blockkchains (currently Polygon)
-- If a match is found, the app retrieves and displays the following **on-chain stamp metadata**:
+1. The **SHA3 hash** (also called the content ID or digital fingerprint) is calculated **locally in your browser**  
+2. vBase uses this content ID to search for matching stamp transactions on the relevant blockkchains (currently Polygon)
+3. If a match is found, the app retrieves and displays the following **on-chain stamp metadata**:
 
-  - 📅 **Timestamp** – When the stamp was recorded on-chain  
-  - 👤 **Blockchain Address** – The wallet that created the stamp  
-  - 🧩 **Content ID** – The SHA3 hash (aka digital fingerprint) representing the file  
-  - 🗂️ **Collection ID** – If the file was part of a collection  
-  - 🔗 **Transaction Hash** – The ID of the transaction in which the stamp was published
+      | 🔗 Data Type            | Description |
+      |------------------------|-------------|
+      | 📅 **Timestamp**       | When the stamp was recorded on-chain |
+      | 👤 **Blockchain Address** | The wallet that created the stamp |
+      | 🧩 **Content ID**      | The SHA3 hash of the file |
+      | 🗂️ **Collection ID**   | If the file belongs to a collection |
+      | 🔗 **Transaction Hash** | Blockchain transaction ID for the stamp |
 
-> 💡 This information is pulled directly from the blockchain and is independently verifiable.
+    > 💡 This information is pulled directly from the blockchain and is independently verifiable.
 
-In some cases, **additional details**—such as the vBase **Username**, **Collection Name**, or **Identity Verification Status**—may also be shown. These fields are **off-chain metadata** stored in the vBase database and displayed only when available.
+    In some cases, **off-chain metadata** from the vBase database (e.g., **Username**, **Collection Name**, **Identity Verification Status**) may also be shown if available.
+
 
 
 <figure>
-    <img src="Example_VerifyStamp_Output.png" width=400%, height=auto>
+    <img src="Example_VerifyStamp_Output.png" width=500%, height=auto>
     <figcaption>Example of vBase Verify Output</figcaption>
 </figure>
 
 
 
 
-## User Notes
-
-- Your file’s hash is always calculated **locally in your browser**  
-- The file itself is **never uploaded** or seen by vBase during verification
-- All stamps are currently recorded on the **Polygon blockchain** and are independently verifiable  
-- Advanced users can query stamps directly via tools like Dune, Polygonscan, or publicly available Polygon nodes
+>**User Notes**
+>  - Your file’s hash is always calculated **locally in your browser**  
+>  - The file itself is **never uploaded** or seen by vBase during verification
+>  - All stamps are currently recorded on the **Polygon blockchain** and are independently verifiable  
+>  - Advanced users can query stamps directly via tools like Dune, Polygonscan, or publicly available Polygon nodes<br>
 
 
 ## Frequently Asked Questions
@@ -90,6 +92,16 @@ Yes, see the Python SDK samples for verifying via the API.
 
 #### What happens if a stamp is deleted from vBase?
 Stamp records on the **blockchain are permanent**. If the original copy of the file is lost, then the associated Stamp will not be verifiable, however it will still be visible on-chain. 
+
+
+## Glossary
+
+| Term              | Meaning |
+|------------------|---------|
+| **SHA3 Hash**     | A secure fingerprint of your file |
+| **Content ID**    | Another name for the SHA3 hash |
+| **On-chain Data** | Info permanently stored on the blockchain |
+| **Off-chain Data**| Extra metadata, not on the blockchain |
 
 
 ## Need Help?
