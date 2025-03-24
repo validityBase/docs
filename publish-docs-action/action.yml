@@ -22,6 +22,9 @@ inputs:
     description: 'Preprocess PlantUML diagrams in the markdown files. "true" if not set.'
     required: false
     default: 'true'
+  resolve-absolute-links-repos:
+    description: 'Replace links pointing to any of these repositories, with a relative links.'
+    required: false
 runs:
   using: "node20"
   main: "index.js"

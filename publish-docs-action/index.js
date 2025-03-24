@@ -25960,23 +25960,46 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const path_1 = __importDefault(__nccwpck_require__(1017));
 const core = __importStar(__nccwpck_require__(5316));
+const link_helper_1 = __nccwpck_require__(2471);
 const git_helpers_1 = __nccwpck_require__(4813);
 const md_helpers_1 = __nccwpck_require__(5572);
 const constants_1 = __nccwpck_require__(9097);
+const plant_uml_helpers_1 = __nccwpck_require__(3374);
 console.log('Publishing user documentation to the central docs repository...');
 (0, git_helpers_1.cloneDocsRepository)()
     .then(() => {
     return (0, md_helpers_1.copyDocs)();
 })
+    // replace PlantUml diagrams with images
     .then((prodDocsDirectoryInTheMainDocs) => {
     if (core.getInput('preprocess-plant-uml') === 'true') {
-        return (0, md_helpers_1.preprocessMdsInDirectory)(path_1.default.join(constants_1.Constants.MainDocsDirectory, prodDocsDirectoryInTheMainDocs))
+        return (0, md_helpers_1.preprocessMdsInDirectory)(path_1.default.join(constants_1.Constants.MainDocsDirectory, prodDocsDirectoryInTheMainDocs), plant_uml_helpers_1.replacePlantUmlDiagramsInFile)
+            .then(() => prodDocsDirectoryInTheMainDocs);
+    }
+    else {
+        return prodDocsDirectoryInTheMainDocs;
+    }
+})
+    // replace absolute links to the GitHub repositories with relative links
+    // the relatives links are only valid within the central docs repository
+    .then((prodDocsDirectoryInTheMainDocs) => {
+    if (core.getInput('resolve-absolute-links-repos')) {
+        return (0, md_helpers_1.preprocessMdsInDirectory)(path_1.default.join(constants_1.Constants.MainDocsDirectory, prodDocsDirectoryInTheMainDocs), (mdFile) => __awaiter(void 0, void 0, void 0, function* () { return yield (0, link_helper_1.replaceAbsoluteGitLinksInFile)(mdFile, core.getInput('resolve-absolute-links-repos')); }))
             .then(() => prodDocsDirectoryInTheMainDocs);
     }
     else {
@@ -25989,6 +26012,82 @@ console.log('Publishing user documentation to the central docs repository...');
     .then(() => {
     console.log('Publishing user documentation is done.');
 });
+
+
+/***/ }),
+
+/***/ 2471:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.replaceAbsoluteGitLinksInFile = void 0;
+const fs = __importStar(__nccwpck_require__(7147));
+function replaceAbsoluteGitLinksInFile(filePath, reposToResolveStr) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (reposToResolveStr) {
+            console.log(`Resolving absolute links pointing to \n ${reposToResolveStr}...`);
+        }
+        else {
+            console.log('No repos to resolve provided. Skipping...');
+            console.log('Please provide a list of repos to resolve in the action parameter resolve-absolute-links-repos');
+            return;
+        }
+        console.log(`Resolving absolute links in ${filePath}...`);
+        let content = fs.readFileSync(filePath, 'utf8');
+        const linkRegex = /(?:https\:\/\/github\.com\/)([\w\-_]+)\/([\w\-_]+).*\/([\w\-_]+\.md)/gm;
+        content = content.replace(linkRegex, (match, owner, repo, file) => {
+            console.log(`Absolute link detected: ${match}`);
+            console.log(`Owner: ${owner}, Repo: ${repo}, File: ${file}`);
+            if (owner !== 'validityBase') {
+                console.log(`Owner is not validityBase, skipping...`);
+                return match;
+            }
+            if (!reposToResolveStr.includes(repo)) {
+                console.log(`Repo ${repo} is not in the list of repos to resolve, skipping...`);
+                return match;
+            }
+            const newLink = `../${repo}/${file}`;
+            console.log(`Link replaced with ${newLink}`);
+            return newLink;
+        });
+        fs.writeFileSync(filePath, content);
+    });
+}
+exports.replaceAbsoluteGitLinksInFile = replaceAbsoluteGitLinksInFile;
 
 
 /***/ }),
@@ -26039,7 +26138,6 @@ const core = __importStar(__nccwpck_require__(5316));
 const constants_1 = __nccwpck_require__(9097);
 const fs = __importStar(__nccwpck_require__(7147));
 const path_1 = __importDefault(__nccwpck_require__(1017));
-const plant_uml_helpers_1 = __nccwpck_require__(3374);
 const env = process.env;
 // copy the markdown files from the build directory to the docs repository
 function copyDocs() {
@@ -26067,7 +26165,7 @@ function copyDocs() {
     });
 }
 exports.copyDocs = copyDocs;
-function preprocessMdsInDirectory(directory) {
+function preprocessMdsInDirectory(directory, mdHandler) {
     return __awaiter(this, void 0, void 0, function* () {
         // iterate over all markdown files in the directory and preprocess them
         console.log(`Preprocessing markdown files in ${directory}...`);
@@ -26078,7 +26176,7 @@ function preprocessMdsInDirectory(directory) {
                 continue;
             }
             console.log(`Preprocessing ${files[i]}...`);
-            yield (0, plant_uml_helpers_1.replacePlantUmlDiagramsInFile)(files[i]);
+            yield mdHandler(files[i]);
         }
     });
 }
