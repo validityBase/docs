@@ -25,9 +25,9 @@ When you verify a file:
       | 🔗 Data Type            | Description |
       |------------------------|-------------|
       | 📅 **Timestamp**       | When the stamp was recorded on-chain |
-      | 👤 **Blockchain Address** | The wallet that created the stamp |
-      | 🧩 **Content ID**      | The SHA3 hash of the file |
-      | 🗂️ **Collection ID**   | If the file belongs to a collection |
+      | 👤 **Blockchain Address** | The blockchain address associated with the vBase account that created the stamp |
+      | 🧩 **Content ID**      | A hash (unique fingerprint) of the file |
+      | 🗂️ **Collection ID**   | A hash of the name of the collection to which the file belongs (if applicable) |
       | 🔗 **Transaction Hash** | Blockchain transaction ID for the stamp |
 
     > 💡 This information is pulled directly from the blockchain and is independently verifiable.
@@ -98,8 +98,8 @@ Stamp records on the **blockchain are permanent**. If the original copy of the f
 
 | Term              | Meaning |
 |------------------|---------|
-| **SHA3 Hash**     | A secure fingerprint of your file |
-| **Content ID**    | Another name for the SHA3 hash |
+| **SHA3 Hash**     | A unique fingerprint for a file |
+| **Content ID**    | A vBase-specific name for an object's fingerprint |
 | **On-chain Data** | Info permanently stored on the blockchain |
 | **Off-chain Data**| Extra metadata, not on the blockchain |
 
