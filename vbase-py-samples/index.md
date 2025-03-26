@@ -23,7 +23,7 @@
   * [Summary<a href="#rd-summary" id="rd-summary"></a>](restore_dataset_provenance.md#summary)
   * [Detailed Description<a href="#rd-detailed-description" id="rd-detailed-description"></a>](restore_dataset_provenance.md#detailed-description)
 * [Stamp Interactive Brokers Portfolio](stamp_interactive_brokers_portfolio.md)
-  * [1. Prerequisites <a href="#ib-prerequisites" id="ib-prerequisites"></a>](stamp_interactive_brokers_portfolio.md#prerequisites)
+  * [1. Prerequisites <a href="#prerequisites" id="prerequisites"></a>](stamp_interactive_brokers_portfolio.md#prerequisites)
   * [2. Download and Install Client Portal Gateway <a href="#download-and-install-client-portal-gateway" id="download-and-install-client-portal-gateway"></a>](stamp_interactive_brokers_portfolio.md#download-and-install-client-portal-gateway)
   * [3. Set Environment Variables<a href="#set-environment-variables" id="set-environment-variables"></a>](stamp_interactive_brokers_portfolio.md#set-environment-variables)
   * [4. Run the Sample<a href="#run-the-sample" id="run-the-sample"></a>](stamp_interactive_brokers_portfolio.md#run-the-sample)
