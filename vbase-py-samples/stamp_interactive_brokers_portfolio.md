@@ -10,12 +10,12 @@ The sample will run the **Interactive Brokers (IB) Client Portal Gateway** on yo
 
 You can find the implementation in [`stamp_interactive_brokers_portfolio.py`](https://github.com/validityBase/vbase-py-samples/blob/main/samples/stamp_interactive_brokers_portfolio.py).
 
-- [1. Prerequisites]()
-- [2. Download and Install Client Portal Gateway]()
-- [3. Set Environment Variables]()
-- [4. Run the Sample]()
+- [1. Prerequisites](#ib-prerequisites)
+- [2. Download and Install Client Portal Gateway](#download-and-install-client-portal-gateway)
+- [3. Set Environment Variables](#set-environmental-variables)
+- [4. Run the Sample](#ib-run-the-sample)
 
-## 1. Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 1. Prerequisites <a href="#ib-prerequisites" id="ib-prerequisites"></a>
 
 1. **Interactive Brokers Account**: You must have an IB account (live or paper trading).
 2. **Python**: Ensure Python is installed on your Windows machine.
@@ -67,7 +67,7 @@ Set the following environment variables for your IB and vBase configuration:
   - `VBASE_COMMITMENT_SERVICE_PRIVATE_KEY` - The private key used to sign portfolio stamps.
   - `VBASE_DATASET_NAME` - The name of the vBase dataset that will hold the portfolio history.
 
-## 4. Run the Sample<a href="#run-the-sample" id="run-the-sample"></a>
+## 4. Run the Sample<a href="#ib-run-the-sample" id="ib-run-the-sample"></a>
 
 Run the sample from the command line:
 

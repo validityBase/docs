@@ -7,16 +7,16 @@ to run vBase samples.
 
 We provide steps for setting up a Python virtual environment (venv) on a Windows 10 system and installing all the necessary build tools required for compiling and installing typical Python packages.
 
-- [1. Install Python on Windows]()
-- [2. Install Microsoft Visual C++ Build Tools]()
-- [3. Create the Project Directory]()
-- [4. Clone vBase Samples into the Project Directory]()
-  - [4.1. Option 1. Clone the vbase-py-samples repository:]()
-  - [4.2. Option 2. Download the vbase-py-samples repository as a ZIP file:]()
-- [5. Create a Python Virtual Environment (venv)]()
-- [6. Install Required Build Tools for Python Packages]()
-- [7. Install vBase Dependencies]()
-- [8. You Are All Set!]()
+- [1. Install Python on Windows](#install-python-on-windows)
+- [2. Install Microsoft Visual C++ Build Tools](#install-microsoft-visual-c-build-tools)
+- [3. Create the Project Directory](#create-the-project-directory)
+- [4. Clone vBase Samples into the Project Directory](#clone-vbase-samples-into-the-project-directory)
+  - [4.1. Option 1. Clone the vbase-py-samples repository:](#option-1-clone-the-vbase-py-samples-repository)
+  - [4.2. Option 2. Download the vbase-py-samples repository as a ZIP file:](#option-2-download-the-vbase-py-samples-repository-as-a-zip-file)
+- [5. Create a Python Virtual Environment (venv)](#create-a-python-virtual-environment-venv)
+- [6. Install Required Build Tools for Python Packages](#install-required-build-tools-for-python-packages)
+- [7. Install vBase Dependencies](#install-vbase-dependencies)
+- [8. You Are All Set!](#wg-you-are-all-set)
 
 ## 1. Install Python on Windows<a href="#install-python-on-windows" id="install-python-on-windows"></a>
 
@@ -136,6 +136,6 @@ Now that the virtual environment and build tools are set up, you can install the
    pip install -r requirements-win.txt
    ```
 
-## 8. You Are All Set!<a href="#you-are-all-set" id="you-are-all-set"></a>
+## 8. You Are All Set!<a href="#wg-you-are-all-set" id="wg-you-are-all-set"></a>
 
 Once the above `pip install` command succeeded, you are ready to run the samples.
