@@ -16,7 +16,7 @@ We provide steps for setting up a Python virtual environment (venv) on a Windows
 - [5. Create a Python Virtual Environment (venv)](#create-a-python-virtual-environment-venv)
 - [6. Install Required Build Tools for Python Packages](#install-required-build-tools-for-python-packages)
 - [7. Install vBase Dependencies](#install-vbase-dependencies)
-- [8. You Are All Set!](#wg-you-are-all-set)
+- [8. You Are All Set!](#you-are-all-set)
 
 ## 1. Install Python on Windows<a href="#install-python-on-windows" id="install-python-on-windows"></a>
 
@@ -136,6 +136,6 @@ Now that the virtual environment and build tools are set up, you can install the
    pip install -r requirements-win.txt
    ```
 
-## 8. You Are All Set!<a href="#wg-you-are-all-set" id="wg-you-are-all-set"></a>
+## 8. You Are All Set!<a href="#you-are-all-set" id="you-are-all-set"></a>
 
 Once the above `pip install` command succeeded, you are ready to run the samples.
