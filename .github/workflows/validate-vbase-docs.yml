@@ -8,16 +8,10 @@ on:
 jobs:
     validate:
         runs-on: ubuntu-latest
-        env:
-            URL: https://docs.vbase.com/
         steps:
         - name: Pull linkcheck Docker image
           run: |
             docker pull tennox/linkcheck
         - name: Run linkcheck Docker image
           run: |
-            docker run --rm tennox/linkcheck $URL > linkcheck.log
-        - name: Process linkcheck output
-          run: |
-            node process-linkcheck-log.js
-    
+            docker run --rm tennox/linkcheck https://docs.vbase.com/
