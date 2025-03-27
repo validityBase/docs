@@ -11,6 +11,9 @@ jobs:
         env:
             URL: https://docs.vbase.com/
         steps:
+        - name: Pull linkcheck Docker image
+          run: |
+            docker pull tennox/linkcheck
         - name: Run linkcheck Docker image
           run: |
             docker run --rm tennox/linkcheck $URL > linkcheck.log
