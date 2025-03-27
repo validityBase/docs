@@ -1,0 +1,20 @@
+name: Validate VBase public documentation Website
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * MON' # At 12:00 AM, only on Monday
+
+jobs:
+    validate:
+        runs-on: ubuntu-latest
+        env:
+            URL: https://docs.vbase.com/
+        steps:
+        - name: Run linkcheck Docker image
+          run: |
+            docker run --rm tennox/linkcheck $URL > linkcheck.log
+        - name: Process linkcheck output
+          run: |
+            node process-linkcheck-log.js
+    
