@@ -27,7 +27,7 @@ Use this format to generate a CSV file of your current portfolio.
 1. Go to [app.vbase.com](https://www.vbase.com/)
 2. If you don't yet have an account, register for a free account by clicking [Create an Account](https://app.vbase.com/accounts/signup/) in the upper right and following the registration process. 
 3. Sign in to your vBase Account
-4. Go into your user profile, click the Collections tab. Shortcut: https://app.vbase.com/profile/#collections 
+4. Go into your user profile, click the Collections tab. Shortcut: [https://app.vbase.com/profile/#collections](https://app.vbase.com/profile/#collections) 
 5. Create a collection name for the strategy you plan to stamp. This is the strategy name that will be visible publicly when you share your live ticker. 
 <br><br>
 
@@ -40,7 +40,7 @@ vBase allows you to stamp via API, Excel or our web application. This guide will
 
 
 
-1. Go to Stamp page (https://app.vbase.com/stamp/)
+1. Go to Stamp page - [https://app.vbase.com/stamp/](https://app.vbase.com/stamp/)
 2. Load your portfolio CSV for a particular strategy into the Stamper dialog box
 3. Check the box that this Stamp belongs to a Collection
 4. Select from the Collection dropdown menu the name of your Strategy
