@@ -7,7 +7,7 @@ The following steps guide you through this process of setting up vBase Python SD
 <!-- omit in toc -->
 > **Note for Windows users:**
 > If you’re on Windows, the following instructions will work on the Windows Subsystem for Linux (WSL). WSL provides a Linux environment on your Windows OS. Please follow [this guide to set up your WSL environment for vBase.](windows_subsystem_for_linux_guide.md)
-- [1. Get a vBase API Key](#get-a-vbase-api-key)
+- [1. Get a vBase API Key](#get-your-vbase-api-key)
 - [2. Create the vBase Directory](#create-the-vbase-directory)
 - [3. Install the vBase Python SDK](#install-the-vbase-python-sdk)
 - [4. Clone the vBase Python SDK Samples](#clone-the-vbase-python-sdk-samples)
@@ -15,7 +15,7 @@ The following steps guide you through this process of setting up vBase Python SD
 - [6. Verify Your Environment](#verify-your-environment)
 - [7. You Are All Set!](#you-are-all-set)
 
-## 1. Get your vBase API Key <a href="#get-a-vbase-api-key" id="get-a-vbase-api-key"></a>
+## 1. Get your vBase API Key <a href="#get-your-vbase-api-key" id="get-your-vbase-api-key"></a>
 
 Please [access the vBase App](https://app.vbase.com), sign-up, and retrieve the API Key from your user profile if you wish to have the simplest experience. The API key is needed to access the forwarder API service. This service simplifies commitment and validation operations but is not required for interacting with vBase.
 

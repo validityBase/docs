@@ -10,8 +10,8 @@ The written instructions below guide you through the process using the latest ve
 
 ## Installation
 
-1. **[Download the vBase Excel Library Setup Files](https://github.com/validityBase/docs/raw/refs/heads/main/vbase-cs/vBase_Excel_Setup_v11.zip)**.
-2. Unzip `vBase_Excel_Setup_v11.zip` into a local directory on your computer.
+1. **[Download the vBase Excel Library Setup Files](https://github.com/validityBase/vbase-cs/releases/download/Excel_Setup_Files/vBase_Excel_Setup_Latest.zip)**.
+2. Unzip `vBase_Excel_Setup_Latest.zip` into a local directory on your computer.
 3. Uninstall any existing version of the library.
 4. Install the new version by running `setup.exe`.
 5. If open, close `vBase_Excel_Stamper.xlsm`.
