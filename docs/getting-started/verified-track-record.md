@@ -17,7 +17,7 @@ vBase ingests portfolio data from simple CSVs. Below is an example of a portfoli
 
 Use this format to generate a CSV file of your current portfolio. 
 
-[Example Portfolio CSV File](https://github.com/user-attachments/files/19322162/Example.Portfolio.CSV.csv)
+[Example Portfolio CSV File](https://github.com/validityBase/docs/releases/download/Example_Portfolio/Example_Portfolio_CSV.csv)
 
 <img src="image-2.png" style="width:20%; height:auto;"><br><br>
 
