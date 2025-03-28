@@ -1,4 +1,4 @@
-name: Validate VBase Website
+name: Validate vBase Website
 
 on:
   workflow_dispatch:
