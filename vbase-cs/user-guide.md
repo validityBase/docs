@@ -23,7 +23,7 @@ Sub BuildAndVerifyDataset()
 
     On Error GoTo ErrorHandler
 
-    Dim vBaseBuidler As New vBase.vBaseBuilder
+    Dim vBaseBuilder As New vBase.vBaseBuilder
     Dim vBaseClient As vBase.vBaseClient
     Dim vBaseDataset As vBase.vBaseDataset
     Dim verificationResult As vBase.verificationResult
@@ -39,14 +39,14 @@ Sub BuildAndVerifyDataset()
     apiKey = "<API KEY>"
     privateKey = "<PRIVATE KEY>"
 
-    Set vBaseClient = vBaseBuidler.CreateForwarderClient(forwarderUrl, apiKey, privateKey)
-    Set vBaseDataset = vBaseBuidler.CreateDataset(vBaseClient, datasetName, vBase.ObjectTypes_String)
+    Set vBaseClient = vBaseBuilder.CreateForwarderClient(forwarderUrl, apiKey, privateKey)
+    Set vBaseDataset = vBaseBuilder.CreateDataset(vBaseClient, datasetName, vBase.ObjectTypes_String)
 
     Set transactionReceipt = vBaseDataset.AddRecord ("<Record 1 Data>")
     ' Add more records
     Set transactionReceipt = vBaseDataset.AddRecord ("<Record N Data>")
 
-    MsgBox "Last transaction hesh: " & transactionReceipt.transactionHash & vbNewLine & "Last transaction timestamp: " & transactionReceipt.timestamp
+    MsgBox "Last transaction hash: " & transactionReceipt.transactionHash & vbNewLine & "Last transaction timestamp: " & transactionReceipt.timestamp
 
     Set verificationResult = vBaseDataset.VerifyCommitments()
 
