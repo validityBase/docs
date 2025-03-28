@@ -48,8 +48,8 @@ A **Collection** groups related files—such as portfolios, observations, docume
 
 ### Why Use Collections?
 
-- 📦 **Dataset Integrity**: Prove a file was part of a specific group (e.g. a portfolio belongs to a particualr strategy, or an observation belongs to a particular experiment)  
-- ✅ **Collection Verification**: Validate the completeness of a Collection. Using Collection stamping, you can assure a verifier that they're seeing all the data associated with a particualr Collection, and no extra or missing data.   
+- 📦 **Dataset Integrity**: Prove a file was part of a specific group (e.g. a portfolio belongs to a particular strategy, or an observation belongs to a particular experiment)  
+- ✅ **Collection Verification**: Validate the completeness of a Collection. Using Collection stamping, you can assure a verifier that they're seeing all the data associated with a particular Collection, and no extra or missing data.   
 - 🧩 **Better Organization**: Track provenance across a project, experiment, strategy, or dataset
 
 > 📌 **Tip:** Collections are optional. Files not in a collection are still independently verifiable.

@@ -6,7 +6,7 @@ validityBase is a trusted platform for building shareable live global tickers fo
 
 vBase creates a point-in-time record of your portfolios to build a live Ticker. These portfolios are saved and then used as the basis for calculating live investment performance dashboards for your strategy. 
 
-This guide will walk you through the process of getting a live veriifed vBase Ticker for your strategy.<br><br>
+This guide will walk you through the process of getting a live verified vBase Ticker for your strategy.<br><br>
 
 
 ## Steps to Build a Live Verified Track Record

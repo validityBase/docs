@@ -22,14 +22,14 @@ Provenance can continue to be built and verified even if validityBase ceases to 
 
 ## vBase Claims are Independently Verifiable
 
-Since vBase provenance claims are built on data fingerprints that sit on public blockchains, a verifier with basic technical skills can indpendently confirm the provenance of your data for themselves. While vBase provides a convenient set of tools and interfaces for this process, a verifier who wishes to check vBase claims for themselves can always do so. 
+Since vBase provenance claims are built on data fingerprints that sit on public blockchains, a verifier with basic technical skills can independently confirm the provenance of your data for themselves. While vBase provides a convenient set of tools and interfaces for this process, a verifier who wishes to check vBase claims for themselves can always do so. 
 
 Unlike with a trusted 3rd party model, one need not trust vBase to confirm the provenance of your data. Third-party tools can independently verify vBase data provenance claims.
 
 
 ## vBase Architecture Assures Long-term Interoperability 
 
-vBase is protocol-based, ike TCP/IP. The underlying vBase verification fingeprint data is publicly available. This means you can develop integrated views, workflows, and solutions leveraging your provenance data, with confidence that they will remain interoperable and function reliably over time. 
+vBase is protocol-based, ike TCP/IP. The underlying vBase verification fingerprint data is publicly available. This means you can develop integrated views, workflows, and solutions leveraging your provenance data, with confidence that they will remain interoperable and function reliably over time. 
 
 Even if vBase wanted to, we could not deny you access to your own data. This assures long-term interoperability without the risk of unilateral changes.
 
