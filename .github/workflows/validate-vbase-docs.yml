@@ -1,4 +1,4 @@
-name: Validate VBase public documentation Website
+name: Validate vBase public documentation Website
 
 on:
   workflow_dispatch:
