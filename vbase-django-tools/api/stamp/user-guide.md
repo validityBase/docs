@@ -51,7 +51,7 @@ This endpoint allows you to stamp files, inline data, or existing CIDs.
 | data | String | No | Inline text or JSON data |
 | dataCid | String | No | Existing CID to stamp |
 | collectionCid | String | No | Optional CID of collection to group stamped object |
-| storeStampedFiles | Boolean | No | Whether to store the stamped file |
+| storeStampedFile | Boolean | No | Whether to store the stamped file |
 | idempotent | Boolean | No | Enable idempotency |
 | idempotencyWindow | Integer | No | Idempotency window in seconds |
 
@@ -73,7 +73,7 @@ Note: At least one of 'file', 'data', or 'dataCid' must be provided.
 curl -X POST https://app.vbase.com/api/v1/stamp/ \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
 -F "file=@testfile.txt" \
--F "storeStampedFiles=true" \
+-F "storeStampedFile=true" \
 -F "idempotent=true" \
 -F "idempotencyWindow=3600"
 ```
@@ -83,7 +83,7 @@ curl -X POST https://app.vbase.com/api/v1/stamp/ \
 curl -X POST https://app.vbase.com/api/v1/stamp/ \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
 -F "data='1212121212'" \
--F "storeStampedFiles=true" \
+-F "storeStampedFile=true" \
 -F "idempotent=true" \
 -F "idempotencyWindow=3600"
 ```
@@ -93,7 +93,7 @@ curl -X POST https://app.vbase.com/api/v1/stamp/ \
 curl -X POST https://app.vbase.com/api/v1/stamp/ \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
 -F "dataCid='0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800'" \
--F "storeStampedFiles=true" \
+-F "storeStampedFile=true" \
 -F "idempotent=true" \
 -F "idempotencyWindow=3600"
 ```
@@ -119,7 +119,7 @@ class StampData(TypedDict, total=False):
     data: Optional[str]
     dataCid: Optional[str]
     collectionCid: Optional[str]
-    storeStampedFiles: bool
+    storeStampedFile: bool
     idempotent: bool
     idempotencyWindow: int
 
@@ -172,7 +172,7 @@ def test_stamp_file():
     """
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
-        "storeStampedFiles": "true",
+        "storeStampedFile": "true",
         "idempotent": "true",
         "idempotencyWindow": "3600",
     }
@@ -195,7 +195,7 @@ def test_stamp_data():
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
         "data": "1212121212",
-        "storeStampedFiles": "true",
+        "storeStampedFile": "true",
         "idempotent": "true",
         "idempotencyWindow": "3600",
     }
@@ -211,7 +211,7 @@ def test_stamp_data_cid():
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
         "dataCid": "0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
-        "storeStampedFiles": "true",
+        "storeStampedFile": "true",
         "idempotent": "true",
         "idempotencyWindow": "3600",
     }

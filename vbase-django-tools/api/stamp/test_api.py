@@ -24,7 +24,7 @@ class StampData(TypedDict, total=False):
     data: Optional[str]
     dataCid: Optional[str]
     collectionCid: Optional[str]
-    storeStampedFiles: bool
+    storeStampedFile: bool
     idempotent: bool
     idempotencyWindow: int
 
@@ -85,7 +85,7 @@ def test_stamp_file():
     """
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
-        "storeStampedFiles": "true",
+        "storeStampedFile": "true",
         "idempotent": "true",
         "idempotencyWindow": "3600",
     }
@@ -107,7 +107,7 @@ def test_stamp_data():
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
         "data": "1212121212",
-        "storeStampedFiles": "true",
+        "storeStampedFile": "true",
         "idempotent": "true",
         "idempotencyWindow": "3600",
     }
@@ -123,7 +123,7 @@ def test_stamp_data_cid():
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
         "dataCid": "0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
-        "storeStampedFiles": "true",
+        "storeStampedFile": "true",
         "idempotent": "true",
         "idempotencyWindow": "3600",
     }
