@@ -1,6 +1,6 @@
-<!-- omit in toc -->
-
 # Stamp Interactive Brokers Portfolio
+
+<!-- omit in toc -->
 
 This sample illustrates how to retrieve, save, and stamp an Interactive Brokers (IB) portfolio.
 

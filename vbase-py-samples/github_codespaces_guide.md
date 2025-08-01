@@ -1,6 +1,6 @@
-<!-- omit in toc -->
-
 # GitHub Codespaces Guide
+
+<!-- omit in toc -->
 
 This tutorial guides you through setting up GitHub Codespaces to run vBase samples.
 
@@ -70,10 +70,7 @@ To use the secret within your Codespace, you’ll need to reference it in your `
        "settings": {
          "terminal.integrated.shell.linux": "/bin/bash"
        },
-       "extensions": [
-         "ms-python.python",
-         "ms-azuretools.vscode-docker"
-       ],
+       "extensions": ["ms-python.python", "ms-azuretools.vscode-docker"],
        "postCreateCommand": "echo 'Codespace setup complete!'"
      }
      ```

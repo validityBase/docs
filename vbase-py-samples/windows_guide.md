@@ -1,9 +1,8 @@
-<!-- omit in toc -->
-
 # Windows vBase Setup Guide
 
-This tutorial guides you through setting up Windows environment
-to run vBase samples.
+<!-- omit in toc -->
+
+This tutorial guides you through setting up Windows environment to run vBase samples.
 
 We provide steps for setting up a Python virtual environment (venv) on a Windows 10 system and installing all the necessary build tools required for compiling and installing typical Python packages.
 
@@ -115,8 +114,7 @@ Some packages need additional Python build tools like `setuptools` and `wheel`. 
    ```bash
    pip install --upgrade pip setuptools wheel
    ```
-2. **Install `build`**:
-   The `build` package helps when building some Python projects.
+2. **Install `build`**: The `build` package helps when building some Python projects.
    ```bash
    pip install build
    ```
@@ -129,9 +127,7 @@ Now that the virtual environment and build tools are set up, you can install the
    ```bash
    cd C:\Users\%USERNAME%\Projects\validityBase\vbase-py-samples
    ```
-2. **Instal dependencies**:
-   The `vbase-py-samples` project comes with its `requirements-win.txt`.
-   This installs the required pre-built packages available for Windows:
+2. **Install dependencies**: The `vbase-py-samples` project comes with its `requirements-win.txt`. This installs the required pre-built packages available for Windows:
    ```bash
    pip install -r requirements-win.txt
    ```

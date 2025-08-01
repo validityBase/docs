@@ -1,6 +1,6 @@
-<!-- omit in toc -->
-
 # Create a Set
+
+<!-- omit in toc -->
 
 This sample creates and validates a vBase set.
 
