@@ -4,9 +4,139 @@ vbase
 
 A Python library for interacting with the validityBase (vBase) platform
 
-### *class* vbase.ForwarderCommitmentService(forwarder_url: str, api_key: str, private_key: str | None = None, commitment_service_json_file_name: str | None = ‘CommitmentService.json’)
+### *class* vbase.AggregateIndexingService(services: list[[IndexingService](#vbase.IndexingService)])
 
-Bases: Web3CommitmentService
+Bases: [`IndexingService`](#vbase.IndexingService)
+
+This indexing service aggregates the responses from a set of indexing services
+
+Each operation executes a corresponding method on all services and aggregates the results.
+
+#### find_last_object(object_cid: str, return_set_cid=False) → dict | None
+
+Aggregate the last object from all services, returning the one with the latest timestamp.
+
+#### find_last_user_set_object(user: str, set_cid: str) → dict | None
+
+Aggregate the last user set object from all services, returning the one with the latest timestamp.
+
+#### find_object(object_cid: str, return_set_cids=False) → list[dict]
+
+Return the first non-empty list of objects found by the underlying services.
+
+#### find_objects(object_cids: list[str], return_set_cids=False) → list[dict]
+
+Aggregate objects from all services, removing duplicates by transactionHash.
+
+#### find_user_objects(user: str, return_set_cids=False) → list[dict]
+
+Aggregate user objects from all services, removing duplicates by transactionHash.
+
+#### find_user_set_objects(user: str, set_cid: str) → list[dict]
+
+Aggregate user set objects from all services, removing duplicates by transactionHash.
+
+#### find_user_sets(user: str) → list[dict]
+
+Aggregate user sets from all services, removing duplicates by transactionHash.
+
+### *class* vbase.FailoverIndexingService(services: list[[IndexingService](#vbase.IndexingService)])
+
+Bases: [`IndexingService`](#vbase.IndexingService)
+
+This indexing service calls a set of indexing services one after another
+and provides a failover mechanism to ensure that if one service fails,
+another service can be used to retrieve the data.
+
+Each operation will try to use the first service in the list.
+If it fails, it will try the next service in the list until it finds one that works.
+
+#### find_last_object(object_cid: str, return_set_cid=False) → dict
+
+Returns the last/latest receipt, if any, for object commitments.
+Finds and returns individual object commitment irrespective of the set
+it may have been committed to.
+
+* **Parameters:**
+  * **object_cid** – The CID for the object for search.
+  * **return_set_cid** – If True, return the set CIDs, if any, for the object.
+* **Returns:**
+  The commitment receipt for the last/latest object commitment.
+
+#### find_last_user_set_object(user: str, set_cid: str) → dict
+
+Returns the last/latest receipt, if any, for user set object commitments
+for a given user and set CID.
+
+* **Parameters:**
+  * **user** – The address for the user who made the commitment.
+  * **set_cid** – The CID for the set containing the object.
+* **Returns:**
+  The commitment receipt for the last/latest user set commitment.
+
+#### find_object(object_cid: str, return_set_cids=False) → dict
+
+Returns the list of receipts for object commitments
+for a single object CID.
+Finds and returns individual object commitments irrespective of the set
+they may have been committed to.
+
+* **Parameters:**
+  * **object_cid** – The CID for the objects to search.
+  * **return_set_cids** – If True, return the set CIDs, if any, for the objects.
+* **Returns:**
+  The list of commitment receipts for all object commitments.
+
+#### find_objects(object_cids: list[str], return_set_cids=False) → list[dict]
+
+Returns the list of receipts for object commitments
+for a list of object CIDs.
+Finds and returns individual object commitments irrespective of the set
+they may have been committed to.
+
+* **Parameters:**
+  * **object_cids** – The CIDs for the objects to search.
+  * **return_set_cids** – If True, return the set CIDs, if any, for the objects.
+* **Returns:**
+  The list of commitment receipts for all object commitments.
+
+#### find_user_objects(user: str, return_set_cids=False) → list[dict]
+
+Returns the list of receipts for user object commitments
+for a given user.
+Finds and returns individual object commitments irrespective of the set
+they may have been committed to.
+
+* **Parameters:**
+  * **user** – The address for the user who made the commitments.
+  * **object_cids** – The CIDs for the objects to search.
+* **Returns:**
+  The list of commitment receipts for all user object commitments.
+
+#### find_user_set_objects(user: str, set_cid: str) → dict
+
+Returns the list of receipts for user set object commitments
+for a given user and set CID.
+
+* **Parameters:**
+  * **user** – The address for the user who made the commitments.
+  * **set_cid** – The CID for the set containing the objects.
+* **Returns:**
+  The list of commitment receipts for all user set object commitments.
+
+#### find_user_sets(user: str) → list[dict]
+
+Returns the list of receipts for user set commitments
+for a given user.
+
+* **Parameters:**
+  **user** – The address for the user who made the commitments.
+* **Returns:**
+  The list of commitment receipts for all user set commitments.
+
+### *class* vbase.ForwarderCommitmentService(forwarder_url: str, api_key: str, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentService.json')
+
+Bases: `Web3CommitmentService`
 
 Commitment service accessible using a forwarder API endpoint.
 
@@ -42,8 +172,8 @@ It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
 * **Parameters:**
-  \* **set_cid** – The CID for the set containing the object.
-  \* **object_cid** – The object hash to record.
+  * **set_cid** – The CID for the set containing the object.
+  * **object_cid** – The object hash to record.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
@@ -55,8 +185,8 @@ It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
 * **Parameters:**
-  \* **set_cid** – The hashes of the sets containing the objects.
-  \* **object_cids** – The hashes to record.
+  * **set_cid** – The hashes of the sets containing the objects.
+  * **object_cids** – The hashes to record.
 * **Returns:**
   The commitment logs containing commitment receipts.
 
@@ -68,8 +198,8 @@ It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
 * **Parameters:**
-  \* **set_cids** – The hashes of the sets containing the objects.
-  \* **object_cids** – The hashes to record.
+  * **set_cids** – The hashes of the sets containing the objects.
+  * **object_cids** – The hashes to record.
 * **Returns:**
   The commitment logs containing commitment receipts.
 
@@ -80,7 +210,7 @@ Syntactic sugar for initializing new commitment objects using settings
 stored in a .env file or in environment variables.
 
 * **Parameters:**
-  **dotenv_path** –
+  **dotenv_path** – 
 
   Path to the .env file.
   Below is the default treatment that should be appropriate in most scenarios:
@@ -113,8 +243,8 @@ Worker function to load the environment variables.
 Checks whether a given set exists for a user.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **set_cid** – The CID identifying the set.
+  * **user** – The address for the user who recorded the commitment.
+  * **set_cid** – The CID identifying the set.
 * **Returns:**
   True if the set exists for the user; False otherwise.
 
@@ -124,9 +254,9 @@ Verifies an object commitment previously recorded.
 This is a low-level function that operates on object hashes.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **object_cid** – The CID identifying the object.
-  \* **timestamp** – The timestamp of the commitment.
+  * **user** – The address for the user who recorded the commitment.
+  * **object_cid** – The CID identifying the object.
+  * **timestamp** – The timestamp of the commitment.
 * **Returns:**
   True if the commitment has been verified successfully;
   False otherwise.
@@ -137,9 +267,9 @@ Verifies an object commitment previously recorded.
 This is a low-level function that operates on object hashes.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **set_cid** – The CID for the set containing the object.
-  \* **user_set_object_cid_sum** – The sum of all object hashes for the user set
+  * **user** – The address for the user who recorded the commitment.
+  * **set_cid** – The CID for the set containing the object.
+  * **user_set_object_cid_sum** – The sum of all object hashes for the user set
 * **Returns:**
   True if the commitment has been verified successfully;
   False otherwise.
@@ -152,15 +282,15 @@ The sum of all set CIDs for the user encodes the collection of all sets.
 This is a low-level function that operates on object hashes.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **user_set_cid_sum** – The sum of all set CIDs for the user.
+  * **user** – The address for the user who recorded the commitment.
+  * **user_set_cid_sum** – The sum of all set CIDs for the user.
 * **Returns:**
   True if the commitment has been verified successfully;
   False otherwise.
 
-### *class* vbase.ForwarderCommitmentServiceTest(forwarder_url: str, api_key: str, private_key: str | None = None, commitment_service_json_file_name: str | None = ‘CommitmentServiceTest.json’)
+### *class* vbase.ForwarderCommitmentServiceTest(forwarder_url: str, api_key: str, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentServiceTest.json')
 
-Bases: [ForwarderCommitmentService](#vbase.ForwarderCommitmentService), CommitmentServiceTest
+Bases: [`ForwarderCommitmentService`](#vbase.ForwarderCommitmentService), `CommitmentServiceTest`
 
 Test commitment service accessible using a forwarder API endpoint.
 
@@ -170,8 +300,8 @@ Test shim to record an object commitment with a given timestamp.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **object_cid** – The CID identifying the object.
-  \* **timestamp** – The timestamp to force for the record.
+  * **object_cid** – The CID identifying the object.
+  * **timestamp** – The timestamp to force for the record.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
@@ -181,9 +311,9 @@ Test shim to record an object commitment with a given timestamp.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **set_cid** – The CID of the set containing the object.
-  \* **object_cid** – The CID to record.
-  \* **timestamp** – The timestamp to force for the record.
+  * **set_cid** – The CID of the set containing the object.
+  * **object_cid** – The CID to record.
+  * **timestamp** – The timestamp to force for the record.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
@@ -193,9 +323,9 @@ Test shim to record a batch of object commitment with a timestamps.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **set_cid** – The CID of the set containing the objects.
-  \* **object_cids** – The hashes to record.
-  \* **timestamps** – The timestamps to force for the records.
+  * **set_cid** – The CID of the set containing the objects.
+  * **object_cids** – The hashes to record.
+  * **timestamps** – The timestamps to force for the records.
 * **Returns:**
   The commitment logs containing commitment receipts.
 
@@ -205,9 +335,9 @@ Test shim to record a batch of object commitment with a timestamps.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **set_cids** – The hashes of the sets containing the objects.
-  \* **object_cids** – The hashes to record.
-  \* **timestamps** – The timestamps to force for the records.
+  * **set_cids** – The hashes of the sets containing the objects.
+  * **object_cids** – The hashes to record.
+  * **timestamps** – The timestamps to force for the records.
 * **Returns:**
   The commitment logs containing commitment receipts.
 
@@ -233,7 +363,7 @@ Syntactic sugar for initializing new commitment objects using settings
 stored in a .env file or in environment variables.
 
 * **Parameters:**
-  **dotenv_path** –
+  **dotenv_path** – 
 
   Path to the .env file.
   Below is the default treatment that should be appropriate in most scenarios:
@@ -245,7 +375,7 @@ stored in a .env file or in environment variables.
 
 ### *class* vbase.IndexingService
 
-Bases: ABC
+Bases: `ABC`
 
 Base indexing operations.
 Various indexing services may provide a subset of the below operations that they support.
@@ -295,8 +425,8 @@ Finds and returns individual object commitment irrespective of the set
 it may have been committed to.
 
 * **Parameters:**
-  \* **object_cid** – The CID for the object for search.
-  \* **return_set_cid** – If True, return the set CIDs, if any, for the object.
+  * **object_cid** – The CID for the object for search.
+  * **return_set_cid** – If True, return the set CIDs, if any, for the object.
 * **Returns:**
   The commitment receipt for the last/latest object commitment.
 
@@ -306,8 +436,8 @@ Returns the last/latest receipt, if any, for user set object commitments
 for a given user and set CID.
 
 * **Parameters:**
-  \* **user** – The address for the user who made the commitment.
-  \* **set_cid** – The CID for the set containing the object.
+  * **user** – The address for the user who made the commitment.
+  * **set_cid** – The CID for the set containing the object.
 * **Returns:**
   The commitment receipt for the last/latest user set commitment.
 
@@ -319,8 +449,8 @@ Finds and returns individual object commitments irrespective of the set
 they may have been committed to.
 
 * **Parameters:**
-  \* **object_cid** – The CID for the objects to search.
-  \* **return_set_cids** – If True, return the set CIDs, if any, for the objects.
+  * **object_cid** – The CID for the objects to search.
+  * **return_set_cids** – If True, return the set CIDs, if any, for the objects.
 * **Returns:**
   The list of commitment receipts for all object commitments.
 
@@ -332,8 +462,8 @@ Finds and returns individual object commitments irrespective of the set
 they may have been committed to.
 
 * **Parameters:**
-  \* **object_cids** – The CIDs for the objects to search.
-  \* **return_set_cids** – If True, return the set CIDs, if any, for the objects.
+  * **object_cids** – The CIDs for the objects to search.
+  * **return_set_cids** – If True, return the set CIDs, if any, for the objects.
 * **Returns:**
   The list of commitment receipts for all object commitments.
 
@@ -345,8 +475,8 @@ Finds and returns individual object commitments irrespective of the set
 they may have been committed to.
 
 * **Parameters:**
-  \* **user** – The address for the user who made the commitments.
-  \* **object_cids** – The CIDs for the objects to search.
+  * **user** – The address for the user who made the commitments.
+  * **object_cids** – The CIDs for the objects to search.
 * **Returns:**
   The list of commitment receipts for all user object commitments.
 
@@ -356,8 +486,8 @@ Returns the list of receipts for user set object commitments
 for a given user and set CID.
 
 * **Parameters:**
-  \* **user** – The address for the user who made the commitments.
-  \* **set_cid** – The CID for the set containing the objects.
+  * **user** – The address for the user who made the commitments.
+  * **set_cid** – The CID for the set containing the objects.
 * **Returns:**
   The list of commitment receipts for all user set object commitments.
 
@@ -371,9 +501,71 @@ for a given user.
 * **Returns:**
   The list of commitment receipts for all user set commitments.
 
+### *class* vbase.SQLIndexingService(db_url: str)
+
+Bases: [`IndexingService`](#vbase.IndexingService)
+
+Indexing service based on chain indexing data from sql db.
+
+#### find_last_object(object_cid: str, return_set_cid=False) → dict | None
+
+Find the last object for a list of object cids.
+
+#### find_last_user_set_object(user: str, set_cid: str) → dict | None
+
+Find the last object for a user and set cid.
+
+#### find_object(object_cid: str, return_set_cids=False) → List[dict]
+
+Returns the list of receipts for object commitments
+for a single object CID.
+Finds and returns individual object commitments irrespective of the set
+they may have been committed to.
+
+* **Parameters:**
+  * **object_cid** – The CID for the objects to search.
+  * **return_set_cids** – If True, return the set CIDs, if any, for the objects.
+* **Returns:**
+  The list of commitment receipts for all object commitments.
+
+#### find_objects(object_cids: List[str], return_set_cids=False) → List[dict]
+
+Find all objects for a list of object cids.
+
+#### find_user_objects(user: str, return_set_cids=False) → List[dict]
+
+find all event_add_object for a user.
+
+#### find_user_set_objects(user: str, set_cid: str) → List[dict]
+
+Find all objects for a user and set cid.
+
+#### find_user_sets(user: str) → List[dict]
+
+Find all sets for a user.
+
+### *class* vbase.VBaseBytesObject(init_data: bytes | None = None, init_dict: Dict[str, str] | None = None, init_json: str | None = None)
+
+Bases: [`VBaseObject`](#vbase.VBaseObject)
+
+A binary (bytes) object for opaque binary data (e.g., PDFs, images).
+
+#### *static* get_cid_for_data(record_data: bytes) → str
+
+Generate a content identifier (CID) for an object with given data.
+The method may be called to post commitments without instantiating an object.
+The encapsulation of different digital objects and
+their CID calculation is a primary job of an object.
+
+* **Parameters:**
+  **record_data** – The object data.
+  Allows calculating a CID without instantiating an object.
+* **Returns:**
+  The CID generated.
+
 ### *class* vbase.VBaseClient(commitment_service: CommitmentService)
 
-Bases: object
+Bases: `object`
 
 Provides Python validityBase (vBase) access.
 
@@ -419,8 +611,8 @@ It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
 * **Parameters:**
-  \* **set_cid** – The CID for the set containing the object.
-  \* **object_cid** – The object hash to record.
+  * **set_cid** – The CID for the set containing the object.
+  * **object_cid** – The object hash to record.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
@@ -432,8 +624,8 @@ It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
 * **Parameters:**
-  \* **set_cid** – The CID of the set containing the objects.
-  \* **object_cids** – The hashes to record.
+  * **set_cid** – The CID of the set containing the objects.
+  * **object_cids** – The hashes to record.
 * **Returns:**
   The commitment log list containing commitment receipts.
 
@@ -445,8 +637,8 @@ It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
 * **Parameters:**
-  \* **set_cids** – The hashes of the sets containing the objects.
-  \* **object_cids** – The hashes to record.
+  * **set_cids** – The hashes of the sets containing the objects.
+  * **object_cids** – The hashes to record.
 * **Returns:**
   The commitment log list containing commitment receipts.
 
@@ -457,7 +649,7 @@ Syntactic sugar for initializing new commitment objects using settings
 stored in a .env file or in environment variables.
 
 * **Parameters:**
-  **dotenv_path** –
+  **dotenv_path** – 
 
   Path to the .env file.
   Below is the default treatment that should be appropriate in most scenarios:
@@ -505,8 +697,8 @@ PIT simulation executes callback for each t specified
 letting the callback see world state as it existed at that t.
 
 * **Parameters:**
-  \* **ts** – Times/timestamps for which callback should be called
-  > and PIT world state simulated.
+  * **ts** – Times/timestamps for which callback should be called
+    and PIT world state simulated.
   * **callback** – The callback to call.
 * **Returns:**
   The aggregated output of all callback invocations.
@@ -517,8 +709,8 @@ Checks whether a set with a given name exists for the calling user.
 This function abstracts the low-level commitment of named set creation.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **name** – The name of the set.
+  * **user** – The address for the user who recorded the commitment.
+  * **name** – The name of the set.
 * **Returns:**
   True if the set with the given name exists; False otherwise.
 
@@ -528,8 +720,8 @@ Checks whether a given set exists for the calling user.
 This function abstracts the low-level commitment of named set creation.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **set_cid** – The CID (hash) identifying the set.
+  * **user** – The address for the user who recorded the commitment.
+  * **set_cid** – The CID (hash) identifying the set.
 * **Returns:**
   True if the set with the given hash exists; False otherwise.
 
@@ -538,8 +730,8 @@ This function abstracts the low-level commitment of named set creation.
 Verifies the completeness of a list of named sets.
 
 * **Parameters:**
-  \* **user** – Address for the user who recorded the commitment.
-  \* **names** – Names of user sets.
+  * **user** – Address for the user who recorded the commitment.
+  * **names** – Names of user sets.
 * **Returns:**
   True if the names comprise all named sets committed by the user;
   False otherwise.
@@ -550,9 +742,9 @@ Verifies an object commitment previously recorded.
 This is a low-level function that operates on object hashes.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **object_cid** – The CID identifying the object.
-  \* **timestamp** – The timestamp of the commitment.
+  * **user** – The address for the user who recorded the commitment.
+  * **object_cid** – The CID identifying the object.
+  * **timestamp** – The timestamp of the commitment.
 * **Returns:**
   True if the commitment has been verified successfully;
   False otherwise.
@@ -563,9 +755,9 @@ Verifies an object commitment previously recorded.
 This is a low-level function that operates on object hashes.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **set_cid** – The CID for the set containing the object.
-  \* **user_set_objects_cid_sum** – The sum of all object hashes for the user set
+  * **user** – The address for the user who recorded the commitment.
+  * **set_cid** – The CID for the set containing the object.
+  * **user_set_objects_cid_sum** – The sum of all object hashes for the user set
 * **Returns:**
   True if the commitment has been verified successfully;
   False otherwise.
@@ -576,15 +768,15 @@ Verifies set commitments previously recorded by the user.
 This is a low-level function that operates on object hashes.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **user_sets_cid_sum** – The sum of all set CIDs for the user.
+  * **user** – The address for the user who recorded the commitment.
+  * **user_sets_cid_sum** – The sum of all set CIDs for the user.
 * **Returns:**
   True if the commitment has been verified successfully;
   False otherwise.
 
 ### *class* vbase.VBaseClientTest(commitment_service: CommitmentServiceTest)
 
-Bases: [VBaseClient](#vbase.VBaseClient)
+Bases: [`VBaseClient`](#vbase.VBaseClient)
 
 Provides Python validityBase (vBase) access with test methods.
 Test methods allow clearing state and bootstrapping objects with pre-defined timestamps.
@@ -595,8 +787,8 @@ Test method to record an object commitment with a given timestamp.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **object_cid** – The CID identifying the object.
-  \* **timestamp** – The timestamp to force for the record.
+  * **object_cid** – The CID identifying the object.
+  * **timestamp** – The timestamp to force for the record.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
@@ -606,9 +798,9 @@ Test method to record an object commitment with a given timestamp.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **set_cid** – The CID of the set containing the object.
-  \* **object_cid** – The CID to record.
-  \* **timestamp** – The timestamp to force for the record.
+  * **set_cid** – The CID of the set containing the object.
+  * **object_cid** – The CID to record.
+  * **timestamp** – The timestamp to force for the record.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
@@ -618,9 +810,9 @@ Test method to record a batch of object commitment with a timestamps.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **set_cid** – The CID of the set containing the objects.
-  \* **object_cids** – The hashes to record.
-  \* **timestamps** – The timestamps to force for the records.
+  * **set_cid** – The CID of the set containing the objects.
+  * **object_cids** – The hashes to record.
+  * **timestamps** – The timestamps to force for the records.
 * **Returns:**
   The commitment log list containing commitment receipts.
 
@@ -630,9 +822,9 @@ Test method to record a batch of object commitment with a timestamps.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **set_cids** – The hashes of the sets containing the objects.
-  \* **object_cids** – The hashes to record.
-  \* **timestamps** – The timestamps to force for the records.
+  * **set_cids** – The hashes of the sets containing the objects.
+  * **object_cids** – The hashes to record.
+  * **timestamps** – The timestamps to force for the records.
 * **Returns:**
   The commitment log list containing commitment receipts.
 
@@ -665,7 +857,7 @@ Syntactic sugar for initializing new commitment objects using settings
 stored in a .env file or in environment variables.
 
 * **Parameters:**
-  **dotenv_path** –
+  **dotenv_path** – 
 
   Path to the .env file.
   Below is the default treatment that should be appropriate in most scenarios:
@@ -687,7 +879,7 @@ that is serializable.
 
 ### *class* vbase.VBaseDataset(vbc: [VBaseClient](#vbase.VBaseClient) | [VBaseClientTest](#vbase.VBaseClientTest), name: str | None = None, record_type: Type[[VBaseObject](#vbase.VBaseObject)] | None = None, init_dict: dict | None = None, init_json: str | None = None)
 
-Bases: ABC
+Bases: `ABC`
 
 Provides Python vBase dataset access.
 Implements base functionality shared across datasets regardless of record type.
@@ -708,8 +900,8 @@ Test shim to add a record to a VBaseDataset object with a given timestamp.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **record_data** – The record datum.
-  \* **timestamp** – Timestamp to force for the record.
+  * **record_data** – The record datum.
+  * **timestamp** – Timestamp to force for the record.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
@@ -732,8 +924,8 @@ Test shim to add a batch of records with timestamps to a VBaseDataset object.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **record_data_list** – The list of records’ data.
-  \* **timestamps** – The list of timestamps to force for the records.
+  * **record_data_list** – The list of records’ data.
+  * **timestamps** – The list of timestamps to force for the records.
 * **Returns:**
   The commitment log list containing commitment receipts.
 
@@ -814,7 +1006,7 @@ Return JSON representation of the dataset.
 * **Returns:**
   The JSON representation of the dataset.
 
-#### try_restore_timestamps_from_index() -> (<class ‘bool’>, typing.List[str])
+#### try_restore_timestamps_from_index() -> (<class 'bool'>, typing.List[str])
 
 Try to restore timestamps for dataset records using the index service.
 
@@ -829,7 +1021,7 @@ but long-term options can get complex. The following work remains:
   > and timestamps restored; False otherwise.
   - l_log: A list log of verification explaining any failures.
 
-#### verify_commitments() -> (<class ‘bool’>, typing.List[str])
+#### verify_commitments() -> (<class 'bool'>, typing.List[str])
 
 Verify commitments for all dataset records.
 
@@ -840,7 +1032,7 @@ Verify commitments for all dataset records.
 
 ### *class* vbase.VBaseDatasetAsync(vbc: [VBaseClient](#vbase.VBaseClient) | [VBaseClientTest](#vbase.VBaseClientTest), name: str | None = None, record_type: Type[[VBaseObject](#vbase.VBaseObject)] | None = None, init_dict: dict | None = None, init_json: str | None = None)
 
-Bases: [VBaseDataset](#vbase.VBaseDataset)
+Bases: [`VBaseDataset`](#vbase.VBaseDataset)
 
 Provides Python vBase dataset async access.
 Asynchronous dataset wraps synchronous dataset object to support
@@ -865,8 +1057,8 @@ Offloads add_record_with_timestamp execution
 to the default event loop’s executor.
 
 * **Parameters:**
-  \* **record_data** – The record datum.
-  \* **timestamp** – Timestamp to force for the record.
+  * **record_data** – The record datum.
+  * **timestamp** – Timestamp to force for the record.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
@@ -889,8 +1081,8 @@ Offloads add_records_with_timestamps_batch execution
 to the default event loop’s executor.
 
 * **Parameters:**
-  \* **record_data_list** – The list of records’ data.
-  \* **timestamps** – The list of timestamps to force for the records.
+  * **record_data_list** – The list of records’ data.
+  * **timestamps** – The list of timestamps to force for the records.
 * **Returns:**
   The commitment log list containing commitment receipts.
 
@@ -901,12 +1093,12 @@ A static async factory method that delegates to the synchronous constructor.
 Offloads VBaseDataset constructor execution to the default event loop’s executor.
 
 * **Parameters:**
-  \* **args** – Arguments passed to the VBaseDataset constructor.
-  \* **kwargs** – Arguments passed to the VBaseDataset constructor.
+  * **args** – Arguments passed to the VBaseDataset constructor.
+  * **kwargs** – Arguments passed to the VBaseDataset constructor.
 * **Returns:**
   The created dataset.
 
-#### *async* verify_commitments_async() -> (<class ‘bool’>, typing.List[str])
+#### *async* verify_commitments_async() -> (<class 'bool'>, typing.List[str])
 
 Verify commitments for all dataset records asynchronously.
 Offloads verify_commitments execution
@@ -919,7 +1111,7 @@ to the default event loop’s executor.
 
 ### *class* vbase.VBaseFloatObject(init_data: float | None = None, init_dict: Dict[str, float] | None = None, init_json: str | None = None)
 
-Bases: [VBaseObject](#vbase.VBaseObject)
+Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 A float object
 Floats are committed as fixed-point integers to support ZKPs.
@@ -939,7 +1131,7 @@ their CID calculation is a primary job of an object.
 
 ### *class* vbase.VBaseIntObject(init_data: int | None = None, init_dict: Dict[str, int] | None = None, init_json: str | None = None)
 
-Bases: [VBaseObject](#vbase.VBaseObject)
+Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 An integer object
 
@@ -958,7 +1150,7 @@ their CID calculation is a primary job of an object.
 
 ### *class* vbase.VBaseJsonObject(init_data: str | None = None, init_dict: Dict[str, str] | None = None, init_json: str | None = None)
 
-Bases: [VBaseObject](#vbase.VBaseObject)
+Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 A JSON string object
 
@@ -988,15 +1180,15 @@ sets to DataFrames.
 
 ### *class* vbase.VBaseObject(init_data: Any | None = None, init_dict: Dict | None = None, init_json: str | None = None)
 
-Bases: ABC
+Bases: `ABC`
 
 Provides basic Python vBase object features.
 Implements base functionality shared across various objects and dataset records.
 Children implement object-specific logic.
 
-#### cid  *: str | None*
+#### cid *: str | None*
 
-#### data  *: Any*
+#### data *: Any*
 
 #### get_cid() → str
 
@@ -1006,7 +1198,7 @@ Calculates the CID if necessary and caches it for subsequent queries.
 * **Returns:**
   The CID generated.
 
-#### *abstract static* get_cid_for_data(record_data: Any) → str
+#### *abstractmethod static* get_cid_for_data(record_data: Any) → str
 
 Generate a content identifier (CID) for an object with given data.
 The method may be called to post commitments without instantiating an object.
@@ -1032,7 +1224,7 @@ sets to DataFrames.
 
 ### *class* vbase.VBasePortfolioObject(init_data: Dict[str, int | float] | None = None, init_dict: Dict[str, Dict[str, int | float]] | None = None, init_json: str | None = None)
 
-Bases: [VBaseObject](#vbase.VBaseObject)
+Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 A portfolio object
 Each portfolio is a dictionary with
@@ -1053,7 +1245,7 @@ their CID calculation is a primary job of an object.
 
 ### *class* vbase.VBasePrivateFloatObject(init_data: float | str | None = None, init_dict: Dict[str, float | str] | None = None, init_json: str | None = None)
 
-Bases: [VBaseObject](#vbase.VBaseObject)
+Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 A float object that preserves object privacy
 Each object comprises a float value and a string salt.
@@ -1073,7 +1265,7 @@ their CID calculation is a primary job of an object.
 
 ### *class* vbase.VBasePrivateIntObject(init_data: int | str | None = None, init_dict: Dict[str, int | str] | None = None, init_json: str | None = None)
 
-Bases: [VBaseObject](#vbase.VBaseObject)
+Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 An integer object that preserves object privacy
 Each object comprises an integer value and a string salt.
@@ -1096,7 +1288,7 @@ their CID calculation is a primary job of an object.
 
 ### *class* vbase.VBaseStringObject(init_data: str | None = None, init_dict: Dict[str, str] | None = None, init_json: str | None = None)
 
-Bases: [VBaseObject](#vbase.VBaseObject)
+Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 A string object
 
@@ -1113,9 +1305,9 @@ their CID calculation is a primary job of an object.
 * **Returns:**
   The CID generated.
 
-### *class* vbase.Web3HTTPCommitmentService(node_rpc_url: str, commitment_service_address: str, private_key: str | None = None, commitment_service_json_file_name: str | None = ‘CommitmentService.json’, inject_geth_poa_middleware: bool = False)
+### *class* vbase.Web3HTTPCommitmentService(node_rpc_url: str, commitment_service_address: str, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentService.json', inject_geth_poa_middleware: bool = False)
 
-Bases: Web3CommitmentService
+Bases: `Web3CommitmentService`
 
 Commitment service accessible using Web3.HTTPProvider.
 Without private key support, this class will only support operations on a test node.
@@ -1152,8 +1344,8 @@ It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
 * **Parameters:**
-  \* **set_cid** – The CID for the set containing the object.
-  \* **object_cid** – The object hash to record.
+  * **set_cid** – The CID for the set containing the object.
+  * **object_cid** – The object hash to record.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
@@ -1165,8 +1357,8 @@ It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
 * **Parameters:**
-  \* **set_cid** – The hashes of the sets containing the objects.
-  \* **object_cids** – The hashes to record.
+  * **set_cid** – The hashes of the sets containing the objects.
+  * **object_cids** – The hashes to record.
 * **Returns:**
   The commitment logs containing commitment receipts.
 
@@ -1178,8 +1370,8 @@ It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
 * **Parameters:**
-  \* **set_cids** – The hashes of the sets containing the objects.
-  \* **object_cids** – The hashes to record.
+  * **set_cids** – The hashes of the sets containing the objects.
+  * **object_cids** – The hashes to record.
 * **Returns:**
   The commitment logs containing commitment receipts.
 
@@ -1190,7 +1382,7 @@ Syntactic sugar for initializing new commitment objects using settings
 stored in a .env file or in environment variables.
 
 * **Parameters:**
-  **dotenv_path** –
+  **dotenv_path** – 
 
   Path to the .env file.
   Below is the default treatment that should be appropriate in most scenarios:
@@ -1214,8 +1406,8 @@ Worker function to load the environment variables.
 Checks whether a given set exists for a user.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **set_cid** – The CID identifying the set.
+  * **user** – The address for the user who recorded the commitment.
+  * **set_cid** – The CID identifying the set.
 * **Returns:**
   True if the set exists for the user; False otherwise.
 
@@ -1225,9 +1417,9 @@ Verifies an object commitment previously recorded.
 This is a low-level function that operates on object hashes.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **object_cid** – The CID identifying the object.
-  \* **timestamp** – The timestamp of the commitment.
+  * **user** – The address for the user who recorded the commitment.
+  * **object_cid** – The CID identifying the object.
+  * **timestamp** – The timestamp of the commitment.
 * **Returns:**
   True if the commitment has been verified successfully;
   False otherwise.
@@ -1238,9 +1430,9 @@ Verifies an object commitment previously recorded.
 This is a low-level function that operates on object hashes.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **set_cid** – The CID for the set containing the object.
-  \* **user_set_object_cid_sum** – The sum of all object hashes for the user set
+  * **user** – The address for the user who recorded the commitment.
+  * **set_cid** – The CID for the set containing the object.
+  * **user_set_object_cid_sum** – The sum of all object hashes for the user set
 * **Returns:**
   True if the commitment has been verified successfully;
   False otherwise.
@@ -1253,15 +1445,15 @@ The sum of all set CIDs for the user encodes the collection of all sets.
 This is a low-level function that operates on object hashes.
 
 * **Parameters:**
-  \* **user** – The address for the user who recorded the commitment.
-  \* **user_set_cid_sum** – The sum of all set CIDs for the user.
+  * **user** – The address for the user who recorded the commitment.
+  * **user_set_cid_sum** – The sum of all set CIDs for the user.
 * **Returns:**
   True if the commitment has been verified successfully;
   False otherwise.
 
-### *class* vbase.Web3HTTPCommitmentServiceTest(node_rpc_url: str = None, commitment_service_address: str = None, private_key: str | None = None, commitment_service_json_file_name: str | None = ‘CommitmentServiceTest.json’, inject_geth_poa_middleware: bool = False)
+### *class* vbase.Web3HTTPCommitmentServiceTest(node_rpc_url: str = None, commitment_service_address: str = None, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentServiceTest.json', inject_geth_poa_middleware: bool = False)
 
-Bases: [Web3HTTPCommitmentService](#vbase.Web3HTTPCommitmentService), CommitmentServiceTest
+Bases: [`Web3HTTPCommitmentService`](#vbase.Web3HTTPCommitmentService), `CommitmentServiceTest`
 
 Test commitment service accessible using Web3.HTTPProvider.
 
@@ -1271,8 +1463,8 @@ Test shim to record an object commitment with a given timestamp.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **object_cid** – The CID identifying the object.
-  \* **timestamp** – The timestamp to force for the record.
+  * **object_cid** – The CID identifying the object.
+  * **timestamp** – The timestamp to force for the record.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
@@ -1282,9 +1474,9 @@ Test shim to record an object commitment with a given timestamp.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **set_cid** – The CID of the set containing the object.
-  \* **object_cid** – The CID to record.
-  \* **timestamp** – The timestamp to force for the record.
+  * **set_cid** – The CID of the set containing the object.
+  * **object_cid** – The CID to record.
+  * **timestamp** – The timestamp to force for the record.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
@@ -1294,9 +1486,9 @@ Test shim to record a batch of object commitment with a timestamps.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **set_cid** – The CID of the set containing the objects.
-  \* **object_cids** – The hashes to record.
-  \* **timestamps** – The timestamps to force for the records.
+  * **set_cid** – The CID of the set containing the objects.
+  * **object_cids** – The hashes to record.
+  * **timestamps** – The timestamps to force for the records.
 * **Returns:**
   The commitment logs containing commitment receipts.
 
@@ -1306,9 +1498,9 @@ Test shim to record a batch of object commitment with a timestamps.
 Only supported by test contracts.
 
 * **Parameters:**
-  \* **set_cids** – The hashes of the sets containing the objects.
-  \* **object_cids** – The hashes to record.
-  \* **timestamps** – The timestamps to force for the records.
+  * **set_cids** – The hashes of the sets containing the objects.
+  * **object_cids** – The hashes to record.
+  * **timestamps** – The timestamps to force for the records.
 * **Returns:**
   The commitment logs containing commitment receipts.
 
@@ -1334,7 +1526,7 @@ Syntactic sugar for initializing new commitment objects using settings
 stored in a .env file or in environment variables.
 
 * **Parameters:**
-  **dotenv_path** –
+  **dotenv_path** – 
 
   Path to the .env file.
   Below is the default treatment that should be appropriate in most scenarios:
@@ -1346,7 +1538,7 @@ stored in a .env file or in environment variables.
 
 ### *class* vbase.Web3HTTPIndexingService(commitment_services: List[[Web3HTTPCommitmentService](#vbase.Web3HTTPCommitmentService)])
 
-Bases: [IndexingService](#vbase.IndexingService)
+Bases: [`IndexingService`](#vbase.IndexingService)
 
 Indexing service accessible using Web3.HTTPProvider.
 Wraps RPC node event indexing to support commitment indexing operations.
@@ -1383,8 +1575,8 @@ Finds and returns individual object commitment irrespective of the set
 it may have been committed to.
 
 * **Parameters:**
-  \* **object_cid** – The CID for the object for search.
-  \* **return_set_cid** – If True, return the set CIDs, if any, for the object.
+  * **object_cid** – The CID for the object for search.
+  * **return_set_cid** – If True, return the set CIDs, if any, for the object.
 * **Returns:**
   The commitment receipt for the last/latest object commitment.
 
@@ -1394,8 +1586,8 @@ Returns the last/latest receipt, if any, for user set object commitments
 for a given user and set CID.
 
 * **Parameters:**
-  \* **user** – The address for the user who made the commitment.
-  \* **set_cid** – The CID for the set containing the object.
+  * **user** – The address for the user who made the commitment.
+  * **set_cid** – The CID for the set containing the object.
 * **Returns:**
   The commitment receipt for the last/latest user set commitment.
 
@@ -1407,8 +1599,8 @@ Finds and returns individual object commitments irrespective of the set
 they may have been committed to.
 
 * **Parameters:**
-  \* **object_cid** – The CID for the objects to search.
-  \* **return_set_cids** – If True, return the set CIDs, if any, for the objects.
+  * **object_cid** – The CID for the objects to search.
+  * **return_set_cids** – If True, return the set CIDs, if any, for the objects.
 * **Returns:**
   The list of commitment receipts for all object commitments.
 
@@ -1420,8 +1612,8 @@ Finds and returns individual object commitments irrespective of the set
 they may have been committed to.
 
 * **Parameters:**
-  \* **object_cids** – The CIDs for the objects to search.
-  \* **return_set_cids** – If True, return the set CIDs, if any, for the objects.
+  * **object_cids** – The CIDs for the objects to search.
+  * **return_set_cids** – If True, return the set CIDs, if any, for the objects.
 * **Returns:**
   The list of commitment receipts for all object commitments.
 
@@ -1433,8 +1625,8 @@ Finds and returns individual object commitments irrespective of the set
 they may have been committed to.
 
 * **Parameters:**
-  \* **user** – The address for the user who made the commitments.
-  \* **object_cids** – The CIDs for the objects to search.
+  * **user** – The address for the user who made the commitments.
+  * **object_cids** – The CIDs for the objects to search.
 * **Returns:**
   The list of commitment receipts for all user object commitments.
 
@@ -1444,8 +1636,8 @@ Returns the list of receipts for user set object commitments
 for a given user and set CID.
 
 * **Parameters:**
-  \* **user** – The address for the user who made the commitments.
-  \* **set_cid** – The CID for the set containing the objects.
+  * **user** – The address for the user who made the commitments.
+  * **set_cid** – The CID for the set containing the objects.
 * **Returns:**
   The list of commitment receipts for all user set object commitments.
 
