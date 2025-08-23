@@ -17,7 +17,7 @@
 
 * [Start your Journey](docs/getting-started/start-your-journey.md) <!-- * [Going Live](docs/getting-started/moving-to-production.md) -->
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
-* [REST API](vbase-django-tools/api/stamp/user-guide.md)
+* [REST API](vbase-django-tools/api/stamp/rest-api-user-guide.md)
 * [Python Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
   * [Local Installation](vbase-py-samples/quickstart.md)
@@ -32,6 +32,7 @@
 ## Use Case How-Tos 
 <!--  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md) -->
   * [Verified Investment Track Records](docs/getting-started/verified-track-record.md)
+  * [Linking with Interactive Brokers](docs/getting-started/linking-interactive-brokers.md)
   <!-- * [Point-in-Time Datasets](docs/use-case-samples/point-in-time-datasets.md)
   * [Verified Research Portfolios](docs/use-case-samples/verified-research-portfolio.md)
   * [Verified Backtests and Simulations](docs/use-case-samples/verified-backtest.md)
