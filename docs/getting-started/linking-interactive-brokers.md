@@ -10,14 +10,12 @@ Connect your IBKR account to validityBase to securely **import positions, cash b
 
 > **Note:** validityBase access is strictly **read-only**. We cannot place orders or move funds in your account.  
 
-<br>
-
 ## Step-by-step
 
 ### 1) Sign in to validityBase & navigate to Broker Integrations
-- Visit **app.vbase.com** and sign in (or create an account).
-- Click your display name in the upper right corner and select **User Profile**.
-- In your Profile, select **Broker Integrations** from the top menu.
+- Visit [**app.vbase.com**](https://app.vbase.com/) and sign in (or create an account).
+- Click your display name in the upper right corner and select [**User Profile**](https://app.vbase.com/profile).
+- In your Profile, select [**Broker Integrations**](https://app.vbase.com/profile#providers) from the top menu.
 
 <img src="broker-integrations-screenshot.png" alt="Profile menu showing “Broker Integrations" width="400" style="margin-left:50px;">
 
@@ -38,7 +36,7 @@ Connect your IBKR account to validityBase to securely **import positions, cash b
 <img src="IBKR-success-screenshot.png" alt="IBKR success screenshot" width="400" style="margin-left:50px;">
 
 - Occasionally the IBKR authorization can fail. If so, delete the provider and repeat steps 2–3.  
-- If you manage multiple IBKR sub-accounts under one login, email **support@vbase.com** so we can configure the correct account(s).  
+- If you manage multiple IBKR sub-accounts under one login, email **portfolios@vbase.com** so we can configure the correct account(s).  
 
 ### 5) Set up your dashboards
 Email **portfolios@vbase.com** with the following:  
@@ -49,8 +47,6 @@ Email **portfolios@vbase.com** with the following:
 
 See this [example dashboard](https://portfolios.vbase.com/?sym=ASGSP5DR) to understand how the information appears.  
 
-<br>
-
 ## Common issues & fixes
 
 **No data after linking**  
@@ -58,8 +54,6 @@ See this [example dashboard](https://portfolios.vbase.com/?sym=ASGSP5DR) to unde
 
 **Multiple sub-accounts**  
 - For corporate IBKR accounts with multiple sub-accounts, link as usual, then email **portfolios@vbase.com** specifying which sub-account(s) you’d like connected.  
-
-<br>
 
 ## FAQs
 
@@ -77,8 +71,6 @@ Yes. Go to **Profile → Broker Integrations → IBKR → Disconnect**. Existing
 
 **Does this replace an audit?**  
 validityBase provides and **independently verifiable, cryptographic validation** of your IBKR track record. Many managers use this to share performance transparently and reduce reliance on costly audits for marketing. 
-
-<br>
 
 ## Need help?
 If you encounter issues, contact **portfolios@vbase.com** with:  
