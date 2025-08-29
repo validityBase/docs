@@ -50,9 +50,9 @@ This endpoint allows you to stamp files, inline data, or existing CIDs.
 | file | File | No | Binary file to be stamped |
 | data | String | No | Inline text or JSON data |
 | dataCid | String | No | Existing CID to stamp |
-| collectionCid | String | No | Optional CID of collection to group stamped object |
-| storeStampedFile | Boolean | No | Whether to store the stamped file |
-| idempotent | Boolean | No | Enable idempotency |
+| collectionCid | String | No | Optional CID of a collection the file belongs to |
+| storeStampedFile | Boolean | No | Indicates whether the stamped file should be stored (only applies if a file is provided). |
+| idempotent | Boolean | No | Enables idempotency |
 | idempotencyWindow | Integer | No | Idempotency window in seconds |
 
 Note: At least one of 'file', 'data', or 'dataCid' must be provided.
@@ -93,29 +93,71 @@ curl -X POST https://app.vbase.com/api/v1/stamp/ \
 curl -X POST https://app.vbase.com/api/v1/stamp/ \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
 -F "dataCid='0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800'" \
--F "storeStampedFile=true" \
 -F "idempotent=true" \
 -F "idempotencyWindow=3600"
 ```
 
+### Verify Endpoint
+
+**POST** `/v1/verify/`
+
+Checks whether one or more Content IDs (CIDs, SHA3 hashes) have previously been stamped on-chain via vBase. If a match is found, the API returns full stamp details (e.g., timestamp, blockchain address, and related metadata).
+
+#### Request Body
+
+| Field | Type | Required | Description |
+|-----------|------|----------|-------------|
+| cids | Array<String> | Yes | List of CIDs (SHA3 hashes) to verify. |
+| filterByUser | Boolean | No | When true, only return results owned by the current (authenticated) user. |
+
+
+#### Response Codes
+
+| Status Code | Description |
+|-------------|-------------|
+| 200 | Ok - returning the stamp |
+| 400 | Invalid input data |
+| 500 | Internal server error |
+
+#### Example Requests CURL
+
+1. Verifying CIDs:
+```bash
+curl -X POST "https://dev.app.vbase.com/api/v1/verify/" \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -d '{
+    "cids": ["0xdb...5"],
+    "filterByUser": false
+  }'
+```
+
 #### Example Requests PYTHON
 ```python
-# vbase-cloud-services
 """
 A Python client for the VBase API to stamp files and data.
 """
-from typing import TypedDict, Optional, Dict, Any
+from typing import TypedDict, Optional, Dict, Any, List
+import json
+import os
 import logging
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # Configure logger
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("VBaseClient")
 REQUEST_TIMEOUT = 1000
 
+
 class StampData(TypedDict, total=False):
     """
     TypedDict for the data to be sent in the stamp request.
     """
+
     data: Optional[str]
     dataCid: Optional[str]
     collectionCid: Optional[str]
@@ -123,44 +165,105 @@ class StampData(TypedDict, total=False):
     idempotent: bool
     idempotencyWindow: int
 
+
 class VBaseClientAPI:
     """
     A client for interacting with the VBase API.
     """
+
     def __init__(self, base_url: str, api_token: str):
         self.base_url = base_url.rstrip("/")
         self.api_token = api_token
         self.stamp_url = f"{self.base_url}/api/v1/stamp/"
+        self.verify_url = f"{self.base_url}/api/v1/verify/"
 
-    def stamp(self, input_data: Optional[StampData] = None, input_files: Optional[Dict[str, Any]] = None) -> requests.Response:
+    def stamp(
+        self,
+        input_data: Optional[StampData] = None,
+        input_files: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
         """
         Send a stamp request to the VBase API.
         """
-        headers = {
-            "Authorization": f"Bearer {self.api_token}"
-        }
+        headers = {"Authorization": f"Bearer {self.api_token}"}
         if input_files is None:
             input_files = {}
 
         try:
-            response = requests.post(
+            resp = requests.post(
                 self.stamp_url,
                 data=input_data,
                 files=input_files,
                 headers=headers,
-                timeout=REQUEST_TIMEOUT
+                timeout=REQUEST_TIMEOUT,
             )
-            response.raise_for_status()
+            resp.raise_for_status()
+        except requests.HTTPError as e:
+            body = getattr(e.response, "text", "")
+            logger.error(
+                "stamp: HTTP %s at %s. Body: %s",
+                getattr(e.response, "status_code", "?"),
+                self.stamp_url,
+                body,
+            )
+            raise
         except requests.RequestException as e:
-            logger.error("Request to VBase API failed: %s", e)
-            logger.error("Response: %s", response.text if 'response' in locals() else 'No response')
+            logger.error("stamp: Request failed to %s: %s", self.stamp_url, e)
             raise
 
         try:
-            return response.json()
-        except Exception as e:
-            logger.error("Failed to parse JSON from stamp response: %s", response.text)
-            raise e
+            return resp.json()
+        except json.JSONDecodeError:
+            logger.error(
+                "stamp: Failed to parse JSON. Status=%s Body=%s",
+                resp.status_code,
+                resp.text,
+            )
+            raise
+
+    def verify(
+        self,
+        object_hashes: List[str],
+        filter_by_user: Optional[bool] = False,
+    ) -> Dict[str, Any]:
+        """Send a verification request to the VBase API."""
+        headers = {
+            "Authorization": f"Bearer {self.api_token}",
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        }
+        payload = {
+            "cids": object_hashes,
+            "filter-by-user": bool(filter_by_user),
+        }
+
+        try:
+            resp = requests.post(
+                self.verify_url, json=payload, headers=headers, timeout=REQUEST_TIMEOUT
+            )
+            resp.raise_for_status()
+        except requests.HTTPError as e:
+            body = getattr(e.response, "text", "")
+            logger.error(
+                "verify: HTTP %s at %s. Body: %s",
+                getattr(e.response, "status_code", "?"),
+                self.verify_url,
+                body,
+            )
+            raise
+        except requests.RequestException as e:
+            logger.error("verify: Request failed to %s: %s", self.verify_url, e)
+            raise
+
+        try:
+            return resp.json()
+        except json.JSONDecodeError:
+            logger.error(
+                "verify: Failed to parse JSON. Status=%s Body=%s",
+                resp.status_code,
+                resp.text,
+            )
+            raise
 
 
 API_TOKEN = "YOUR-API-KEY"
@@ -187,7 +290,6 @@ def test_stamp_file():
     logger.info(result)
 
 
-
 def test_stamp_data():
     """
     Test function to stamp a file.
@@ -211,7 +313,6 @@ def test_stamp_data_cid():
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
         "dataCid": "0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
-        "storeStampedFile": "true",
         "idempotent": "true",
         "idempotencyWindow": "3600",
     }
@@ -220,10 +321,20 @@ def test_stamp_data_cid():
     logger.info(result)
 
 
+def test_verify():
+    """
+    Test function to verify CIDs.
+    """
+    client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
+    object_cids = ["0xdba7e3f5ccf6e119894d5396221b75c149f77fc158a45333eb284382a8112a55"]
+    result = client.verify(object_cids, filter_by_user=False)
+    logger.info("Verify file result:")
+    logger.info(result)
+
+
 # EXAMPLE USAGE
 if __name__ == "__main__":
     test_stamp_file()
     test_stamp_data()
     test_stamp_data_cid()
-
 ```
