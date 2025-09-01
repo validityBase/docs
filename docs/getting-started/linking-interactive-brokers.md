@@ -1,7 +1,7 @@
 ---
 title: Connecting Interactive Brokers (IBKR) to validityBase
 description: Link your IBKR account to validityBase to create a verifiable, live performance record and dashboard of your trading.
-estimatedTime: 5–10 minutes
+estimatedTime: 5-10 minutes
 ---
 
 # Connect Interactive Brokers (IBKR)
@@ -45,7 +45,10 @@ Email **portfolios@vbase.com** with the following:
 - A short description of yourself as the dashboard creator (100–200 characters)  
 - An optional contact email  
 
+We will reply back with your live dashboard link.
+
 See this [example dashboard](https://portfolios.vbase.com/?sym=ASGSP5DR) to understand how the information appears.  
+
 
 ## Common issues & fixes
 
