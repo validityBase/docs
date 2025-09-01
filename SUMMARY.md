@@ -17,7 +17,7 @@
 
 * [Start your Journey](docs/getting-started/start-your-journey.md) <!-- * [Going Live](docs/getting-started/moving-to-production.md) -->
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
-* [REST API](vbase-django-tools/api/stamp/rest-api-user-guide.md)
+* [REST API](vbase-django-tools/api/rest-api-user-guide.md)
 * [Python Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
   * [Local Installation](vbase-py-samples/quickstart.md)
