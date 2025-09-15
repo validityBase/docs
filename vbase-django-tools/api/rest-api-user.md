@@ -159,18 +159,18 @@ curl -X POST http://app.vbase.com/api/v1/verify/ \
 
 *Verify one or more Content IDs (CIDs)*
 
-This endpoint allows you to verify a list of Content IDs (CIDs) and
-check whether they exist in the vBase index and what metadata is associated with them.
-Optionally filter the results to match only the current user.
+This endpoint checks whether Content IDs (SHA3 hash) have previously been
+stamped on the blockchain using vBase. If a match is found, the api returns the full stamp details,
+including the timestamp, blockchain address, and other stamp details.
 
 > Body parameter
 
 ```json
 {
   "cids": [
-    "bafkreigh2akiscaildcg..."
+    "0xbd...1"
   ],
-  "filter-by-user": true
+  "filter-by-user": false
 }
 ```
 
@@ -179,16 +179,16 @@ Optionally filter the results to match only the current user.
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |body|body|object|true|none|
-|» cids|body|[string]|true|List of Content IDs (CIDs) to verify|
-|» filter-by-user|body|boolean|false|If true, filter results to only those belonging to the current user|
+|» cids|body|[string]|true|Array of CIDs to verify|
+|» filter-by-user|body|boolean|false|When true, only return results owned by the current user|
 
 <h3 id="verify_create-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successfully verified CIDs and returned stamp data.|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid input or missing required fields.|None|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error (e.g., vBase not connected).|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid input data|None|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error|None|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
