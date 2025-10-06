@@ -1543,6 +1543,12 @@ Bases: [`IndexingService`](#vbase.IndexingService)
 Indexing service accessible using Web3.HTTPProvider.
 Wraps RPC node event indexing to support commitment indexing operations.
 
+#### RETRY_BACKOFF *= 2*
+
+#### RETRY_DELAY *= 2*
+
+#### RETRY_TRIES *= 5*
+
 #### *static* create_instance_from_env_json_descriptor(dotenv_path: str | None = None) → [Web3HTTPIndexingService](#vbase.Web3HTTPIndexingService)
 
 Creates an instance initialized from an environment variable containing a JSON descriptor.
