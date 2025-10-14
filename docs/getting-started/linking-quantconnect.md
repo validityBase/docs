@@ -1,8 +1,7 @@
 # Exporting Signals from QuantConnect to vBase
 
-Link your QuantConnect algorithm to validityBase (vBase) to create a verifiable, point‑in‑time audit trail of your strategy’s live portfolio targets. This guide mirrors our other How‑Tos and walks you through setup, usage, and troubleshooting for the **Signal Exports → vBase** integration.
+Link your QuantConnect algorithm to validityBase (vBase) to create a verifiable, point‑in‑time audit trail of your strategy’s live portfolio targets. This guide mirrors our other How‑Tos and walks you through setup, usage, and troubleshooting for the QuantConnect **Signal Exports → vBase** integration.
 
-> vBase creates a blockchain‑anchored audit trail of your signals and models. Stamped outputs are independently verifiable and suitable for shareable performance dashboards and live tickers.
 
 ---
 
@@ -10,6 +9,8 @@ Link your QuantConnect algorithm to validityBase (vBase) to create a verifiable,
 
 * QuantConnect users running live or paper algorithms who want to export portfolio targets to vBase.
 * Anyone using QuantConnect who wants a **verifiable, point‑in‑time** record of signals for marketing, research reproducibility, or compliance.
+
+> vBase creates a blockchain‑anchored audit trail of your signals and models. Data fingerprints (hashes) from your signals and models are made verifiably complete, point-in-time, and free from selective presentation. This allows you to build trust and showcase your work with confidence that it will be taken seriously. 
 
 ---
 
@@ -22,9 +23,11 @@ Link your QuantConnect algorithm to validityBase (vBase) to create a verifiable,
 2. **A vBase Collection**
 
    * Think of a *collection* as the dataset/strategy name where your stamped targets will live. Create one in **Collections** (https://app.vbase.com/profile#collections) if you haven't previously set one up. 
+   * You can also setup collections via our [REST API](../../vbase-py/api.md)
 
 3. **QuantConnect project** running in live or paper trading.
-CHECK-- 4. **LEAN SDK** support for Signal Exports (built‑in on QuantConnect Cloud).
+
+4. **LEAN SDK** support for Signal Exports (built‑in on QuantConnect Cloud).
 
 ---
 
@@ -108,7 +111,7 @@ public class MyAlgo : QCAlgorithm
 | ----------------------------------------- | ------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `api_key` / `apiKey`                      | string | —       | Your vBase API key (Account Settings).                                                                                                                        |
 | `collection_name` / `collectionName`      | string | —       | The vBase collection to receive these stamps. Use one collection per strategy, unless you need separate feeds.                                                |
-| `store_stamped_file` / `storeStampedFile` | bool   | `True`  | If `True`, vBase stores the stamped CSV for you (recommended). If `False`, you **must** persist the exact stamped file yourself or you’ll lose verifiability. |
+| `store_stamped_file` / `storeStampedFile` | bool   | `True`  | If `True`, vBase stores the stamped CSV for you (recommended). If `False`, you **must** store the exact stamped file yourself or you’ll lose verifiability.   |
 | `idempotent`                              | bool   | `False` | If `True`, resending identical targets won’t create duplicate stamps.                                                                                         |
 
 > You can register **multiple** signal export providers per algorithm if you need to broadcast to several destinations.
