@@ -18,11 +18,11 @@ Link your QuantConnect algorithm to validityBase (vBase) to create a verifiable,
 
 1. **vBase account & API Key**
 
-   * Sign in to vBase and copy your API key from **Account Settings** (https://app.vbase.com/profile#account_settings).
+   * Sign in to vBase and copy your API key from **[Account Settings](https://app.vbase.com/profile#account_settings)**.
 
 2. **A vBase Collection**
 
-   * Think of a *collection* as the dataset/strategy name where your stamped targets will live. Create one in **Collections** (https://app.vbase.com/profile#collections) if you haven't previously set one up. 
+   * Think of a *collection* as the dataset/strategy name where your stamped targets will live. Create one in **[Collections](https://app.vbase.com/profile#collections)** if you haven't previously set one up. 
    * You can also setup collections via our [REST API](../../vbase-py/api.md)
 
 3. **QuantConnect project** running in live or paper trading.
@@ -46,9 +46,7 @@ Add the provider during algorithm **initialization**.
 ### Python
 
 ```python
-from QuantConnect.Algorithm import QCAlgorithm
-from QuantConnect.Algorithm.Framework.Portfolio import PortfolioTarget
-from QuantConnect.Algorithm.Framework.Portfolio.SignalExports import VBaseSignalExport
+from AlgorithmImports import *
 
 class MyAlgo(QCAlgorithm):
     def initialize(self):
