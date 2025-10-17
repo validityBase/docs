@@ -185,11 +185,4 @@ All asset classes supported by your algorithm are supported by the vBase signal 
 
 ---
 
-## Related docs
-
-* vBase: Collections, Origin Records, Dashboards (overview)
-* QuantConnect: Signal Exports → vBase provider (reference)
-
----
-
 *Questions?* Reach us on [support@vbase.com](mailto:support@vbase.com) or the vBase [Discord](https://discord.gg/THHst83J) channel.
