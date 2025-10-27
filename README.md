@@ -1,5 +1,5 @@
 ---
-description: Your data, made credible
+description: Your data's value, made credible
 layout:
   title:
     visible: true
@@ -15,47 +15,54 @@ layout:
 
 # Welcome to vBase
 
-vBase creates a globally verifiable record of when data was created, by whom, and how it has changed (collectively, “data provenance”). 
+vBase helps data providers, researchers, and investors **prove what they knew, when they knew it.**
 
-Data producers can use vBase to show the provenance of their data to any external party, increasing its value and marketability. Similarly, data consumers can verify the integrity and authenticity of 3rd party data, and any derivative calculations. 
-
-The result? Trustworthy information that can be seamlessly shared and put into production quickly, without expensive and time-consuming trials.
-
-With vBase, creating and consuming provably correct data is as easy as pressing a button.
+By anchoring cryptographic fingerprints of datasets, portfolios, and research outputs to a public blockchain, vBase creates **globally credible, point-in-time records** for which anyone can independently confirm the data's timestamps, completeness and impartial presentation — without revealing the underlying data.
 
 
+## Why It Matters
 
-## Unique Advantages
+In finance, data science and many other domains, the credibility of data depends on its timeliness, completeness and impartial presentation. vBase makes the timestamps and integrity of data provable — showing exactly what data, models, or results existed at each moment. This lets teams show integrity and communicate results with confidence, building trust with clients, investors, and partners.
 
-vBase stores digital fingerprints of data, metadata, and revisions on public blockchains, offering key advantages over traditional verification methods:  
 
-1. **Privacy-Preserving** – vBase builds and verifies provenance without accessing the underlying data.  
-2. **Resilient** – Provenance can continue to be built and verified even if validityBase ceases to exist. No centralized intermediaries means no single point of failure.  
-3. **Auditable** – Third-party tools can **independently** verify vBase data provenance claims.  
-4. **Protocol-Based** – Like TCP/IP, vBase ensures long-term interoperability without the risk of unilateral changes.  
-5. **Future-Proof** – Data provenance remains verifiable for decades or longer.
+## Use Cases
 
-## Use Cases in Finance
+### Finance
 
-Verifiable data provenance is useful in many domains. For example, to demonstrate investment skill, the recipient of a track record must be sure they are seeing a complete, accurate and timely performance history. 
+Verifiable data provenance is useful in many areas of finance. For example, to demonstrate investment skill, the recipient of a track record must be sure they are seeing a complete, accurate, and timely trade history.  
 
 vBase resolves several expensive market failures common to financial data. Some of the areas that benefit include:
 
-* Provably point-in-time datasets
-* Institutionally credible low-cost investment track records
-* Verifiable backtests and historical simulations
-* Time-series models with verifiable prediction history
+* **Alternative data providers** who wish to build provably point-in-time datasets that investors can trust and easily trial.  
+* **Quant researchers and model builders** who wish to prove that backtests, factors, and signal outputs were not retrofitted or selectively presented.  
+* **Index providers and calculation agents** maintaining a cryptographically verifiable record of index weights and rebalances over time.  
+* **Fund managers and allocators** preserving an immutable history of performance, holdings, and risk reports for compliance and marketing.  
+* **Time-series and forecasting models** maintaining a verifiable record of predictions and revisions to demonstrate model consistency and accuracy.  
 
 
+### Non-Finance
+
+The same need for verifiable provenance extends far beyond finance. Any domain where predictive data and models are produced can benefit from stamping.
+
+Examples include:
+
+* **AI and machine learning teams** stamping model outputs to prove model effectiveness
+* **Research institutions** registering papers, data releases, or experimental results to establish authorship, verify research inputs and protect intellectual property.  
+* **Media and information publishers** proving the authenticity and publication time of original content  
+* **Legal and compliance teams** anchoring contracts, reports, or evidence files to create tamper-proof document trails.  
+* **Supply chain and ESG data providers** demonstrating the provenance and authenticity of sustainability or traceability data.  
+* **Government and public agencies** preserving auditable records of datasets, forecasts, and policy updates to increase public trust.  
 
 
-vBase is designed for ease of use, accessible via an intuititive [web application](https://app.vbase.com/) or via our user-friendly developer tools & SDKs (Python, C#, TypeScript, CLI). 
+In short, any situation in which “What did you know, and when?” is a meaningful question — vBase tools provide verifiable proof.
 
 
+## Get Started
+
+vBase is designed for ease of use, accessible via an intuitive [web application](https://app.vbase.com/) or via our user-friendly [REST API](vbase-django-tools/api/rest-api-user-guide.md). developer tools & SDKs (Python, C#, TypeScript, CLI). 
 
 
-
-## Quick Start Links
+### Quick Start Links
 
 {% content-ref url="docs/welcome/how-vbase-works.md" %}
 [how-vbase-works.md](docs/welcome/how-vbase-works.md)
@@ -65,9 +72,6 @@ vBase is designed for ease of use, accessible via an intuititive [web applicatio
 [web-tools](docs/web-tools/how-to-use-vbase-stamper.md)
 {% endcontent-ref %}
 
-{% content-ref url="docs/getting-started/python-quickstart-README.md" %}
-[python-quickstart](docs/getting-started/python-quickstart-README.md)
+{% content-ref url="vbase-django-tools/api/rest-api-user-guide.md" %}
+[REST-API-User-Guide](vbase-django-tools/api/rest-api-user-guide.md)
 {% endcontent-ref %}
-
-
-
