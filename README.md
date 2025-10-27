@@ -73,5 +73,5 @@ vBase is designed for ease of use, accessible via an intuitive [web application]
 {% endcontent-ref %}
 
 {% content-ref url="vbase-django-tools/docs/api/rest-api-user-guide.md" %}
-[REST API User Guide](vbase-django-tools/api/rest-api-user-guide.md)
+[REST-API-User-Guide](vbase-django-tools/api/rest-api-user-guide.md)
 {% endcontent-ref %}
