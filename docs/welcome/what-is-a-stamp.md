@@ -17,6 +17,8 @@ A vBase stamp solves this by giving data a **publicly verifiable timestamp** —
 
 <picture><img src="./stamping_process.png" alt="Stamping Process Flow" width="50%"></picture>
 
+<br>
+
 <picture><img src="./validation_process.png" alt="Validation Process Flow" width="50%"></picture>
 
 **Step-by-step:**
@@ -48,9 +50,20 @@ A graphical example of a vBase stamp:
 
 ## Examples in Practice
 
-* **Alternative Data Provider:** A data provider stamps each daily file of social-sentiment metrics before distributing to clients. Later these stamps are used to prove the sentiment data history is full point-in-time and complete.
-* **Quant Researcher:** An investment manager stamps a file containing his portfolio weights each time the portfolio is rebalanced. Later these stamps create a verifiable portfolio history, proving the manager's strategy and outputs weren't retrofitted, revised after-the-fact, or selectively presented.
-* **Index Calculation Agent:** A index calculator stamps a file of portfolio weights at each rebalance. Later these stamps provide a verifiable audit trail for the index weights over time. 
+* **Alternative Data Provider:** Stamp daily or even minute-by-minute data produced -- for example sentiment scores, developer activity, employment aggregates. Later, these stamps prove the dataset’s point-in-time integrity and completeness, as well as when the data would have been delivered.  
+* **Quant Researcher:** Stamp each portfolio weights file at rebalance. Over time, these stamps form a verifiable strategy history, proving results weren’t retroactively changed or selectively presented.  
+* **Fundamental Analyst:** Stamp research models and reports as they’re updated to document when investment theses were formed — proving that good calls were made without the benefit of hindsight.  
+* **Agentic AI Model Builder:** Stamp each batch of AI predictions or outputs to establish a timestamped verifiable record of model behavior and predictive performance.  
+* **Survey Data Provider:** Stamp raw survey responses and aggregate outputs to show an authentic, point-in-time record and eliminate concerns about survivorship bias, outlier removal and selective presentation.  
+* **Index Calculation Agent:** Stamp portfolio weights or constituent files at every rebalance to maintain an immutable audit trail of index composition and methodology.  
+* **Auditable Recordkeeping:** Stamp each month’s risk, compliance, or valuation report to preserve a verifiable, time-stamped record of what was known and reported at the time.  
+* **Backtest Verification:** Stamp backtest results to show when a backtest was executed, the exact parameters, and how many runs were created. 
+* **Project Deliverables:** Stamp client deliverables, milestone files, or datasets at delivery to create an immutable record of what was provided at each stage.
+
+
+
+
+
 
 ## Verifying a Stamp
 
@@ -76,7 +89,8 @@ vBase automates this through its validation API and web tools.
 
 * Stamp **raw and derived** data (both original and model output).
 * Use **collection IDs** to group related versions (e.g., “Mean Reversion Signal” or “Sentiment Scores”).
-* Publish your user ID in investor decks, reports, or academic work.
+* Keep a secure copy of every file you stamp. These original files are what you’ll use later to prove exactly what data existed at the time of stamping. By default, the web app stores a copy automatically; when using the API, you can enable the storeStampedFile flag if you want vBase to retain a copy on your behalf.
+* For track record verification, we can support stamping and displaying structured data, see [Building a Verified Track Record](../getting-started/verified-track-record.md)
 
 
 ## Frequently Asked Questions
@@ -85,7 +99,7 @@ vBase automates this through its validation API and web tools.
 No. vBase pays blockchain transaction costs on your behalf, so you don’t need crypto to use it.
 
 **Can I delete or replace a stamp?**
-No — stamps are permanent, but you can issue a new one for revised data.
+No, stamps are permanent, but you can issue a new one for revised data.
 
 **What if my data changes after stamping?**
 The fingerprint will differ. If you publish the fingerprint of the revised data, it will be clear when the data changed. 
