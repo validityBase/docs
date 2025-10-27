@@ -48,9 +48,9 @@ A graphical example of a vBase stamp:
 
 ## Examples in Practice
 
-* **Alternative Data Provider:** A data provider stamps each daily file of social-sentiment metrics before distributing to clients. Later these stamps are used to prove the sentiment data history is full point-in-time and complete 
-**Quant Researcher:** An investment manager stamps a file containing his portfolio weights each time the portfolio is rebalanced. Later these stamps create a verifiable portfolio history, proving the manager's strategy and outputs weren't retrofitted, revised after-the-fact, or selectively presented.
-**Index Calculation Agent:** A index calculator stamps a file of portfolio weights at each rebalance. Later these stamps provide a verifiable audit trail for the index weights over time. 
+* **Alternative Data Provider:** A data provider stamps each daily file of social-sentiment metrics before distributing to clients. Later these stamps are used to prove the sentiment data history is full point-in-time and complete.
+* **Quant Researcher:** An investment manager stamps a file containing his portfolio weights each time the portfolio is rebalanced. Later these stamps create a verifiable portfolio history, proving the manager's strategy and outputs weren't retrofitted, revised after-the-fact, or selectively presented.
+* **Index Calculation Agent:** A index calculator stamps a file of portfolio weights at each rebalance. Later these stamps provide a verifiable audit trail for the index weights over time. 
 
 ## Verifying a Stamp
 
