@@ -47,14 +47,14 @@ The same need for verifiable provenance extends far beyond finance. Any domain w
 Examples include:
 
 * **AI and machine learning teams** stamping model outputs to prove model effectiveness
-* **Research institutions** registering papers, data releases, or experimental results to establish authorship and protect intellectual property.  
-* **Media and information publishers** proving the authenticity and publication time of original content to combat misinformation.  
+* **Research institutions** registering papers, data releases, or experimental results to establish authorship, verify research inputs and protect intellectual property.  
+* **Media and information publishers** proving the authenticity and publication time of original content  
 * **Legal and compliance teams** anchoring contracts, reports, or evidence files to create tamper-proof document trails.  
 * **Supply chain and ESG data providers** demonstrating the provenance and authenticity of sustainability or traceability data.  
 * **Government and public agencies** preserving auditable records of datasets, forecasts, and policy updates to increase public trust.  
 
 
-In short, any situation in which “What did you know, and when?” is a meaningful question — vBase tools provide proof.
+In short, any situation in which “What did you know, and when?” is a meaningful question — vBase tools provide verifiable proof.
 
 
 ## Get Started
