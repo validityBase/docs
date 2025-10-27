@@ -72,6 +72,6 @@ vBase is designed for ease of use, accessible via an intuitive [web application]
 [web-tools](docs/web-tools/how-to-use-vbase-stamper.md)
 {% endcontent-ref %}
 
-{% content-ref url="vbase-django-tools/docs/api/rest-api-user-guide.md" %}
+{% content-ref url="vbase-django-tools/api/rest-api-user-guide.md" %}
 [REST-API-User-Guide](vbase-django-tools/api/rest-api-user-guide.md)
 {% endcontent-ref %}
