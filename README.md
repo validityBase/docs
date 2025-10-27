@@ -17,12 +17,12 @@ layout:
 
 vBase helps data providers, researchers, and investors **prove what they knew, when they knew it.**
 
-By anchoring cryptographic fingerprints of datasets, portfolios, and research outputs to a public blockchain, vBase creates **independently verifiable, point-in-time records** that anyone can independently confirm — without revealing the underlying data.
+By anchoring cryptographic fingerprints of datasets, portfolios, and research outputs to a public blockchain, vBase creates **globally credible, point-in-time records** for which anyone can independently confirm the data's timestamps, completeness and impartial presentation — without revealing the underlying data.
 
 
 ## Why It Matters
 
-In finance, data science and many other domains, the credibility of data depends on its timeliness, completeness and impartial presentation. vBase makes the timestamps and integrity of data provable — showing exactly what data, models, or results existed at each moment. This builds trust with clients, investors, and partners and enables credible communication about data in its various forms. 
+In finance, data science and many other domains, the credibility of data depends on its timeliness, completeness and impartial presentation. vBase makes the timestamps and integrity of data provable — showing exactly what data, models, or results existed at each moment. This lets teams show integrity and communicate results with confidence, building trust with clients, investors, and partners.
 
 
 ## Use Cases
@@ -54,7 +54,7 @@ Examples include:
 * **Government and public agencies** preserving auditable records of datasets, forecasts, and policy updates to increase public trust.  
 
 
-In short, anywhere that “What did we know, and when?” is a meaningful question — vBase tools provide proof.
+In short, any situation in which “What did you know, and when?” is a meaningful question — vBase tools provide proof.
 
 
 ## Get Started
@@ -72,6 +72,6 @@ vBase is designed for ease of use, accessible via an intuitive [web application]
 [web-tools](docs/web-tools/how-to-use-vbase-stamper.md)
 {% endcontent-ref %}
 
-{% content-ref url="docs/getting-started/python-quickstart-README.md" %}
+{% content-ref url="../vbase-django-tools/docs/api/rest-api-user-guide.md" %}
 [REST API User Guide](../vbase-django-tools/docs/api/rest-api-user-guide.md)
 {% endcontent-ref %}
