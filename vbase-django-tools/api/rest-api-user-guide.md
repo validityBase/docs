@@ -19,7 +19,7 @@ Our REST API is documented using OpenAPI, providing a comprehensive description 
 
 Access the Swagger UI at:
 ```
-https://app.vbase.com/api/v1/
+https://app.vbase.com/swagger/
 ```
 
 ## Authenticating to the REST API
