@@ -59,7 +59,7 @@ In short, any situation in which “What did you know, and when?” is a meaning
 
 ## Get Started
 
-vBase is designed for ease of use, accessible via an intuitive [web application](https://app.vbase.com/) or via our user-friendly [REST API](../vbase-django-tools/docs/api/rest-api-user-guide.md). developer tools & SDKs (Python, C#, TypeScript, CLI). 
+vBase is designed for ease of use, accessible via an intuitive [web application](https://app.vbase.com/) or via our user-friendly [REST API](vbase-django-tools/api/rest-api-user-guide.md). developer tools & SDKs (Python, C#, TypeScript, CLI). 
 
 
 ### Quick Start Links
@@ -72,6 +72,6 @@ vBase is designed for ease of use, accessible via an intuitive [web application]
 [web-tools](docs/web-tools/how-to-use-vbase-stamper.md)
 {% endcontent-ref %}
 
-{% content-ref url="../vbase-django-tools/docs/api/rest-api-user-guide.md" %}
-[REST API User Guide](../vbase-django-tools/docs/api/rest-api-user-guide.md)
+{% content-ref url="vbase-django-tools/docs/api/rest-api-user-guide.md" %}
+[REST API User Guide](vbase-django-tools/api/rest-api-user-guide.md)
 {% endcontent-ref %}
