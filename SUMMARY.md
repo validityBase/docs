@@ -3,10 +3,11 @@
 ## Welcome
 
 * [Welcome to vBase](README.md)
+* [What is a Stamp?](docs/welcome/what-is-a-stamp.md)
 * [Unique Advantages](docs/welcome/unique-advantages.md)
 * Core Concepts
   * [How vBase Works](docs/welcome/how-vbase-works.md)
-  * [What is a Stamp?](docs/welcome/what-is-a-stamp.md)
+
   * [Technical Overview](docs/welcome/technical-overview.md)
   * [Why Blockchains?](docs/welcome/why-blockchains.md)
 * [Example Use Cases](docs/welcome/example-use-cases.md)
