@@ -15,9 +15,8 @@ The examples below illustrate how vBase supports both **financial** and **non-fi
 ## Finance
 
 Verifiable data provenance is especially valuable in finance, where credibility disappears when timestamps or revision histories are unclear.  
-To demonstrate investment skill or dataset quality, recipients must see a **complete and timely record that is free from selective presentation.**
 
-vBase resolves long-standing inefficiencies in how financial data is **marketed, evaluated, and consumed.**
+To demonstrate investment skill or dataset quality, recipients must see a **complete and timely record that is free from selective presentation.** vBase resolves long-standing inefficiencies in how financial data is **marketed, evaluated, and consumed.**
 
 #### Alternative Data Providers
 Stamp daily or minute-by-minute data — such as sentiment scores, developer activity, employment aggregates, or transit movements.  
