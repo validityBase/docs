@@ -1,19 +1,34 @@
-## High-level overview of the vBase process
+## High-Level Overview of the vBase Process
 
-vBase serves as an easy button for creating and validating cryptographic commitments. The following chart illustrates a typical vBase data production and validation process:
+vBase acts as an **“easy button”** for creating and validating cryptographic data commitments.  
 
-<figure><img src="vBase_ProcessSummary_NonTech.svg" alt=""><figcaption><p>The vBase Process</p></figcaption></figure>
+The diagram below illustrates a typical vBase data-production and validation flow:
+
+<figure>
+  <img src="vBase_ProcessSummary_NonTech.svg" alt="The vBase Process" width="80%">
+  <figcaption><p>The vBase Process</p></figcaption>
+</figure>
 
 
+### Step-by-Step Overview
 
-A few comments on each step of the process below:&#x20;
+1. **Data generation** — vBase does not interfere with existing data pipelines. Producers continue generating and storing data in their usual systems (e.g., raw files, SQL databases, S3, etc.).
 
-1. vBase does not interfere with the existing data production process. Producers generate and store data using their established processes and systems.
-2. When producers wish to establish data provenance, they call lightweight vBase commitment APIs. The APIs can receive data content IDs (fingerprints, hashes) or be granted read access to the data to perform all the necessary operations automatically.
-3. The vBase commitment service records content IDs and timestamps that establish data integrity and provenance while preserving privacy. The service is provided by a smart contract running on a blockchain, making the resulting commitments highly secure and tamper-proof and enabling long-term validation by any party.
-4. vBase does not disrupt the existing data sharing and distribution processes. Producers can continue sharing data with consumers using their familiar processes without interference. Similarly, vBase respects consumers' data access and does not disturb their established procedures.
-5. Likewise, vBase does not interfere with consumers' data access.
-6. Consumers seeking to validate data and establish its provenance can easily achieve this through the lightweight vBase verification APIs.
-7. These APIs perform data checks against the recorded commitments, thereby validating what data was known in the past and precisely when it became known.
+2. **Commitment creation** — when producers want to establish provenance, they call lightweight vBase **commitment APIs**. These APIs can either receive pre-computed content fingerprints (hashes) or can read the data to perform the necessary hashing operations.
 
-By adopting vBase, organizations can ensure data provenance and maintain their data's reliability and security without disrupting their current workflows. This non-intrusive approach guarantees data integrity while preserving user privacy, ultimately enhancing trust and accountability throughout the data lifecycle.
+3. **Blockchain anchoring** — vBase’s **Commitment Service** records these content IDs and timestamps on the blockchain, creating a tamper-proof, privacy-preserving provenance record. The blockchain’s decentralized ledger ensures that each record is **immutable**, **independently verifiable**, and **long-term auditable**.
+
+4. **Data sharing** — vBase does not alter or replace existing sharing workflows. Producers continue distributing data to consumers through their normal channels, while vBase records remain independent of, and external to, the data itself.
+
+5. **Data receipt** — consumers receive the shared data as usual, without needing any special integration or credentials.
+
+6. **Verification** — when consumers wish to confirm provenance, they call vBase’s **verification APIs** to check data against on-chain commitments.
+
+7. **Validation** — the blockchain records prove both **when** the data became known and **that** it has not been modified since, ensuring end-to-end data integrity and trust.
+
+
+### Why It Matters
+
+By integrating vBase, organizations gain cryptographic proof of data provenance without disrupting their existing workflows.  
+
+This **non-intrusive architecture** maintains privacy and operational efficiency while providing verifiable, long-term assurance of data integrity and reliability — strengthening trust between producers, consumers, and partners across the data lifecycle.

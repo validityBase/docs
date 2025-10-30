@@ -1,33 +1,24 @@
 # Table of contents
 
-## Welcome
-
+## Overview
 * [Welcome to vBase](README.md)
-* [Unique Advantages](docs/welcome/unique-advantages.md)
-* Core Concepts
-  * [How vBase Works](docs/welcome/how-vbase-works.md)
-  * [What is a Stamp?](docs/welcome/what-is-a-stamp.md)
-  * [Technical Overview](docs/welcome/technical-overview.md)
-  * [Why Blockchains?](docs/welcome/why-blockchains.md)
+* [What vBase Verifies](docs/welcome/what-vbase-verifies.md)
+* [What is a Stamp?](docs/welcome/what-is-a-stamp.md)
 * [Example Use Cases](docs/welcome/example-use-cases.md)
 
-
-
-## Getting Started
-
-* [Start your Journey](docs/getting-started/start-your-journey.md) <!-- * [Going Live](docs/getting-started/moving-to-production.md) -->
+## Deep Dive
+* [Technical Overview](docs/welcome/technical-overview.md)
+* [Why Blockchains?](docs/welcome/why-blockchains.md)
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
 * [Verification Methods](docs/getting-started/verification-methods.md)
 
-
 ## REST API
-
 * [User Guide](vbase-django-tools/api/rest-api-user-guide.md)
 * [Samples](vbase-django-tools/api/rest-api-user-examples.md)
 
-
 ## Web Tools
   <!-- * [Introduction](docs/web-tools/readme.md) -->
+  * [Start your Journey](docs/getting-started/start-your-journey.md)
   * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
   * [Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
   <!-- * [Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
