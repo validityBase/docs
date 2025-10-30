@@ -18,7 +18,7 @@ To demonstrate investment skill or dataset quality, recipients must see a comple
 
 Stamp datasets that update daily or intraday — such as sentiment, macro indicators, investment scores, developer activity, or mobility data.
 
-**Purpose**: Create a **point-in-time audit trail** proving that historical data is complete, point-in-time, unaltered, and free from selective presentation.
+> **Purpose**: Create a **point-in-time audit trail** proving that historical data is complete, point-in-time, unaltered, and free from selective presentation.
 
 **Example Workflow**  
 1. Generate a new dataset file each day.  
@@ -30,7 +30,7 @@ Stamp datasets that update daily or intraday — such as sentiment, macro indica
 
 Stamp each **portfolio weights file**, factor exposure, or signal output at every rebalance.
 
-**Purpose**: Establish a verifiable timeline of model behavior to prevent retrofitting or selective disclosure.
+> **Purpose**: Establish a verifiable timeline of model behavior to prevent retrofitting or selective disclosure.
 
 **Example**: A model builder stamps each rebalance file weekly, forming a continuous verifiable signal history.
 
@@ -39,7 +39,7 @@ Stamp each **portfolio weights file**, factor exposure, or signal output at ever
 
 Create a verified record for fund sleeves, SMAs, or model portfolios.
 
-**Purpose**: Support compliant marketing and independent verification of reported performance.
+> **Purpose**: Support compliant marketing and independent verification of reported performance.
 
 **Example**: Clients can confirm that dashboards and disclosures reflect authentic point-in-time data that is live, out-of-sample, and free from selective presentation.
 
@@ -48,14 +48,14 @@ Create a verified record for fund sleeves, SMAs, or model portfolios.
 
 Stamp research models, valuation frameworks, or recommendation memos.
 
-**Purpose**: Document when each idea was generated and ensure analyses were not revised after outcomes were known.
+> **Purpose**: Document when each idea was generated and ensure analyses were not revised after outcomes were known.
 
 
 ### 1.5 Index Providers & Calculation Agents
 
 Stamp methodologies, constituent files, and weights at each rebalance.
 
-**Purpose**: Produce an immutable audit trail of index construction, weights, and methodology versions.
+> **Purpose**: Produce an immutable audit trail of index construction, weights, and methodology versions.
 
 **Use Case**: Common in benchmark governance and licensing workflows.
 
@@ -64,14 +64,14 @@ Stamp methodologies, constituent files, and weights at each rebalance.
 
 Stamp each model prediction, forecast, or signal batch.
 
-**Purpose**: Maintain a reproducible, timestamped record of model outputs across time.
+> **Purpose**: Maintain a reproducible, timestamped record of model outputs across time.
 
 
 ### 1.7 Backtest Verification
 
 Stamp configuration files and results when a backtest is executed.
 
-**Purpose**: Show when a backtest was run, with what parameters, and how many variants existed.
+> **Purpose**: Show when a backtest was run, with what parameters, and how many variants existed.
 
 **Benefit**: Future performance from that date forward becomes verifiably *out-of-sample*.
 
@@ -80,14 +80,14 @@ Stamp configuration files and results when a backtest is executed.
 
 Stamp raw and aggregated responses.
 
-**Purpose**: Prove that survey results are authentic and point-in-time, not edited or re-weighted later.
+> **Purpose**: Prove that survey results are authentic and point-in-time, not edited or re-weighted later.
 
 
 ### 1.9 Auditable Recordkeeping
 
 Stamp recurring deliverables such as compliance, risk, or valuation reports.
 
-**Purpose**: Maintain a tamper-proof record of what was known and disclosed at each reporting interval.
+> **Purpose**: Maintain a tamper-proof record of what was known and disclosed at each reporting interval.
 
 <BR>
 
@@ -100,7 +100,7 @@ vBase is domain-agnostic. Any field that produces data, content, or models over 
 
 Stamp training runs, prediction batches, or evaluation outputs.
 
-**Purpose**: Create a timestamped log of model behavior for auditability and reproducibility.
+> **Purpose**: Create a timestamped log of model behavior for auditability and reproducibility.
 
 **Example**: Use Collections to record the evolution of a model across fine-tuning or retraining cycles.
 
@@ -109,14 +109,14 @@ Stamp training runs, prediction batches, or evaluation outputs.
 
 Register datasets, manuscripts, or experimental results.
 
-**Purpose**: Establish authorship, verify dataset inputs, and promote transparent research collaboration.
+> **Purpose**: Establish authorship, verify dataset inputs, and promote transparent research collaboration.
 
 
 ### 2.3 Media & Publishing
 
 Stamp articles, images, or releases.
 
-**Purpose**: Prove publication time and authorship of original content.
+> **Purpose**: Prove publication time and authorship of original content.
 
 **Use Case**: Useful for timestamping breaking news, original research, or official press materials.
 
@@ -125,28 +125,28 @@ Stamp articles, images, or releases.
 
 Anchor contracts, filings, or evidence to the blockchain.
 
-**Purpose**: Ensure that official documents can be proven unaltered since submission or disclosure.
+> **Purpose**: Ensure that official documents can be proven unaltered since submission or disclosure.
 
 
 ### 2.5 Supply Chain & ESG Data
 
 Stamp traceability updates, certifications, and ESG disclosures.
 
-**Purpose**: Demonstrate transparent provenance and accountability across suppliers and auditors.
+> **Purpose**: Demonstrate transparent provenance and accountability across suppliers and auditors.
 
 
 ### 2.6 Government & Public Agencies
 
 Anchor datasets, forecasts, or policy releases.
 
-**Purpose**: Maintain verifiable public records and improve institutional trust.
+> **Purpose**: Maintain verifiable public records and improve institutional trust.
 
 
 ### 2.7 Project & Client Deliverables
 
 Stamp milestones, datasets, or deliverables at hand-off.
 
-**Purpose**: Create a shared, immutable record of project progress between teams and clients.
+> **Purpose**: Create a shared, immutable record of project progress between teams and clients.
 
 
 ## 3. Summary
