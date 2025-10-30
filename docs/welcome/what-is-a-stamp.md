@@ -98,8 +98,8 @@ No, only the hash is public. The content itself remains private. A hash is a 256
 
 Ready to explore more?
 
-- [**Try Stamping Your First Dataset**](../../quickstart/) — walk through your first end-to-end stamping example.  
-- [**Learn How Verification Works**](../verification/) — see how vBase proves data integrity and timestamps on-chain.  
-- [**Explore Collections**](./what-is-a-collection/) — learn how stamps are grouped to represent complete datasets or strategies.  
-- [**See Example Use Cases**](../welcome/use-cases.md) — discover how data providers, model builders, researchers and others use vBase in practice.  
+- [**Try Stamping Your First Dataset**](../getting-started/start-your-journey.md) — walk through your first end-to-end stamping example.  
+- [**Learn How Verification Works**](../getting-started/verification-methods.md) — see how vBase proves data integrity and timestamps on-chain.  
+<!-- - [**Explore Collections**](./what-is-a-collection/) — learn how stamps are grouped to represent complete datasets or strategies.  -->
+- [**See Example Use Cases**](../welcome/example-use-cases.md) — discover how data providers, model builders, researchers and others use vBase in practice.  
 

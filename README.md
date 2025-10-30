@@ -47,7 +47,7 @@ Together, these create a **globally credible, independently verifiable audit tra
 
 vBase is used by investment managers, data providers, model builders, AI platforms, quant researchers, and compliance teams — anywhere data credibility and timestamp verification matter.
 
-Learn more: [Example Use Cases](docs/welcome/use-cases.md)
+Learn more: [Example Use Cases](docs/welcome/example-use-cases.md)
 
 
 

@@ -20,7 +20,7 @@ These fingerprints (cryptographic hashes) can represent anything:
 - A research notebook or portfolio update (e.g., a backtest or P&L file)
 - An image file
 
-By anchoring these fingerprints to a blockchain, vBase proves **what data existed, and when**, without revealing the data itself. A series of fingerprints organized into a Collection can make powerful, commercially valuable statements about data (See [What vBase proves](what-vbase-proves.md)). 
+By anchoring these fingerprints to a blockchain, vBase proves **what data existed, and when**, without revealing the data itself. A series of fingerprints organized into a Collection can make powerful, commercially valuable statements about data (See [What vBase proves](what-vbase-verifies.md)). 
 
 
 
@@ -40,7 +40,6 @@ A quant researcher can prove their model parameters were locked in before live t
 
 This approach is invaluable when manual 3rd party audits are impractical or too expensive, and when datasets are sensitive due to privacy, regulatory, or intellectual-property concerns.
 
-For technical details, see [**How vBase Works**](how-vbase-works.md).
 
 
 

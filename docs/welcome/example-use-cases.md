@@ -159,5 +159,5 @@ It turns **data credibility** into a built-in property of your workflow.
 ## 4. Related Pages
 
 - [How vBase Works →](./how-vbase-works.md)  
-- [What Is a Stamp →](../core-concepts/what-is-a-stamp.md)  
-- [How Verification Works →](../core-concepts/how-verification-works.md)
+- [What Is a Stamp →](../welcome/what-is-a-stamp.md)  
+- [How Verification Works →](../getting-started/verification-methods.md)
