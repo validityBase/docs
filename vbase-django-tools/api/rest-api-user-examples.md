@@ -1,8 +1,10 @@
 # Examples
 
-### Stamp Endpoint
+## Stamp Endpoint
 
-#### Example Requests CURL
+### Curl Examples
+
+#### Stamping Without a Collection
 
 1. Stamping a file:
 ```bash
@@ -24,7 +26,7 @@ curl -X POST https://app.vbase.com/api/v1/stamp/ \
 -F "idempotencyWindow=3600"
 ```
 
-3. Stamping an existing CID:
+3. Stamping a Content Identifier (CID) without revealing data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamp/ \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
@@ -33,9 +35,66 @@ curl -X POST https://app.vbase.com/api/v1/stamp/ \
 -F "idempotencyWindow=3600"
 ```
 
-### Verify Endpoint
+#### Stamping to a Collection Identified by a Name
 
-#### Example Requests CURL
+1. Stamping a file:
+```bash
+curl -X POST https://app.vbase.com/api/v1/stamp/ \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-F "collectionName=Test Collection" \
+-F "file=@testfile.txt" \
+-F "storeStampedFile=true" \
+-F "idempotent=true" \
+-F "idempotencyWindow=3600"
+```
+
+2. Stamping inline data:
+```bash
+curl -X POST https://app.vbase.com/api/v1/stamp/ \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-F "collectionName=Test Collection" \
+-F "data='1212121212'" \
+-F "storeStampedFile=true" \
+-F "idempotent=true" \
+-F "idempotencyWindow=3600"
+```
+
+3. Stamping a Content Identifier (CID) without revealing data:
+```bash
+curl -X POST https://app.vbase.com/api/v1/stamp/ \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-F "collectionName=Test Collection" \
+-F "dataCid='0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800'" \
+-F "idempotent=true" \
+-F "idempotencyWindow=3600"
+```
+
+#### Stamping to a Collection Identified by a Content Identifier (Collection CID)
+
+1. Stamping a file:
+```bash
+curl -X POST https://app.vbase.com/api/v1/stamp/ \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-F "collectionCid=0x36f028580bb02cc8272a9a020f4200e346e276ae664e45ee80745574e2f5ab80" \
+-F "file=@testfile.txt" \
+-F "storeStampedFile=true" \
+-F "idempotent=true" \
+-F "idempotencyWindow=3600"
+```
+
+2. Stamping a Content Identifier (CID) without revealing data:
+```bash
+curl -X POST https://app.vbase.com/api/v1/stamp/ \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-F "collectionCid=0x36f028580bb02cc8272a9a020f4200e346e276ae664e45ee80745574e2f5ab80" \
+-F "dataCid='0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800'" \
+-F "idempotent=true" \
+-F "idempotencyWindow=3600"
+```
+
+## Verify Endpoint
+
+### Curl Examples
 
 1. Verifying CIDs:
 ```bash
@@ -49,7 +108,8 @@ curl -X POST "https://dev.app.vbase.com/api/v1/verify/" \
   }'
 ```
 
-#### Example Requests PYTHON
+## Python Examples
+
 ```python
 """
 A Python client for the VBase API to stamp files and data.
