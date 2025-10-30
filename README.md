@@ -15,21 +15,23 @@ layout:
 
 # Welcome to vBase
 
-vBase helps data providers, researchers, investors, and others prove **what they knew, when they knew it** or, put simply, **what data they had, and when they had it.**
+vBase helps the producers of predictive data, such as indicators, forecasts, financial research, [alternative data](https://www.neudata.co/blog/a-beginners-guide-to-alternative-data), and investment strategies, prove their value and helps the consumers of such data verify, acquire, and deploy valuable datasets faster and with more confidence.
 
-By anchoring cryptographic fingerprints of datasets, portfolios, and research outputs to a public blockchain, vBase creates **globally credible, point-in-time records.** These records let others independently verify a dataset's timestamps, completeness and impartial presentation — all without revealing the underlying data.
+By anchoring cryptographic fingerprints of datasets, portfolios, and research output to a public blockchain, vBase creates **globally credible, point-in-time records.** These records let others independently verify a dataset's timestamps, completeness and impartial presentation — all without revealing the underlying data.
+
+Anyone can use vBase tools to prove **what they knew, when they knew it** or, **what data they had, and when they had it.**
 
 
 ## Why It Matters
 
 In finance, data science, and other data-driven domains, data credibility depends on timeliness, completeness and impartial presentation. 
 
-vBase makes these qualities provable — showing exactly what data, models, or results existed at each point-in-time. By turning **historical data integrity** into a verifiable fact, vBase helps communicate results with confidence and build lasting trust with clients, investors, and partners.
+vBase makes these qualities provable — showing exactly what data, models, or results existed at each point-in-time. By turning **integrity of historical data** into a verifiable fact, vBase helps communicate results with confidence and build lasting trust with clients, investors, and partners.
 
 
 ## What vBase Proves
 
-Each **stamp** serves as cryptographic proof of **when** a specific digital object (usually a file) existed and which dataset, known as a **Collection** it belongs to.  
+Each vBase **stamp** serves as cryptographic proof of **when** a specific digital object (usually a file) existed and which dataset, known as a **Collection**, it belongs to.  
 
 When organized as a **Collection**, multiple stamps together provide verifiable proof of:
 

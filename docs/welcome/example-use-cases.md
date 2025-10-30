@@ -1,116 +1,227 @@
 # Example Use Cases for vBase Tools
 
-vBase is built for anyone who needs to prove **what they knew — and when they knew it.**
+vBase provides tools for creating **globally credible, timestamped records** of data, models, and research outputs.  
 
-It allows users to build data assets that are **complete, timely, and free from selective presentation.**  
+Any dataset or model that can be represented as a file or binary object can be **stamped** and later **verified**.
 
-Because vBase is domain-agnostic, any dataset or model that can be represented as a file or binary object can be stamped and verified.
-
-Many users apply vBase in **finance**, where data credibility and timing are critical, but the same principles readily extend outside finance.  
-
-The examples below illustrate how vBase supports both **financial** and **non-financial** applications.
+This page outlines common applications across both **financial** and **non-financial** domains.
 
 
 
-## Finance
+## 1. Financial Applications
 
-Verifiable data provenance is especially valuable in finance, where credibility disappears when timestamps or revision histories are unclear.  
+Verifiable data provenance is especially valuable in finance, where credibility disappears when timestamps or revision histories are unclear.
 
-To demonstrate investment skill or dataset quality, recipients must see a **complete and timely record that is free from selective presentation.** vBase resolves long-standing inefficiencies in how financial data is **marketed, evaluated, and consumed.**
-
-#### Alternative Data Providers
-Stamp daily or minute-by-minute data — such as sentiment scores, developer activity, employment aggregates, or transit movements.  
-
-A Collection of stamps proves the dataset is **point-in-time, complete, and free from selective presentation**, enabling investors to confirm what data they would have historically received and to backtest historical data with confidence.
-
-#### Quant Researchers & Model Builders
-Stamp each **portfolio weights file** or signal output at every rebalance to form a **verifiable performance history.**  
-
-This ensures backtests, factors, and signals are not retrofitted, revised, or selectively presented — turning any trading signal into a live, verifiable index.
-
-#### Investment Managers
-Build a **verified record** for fund sleeves, SMAs, model portfolios, and derivatives strategies to support compliant marketing.  
-
-Investors can independently confirm that dashboards and disclosures reflect authentic, point-in-time portfolio and trade records.
-
-#### Fundamental Analysts
-Stamp research models, valuation frameworks, and investment write-ups to document **when ideas were generated** and ensure they weren’t revised with hindsight.  
-
-This proves recommendations and models are being presented as published. 
-
-#### Index Providers & Calculation Agents
-Stamp **portfolio weights, constituent files, and methodologies** at every rebalance to create an **immutable audit trail** of index composition, rules, and lineage — delivering transparency to clients, partners, and regulators.
-
-#### Time-Series & Forecasting Models
-Maintain a verifiable record of **predictions, revisions, and other model outputs** to build an auditable performance history.  
-
-Each forecast is independently timestamped, creating a provable record of model behavior over time.
-
-#### Backtest Verification
-Stamp **backtest results and configurations** to show when a backtest was executed, with what parameters, and how many variations were tested.  
-
-This allows backtests to run verifiably *out-of-sample* from that point forward and lets third parties confirm authenticity.
-
-#### Survey Data Providers
-Stamp **raw responses and aggregated results** to verify that datasets are authentically point-in-time.  
-
-This removes doubts about survivorship bias, selective exclusion, or retroactive adjustments.
-
-#### Auditable Recordkeeping
-Stamp monthly **risk, compliance, valuation, or client reports** to preserve a **tamper-proof, time-stamped audit trail** of what was known and disclosed at the time — useful for internal, regulatory, and client verification.
+To demonstrate investment skill or dataset quality, recipients must see a complete and timely record that is free from selective presentation. vBase resolves long-standing inefficiencies in how financial data is marketed, evaluated, and consumed.
 
 
 
-## Non-Finance
 
-The same need for credible provenance extends far beyond finance. Any field where data, models, or content evolve over time can benefit from anchoring datasets to publicly verifiable timestamps.
 
-#### AI & Machine Learning
-Stamp each batch of **model predictions, training runs, or evaluation outputs** to create a **timestamped, verifiable record of model behavior.**  
+#### 1.1 Alternative Data Providers
 
-This supports accountability, auditability, and reproducibility for autonomous or agentic AI systems.
+Stamp datasets that update daily or intraday — such as sentiment, macro indicators, investment scores, developer activity, or mobility data.
 
-#### Research Institutions & Academia
-Register **papers, datasets, or experimental results** to establish **authorship, verify inputs, and protect intellectual property.**  
+::: details **Purpose**
+Create a **point-in-time audit trail** proving that historical data is complete, point-in-time, unaltered and free from selective presentation.
+:::
 
-vBase promotes reproducibility, transparent collaboration, and open research validation.
-
-#### Media & Information Publishers
-Prove the **authenticity and publication time** of original content to build audience trust and combat misinformation.  
-
-Readers can see exactly *when* and *by whom* information was first published.
-
-#### Legal & Compliance Teams
-Anchor **contracts, reports, and evidence files** to create **tamper-proof document audit trails.**  
-
-This provides verifiable assurance during audits, disclosures, and legal proceedings.
-
-#### Supply Chain & ESG Data Providers
-Stamp **traceability and sustainability updates** to prove authenticity and timing.  
-
-This demonstrates transparent provenance and accountability across complex supply chains.
-
-#### Government & Public Agencies
-Preserve **auditable records of datasets, forecasts, and policy updates** to improve accountability and public trust.  
-
-Blockchain anchoring ensures official communications remain verifiable and historically recoverable.
-
-#### Project Deliverables & Client Workflows
-Stamp each **milestone, deliverable, or dataset** at hand-off to create an **immutable record of delivery.**  
-
-This gives clients and partners a shared, verifiable timeline of progress and deliverables.
+::: details **Example Workflow**
+1. Generate a new dataset file each day.  
+2. Stamp the file immediately upon creation, assigning the Stamp to a Collection representing the dataset.  
+3. Share dataset with clients for verification against the blockchain-backed audit trails for the Collection.
+:::
 
 
 
-## Summary
+### 1.2 Quant Researchers & Model Builders
 
-In any context where the question **“What did you know, and when?”** matters,  
+Stamp each **portfolio weights file**, factor exposure, or signal output at every rebalance.
 
-vBase provides a cryptographic, independently verifiable answer — transforming credibility into an automated feature of your data. 
+::: details **Purpose**
+Establish a verifiable timeline of model behavior to prevent retrofitting or selective disclosure.
+:::
+
+::: details **Example**
+A model builder stamps each rebalance file weekly, forming a continuous verifiable signal history.
+:::
 
 
 
-## Related Pages
+### 1.3 Investment Managers
+
+Create a verified record for fund sleeves, SMAs, or model portfolios.
+
+::: details **Purpose**
+Support compliant marketing and independent verification of reported performance.
+:::
+
+::: details **Example**
+Clients can confirm that dashboards and disclosures reflect authentic point-in-time data that is live, out-of-sample and free from selective presentation.
+:::
+
+
+
+### 1.4 Fundamental Analysts
+
+Stamp research models, valuation frameworks, or recommendation memos.
+
+::: details **Purpose**
+Document when each idea was generated and ensure analyses were not revised after outcomes were known.
+:::
+
+
+
+### 1.5 Index Providers & Calculation Agents
+
+Stamp methodologies, constituent files, and weights at each rebalance.
+
+::: details **Purpose**
+Produce an immutable audit trail of index construction, weights, and methodology versions.
+:::
+
+::: details **Use Case**
+Common in benchmark governance and licensing workflows.
+:::
+
+
+
+### 1.6 Time-Series & Forecasting Models
+
+Stamp each model prediction, forecast, or signal batch.
+
+::: details **Purpose**
+Maintain a reproducible, timestamped record of model outputs across time.
+:::
+
+
+
+### 1.7 Backtest Verification
+
+Stamp configuration files and results when a backtest is executed.
+
+::: details **Purpose**
+Show when a backtest was run, with what parameters, and how many variants existed.
+:::
+
+::: details **Benefit**
+Future performance from that date forward becomes verifiably *out-of-sample*.
+:::
+
+
+
+### 1.8 Survey Data Providers
+
+Stamp raw and aggregated responses.
+
+::: details **Purpose**
+Prove that survey results are authentic and point-in-time, not edited or re-weighted later.
+:::
+
+
+
+### 1.9 Auditable Recordkeeping
+
+Stamp recurring deliverables such as compliance, risk, or valuation reports.
+
+::: details **Purpose**
+Maintain a tamper-proof record of what was known and disclosed at each reporting interval.
+:::
+
+
+
+## 2. Non-Financial Applications
+
+vBase is domain-agnostic. Any field that produces data, content, or models over time can benefit from verifiable provenance.
+
+
+### 2.1 AI & Machine Learning
+
+Stamp training runs, prediction batches, or evaluation outputs.
+
+::: details **Purpose**
+Create a timestamped log of model behavior for auditability and reproducibility.
+:::
+
+::: details **Example**
+Use Collections to record the evolution of a model across fine-tuning or retraining cycles.
+:::
+
+
+### 2.2 Research & Academia
+
+Register datasets, manuscripts, or experimental results.
+
+::: details **Purpose**
+Establish authorship, verify dataset inputs, and promote transparent research collaboration.
+:::
+
+
+
+### 2.3 Media & Publishing
+
+Stamp articles, images, or releases.
+
+::: details **Purpose**
+Prove publication time and authorship of original content.
+:::
+
+::: details **Use Case**
+Useful for timestamping breaking news, original research, or official press materials.
+:::
+
+
+
+### 2.4 Legal & Compliance
+
+Anchor contracts, filings, or evidence to the blockchain.
+
+::: details **Purpose**
+Ensure that official documents can be proven unaltered since submission or disclosure.
+:::
+
+
+
+### 2.5 Supply Chain & ESG Data
+
+Stamp traceability updates, certifications, and ESG disclosures.
+
+::: details **Purpose**
+Demonstrate transparent provenance and accountability across suppliers and auditors.
+:::
+
+
+
+### 2.6 Government & Public Agencies
+
+Anchor datasets, forecasts, or policy releases.
+
+::: details **Purpose**
+Maintain verifiable public records and improve institutional trust.
+:::
+
+
+
+### 2.7 Project & Client Deliverables
+
+Stamp milestones, datasets, or deliverables at hand-off.
+
+::: details **Purpose**
+Create a shared, immutable record of project progress between teams and clients.
+:::
+
+
+
+## 3. Summary
+
+Whenever it is important to establish **what was known and when**,  
+vBase provides a cryptographic, independently verifiable record.
+
+It turns **data credibility** into a built-in property of your workflow.
+
+
+
+## 4. Related Pages
 
 - [How vBase Works →](./how-vbase-works.md)  
 - [What Is a Stamp →](../core-concepts/what-is-a-stamp.md)  
