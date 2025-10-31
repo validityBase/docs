@@ -22,11 +22,11 @@ class StampData(TypedDict, total=False):
     """
 
     data: Optional[str]
-    dataCid: Optional[str]
-    collectionCid: Optional[str]
-    storeStampedFile: bool
+    data_cid: Optional[str]
+    collection_cid: Optional[str]
+    store_stamped_file: bool
     idempotent: bool
-    idempotencyWindow: int
+    idempotency_window: int
 
 
 class VBaseClientAPI:
@@ -37,8 +37,8 @@ class VBaseClientAPI:
     def __init__(self, base_url: str, api_token: str):
         self.base_url = base_url.rstrip("/")
         self.api_token = api_token
-        self.stamp_url = f"{self.base_url}/api/v1/stamp/"
-        self.verify_url = f"{self.base_url}/api/v1/verify/"
+        self.stamp_url = f"{self.base_url}/api/v1/stamps/"
+        self.verify_url = f"{self.base_url}/api/v1/stamps/verify/"
 
     def stamp(
         self,

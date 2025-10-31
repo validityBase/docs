@@ -8,31 +8,31 @@
 
 1. Stamping a file:
 ```bash
-curl -X POST https://app.vbase.com/api/v1/stamp/ \
+curl -X POST https://app.vbase.com/api/v1/stamps \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
 -F "file=@testfile.txt" \
--F "storeStampedFile=true" \
+-F "store_stamped_file=true" \
 -F "idempotent=true" \
--F "idempotencyWindow=3600"
+-F "idempotency_window=3600"
 ```
 
 2. Stamping inline data:
 ```bash
-curl -X POST https://app.vbase.com/api/v1/stamp/ \
+curl -X POST https://app.vbase.com/api/v1/stamps \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
 -F "data='1212121212'" \
--F "storeStampedFile=true" \
+-F "store_stamped_file=true" \
 -F "idempotent=true" \
--F "idempotencyWindow=3600"
+-F "idempotency_window=3600"
 ```
 
 3. Stamping a Content Identifier (CID) without revealing data:
 ```bash
-curl -X POST https://app.vbase.com/api/v1/stamp/ \
+curl -X POST https://app.vbase.com/api/v1/stamps \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
--F "dataCid='0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800'" \
+-F "data_cid='0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800'" \
 -F "idempotent=true" \
--F "idempotencyWindow=3600"
+-F "idempotency_window=3600"
 ```
 
 #### Stamping to a Collection Identified by a Name
@@ -98,7 +98,7 @@ curl -X POST https://app.vbase.com/api/v1/stamp/ \
 
 1. Verifying CIDs:
 ```bash
-curl -X POST "https://dev.app.vbase.com/api/v1/verify/" \
+curl -X POST "https://dev.app.vbase.com/api/v1/stamps/verify" \
   -H "Authorization: Bearer YOUR_API_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
@@ -135,11 +135,11 @@ class StampData(TypedDict, total=False):
     """
 
     data: Optional[str]
-    dataCid: Optional[str]
-    collectionCid: Optional[str]
-    storeStampedFile: bool
+    data_cid: Optional[str]
+    collection_cid: Optional[str]
+    store_stamped_file: bool
     idempotent: bool
-    idempotencyWindow: int
+    idempotency_window: int
 
 
 class VBaseClientAPI:
@@ -150,8 +150,8 @@ class VBaseClientAPI:
     def __init__(self, base_url: str, api_token: str):
         self.base_url = base_url.rstrip("/")
         self.api_token = api_token
-        self.stamp_url = f"{self.base_url}/api/v1/stamp/"
-        self.verify_url = f"{self.base_url}/api/v1/verify/"
+        self.stamp_url = f"{self.base_url}/api/v1/stamps"
+        self.verify_url = f"{self.base_url}/api/v1/stamps/verify"
 
     def stamp(
         self,
@@ -210,7 +210,7 @@ class VBaseClientAPI:
         }
         payload = {
             "cids": object_hashes,
-            "filter-by-user": bool(filter_by_user),
+            "filter_by_user": bool(filter_by_user),
         }
 
         try:
@@ -251,9 +251,9 @@ def test_stamp_file():
     """
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
-        "storeStampedFile": "true",
+        "store_stamped_file": "true",
         "idempotent": "true",
-        "idempotencyWindow": "3600",
+        "idempotency_window": "3600",
     }
 
     with open("test_api.py", "rb") as f:
@@ -273,9 +273,9 @@ def test_stamp_data():
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
         "data": "1212121212",
-        "storeStampedFile": "true",
+        "store_stamped_file": "true",
         "idempotent": "true",
-        "idempotencyWindow": "3600",
+        "idempotency_window": "3600",
     }
     result = client.stamp(data)
     logger.info("Stamping file result:")
@@ -288,9 +288,9 @@ def test_stamp_data_cid():
     """
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
-        "dataCid": "0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
+        "data_cid": "0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
         "idempotent": "true",
-        "idempotencyWindow": "3600",
+        "idempotency_window": "3600",
     }
     result = client.stamp(data)
     logger.info("Stamping file result:")
