@@ -8,6 +8,12 @@ The REST API provides a programmatic interface to interact with our services, al
 
 To begin using the REST API, you need to have a valid API token for authentication. The API is accessible via standard HTTP methods and returns JSON responses.
 
+### How to Obtain an API Key
+
+1. **Log in** to your vBase account at [https://app.vbase.com](https://app.vbase.com)
+2. In your User Profile, navigate to ["Account Settings"](https://app.vbase.com/profile#account_settings)
+3. Copy the API key from this screen and store it securely
+
 ### Base URL
 ```
 https://app.vbase.com/api/v1/
