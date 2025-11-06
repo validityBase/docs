@@ -47,7 +47,7 @@ Authorization: Bearer <your-api-token>
 
 ### Upload Stamped File
 
-**POST** `/v1/upload-stamped-file/`
+**POST** `/v1/stamps/upload-stamped-file`
 
 This endpoint allows you to upload a file that has been previously stamped and verified against blockchain records.
 
@@ -59,10 +59,10 @@ The upload stamped file endpoint performs comprehensive validation to ensure the
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| collectionName | String | Yes | Collection name (case-insensitive, must not be empty) |
+| collection_name | String | Yes | Collection name (case-insensitive, must not be empty) |
 | file | File | Yes | Previously stamped file to upload |
 
-**Note**: User address is automatically determined from the authenticated user's profile, so no `userAddress` parameter is needed.
+**Note**: User address is automatically determined from the authenticated user's profile, so no `user_address` parameter is needed.
 
 #### Validation Process
 
@@ -92,24 +92,23 @@ The endpoint performs the following validations in sequence:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/upload-stamped-file/ \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
--F "collectionName=My Collection" \
+-F "collection_name=My Collection" \
 -F "file=@stamped_file.pdf"
 ```
 
 **Response (201):**
 ```json
 {
-  "result": "File uploaded successfully",
   "fileObject": {
     "file_name": "stamped_file_2025-01-01T12:00:00+00:00.pdf",
     "file_path": "/uploads/user123/collection456/stamped_file_2025-01-01T12:00:00+00:00.pdf"
   },
-  "commitmentReceipt": {
-    "user": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d",
-    "objectCid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
+  "commitment_receipt": {
+    "user_address": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d",
+    "object_vid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
     "timestamp": "2025-01-01 12:00:00+00:00",
-    "transactionHash": "0xbe3f57e7ad7b00e79f88b3f9ffc9fdee84d3251cfc2d121386d8fe793b0d782a",
-    "setCid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800"
+    "transaction_hash": "0xbe3f57e7ad7b00e79f88b3f9ffc9fdee84d3251cfc2d121386d8fe793b0d782a",
+    "set_cid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800"
   }
 }
 ```

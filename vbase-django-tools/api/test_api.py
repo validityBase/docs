@@ -36,9 +36,13 @@ class VBaseClientAPI:
 
     def __init__(self, base_url: str, api_token: str):
         self.base_url = base_url.rstrip("/")
+
+        if not api_token.startswith("Bearer "):
+            api_token = f"Bearer {api_token}"
+
         self.api_token = api_token
-        self.stamp_url = f"{self.base_url}/api/v1/stamps/"
-        self.verify_url = f"{self.base_url}/api/v1/stamps/verify/"
+        self.stamp_url = f"{self.base_url}/api/v1/stamps"
+        self.verify_url = f"{self.base_url}/api/v1/stamps/verify"
 
     def stamp(
         self,
@@ -48,7 +52,7 @@ class VBaseClientAPI:
         """
         Send a stamp request to the VBase API.
         """
-        headers = {"Authorization": f"Bearer {self.api_token}"}
+        headers = {"Authorization": self.api_token}
         if input_files is None:
             input_files = {}
 
@@ -91,13 +95,13 @@ class VBaseClientAPI:
     ) -> Dict[str, Any]:
         """Send a verification request to the VBase API."""
         headers = {
-            "Authorization": f"Bearer {self.api_token}",
+            "Authorization": self.api_token,
             "Content-Type": "application/json",
             "Accept": "application/json",
         }
         payload = {
             "cids": object_hashes,
-            "filter-by-user": bool(filter_by_user),
+            "filter_by_user": bool(filter_by_user),
         }
 
         try:
@@ -139,9 +143,9 @@ def test_stamp_file():
     """
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
-        "storeStampedFile": "true",
+        "store_stamped_file": "true",
         "idempotent": "true",
-        "idempotencyWindow": "3600",
+        "idempotency_window": "3600",
     }
 
     with open("test_api.py", "rb") as f:
@@ -161,9 +165,9 @@ def test_stamp_data():
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
         "data": "1212121212",
-        "storeStampedFile": "true",
+        "store_stamped_file": "true",
         "idempotent": "true",
-        "idempotencyWindow": "3600",
+        "idempotency_window": "3600",
     }
     result = client.stamp(data)
     logger.info("Stamping file result:")
@@ -176,9 +180,9 @@ def test_stamp_data_cid():
     """
     client = VBaseClientAPI(base_url=BASE_URL, api_token=API_TOKEN)
     data: StampData = {
-        "dataCid": "0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
+        "data_cid": "0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
         "idempotent": "true",
-        "idempotencyWindow": "3600",
+        "idempotency_window": "3600",
     }
     result = client.stamp(data)
     logger.info("Stamping file result:")
