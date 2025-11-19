@@ -17,11 +17,11 @@ Base URLs:
 
 <h1 id="vbase-api-collections">Collections</h1>
 
-## collections_list
+List Collections
 
 <a id="opIdcollections_list"></a>
 
-> Code samples
+### Code samples
 
 ```shell
 # You can also use wget
@@ -92,11 +92,11 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-## collections_create
+Create a Collection
 
 <a id="opIdcollections_create"></a>
 
-> Code samples
+### Code samples
 
 ```shell
 # You can also use wget
@@ -111,7 +111,7 @@ curl -X POST https://app.vbase.com/api/v1/collections \
 
 Create a new user collection
 
-> Body parameter
+### Body parameter
 
 ```json
 {
@@ -165,11 +165,11 @@ Bearer
 
 <h1 id="vbase-api-stamps">Stamps</h1>
 
-## stamp_create
+Create Stamp
 
 <a id="opIdstamp_create"></a>
 
-> Code samples
+### Code samples
 
 ```shell
 # You can also use wget
@@ -199,7 +199,7 @@ Only one collection parameter can be specified.
 For 'data' parameter, you can optionally specify 'file_name' to customize the file name
 instead of using the auto-generated name based on CID.
 
-> Body parameter
+### Body parameter
 
 ```yaml
 file: string
@@ -260,11 +260,11 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-## stamps_create
+Create Stamp
 
 <a id="opIdstamps_create"></a>
 
-> Code samples
+### Code samples
 
 ```shell
 # You can also use wget
@@ -292,7 +292,7 @@ Only one collection parameter can be specified.
 For 'data' parameter, you can optionally specify 'file_name' to customize the file name
 instead of using the auto-generated name based on CID.
 
-> Body parameter
+### Body parameter
 
 ```yaml
 file: string
@@ -353,11 +353,11 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-## stamps_upload-stamped-file_create
+Upload Stamped File
 
 <a id="opIdstamps_upload-stamped-file_create"></a>
 
-> Code samples
+### Code samples
 
 ```shell
 # You can also use wget
@@ -391,7 +391,7 @@ Returns structured error responses with appropriate HTTP status codes:
 - 409: Multiple blockchain records found (conflict)
 - 500: File processing, blockchain, or upload errors
 
-> Body parameter
+### Body parameter
 
 ```yaml
 collectionName: string
@@ -442,11 +442,11 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-## stamps_verify_create
+Create Stamp
 
 <a id="opIdstamps_verify_create"></a>
 
-> Code samples
+### Code samples
 
 ```shell
 # You can also use wget
@@ -465,7 +465,7 @@ This endpoint checks whether Content IDs (SHA3 hash) have previously been
 stamped on the blockchain using vBase. If a match is found, the api returns the full stamp details,
 including the timestamp, blockchain address, and other stamp details.
 
-> Body parameter
+### Body parameter
 
 ```json
 {
@@ -518,11 +518,11 @@ Bearer
 
 <h1 id="vbase-api-users">Users</h1>
 
-## users_me_list
+Get Current User
 
 <a id="opIdusers_me_list"></a>
 
-> Code samples
+### Code samples
 
 ```shell
 # You can also use wget
@@ -567,11 +567,11 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-## users_read
+Get User
 
 <a id="opIdusers_read"></a>
 
-> Code samples
+### Code samples
 
 ```shell
 # You can also use wget
