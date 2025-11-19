@@ -17,7 +17,7 @@ Base URLs:
 
 <h1 id="vbase-api-collections">Collections</h1>
 
-List Collections
+## List Collections
 
 <a id="opIdcollections_list"></a>
 
@@ -92,7 +92,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-Create a Collection
+## Create a Collection
 
 <a id="opIdcollections_create"></a>
 
@@ -165,7 +165,7 @@ Bearer
 
 <h1 id="vbase-api-stamps">Stamps</h1>
 
-Create Stamp
+## Create Stamp
 
 <a id="opIdstamp_create"></a>
 
@@ -260,7 +260,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-Create Stamp
+## Create Stamp
 
 <a id="opIdstamps_create"></a>
 
@@ -353,7 +353,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-Upload Stamped File
+## Upload Stamped File
 
 <a id="opIdstamps_upload-stamped-file_create"></a>
 
@@ -442,7 +442,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-Create Stamp
+## Create Stamp
 
 <a id="opIdstamps_verify_create"></a>
 
@@ -518,7 +518,7 @@ Bearer
 
 <h1 id="vbase-api-users">Users</h1>
 
-Get Current User
+## Get Current User
 
 <a id="opIdusers_me_list"></a>
 
@@ -567,7 +567,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-Get User
+## Get User
 
 <a id="opIdusers_read"></a>
 
