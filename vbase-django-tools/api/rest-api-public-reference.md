@@ -165,7 +165,7 @@ Bearer
 
 <h1 id="vbase-api-stamps">Stamps</h1>
 
-## Create Stamp
+## Create Stamp (Obsolete)
 
 <a id="opIdstamp_create"></a>
 
