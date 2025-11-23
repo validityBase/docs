@@ -82,7 +82,8 @@ Before stamping, vBase automatically:
 
 📌 Only a fingerprint of the **Normalized CSV** is stamped — not the original.
 
-You can download the normalized CSV file:
+## Storage
 
-- On the confirmation page  
-- Anytime via **Stamped File Storage**
+You can download the normalized CSV file on the confirmation page, or anytime via your account's [Stamped File Storage](https://app.vbase.com/profile/#user_data_storage).
+
+Any copy of these stamped, normalized CSV files [verifies your portfolio track record](../welcome/what-vbase-verifies.md) by showing that your history of rebalances is timestamped, complete and impartially presented. 
