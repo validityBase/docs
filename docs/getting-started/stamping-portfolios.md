@@ -66,7 +66,7 @@ vBase normalizes:
 | `-2.5%` | -0.025 |
 | `(25%)` | -0.25 |
 
-> ⚠️ If both comma **and** dot decimals appear, this is is ambiguous and the upload will be rejected
+> ⚠️ If both comma **and** dot decimals are used to designate decimals, this is is ambiguous and the upload will be rejected
 
 
 
