@@ -40,7 +40,7 @@ Initialize the vBase API client.
 
 Close the session and cleanup resources.
 
-#### create_collection(name: str, description: str, cid: str = None, is_pinned: bool = True) → Collection
+#### create_collection(name: str, description: str, cid: str = None, is_pinned: bool = True) → [Collection](vbase_api_models.md#vbase_api.vbase_api_models.Collection)
 
 Create a new user collection.
 
@@ -66,7 +66,7 @@ collection = client.create_collection(
 print(f"Created: {collection.name}")
 ```
 
-#### create_stamp(file: str | Path | BinaryIO | None = None, data: str | Dict | None = None, file_name: str | None = None, data_cid: str | None = None, collection_cid: str | None = None, collection_name: str | None = None, store_stamped_file: bool = True, idempotent: bool = True, idempotency_window: int = 3600) → StampCreatedResponse | IdempotentStampResponse
+#### create_stamp(file: str | Path | BinaryIO | None = None, data: str | Dict | None = None, file_name: str | None = None, data_cid: str | None = None, collection_cid: str | None = None, collection_name: str | None = None, store_stamped_file: bool = True, idempotent: bool = True, idempotency_window: int = 3600) → [StampCreatedResponse](vbase_api_models.md#vbase_api.vbase_api_models.StampCreatedResponse) | [IdempotentStampResponse](vbase_api_models.md#vbase_api.vbase_api_models.IdempotentStampResponse)
 
 Stamp a file, data, or CID.
 
@@ -106,7 +106,7 @@ if stamp.file_object:
 stamp = client.create_stamp(data_cid="Qm...")
 ```
 
-#### get_collections(user_address: str | None = None, is_pinned: bool | None = None) → List[Collection]
+#### get_collections(user_address: str | None = None, is_pinned: bool | None = None) → List[[Collection](vbase_api_models.md#vbase_api.vbase_api_models.Collection)]
 
 Get collections with optional filtering.
 
@@ -126,7 +126,7 @@ for collection in collections:
     print(f"{collection.name}: {collection.cid}")
 ```
 
-#### get_current_user() → AccountSettings
+#### get_current_user() → [AccountSettings](vbase_api_models.md#vbase_api.vbase_api_models.AccountSettings)
 
 Retrieve current user account settings.
 
@@ -140,7 +140,7 @@ Retrieve current user account settings.
 user = client.get_current_user()
 print(f”User email: {user.email}”)
 
-#### get_user(user_address: str) → AccountSettings
+#### get_user(user_address: str) → [AccountSettings](vbase_api_models.md#vbase_api.vbase_api_models.AccountSettings)
 
 Retrieve user account settings by address.
 
@@ -156,7 +156,7 @@ Retrieve user account settings by address.
 user = client.get_user(“0x…”)
 print(f”User name: {user.name}”)
 
-#### upload_stamped_file(collection_name: str, file: str | Path | BinaryIO) → StampCreatedResponse
+#### upload_stamped_file(collection_name: str, file: str | Path | BinaryIO) → [StampCreatedResponse](vbase_api_models.md#vbase_api.vbase_api_models.StampCreatedResponse)
 
 Upload a file that has been previously stamped.
 
@@ -181,7 +181,7 @@ result = client.upload_stamped_file(
 print(f"Uploaded: {result.file_object.file_name}")
 ```
 
-#### verify_stamps(cids: List[str], filter_by_user: bool = False) → VerificationResult
+#### verify_stamps(cids: List[str], filter_by_user: bool = False) → [VerificationResult](vbase_api_models.md#vbase_api.vbase_api_models.VerificationResult)
 
 Verify one or more Content IDs (CIDs).
 
