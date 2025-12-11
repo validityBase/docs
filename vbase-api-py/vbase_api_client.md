@@ -1,4 +1,4 @@
-# vBase REST API Client module
+# vBase REST API Client
 
 vBase API Client
 

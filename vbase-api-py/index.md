@@ -2,5 +2,5 @@
 
 # API Client
 
-* [vBase REST API Client module](vbase_api_client.md)
-* [vbase_api_models module](vbase_api_models.md)
+* [vBase REST API Client](vbase_api_client.md)
+* [vBase API models](vbase_api_models.md)
