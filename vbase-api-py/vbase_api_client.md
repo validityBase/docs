@@ -139,8 +139,10 @@ Retrieve current user account settings.
 
 ### Example
 
+```python
 user = client.get_current_user()
-print(f”User email: {user.email}”)
+print(f"User email: {user.email}")
+```
 
 #### get_user(user_address: str) → [AccountSettings](vbase_api_models.md#vbase_api.vbase_api_models.AccountSettings)
 
@@ -155,8 +157,10 @@ Retrieve user account settings by address.
 
 ### Example
 
-user = client.get_user(“0x…”)
-print(f”User name: {user.name}”)
+```python
+user = client.get_user("0x...")
+print(f"User name: {user.name}")
+```
 
 #### upload_stamped_file(collection_name: str, file: str | Path | BinaryIO) → [StampCreatedResponse](vbase_api_models.md#vbase_api.vbase_api_models.StampCreatedResponse)
 
