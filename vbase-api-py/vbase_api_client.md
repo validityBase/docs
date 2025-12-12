@@ -24,9 +24,11 @@ managing vBase collections, and verifying stamped content.
 
 ### Example
 
-client = VBaseAPIClient(api_key=”your-bearer-token”)
+```python
+client = VBaseAPIClient(api_key="your-bearer-token")
 collections = client.list_collections()
-stamp = client.create_stamp(data={“hello”: “world”})
+stamp = client.create_stamp(data={"hello": "world"})
+```
 
 #### API_VERSION *= 'v1'*
 
