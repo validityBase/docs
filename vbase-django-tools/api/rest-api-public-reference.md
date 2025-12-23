@@ -128,9 +128,9 @@ Create a new user collection
 |---|---|---|---|---|
 |body|body|object|true|none|
 |» name|body|string|true|Collection name|
-|» cid|body|string|true|Collection CID|
-|» description|body|string|true|Collection description|
-|» is_pinned|body|boolean|true|Whether the collection is pinned|
+|» cid|body|string|false|Collection CID|
+|» description|body|string|false|Collection description|
+|» is_pinned|body|boolean|false|Whether the collection is pinned|
 
 > Example responses
 
@@ -394,7 +394,7 @@ Returns structured error responses with appropriate HTTP status codes:
 ### Body parameter
 
 ```yaml
-collectionName: string
+collection_name: string
 file: string
 
 ```
@@ -404,7 +404,7 @@ file: string
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |body|body|object|true|none|
-|» collectionName|body|string|true|Collection name for blockchain verification (case-insensitive)|
+|» collection_name|body|string|true|Collection name for blockchain verification (case-insensitive)|
 |» file|body|string(binary)|true|Previously stamped file to be uploaded|
 
 > Example responses
