@@ -6,7 +6,7 @@ estimatedTime: 5-10 minutes
 
 # Connect Interactive Brokers (IBKR)
 
-Connect your IBKR account to validityBase to securely **import positions, cash balances, and trades**, and generate a **verifiable, point-in-time track record** directly from your account activity.  
+Connect your IBKR account to validityBase to securely **import positions and cash balances** to generate a **verifiable, point-in-time track record** directly from your account activity.  
 
 > **Note:** validityBase access is strictly **read-only**. We cannot place orders or move funds in your account.  
 
@@ -67,13 +67,13 @@ No. Access is **read-only**—we cannot trade or move funds.
 We sync automatically each day around **3:15 pm EST**.  
 
 **What gets stamped for verification?**  
-Your portfolio weights are cryptographically stamped. Copies are stored in your [Stamped File Storage](https://app.vbase.com/profile#user_data_storage).  
+Your portfolio weights are cryptographically stamped. Copies are stored in your [Stamped File Storage](https://app.vbase.com/profile#user_data_storage). Note the vBase track record is built on portfolio weights, not trade history. 
 
 **Can I disconnect later?**  
-Yes. Go to **Profile → Broker Integrations → IBKR → Disconnect**. Existing stamps remain verifiable.  
+Yes. Go to **Profile → Broker Integrations → IBKR → Disconnect**. You can also ask us to delete your dashboard link. 
 
 **Does this replace an audit?**  
-validityBase provides and **independently verifiable, cryptographic validation** of your IBKR track record. Many managers use this to share performance transparently and reduce reliance on costly audits for marketing. 
+validityBase provides an **independently verifiable, cryptographic validation** of your IBKR track record. Many managers use this to share performance transparently and reduce reliance on costly audits for marketing. 
 
 ## Need help?
 If you encounter issues, contact **portfolios@vbase.com** with:  
