@@ -6,7 +6,7 @@ Data fetching and preparation must be handled on the VBA side by the end user. T
 # How to use vBase COM library
 
 1. Uninstall the library if it is already installed on your machine.
-2. Install the new version using the `setup.exe` in the [`vBase COM Setup Files`](https://github.com/validityBase/docs/raw/refs/heads/main/vbase-cs/vBase_Excel_Setup_v11.zip).
+2. Install the new version using the `setup.exe` in the [`vBase COM Setup Files`](https://raw.githubusercontent.com/validityBase/vbase-cs/refs/heads/main/Docs/vBase_Excel_Setup_Latest.zip).
 3. Run Microsoft Excel.
 4. Ensure that the 'Developer' ribbon tab is visible. If it is not, enable it in the Excel options:
     1. Right-click on the ribbon and select 'Customize the Ribbon'.
