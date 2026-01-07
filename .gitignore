@@ -21,8 +21,6 @@ _book
 */.doctrees/
 *.doctree
 
-# typedoc build artifacts
-*/_media/
-
 /publish-docs-action/node_modules
 /publish-docs-action/src/*.js
+
