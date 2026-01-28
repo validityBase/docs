@@ -501,7 +501,17 @@ for a given user.
 * **Returns:**
   The list of commitment receipts for all user set commitments.
 
-### *class* vbase.SQLIndexingService(db_url: str)
+### *class* vbase.ObjectAtTime(object_cid: str, timestamp: int)
+
+Bases: `object`
+
+Object at time structure.
+
+#### object_cid *: str*
+
+#### timestamp *: int*
+
+### *class* vbase.SQLIndexingService(db_url: str, matching_service: BaseMatchingService = None)
 
 Bases: [`IndexingService`](#vbase.IndexingService)
 
@@ -514,6 +524,17 @@ Find the last object for a list of object cids.
 #### find_last_user_set_object(user: str, set_cid: str) → dict | None
 
 Find the last object for a user and set cid.
+
+#### find_matching_user_sets(objects: list[[ObjectAtTime](#vbase.ObjectAtTime)], as_of: Timestamp | int | None = None) → list[[SetCandidate](#vbase.SetCandidate)]
+
+Find the best sets that approximately match the query objects.
+Args:
+
+> objects (list[ObjectAtTime]): List of objects with timestamps.
+> as_of (pd.Timestamp | int | None): Optional as_of timestamp.
+
+Returns:
+: list[SetCandidate]: List of candidate sets matching the criteria.
 
 #### find_object(object_cid: str, return_set_cids=False) → List[dict]
 
@@ -543,6 +564,20 @@ Find all objects for a user and set cid.
 #### find_user_sets(user: str) → List[dict]
 
 Find all sets for a user.
+
+### *class* vbase.SetCandidate(score: float, created_at: int, set_cid: str, user: str)
+
+Bases: `object`
+
+SetCandidate structure.
+
+#### created_at *: int*
+
+#### score *: float*
+
+#### set_cid *: str*
+
+#### user *: str*
 
 ### *class* vbase.VBaseBytesObject(init_data: bytes | None = None, init_dict: Dict[str, str] | None = None, init_json: str | None = None)
 
