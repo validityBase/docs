@@ -511,7 +511,7 @@ Object at time structure.
 
 ### timestamp *: int*
 
-## *class* vbase.SQLIndexingService(db_url: str, matching_service: BaseMatchingService = None)
+## *class* vbase.SQLIndexingService(db_url: str, matching_service: BaseMatchingService = None, indexing_stale_threshold_seconds: int = 60)
 
 Bases: [`IndexingService`](#vbase.IndexingService)
 
