@@ -14,11 +14,13 @@ Each operation executes a corresponding method on all services and aggregates th
 
 ### find_last_object(object_cid: str, return_set_cid=False) → dict | None
 
-Aggregate the last object from all services, returning the one with the latest timestamp.
+Aggregate the last object from all services,
+returning the one with the latest timestamp.
 
 ### find_last_user_set_object(user: str, set_cid: str) → dict | None
 
-Aggregate the last user set object from all services, returning the one with the latest timestamp.
+Aggregate the last user set object from all services,
+returning the one with the latest timestamp.
 
 ### find_object(object_cid: str, return_set_cids=False) → list[dict]
 
@@ -395,7 +397,8 @@ service directly, and this method abstracts this initialization.
 
 ### *static* create_instance_from_env_json_descriptor(dotenv_path: str | None = None) → [IndexingService](#vbase.IndexingService)
 
-Creates an instance initialized from an environment variable containing a JSON descriptor.
+Creates an instance initialized from an environment variable
+containing a JSON descriptor.
 Syntactic sugar for initializing a new indexing service object using settings
 stored in a .env file or in environment variables.
 This method is especially useful for constructing complex
@@ -555,7 +558,7 @@ Find all objects for a list of object cids.
 
 ### find_user_objects(user: str, return_set_cids=False) → List[dict]
 
-find all event_add_object for a user.
+Find all EventAddObject records for a user.
 
 ### find_user_set_objects(user: str, set_cid: str) → List[dict]
 
@@ -1586,7 +1589,8 @@ Wraps RPC node event indexing to support commitment indexing operations.
 
 ### *static* create_instance_from_env_json_descriptor(dotenv_path: str | None = None) → [Web3HTTPIndexingService](#vbase.Web3HTTPIndexingService)
 
-Creates an instance initialized from an environment variable containing a JSON descriptor.
+Creates an instance initialized from an environment variable
+containing a JSON descriptor.
 Syntactic sugar for initializing a new indexing service object using settings
 stored in a .env file or in environment variables.
 This method is especially useful for constructing complex
