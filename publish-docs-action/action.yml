@@ -26,5 +26,5 @@ inputs:
     description: 'Replace links pointing to any of these repositories, with a relative links.'
     required: false
 runs:
-  using: "node20"
+  using: "node24"
   main: "index.js"
