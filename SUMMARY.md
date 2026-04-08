@@ -26,10 +26,12 @@
   * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md) -->
 ## Use Case How-Tos 
 <!--  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md) -->
+  * [Data Provider Workflow](docs/getting-started/data-provider-workflow.md)
   * [Verified Investment Track Records](docs/getting-started/verified-track-record.md)
   * [Stamping a Portfolio](docs/getting-started/stamping-portfolios.md)
   * [Linking with Interactive Brokers](docs/getting-started/linking-interactive-brokers.md)
   * [Linking with QuantConnect](docs/getting-started/linking-quantconnect.md)
+
   <!-- * [Point-in-Time Datasets](docs/use-case-samples/point-in-time-datasets.md)
   * [Verified Research Portfolios](docs/use-case-samples/verified-research-portfolio.md)
   * [Verified Backtests and Simulations](docs/use-case-samples/verified-backtest.md)

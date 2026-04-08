@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 280" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="10" markerHeight="7" orient="auto-start-auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1B3028"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="920" height="280" fill="#FAFAF8" rx="8"/>
+
+  <!-- ==================== STEP 1: GENERATE ==================== -->
+  <rect x="40" y="50" width="220" height="80" rx="6" fill="#fff" stroke="#D0D0CC" stroke-width="1.5"/>
+  <text x="150" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#1B3028">1. Generate new data</text>
+  <text x="150" y="100" text-anchor="middle" font-size="10.5" fill="#666">Daily file, snapshot, model output,</text>
+  <text x="150" y="114" text-anchor="middle" font-size="10.5" fill="#666">or any digital object</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="260" y1="90" x2="338" y2="90" stroke="#1B3028" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ==================== STEP 2: STAMP (black — the vBase step) ==================== -->
+  <rect x="340" y="50" width="240" height="80" rx="6" fill="#1B3028"/>
+  <text x="460" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">2. Stamp with validityBase</text>
+  <text x="460" y="100" text-anchor="middle" font-size="10.5" fill="#c8d6cc">Data is fingerprinted and published</text>
+  <text x="460" y="114" text-anchor="middle" font-size="10.5" fill="#c8d6cc">to an immutable ledger</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="580" y1="90" x2="658" y2="90" stroke="#1B3028" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ==================== STEP 3: VERIFY ==================== -->
+  <rect x="660" y="50" width="220" height="80" rx="6" fill="#fff" stroke="#D0D0CC" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <text x="770" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#1B3028">3. Clients verify</text>
+  <text x="770" y="100" text-anchor="middle" font-size="10.5" fill="#666">Audit reports, web tools, APIs,</text>
+  <text x="770" y="114" text-anchor="middle" font-size="10.5" fill="#666">or independent methods</text>
+
+  <!-- ==================== FOOTNOTES ==================== -->
+
+  <!-- Dashed line from stamp box down to notes -->
+  <line x1="460" y1="130" x2="460" y2="165" stroke="#C0C0BA" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <!-- Note 1: Collections -->
+  <text x="460" y="182" text-anchor="middle" font-size="9.5" fill="#888" font-style="italic">Audit trails are grouped into Collections, creating verifiable history for entire datasets.</text>
+
+  <!-- Note 2: Revisions -->
+  <text x="460" y="202" text-anchor="middle" font-size="9.5" fill="#888" font-style="italic">Revisions and corrections are stamped to the same Collection.</text>
+
+</svg>
