@@ -97,12 +97,7 @@ Record them as new stamped data in the same Collection.
 
 - [What is a Stamp](/overview/what-is-a-stamp)
 - [What vBase Verifies](/overview/what-vbase-verifies)
-- [Example Use Cases](/overview/example-use-cases)
 - [Technical Overview](/deep-dive/technical-overview)
 - [Verification Methods](/deep-dive/verification-methods)
 - [Stamping Best Practices](/deep-dive/dataset-commitments)
-- [Stamp an Object](/web-tools/how-to-use-vbase-stamper)
-- [Verify an Object](/web-tools/how-to-use-vbase-verify)
 - [REST API User Guide](/rest-api/rest-api-user-guide)
-- [commit_s3_objects](/python-sdk/index-1/commit_s3_objects)
-- [verify_s3_objects](/python-sdk/index-1/verify_s3_objects)
