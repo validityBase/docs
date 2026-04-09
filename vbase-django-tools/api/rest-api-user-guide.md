@@ -90,7 +90,7 @@ The endpoint performs the following validations in sequence:
 
 **Successful Upload:**
 ```bash
-curl -X POST https://app.vbase.com/api/v1/upload-stamped-file/ \
+curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
 -F "collection_name=My Collection" \
 -F "file=@stamped_file.pdf"
