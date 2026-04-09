@@ -1,12 +1,12 @@
-# Verifiable History for Data Providers
+# Data Provider Workflow
 
-Data providers, especially those selling to systematic investors, benefit from a complete, point-in-time dataset history that users can independently validate.
+Data providers, especially those selling to systematic investors, benefit from a complete, point-in-time dataset history that users can independently validate. See [Why Quants Pay More for Point-in-Time Data](https://www.vbase.com/blog/why-quants-pay-more-for-point-in-time-data/) for more on why this matters.
 
 vBase lets you create a verifiable, point-in-time history for your dataset without changing your production or delivery workflow.
 
 This page builds on concepts covered elsewhere in the documentation. If you are new to the basics, start with [What is a Stamp](/overview/what-is-a-stamp), [What vBase Verifies](/overview/what-vbase-verifies), and [Technical Overview](/deep-dive/technical-overview).
 
-As a quick overview, stamps and Collections together allow a data provider to create independently verifiable proof of:
+As a quick overview, stamps and collections together allow a data provider to create independently verifiable proof of:
 
 - when specific data releases enter the historical record
 - the completeness of the dataset's historical record
@@ -20,7 +20,7 @@ See [What vBase Verifies](/overview/what-vbase-verifies) for more detail.
 Every data delivery, revision, and correction is recorded with a tamper-proof timestamp. The result is a complete point-in-time history for each dataset that neither the provider nor vBase can alter after the fact.
 
 ### 2. Self-service verification for clients
-A data provider's clients can check what they received against the published record themselves — through audit reports, web tools, or APIs — without needing to ask the data provider for proof.
+A data provider's clients can check what they received against the published record themselves — through audit reports, web tools, or APIs — without needing to rely on the data provider's representations. 
 
 ### 3. Diligence-ready documentation
 During buyer due diligence, the verifiable history serves as evidence of point-in-time controls and revision handling. For enterprise deployments, vBase can provide additional attestation support.
@@ -36,9 +36,9 @@ In many workflows, stamping does not require exposing the underlying data. Audit
 ## Standard stamping workflow
 
 <img
-  src="./assets/stamping-workflow-diagram.svg"
+  src="./assets/stamping-workflow-diagram.png"
   alt="Standard stamping workflow"
-  width="600"
+  width="700"
 />
 
 A standard workflow usually looks like this:
@@ -75,7 +75,7 @@ The goal is to stamp the data whose history your clients will want to validate t
 Usually not. vBase is intended to sit alongside the provider’s existing production and delivery workflow.
 
 ### What is the client-facing output of this workflow?
-The client-facing output is a verification layer around the dataset’s release history. Clients can verify what they received, when it entered the record, and how later revisions were handled in the mode most appropriate to their delivery model. 
+Clients get a way to verify what they received, when it entered the record, and how later revisions were handled. Clients can use vBase audit reports, web tools, APIs, or the blockchain record itself to see validate data history. 
 
 ### Does validityBase need access to my raw data?
 Not necessarily. In many workflows, only the data's fingerprint (hash) is used to build audit trails. 
