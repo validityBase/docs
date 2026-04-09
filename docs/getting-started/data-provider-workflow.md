@@ -38,7 +38,7 @@ In many workflows, stamping does not require exposing the underlying data. Audit
 <img
   src="./assets/stamping-workflow-diagram.png"
   alt="Standard stamping workflow"
-  width="100"
+  width=100%
 />
 
 A standard workflow usually looks like this:
