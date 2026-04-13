@@ -17,12 +17,12 @@ verify_s3_objects [-h] --dataset_name DATASET_NAME --bucket BUCKET [--key_prefix
 ## verify_s3_objects options
 
 * [**`-h`**](), [**`--help`**]() - show this help message and exit
-* [**`--dataset_name`**]() `DATASET_NAME` - vBase dataset to verify (default: `None`)
-* [**`--bucket`**]() `BUCKET` - S3 bucket name containing dataset records (default: `None`)
+* [**`--dataset_name`**]() `DATASET_NAME` - vBase dataset to verify
+* [**`--bucket`**]() `BUCKET` - S3 bucket name containing dataset records
 * [**`--key_prefix`**]() `KEY_PREFIX` - S3 object key prefix: 
-  If supplied, objects matching the prefix will be used to verify commitments. (default: `None`)
+  If supplied, objects matching the prefix will be used to verify commitments.
 * [**`--key_pattern`**]() `KEY_PATTERN` - S3 object key pattern: 
-  If supplied, objects matching the wildcard pattern will be used to verify commitments. (default: `None`)
+  If supplied, objects matching the wildcard pattern will be used to verify commitments.
 * [**`--use_aws_access_key`**]() - use AWS authentication: If specified, AWS Access Key defined in .env will be used. 
   In this case, .env must define AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY variables.
 * [**`--verbose`**]() - verbose output
