@@ -4,6 +4,8 @@
 
 vBase CLI for object commitment and verification
 
+### Usage
+
 ```shell
 vbase-cli [OPTIONS] COMMAND [ARGS]...
 ```
@@ -17,6 +19,8 @@ Increase verbosity level
 ### commitment-service
 
 Command group for interacting with a commitment service. Either a node commitment service or a forwarder commitment service must be used.
+
+### Usage
 
 ```shell
 vbase-cli commitment-service [OPTIONS] COMMAND [ARGS]...
@@ -48,6 +52,8 @@ vBase commitment service private key
 
 Create an object commitment
 
+### Usage
+
 ```shell
 vbase-cli commitment-service add-object [OPTIONS]
 ```
@@ -69,6 +75,8 @@ Pad the object CID with zeros if necessary
 #### verify-object
 
 Verify an object commitment
+
+### Usage
 
 ```shell
 vbase-cli commitment-service verify-object [OPTIONS]
