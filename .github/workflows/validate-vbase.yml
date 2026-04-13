@@ -12,9 +12,15 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
+
       - name: Pull linkcheck Docker image
+        run: docker pull tennox/linkcheck
+
+      - name: Run linkcheck
         run: |
-          docker pull tennox/linkcheck
-      - name: Run linkcheck Docker image
-        run: |
-          docker run --rm tennox/linkcheck https://www.vbase.com/
+          docker run --rm \
+            -v "${{ github.workspace }}/.github:/skipfiles" \
+            tennox/linkcheck https://www.vbase.com/ \
+            --skip-file /skipfiles/linkcheck-skip-vbase.txt
