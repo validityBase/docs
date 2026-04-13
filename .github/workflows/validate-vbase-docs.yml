@@ -12,9 +12,8 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Pull linkcheck Docker image
+      - name: Run linkcheck
         run: |
-          docker pull tennox/linkcheck
-      - name: Run linkcheck Docker image
-        run: |
-          docker run --rm tennox/linkcheck https://docs.vbase.com/
+          docker run --rm \
+            tennox/linkcheck@sha256:e6e26d9278293c717fca4faae101dfe3c392c5b768bc06d16305ec56a7c8de5a \
+            https://docs.vbase.com/
