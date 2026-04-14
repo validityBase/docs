@@ -45,6 +45,71 @@ Authorization: Bearer <your-api-token>
 
 ## API Endpoints
 
+### Verify User Collection
+
+**POST** `/v1/collections/verify`
+
+This endpoint verifies a stamped collection against blockchain records for the
+authenticated user.
+
+#### Request Formats
+
+Choose the request body format with `Content-Type`:
+
+- `application/json`: send the raw `UserCollectionModel` object in the body
+- `text/csv`: send the raw CSV string in the body
+
+For JSON requests, `collectionMetadata` is optional. If it is omitted, the
+backend will try to infer collection metadata from the submitted records.
+
+For CSV requests, the leading metadata section
+`collection_name,user_address,collection_timezone` is optional.
+
+Legacy `multipart/form-data` uploads are also supported with a `.csv` or `.json`
+file in the `file` field.
+
+Use `Accept: application/json` for the response.
+
+#### Example Requests
+
+**JSON body:**
+```bash
+curl -X POST https://app.vbase.com/api/v1/collections/verify \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{
+  "collectionMetadata": {
+    "collection_name": "my-collection",
+    "user_address": "0x123"
+  },
+  "metaFiles": [
+    {
+      "timestamp": "2024-01-01T00:00:00+00:00",
+      "object_cid": "cid1",
+      "file_name": "example.csv"
+    }
+  ]
+}'
+```
+
+**CSV body:**
+```bash
+curl -X POST https://app.vbase.com/api/v1/collections/verify \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-H "Content-Type: text/csv" \
+-H "Accept: application/json" \
+--data-binary $'collection_name,user_address,collection_timezone\nvb-test,0x4A281DdC750359d5C0D2D51A890cefA43485EF2d,\nt,c,f\n2025-07-23 11:42:15+00:00,0x6f3328cba0ffde8429e66008708419751921bf41737e32a0fcd173849e325561,application-logs2025-07-15T19_46_13.098Z-2025-07-16T19_46_13.098Z_2025-07-23_11-42-15+0000.json\n2025-07-23 20:34:58+00:00,0xaeda4cf7d65f9d67b128bf795b5f237183550a814c9d4aa83c7e84f027d4aeec,attribcache140_2025-07-23_20-34-58+0000.bin\n'
+```
+
+**Legacy multipart upload:**
+```bash
+curl -X POST https://app.vbase.com/api/v1/collections/verify \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-H "Accept: application/json" \
+-F "file=@collection.json;type=application/json"
+```
+
 ### Upload Stamped File
 
 **POST** `/v1/stamps/upload-stamped-file`
