@@ -56,11 +56,15 @@ authenticated user.
 
 Choose the request body format with `Content-Type`:
 
-- `application/json`: send the raw `UserCollectionModel` object in the body
+- `application/json`: send the verify request JSON body
 - `text/csv`: send the raw CSV string in the body
 
-For JSON requests, `collectionMetadata` is optional. If it is omitted, the
-backend will try to infer collection metadata from the submitted records.
+For JSON requests, top-level `collection_name` and `user_address` are optional.
+If they are omitted or set to `null`, the backend will try to infer collection
+metadata from the submitted records.
+
+The `context` object is also optional and may be omitted or set to `null`.
+Each entry in `objects` may omit `file_name` or set it to `null`.
 
 For CSV requests, the leading metadata section
 `collection_name,user_address,collection_timezone` is optional.
@@ -79,14 +83,12 @@ curl -X POST https://app.vbase.com/api/v1/collections/verify \
 -H "Content-Type: application/json" \
 -H "Accept: application/json" \
 -d '{
-  "collectionMetadata": {
-    "collection_name": "my-collection",
-    "user_address": "0x123"
-  },
-  "metaFiles": [
+  "collection_name": "my-collection",
+  "user_address": "0x123",
+  "objects": [
     {
       "timestamp": "2024-01-01T00:00:00+00:00",
-      "object_cid": "cid1",
+      "cid": "cid1",
       "file_name": "example.csv"
     }
   ]
