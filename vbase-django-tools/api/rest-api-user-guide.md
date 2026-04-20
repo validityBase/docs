@@ -112,6 +112,48 @@ curl -X POST https://app.vbase.com/api/v1/collections/verify \
 -F "file=@collection.json;type=application/json"
 ```
 
+#### Example Response
+
+**Response (200):**
+```json
+{
+  "display_timezone": "UTC",
+  "collections": [
+    {
+      "name": "my-collection",
+      "cid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
+      "user_address": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d",
+      "matched_receipts": [
+        {
+          "transaction_hash": "0xbe3f57e7ad7b00e79f88b3f9ffc9fdee84d3251cfc2d121386d8fe793b0d782a",
+          "user_address": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d",
+          "set_cid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
+          "object_cid": "0x6f3328cba0ffde8429e66008708419751921bf41737e32a0fcd173849e325561",
+          "timestamp": "2025-07-23T11:42:15+00:00",
+          "chain_id": 8453
+        }
+      ],
+      "unmatched_objects": [
+        {
+          "cid": "0xaeda4cf7d65f9d67b128bf795b5f237183550a814c9d4aa83c7e84f027d4aeec",
+          "timestamp": "2025-07-23T20:34:58+00:00"
+        }
+      ],
+      "unmatched_receipts": []
+    }
+  ]
+}
+```
+
+Each entry in `collections` identifies the verified collection by:
+
+- `name`: collection name
+- `cid`: collection/set CID
+- `user_address`: resolved owner address used for verification
+- `matched_receipts`: blockchain receipts matched to submitted objects for this collection
+- `unmatched_objects`: submitted objects with no matching blockchain receipt for this collection
+- `unmatched_receipts`: blockchain receipts with no matching submitted object for this collection
+
 ### Upload Stamped File
 
 **POST** `/v1/stamps/upload-stamped-file`
