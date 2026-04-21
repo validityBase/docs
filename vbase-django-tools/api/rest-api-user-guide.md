@@ -28,6 +28,16 @@ Access the Swagger UI at:
 https://app.vbase.com/swagger/
 ```
 
+For programmatic clients (agents, SDKs), fetch the OpenAPI/Swagger JSON at:
+```
+https://app.vbase.com/swagger.json
+```
+
+The Swagger UI route also supports:
+```
+https://app.vbase.com/swagger/?format=openapi
+```
+
 ## Authenticating to the REST API
 
 Authentication is required for all API requests. Use the Bearer token method by including an `Authorization` header in your requests. The format should be:
