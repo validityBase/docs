@@ -28,6 +28,16 @@ Access the Swagger UI at:
 https://app.vbase.com/swagger/
 ```
 
+For programmatic clients (agents, SDKs), fetch the OpenAPI/Swagger JSON at:
+```
+https://app.vbase.com/swagger.json
+```
+
+The Swagger UI route also supports:
+```
+https://app.vbase.com/swagger/?format=openapi
+```
+
 ## Authenticating to the REST API
 
 Authentication is required for all API requests. Use the Bearer token method by including an `Authorization` header in your requests. The format should be:
@@ -44,6 +54,115 @@ Authorization: Bearer <your-api-token>
 - Never commit API tokens to version control
 
 ## API Endpoints
+
+### Verify User Collection
+
+**POST** `/v1/collections/verify`
+
+This endpoint verifies a stamped collection against blockchain records for the
+authenticated user.
+
+#### Request Formats
+
+Choose the request body format with `Content-Type`:
+
+- `application/json`: send the verify request JSON body
+- `text/csv`: send the raw CSV string in the body
+
+For JSON requests, top-level `collection_name` and `user_address` are optional.
+If they are omitted or set to `null`, the backend will try to infer collection
+metadata from the submitted records.
+
+The `context` object is also optional and may be omitted or set to `null`.
+Each entry in `objects` may omit `file_name` or set it to `null`.
+
+For CSV requests, the leading metadata section
+`collection_name,user_address,collection_timezone` is optional.
+
+Legacy `multipart/form-data` uploads are also supported with a `.csv` or `.json`
+file in the `file` field.
+
+Use `Accept: application/json` for the response.
+
+#### Example Requests
+
+**JSON body:**
+```bash
+curl -X POST https://app.vbase.com/api/v1/collections/verify \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{
+  "collection_name": "my-collection",
+  "user_address": "0x123",
+  "objects": [
+    {
+      "timestamp": "2024-01-01T00:00:00+00:00",
+      "cid": "cid1",
+      "file_name": "example.csv"
+    }
+  ]
+}'
+```
+
+**CSV body:**
+```bash
+curl -X POST https://app.vbase.com/api/v1/collections/verify \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-H "Content-Type: text/csv" \
+-H "Accept: application/json" \
+--data-binary $'collection_name,user_address,collection_timezone\nvb-test,0x4A281DdC750359d5C0D2D51A890cefA43485EF2d,\nt,c,f\n2025-07-23 11:42:15+00:00,0x6f3328cba0ffde8429e66008708419751921bf41737e32a0fcd173849e325561,application-logs2025-07-15T19_46_13.098Z-2025-07-16T19_46_13.098Z_2025-07-23_11-42-15+0000.json\n2025-07-23 20:34:58+00:00,0xaeda4cf7d65f9d67b128bf795b5f237183550a814c9d4aa83c7e84f027d4aeec,attribcache140_2025-07-23_20-34-58+0000.bin\n'
+```
+
+**Legacy multipart upload:**
+```bash
+curl -X POST https://app.vbase.com/api/v1/collections/verify \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-H "Accept: application/json" \
+-F "file=@collection.json;type=application/json"
+```
+
+#### Example Response
+
+**Response (200):**
+```json
+{
+  "display_timezone": "UTC",
+  "collections": [
+    {
+      "name": "my-collection",
+      "cid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
+      "user_address": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d",
+      "matched_receipts": [
+        {
+          "transaction_hash": "0xbe3f57e7ad7b00e79f88b3f9ffc9fdee84d3251cfc2d121386d8fe793b0d782a",
+          "user_address": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d",
+          "set_cid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
+          "object_cid": "0x6f3328cba0ffde8429e66008708419751921bf41737e32a0fcd173849e325561",
+          "timestamp": "2025-07-23T11:42:15+00:00",
+          "chain_id": 8453
+        }
+      ],
+      "unmatched_objects": [
+        {
+          "cid": "0xaeda4cf7d65f9d67b128bf795b5f237183550a814c9d4aa83c7e84f027d4aeec",
+          "timestamp": "2025-07-23T20:34:58+00:00"
+        }
+      ],
+      "unmatched_receipts": []
+    }
+  ]
+}
+```
+
+Each entry in `collections` identifies the verified collection by:
+
+- `name`: collection name
+- `cid`: collection/set CID
+- `user_address`: resolved owner address used for verification
+- `matched_receipts`: blockchain receipts matched to submitted objects for this collection
+- `unmatched_objects`: submitted objects with no matching blockchain receipt for this collection
+- `unmatched_receipts`: blockchain receipts with no matching submitted object for this collection
 
 ### Upload Stamped File
 

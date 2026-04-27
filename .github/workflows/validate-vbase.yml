@@ -3,15 +3,22 @@ name: Validate vBase Website
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * MON' # At 12:00 AM, only on Monday
+    - cron: "0 0 * * MON" # At 12:00 AM, only on Monday
+
+permissions:
+  contents: read
 
 jobs:
-    validate:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Pull linkcheck Docker image
-          run: |
-            docker pull tennox/linkcheck
-        - name: Run linkcheck Docker image
-          run: |
-            docker run --rm tennox/linkcheck https://www.vbase.com/
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
+
+      - name: Run linkcheck
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}/.github:/skipfiles" \
+            tennox/linkcheck@sha256:e6e26d9278293c717fca4faae101dfe3c392c5b768bc06d16305ec56a7c8de5a \
+            https://www.vbase.com/ \
+            --skip-file /skipfiles/linkcheck-skip-vbase.txt

@@ -163,6 +163,135 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
+## collections_verify_create
+
+<a id="opIdcollections_verify_create"></a>
+
+### Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://app.vbase.com/api/v1/collections/verify \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: API_KEY'
+
+```
+
+`POST /collections/verify`
+
+*Verify a user collection against the blockchain*
+
+Verify a collection of stamped objects against the blockchain.
+
+Use the request `Content-Type` to choose the payload format:
+
+**Raw JSON body**
+```json
+{
+  "collection_name": "my-collection",
+  "user_address": "0x123...",
+  "objects": [
+    {
+      "cid": "cid1",
+      "timestamp": "2024-01-01T00:00:00+00:00"
+    }
+  ]
+}
+```
+
+**Raw CSV body**
+Send the CSV string directly with `Content-Type: text/csv`, for example:
+
+```csv
+collection_name,user_address,collection_timezone
+vb-test,0x4A281DdC750359d5C0D2D51A890cefA43485EF2d,
+t,c,f
+2025-07-23 11:42:15+00:00,0x6f3328cba0ffde8429e66008708419751921bf41737e32a0fcd173849e325561,application-logs2025-07-15T19_46_13.098Z-2025-07-16T19_46_13.098Z_2025-07-23_11-42-15+0000.json
+2025-07-23 20:34:58+00:00,0xaeda4cf7d65f9d67b128bf795b5f237183550a814c9d4aa83c7e84f027d4aeec,attribcache140_2025-07-23_20-34-58+0000.bin
+```
+
+`collection_name` and `user_address` are optional in JSON requests. When
+omitted, the backend will try to infer metadata from the payload.
+
+For CSV requests, the leading metadata section
+`collection_name,user_address,collection_timezone` is optional.
+
+**Multipart/form-data (legacy)**
+Upload a `.csv` or `.json` file in the `file` field. The payload is normalized
+to the same validated API model as raw JSON and raw CSV requests.
+
+`Accept` controls the response type. This endpoint currently returns JSON.
+
+### Body parameter
+
+```json
+{}
+```
+
+<h3 id="collections_verify_create-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Accept|header|string|false|Preferred response media type. Use application/json.|
+|body|body|object|true|none|
+
+> Example responses
+
+> Verification result
+
+```json
+{
+  "display_timezone": "UTC",
+  "collections": [
+    {
+      "name": "my-collection",
+      "cid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
+      "user_address": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d",
+      "matched_receipts": [
+        {
+          "transaction_hash": "0xbe3f57e7ad7b00e79f88b3f9ffc9fdee84d3251cfc2d121386d8fe793b0d782a",
+          "user_address": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d",
+          "set_cid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
+          "object_cid": "0x6f3328cba0ffde8429e66008708419751921bf41737e32a0fcd173849e325561",
+          "timestamp": "2025-07-23T11:42:15+00:00",
+          "chain_id": 8453
+        }
+      ],
+      "unmatched_objects": [
+        {
+          "cid": "0xaeda4cf7d65f9d67b128bf795b5f237183550a814c9d4aa83c7e84f027d4aeec",
+          "timestamp": "2025-07-23T20:34:58+00:00"
+        }
+      ],
+      "unmatched_receipts": []
+    }
+  ]
+}
+```
+
+> 400 Response
+
+```json
+{
+  "error": "string",
+  "details": "string"
+}
+```
+
+<h3 id="collections_verify_create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Verification result|[VerifyCollectionResponse](#schemaverifycollectionresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid input data|[Error](#schemaerror)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
 <h1 id="vbase-api-stamps">Stamps</h1>
 
 ## Create Stamp (DEPRECATED)
@@ -711,6 +840,135 @@ Bearer
 |object_cid|string|false|none|none|
 |timestamp|string|false|none|none|
 |chain_id|integer|false|none|none|
+
+<h2 id="tocS_UnmatchedObject">UnmatchedObject</h2>
+<!-- backwards compatibility -->
+<a id="schemaunmatchedobject"></a>
+<a id="schema_UnmatchedObject"></a>
+<a id="tocSunmatchedobject"></a>
+<a id="tocsunmatchedobject"></a>
+
+```json
+{
+  "cid": "string",
+  "timestamp": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|cid|string|true|none|none|
+|timestamp|string|true|none|none|
+
+<h2 id="tocS_VerifyCollection">VerifyCollection</h2>
+<!-- backwards compatibility -->
+<a id="schemaverifycollection"></a>
+<a id="schema_VerifyCollection"></a>
+<a id="tocSverifycollection"></a>
+<a id="tocsverifycollection"></a>
+
+```json
+{
+  "name": "string",
+  "cid": "string",
+  "user_address": "string",
+  "matched_receipts": [
+    {
+      "transaction_hash": "string",
+      "user_address": "string",
+      "set_cid": "string",
+      "object_cid": "string",
+      "timestamp": "string",
+      "chain_id": 0
+    }
+  ],
+  "unmatched_objects": [
+    {
+      "cid": "string",
+      "timestamp": "string"
+    }
+  ],
+  "unmatched_receipts": [
+    {
+      "transaction_hash": "string",
+      "user_address": "string",
+      "set_cid": "string",
+      "object_cid": "string",
+      "timestamp": "string",
+      "chain_id": 0
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string¦null|false|none|none|
+|cid|string¦null|false|none|none|
+|user_address|string¦null|false|none|none|
+|matched_receipts|[[CommitmentReceipt](#schemacommitmentreceipt)]|false|none|none|
+|unmatched_objects|[[UnmatchedObject](#schemaunmatchedobject)]|false|none|none|
+|unmatched_receipts|[[CommitmentReceipt](#schemacommitmentreceipt)]|false|none|none|
+
+<h2 id="tocS_VerifyCollectionResponse">VerifyCollectionResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemaverifycollectionresponse"></a>
+<a id="schema_VerifyCollectionResponse"></a>
+<a id="tocSverifycollectionresponse"></a>
+<a id="tocsverifycollectionresponse"></a>
+
+```json
+{
+  "display_timezone": "string",
+  "collections": [
+    {
+      "name": "string",
+      "cid": "string",
+      "user_address": "string",
+      "matched_receipts": [
+        {
+          "transaction_hash": "string",
+          "user_address": "string",
+          "set_cid": "string",
+          "object_cid": "string",
+          "timestamp": "string",
+          "chain_id": 0
+        }
+      ],
+      "unmatched_objects": [
+        {
+          "cid": "string",
+          "timestamp": "string"
+        }
+      ],
+      "unmatched_receipts": [
+        {
+          "transaction_hash": "string",
+          "user_address": "string",
+          "set_cid": "string",
+          "object_cid": "string",
+          "timestamp": "string",
+          "chain_id": 0
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|display_timezone|string|false|none|none|
+|collections|[[VerifyCollection](#schemaverifycollection)]|false|none|none|
 
 <h2 id="tocS_IdempotentStampResponse">IdempotentStampResponse</h2>
 <!-- backwards compatibility -->

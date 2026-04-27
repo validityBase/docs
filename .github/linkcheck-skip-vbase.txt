@@ -1,0 +1,2 @@
+# WordPress XML-RPC endpoint — intentionally blocked (403) by the server.
+xmlrpc\.php
