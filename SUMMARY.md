@@ -15,6 +15,8 @@
 ## REST API
 * [User Guide](vbase-django-tools/api/rest-api-user-guide.md)
 * [Samples](vbase-django-tools/api/rest-api-user-examples.md)
+* [REST API Client](vbase-api-py/vbase_api_client.md)
+* [API models](vbase-api-py/vbase_api_models.md)
 
 ## Web Tools
   <!-- * [Introduction](docs/web-tools/readme.md) -->
