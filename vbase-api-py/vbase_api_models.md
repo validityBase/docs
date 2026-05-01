@@ -5,370 +5,370 @@ vBase API Models
 Data models for vBase API request and response objects.
 See [https://app.vbase.com/swagger](https://app.vbase.com/swagger) for API documentation.
 
-### *class* vbase_api.AccountSettings(name: str, email: str, persistent_id: str, description: str, display_timezone: str, date_joined: str, last_address: str, last_name: str, last_is_verified: bool, storage_type: str)
+## *class* vbase_api.AccountSettings(name: str, email: str, persistent_id: str, description: str, display_timezone: str, date_joined: str, last_address: str, last_name: str, last_is_verified: bool, storage_type: str)
 
 Bases: `object`
 
 User account settings.
 
-#### name
+### name
 
 User’s name
 
 * **Type:**
   str
 
-#### email
+### email
 
 User’s email address
 
 * **Type:**
   str
 
-#### persistent_id
+### persistent_id
 
 Persistent user ID
 
 * **Type:**
   str
 
-#### description
+### description
 
 User description
 
 * **Type:**
   str
 
-#### display_timezone
+### display_timezone
 
 Display timezone
 
 * **Type:**
   str
 
-#### date_joined
+### date_joined
 
 Date user joined
 
 * **Type:**
   str
 
-#### last_address
+### last_address
 
 Last blockchain address
 
 * **Type:**
   str
 
-#### last_name
+### last_name
 
 User’s last name
 
 * **Type:**
   str
 
-#### last_is_verified
+### last_is_verified
 
 Whether last address is verified
 
 * **Type:**
   bool
 
-#### storage_type
+### storage_type
 
 Storage type (e.g., ‘ipfs’)
 
 * **Type:**
   str
 
-#### date_joined *: str*
+### date_joined *: str*
 
-#### description *: str*
+### description *: str*
 
-#### display_timezone *: str*
+### display_timezone *: str*
 
-#### email *: str*
+### email *: str*
 
-#### *classmethod* from_dict(data: dict) → [AccountSettings](#vbase_api.AccountSettings)
+### *classmethod* from_dict(data: dict) → [AccountSettings](#vbase_api.AccountSettings)
 
 Create AccountSettings from a dictionary.
 
-#### last_address *: str*
+### last_address *: str*
 
-#### last_is_verified *: bool*
+### last_is_verified *: bool*
 
-#### last_name *: str*
+### last_name *: str*
 
-#### name *: str*
+### name *: str*
 
-#### persistent_id *: str*
+### persistent_id *: str*
 
-#### storage_type *: str*
+### storage_type *: str*
 
-### *class* vbase_api.Collection(id: int, name: str, cid: str, is_pinned: bool, is_public: bool, created_at: str, description: str)
+## *class* vbase_api.Collection(id: int, name: str, cid: str, is_pinned: bool, is_public: bool, created_at: str, description: str)
 
 Bases: `object`
 
 Collection model representing a vBase collection.
 
-#### id
+### id
 
 Collection ID
 
 * **Type:**
   int
 
-#### name
+### name
 
 Collection name
 
 * **Type:**
   str
 
-#### cid
+### cid
 
 Collection CID
 
 * **Type:**
   str
 
-#### is_pinned
+### is_pinned
 
 Whether the collection is pinned
 
 * **Type:**
   bool
 
-#### is_public
+### is_public
 
 Whether the collection is public
 
 * **Type:**
   bool
 
-#### created_at
+### created_at
 
 Creation timestamp
 
 * **Type:**
   str
 
-#### description
+### description
 
 Collection description
 
 * **Type:**
   str
 
-#### cid *: str*
+### cid *: str*
 
-#### created_at *: str*
+### created_at *: str*
 
-#### description *: str*
+### description *: str*
 
-#### *classmethod* from_dict(data: dict) → [Collection](#vbase_api.Collection)
+### *classmethod* from_dict(data: dict) → [Collection](#vbase_api.Collection)
 
 Create a Collection from a dictionary.
 
-#### id *: int*
+### id *: int*
 
-#### is_pinned *: bool*
+### is_pinned *: bool*
 
-#### is_public *: bool*
+### is_public *: bool*
 
-#### name *: str*
+### name *: str*
 
-### *class* vbase_api.CommitmentReceipt(transaction_hash: str, user_address: str, set_cid: str, object_cid: str, timestamp: str, chain_id: int)
+## *class* vbase_api.CommitmentReceipt(transaction_hash: str, user_address: str, set_cid: str, object_cid: str, timestamp: str, chain_id: int)
 
 Bases: `object`
 
 Commitment receipt from blockchain stamping.
 
-#### transaction_hash
+### transaction_hash
 
 Blockchain transaction hash
 
 * **Type:**
   str
 
-#### user_address
+### user_address
 
 User’s blockchain address
 
 * **Type:**
   str
 
-#### set_cid
+### set_cid
 
 Set CID
 
 * **Type:**
   str
 
-#### object_cid
+### object_cid
 
 Object CID
 
 * **Type:**
   str
 
-#### timestamp
+### timestamp
 
 Timestamp of the stamp
 
 * **Type:**
   str
 
-#### chain_id
+### chain_id
 
 Blockchain chain ID
 
 * **Type:**
   int
 
-#### chain_id *: int*
+### chain_id *: int*
 
-#### *classmethod* from_dict(data: dict) → [CommitmentReceipt](#vbase_api.CommitmentReceipt)
+### *classmethod* from_dict(data: dict) → [CommitmentReceipt](#vbase_api.CommitmentReceipt)
 
 Create a CommitmentReceipt from a dictionary.
 
-#### object_cid *: str*
+### object_cid *: str*
 
-#### set_cid *: str*
+### set_cid *: str*
 
-#### timestamp *: str*
+### timestamp *: str*
 
-#### transaction_hash *: str*
+### transaction_hash *: str*
 
-#### user_address *: str*
+### user_address *: str*
 
-### *class* vbase_api.Error(error: str, details: str | None = None)
+## *class* vbase_api.Error(error: str, details: str | None = None)
 
 Bases: `object`
 
 Error response model.
 
-#### error
+### error
 
 Error message
 
 * **Type:**
   str
 
-#### details
+### details
 
 Optional error details
 
 * **Type:**
   str | None
 
-#### details *: str | None* *= None*
+### details *: str | None* *= None*
 
-#### error *: str*
+### error *: str*
 
-#### *classmethod* from_dict(data: dict) → [Error](#vbase_api.Error)
+### *classmethod* from_dict(data: dict) → [Error](#vbase_api.Error)
 
 Create an Error from a dictionary.
 
-### *class* vbase_api.FileObject(file_name: str, file_path: str)
+## *class* vbase_api.FileObject(file_name: str, file_path: str)
 
 Bases: `object`
 
 File object metadata.
 
-#### file_name
+### file_name
 
 Name of the file
 
 * **Type:**
   str
 
-#### file_path
+### file_path
 
 Path to the file
 
 * **Type:**
   str
 
-#### file_name *: str*
+### file_name *: str*
 
-#### file_path *: str*
+### file_path *: str*
 
-#### *classmethod* from_dict(data: dict) → [FileObject](#vbase_api.FileObject)
+### *classmethod* from_dict(data: dict) → [FileObject](#vbase_api.FileObject)
 
 Create a FileObject from a dictionary.
 
-### *class* vbase_api.IdempotentStampResponse(commitment_receipt: [CommitmentReceipt](#vbase_api.CommitmentReceipt))
+## *class* vbase_api.IdempotentStampResponse(commitment_receipt: [CommitmentReceipt](#vbase_api.CommitmentReceipt))
 
 Bases: `object`
 
 Response for idempotent stamp requests (200 status).
 
-#### commitment_receipt
+### commitment_receipt
 
 The commitment receipt from blockchain
 
 * **Type:**
   [vbase_api.CommitmentReceipt](#vbase_api.CommitmentReceipt)
 
-#### commitment_receipt *: [CommitmentReceipt](#vbase_api.CommitmentReceipt)*
+### commitment_receipt *: [CommitmentReceipt](#vbase_api.CommitmentReceipt)*
 
-#### *classmethod* from_dict(data: dict) → [IdempotentStampResponse](#vbase_api.IdempotentStampResponse)
+### *classmethod* from_dict(data: dict) → [IdempotentStampResponse](#vbase_api.IdempotentStampResponse)
 
 Create an IdempotentStampResponse from a dictionary.
 
-### *class* vbase_api.StampCreatedResponse(commitment_receipt: [CommitmentReceipt](#vbase_api.CommitmentReceipt), file_object: [FileObject](#vbase_api.FileObject) | None = None)
+## *class* vbase_api.StampCreatedResponse(commitment_receipt: [CommitmentReceipt](#vbase_api.CommitmentReceipt), file_object: [FileObject](#vbase_api.FileObject) | None = None)
 
 Bases: `object`
 
 Response for newly created stamp (201 status).
 
-#### commitment_receipt
+### commitment_receipt
 
 The commitment receipt from blockchain
 
 * **Type:**
   [vbase_api.CommitmentReceipt](#vbase_api.CommitmentReceipt)
 
-#### file_object
+### file_object
 
 Optional file object metadata
 
 * **Type:**
   [vbase_api.FileObject](#vbase_api.FileObject) | None
 
-#### commitment_receipt *: [CommitmentReceipt](#vbase_api.CommitmentReceipt)*
+### commitment_receipt *: [CommitmentReceipt](#vbase_api.CommitmentReceipt)*
 
-#### file_object *: [FileObject](#vbase_api.FileObject) | None* *= None*
+### file_object *: [FileObject](#vbase_api.FileObject) | None* *= None*
 
-#### *classmethod* from_dict(data: dict) → [StampCreatedResponse](#vbase_api.StampCreatedResponse)
+### *classmethod* from_dict(data: dict) → [StampCreatedResponse](#vbase_api.StampCreatedResponse)
 
 Create a StampCreatedResponse from a dictionary.
 
-### *class* vbase_api.VerificationResult(display_timezone: str, stamp_list: List[[CommitmentReceipt](#vbase_api.CommitmentReceipt)])
+## *class* vbase_api.VerificationResult(display_timezone: str, stamp_list: List[[CommitmentReceipt](#vbase_api.CommitmentReceipt)])
 
 Bases: `object`
 
 Result from verifying CIDs.
 
-#### display_timezone
+### display_timezone
 
 Timezone for display
 
 * **Type:**
   str
 
-#### stamp_list
+### stamp_list
 
 List of commitment receipts for verified stamps
 
 * **Type:**
   List[[vbase_api.CommitmentReceipt](#vbase_api.CommitmentReceipt)]
 
-#### display_timezone *: str*
+### display_timezone *: str*
 
-#### *classmethod* from_dict(data: dict) → [VerificationResult](#vbase_api.VerificationResult)
+### *classmethod* from_dict(data: dict) → [VerificationResult](#vbase_api.VerificationResult)
 
 Create a VerificationResult from a dictionary.
 
-#### stamp_list *: List[[CommitmentReceipt](#vbase_api.CommitmentReceipt)]*
+### stamp_list *: List[[CommitmentReceipt](#vbase_api.CommitmentReceipt)]*
