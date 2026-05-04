@@ -4,7 +4,7 @@ vbase
 
 A Python library for interacting with the validityBase (vBase) platform
 
-## *class* vbase.AggregateIndexingService(services: list[[IndexingService](#vbase.IndexingService)])
+## class vbase.AggregateIndexingService(services: list[[IndexingService](#vbase.IndexingService)])
 
 Bases: [`IndexingService`](#vbase.IndexingService)
 
@@ -42,7 +42,7 @@ Aggregate user set objects from all services, removing duplicates by transaction
 
 Aggregate user sets from all services, removing duplicates by transactionHash.
 
-## *class* vbase.FailoverIndexingService(services: list[[IndexingService](#vbase.IndexingService)])
+## class vbase.FailoverIndexingService(services: list[[IndexingService](#vbase.IndexingService)])
 
 Bases: [`IndexingService`](#vbase.IndexingService)
 
@@ -136,7 +136,7 @@ for a given user.
 * **Returns:**
   The list of commitment receipts for all user set commitments.
 
-## *class* vbase.ForwarderCommitmentService(forwarder_url: str, api_key: str, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentService.json')
+## class vbase.ForwarderCommitmentService(forwarder_url: str, api_key: str, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentService.json')
 
 Bases: `Web3CommitmentService`
 
@@ -205,7 +205,7 @@ a schema for hashing complex information.
 * **Returns:**
   The commitment logs containing commitment receipts.
 
-### *static* create_instance_from_env(dotenv_path: str | None = None) → [ForwarderCommitmentService](#vbase.ForwarderCommitmentService)
+### static create_instance_from_env(dotenv_path: str | None = None) → [ForwarderCommitmentService](#vbase.ForwarderCommitmentService)
 
 Creates an instance initialized from environment variables.
 Syntactic sugar for initializing new commitment objects using settings
@@ -231,7 +231,7 @@ for the web3 commitment service abstracted by the forwarder.
 * **Returns:**
   The commitment service data for the API server.
 
-### *static* get_init_args_from_env(dotenv_path: str | None = None) → dict
+### static get_init_args_from_env(dotenv_path: str | None = None) → dict
 
 Worker function to load the environment variables.
 
@@ -290,7 +290,7 @@ This is a low-level function that operates on object hashes.
   True if the commitment has been verified successfully;
   False otherwise.
 
-## *class* vbase.ForwarderCommitmentServiceTest(forwarder_url: str, api_key: str, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentServiceTest.json')
+## class vbase.ForwarderCommitmentServiceTest(forwarder_url: str, api_key: str, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentServiceTest.json')
 
 Bases: [`ForwarderCommitmentService`](#vbase.ForwarderCommitmentService), `CommitmentServiceTest`
 
@@ -358,7 +358,7 @@ Clear all sets for the user.
 Used to clear state when testing.
 Only supported by test contracts.
 
-### *static* create_instance_from_env(dotenv_path: str | None = None) → [ForwarderCommitmentServiceTest](#vbase.ForwarderCommitmentServiceTest)
+### static create_instance_from_env(dotenv_path: str | None = None) → [ForwarderCommitmentServiceTest](#vbase.ForwarderCommitmentServiceTest)
 
 Creates an instance initialized from environment variables.
 Syntactic sugar for initializing new commitment objects using settings
@@ -375,14 +375,14 @@ stored in a .env file or in environment variables.
 * **Returns:**
   The dictionary of arguments.
 
-## *class* vbase.IndexingService
+## class vbase.IndexingService
 
 Bases: `ABC`
 
 Base indexing operations.
 Various indexing services may provide a subset of the below operations that they support.
 
-### *static* create_instance_from_commitment_service(commitment_service: CommitmentService) → [IndexingService](#vbase.IndexingService)
+### static create_instance_from_commitment_service(commitment_service: CommitmentService) → [IndexingService](#vbase.IndexingService)
 
 Creates an instance initialized from a commitment service.
 Handles the complexities of initializing an IndexingService
@@ -395,7 +395,7 @@ service directly, and this method abstracts this initialization.
 * **Returns:**
   The IndexingService created.
 
-### *static* create_instance_from_env_json_descriptor(dotenv_path: str | None = None) → [IndexingService](#vbase.IndexingService)
+### static create_instance_from_env_json_descriptor(dotenv_path: str | None = None) → [IndexingService](#vbase.IndexingService)
 
 Creates an instance initialized from an environment variable
 containing a JSON descriptor.
@@ -410,7 +410,7 @@ indexers using multiple commitment service defined using complex JSON.
 * **Returns:**
   The IndexingService created.
 
-### *static* create_instance_from_json_descriptor(is_json: str) → [IndexingService](#vbase.IndexingService)
+### static create_instance_from_json_descriptor(is_json: str) → [IndexingService](#vbase.IndexingService)
 
 Creates an instance initialized from a JSON descriptor.
 This method is especially useful for constructing complex
@@ -504,17 +504,17 @@ for a given user.
 * **Returns:**
   The list of commitment receipts for all user set commitments.
 
-## *class* vbase.ObjectAtTime(object_cid: str, timestamp: int)
+## class vbase.ObjectAtTime(object_cid: str, timestamp: int)
 
 Bases: `object`
 
 Object at time structure.
 
-### object_cid *: str*
+### object_cid: str
 
-### timestamp *: int*
+### timestamp: int
 
-## *class* vbase.SQLIndexingService(db_url: str, matching_service: BaseMatchingService = None, indexing_stale_threshold_seconds: int = 60)
+## class vbase.SQLIndexingService(db_url: str, matching_service: BaseMatchingService = None, indexing_stale_threshold_seconds: int = 60)
 
 Bases: [`IndexingService`](#vbase.IndexingService)
 
@@ -568,27 +568,27 @@ Find all objects for a user and set cid.
 
 Find all sets for a user.
 
-## *class* vbase.SetCandidate(score: float, created_at: int, set_cid: str, user: str)
+## class vbase.SetCandidate(score: float, created_at: int, set_cid: str, user: str)
 
 Bases: `object`
 
 SetCandidate structure.
 
-### created_at *: int*
+### created_at: int
 
-### score *: float*
+### score: float
 
-### set_cid *: str*
+### set_cid: str
 
-### user *: str*
+### user: str
 
-## *class* vbase.VBaseBytesObject(init_data: bytes | None = None, init_dict: Dict[str, str] | None = None, init_json: str | None = None)
+## class vbase.VBaseBytesObject(init_data: bytes | None = None, init_dict: Dict[str, str] | None = None, init_json: str | None = None)
 
 Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 A binary (bytes) object for opaque binary data (e.g., PDFs, images).
 
-### *static* get_cid_for_data(record_data: bytes) → str
+### static get_cid_for_data(record_data: bytes) → str
 
 Generate a content identifier (CID) for an object with given data.
 The method may be called to post commitments without instantiating an object.
@@ -601,7 +601,7 @@ their CID calculation is a primary job of an object.
 * **Returns:**
   The CID generated.
 
-## *class* vbase.VBaseClient(commitment_service: CommitmentService)
+## class vbase.VBaseClient(commitment_service: CommitmentService)
 
 Bases: `object`
 
@@ -680,7 +680,7 @@ a schema for hashing complex information.
 * **Returns:**
   The commitment log list containing commitment receipts.
 
-### *static* create_instance_from_env(dotenv_path: str | None = None) → [VBaseClient](#vbase.VBaseClient)
+### static create_instance_from_env(dotenv_path: str | None = None) → [VBaseClient](#vbase.VBaseClient)
 
 Creates an instance initialized from environment variables.
 Syntactic sugar for initializing new commitment objects using settings
@@ -812,7 +812,7 @@ This is a low-level function that operates on object hashes.
   True if the commitment has been verified successfully;
   False otherwise.
 
-## *class* vbase.VBaseClientTest(commitment_service: CommitmentServiceTest)
+## class vbase.VBaseClientTest(commitment_service: CommitmentServiceTest)
 
 Bases: [`VBaseClient`](#vbase.VBaseClient)
 
@@ -888,7 +888,7 @@ Clear all sets for the user.
 Used to clear state when testing.
 Only supported by test contracts.
 
-### *static* create_instance_from_env(dotenv_path: str | None = None) → [VBaseClientTest](#vbase.VBaseClientTest)
+### static create_instance_from_env(dotenv_path: str | None = None) → [VBaseClientTest](#vbase.VBaseClientTest)
 
 Creates an instance initialized from environment variables.
 Syntactic sugar for initializing new commitment objects using settings
@@ -905,7 +905,7 @@ stored in a .env file or in environment variables.
 * **Returns:**
   The constructed vBase client object.
 
-### *static* normalize_pd_timestamp(timestamp: Timestamp | str)
+### static normalize_pd_timestamp(timestamp: Timestamp | str)
 
 Normalize Pandas timestamp converting it to a string representation
 that is serializable.
@@ -915,7 +915,7 @@ that is serializable.
 * **Returns:**
   The string representation of a pd.Timestamp.
 
-## *class* vbase.VBaseDataset(vbc: [VBaseClient](#vbase.VBaseClient) | [VBaseClientTest](#vbase.VBaseClientTest), name: str | None = None, record_type: Type[[VBaseObject](#vbase.VBaseObject)] | None = None, init_dict: dict | None = None, init_json: str | None = None)
+## class vbase.VBaseDataset(vbc: [VBaseClient](#vbase.VBaseClient) | [VBaseClientTest](#vbase.VBaseClientTest), name: str | None = None, record_type: Type[[VBaseObject](#vbase.VBaseObject)] | None = None, init_dict: dict | None = None, init_json: str | None = None)
 
 Bases: `ABC`
 
@@ -1013,7 +1013,7 @@ Get all records for the dataset.
   than or equal to the sim t.
   - If all records are after the current time, returns None.
 
-### *static* get_set_cid_for_dataset(dataset_name: str) → str
+### static get_set_cid_for_dataset(dataset_name: str) → str
 
 Generate set CID for a named dataset.
 May be called to post commitments without instantiating a dataset object.
@@ -1068,7 +1068,7 @@ Verify commitments for all dataset records.
   - success: True if all record commitments have been verified; False otherwise.
   - l_log: A list log of verification explaining any failures.
 
-## *class* vbase.VBaseDatasetAsync(vbc: [VBaseClient](#vbase.VBaseClient) | [VBaseClientTest](#vbase.VBaseClientTest), name: str | None = None, record_type: Type[[VBaseObject](#vbase.VBaseObject)] | None = None, init_dict: dict | None = None, init_json: str | None = None)
+## class vbase.VBaseDatasetAsync(vbc: [VBaseClient](#vbase.VBaseClient) | [VBaseClientTest](#vbase.VBaseClientTest), name: str | None = None, record_type: Type[[VBaseObject](#vbase.VBaseObject)] | None = None, init_dict: dict | None = None, init_json: str | None = None)
 
 Bases: [`VBaseDataset`](#vbase.VBaseDataset)
 
@@ -1076,7 +1076,7 @@ Provides Python vBase dataset async access.
 Asynchronous dataset wraps synchronous dataset object to support
 async operations using asyncio.
 
-### *async* add_record_async(record_data: any) → dict
+### async add_record_async(record_data: any) → dict
 
 Add a record to a VBase dataset object asynchronously.
 Offloads add_record execution to the default event loop’s executor.
@@ -1086,7 +1086,7 @@ Offloads add_record execution to the default event loop’s executor.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
-### *async* add_record_with_timestamp_async(record_data: any, timestamp: Timestamp | str) → dict
+### async add_record_with_timestamp_async(record_data: any, timestamp: Timestamp | str) → dict
 
 Test shim to add a record to a VBaseDataset object
 with a given timestamp asynchronously.
@@ -1100,7 +1100,7 @@ to the default event loop’s executor.
 * **Returns:**
   The commitment log containing commitment receipt info.
 
-### *async* add_records_batch_async(record_data_list: List[any]) → List[dict]
+### async add_records_batch_async(record_data_list: List[any]) → List[dict]
 
 Add a record to a VBase dataset object asynchronously.
 Offloads add_record execution to the default event loop’s executor.
@@ -1110,7 +1110,7 @@ Offloads add_record execution to the default event loop’s executor.
 * **Returns:**
   The commitment log list containing commitment receipts.
 
-### *async* add_records_with_timestamps_batch_async(record_data_list: List[any], timestamps: List[Timestamp | str]) → List[dict]
+### async add_records_with_timestamps_batch_async(record_data_list: List[any], timestamps: List[Timestamp | str]) → List[dict]
 
 Test shim to add a batch of records with timestamps
 to a VBaseDataset object asynchronously.
@@ -1124,7 +1124,7 @@ to the default event loop’s executor.
 * **Returns:**
   The commitment log list containing commitment receipts.
 
-### *async classmethod* create(\*args, \*\*kwargs) → [VBaseDatasetAsync](#vbase.VBaseDatasetAsync)
+### async classmethod create(\*args, \*\*kwargs) → [VBaseDatasetAsync](#vbase.VBaseDatasetAsync)
 
 Creates a vBase dataset object asynchronously.
 A static async factory method that delegates to the synchronous constructor.
@@ -1136,7 +1136,7 @@ Offloads VBaseDataset constructor execution to the default event loop’s execut
 * **Returns:**
   The created dataset.
 
-### *async* verify_commitments_async() -> (<class 'bool'>, typing.List[str])
+### async verify_commitments_async() -> (<class 'bool'>, typing.List[str])
 
 Verify commitments for all dataset records asynchronously.
 Offloads verify_commitments execution
@@ -1147,14 +1147,14 @@ to the default event loop’s executor.
   - success: true if all record commitments have been verified; false otherwise
   - l_log: a list log of verification explaining any failures
 
-## *class* vbase.VBaseFloatObject(init_data: float | None = None, init_dict: Dict[str, float] | None = None, init_json: str | None = None)
+## class vbase.VBaseFloatObject(init_data: float | None = None, init_dict: Dict[str, float] | None = None, init_json: str | None = None)
 
 Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 A float object
 Floats are committed as fixed-point integers to support ZKPs.
 
-### *static* get_cid_for_data(record_data: float) → str
+### static get_cid_for_data(record_data: float) → str
 
 Generate a content identifier (CID) for an object with given data.
 The method may be called to post commitments without instantiating an object.
@@ -1167,13 +1167,13 @@ their CID calculation is a primary job of an object.
 * **Returns:**
   The CID generated.
 
-## *class* vbase.VBaseIntObject(init_data: int | None = None, init_dict: Dict[str, int] | None = None, init_json: str | None = None)
+## class vbase.VBaseIntObject(init_data: int | None = None, init_dict: Dict[str, int] | None = None, init_json: str | None = None)
 
 Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 An integer object
 
-### *static* get_cid_for_data(record_data: int) → str
+### static get_cid_for_data(record_data: int) → str
 
 Generate a content identifier (CID) for an object with given data.
 The method may be called to post commitments without instantiating an object.
@@ -1186,13 +1186,13 @@ their CID calculation is a primary job of an object.
 * **Returns:**
   The CID generated.
 
-## *class* vbase.VBaseJsonObject(init_data: str | None = None, init_dict: Dict[str, str] | None = None, init_json: str | None = None)
+## class vbase.VBaseJsonObject(init_data: str | None = None, init_dict: Dict[str, str] | None = None, init_json: str | None = None)
 
 Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 A JSON string object
 
-### *static* get_cid_for_data(record_data: str) → str
+### static get_cid_for_data(record_data: str) → str
 
 Generate a content identifier (CID) for an object with given data.
 The method may be called to post commitments without instantiating an object.
@@ -1216,7 +1216,7 @@ sets to DataFrames.
 * **Returns:**
   The dictionary representation of the object.
 
-## *class* vbase.VBaseObject(init_data: Any | None = None, init_dict: Dict | None = None, init_json: str | None = None)
+## class vbase.VBaseObject(init_data: Any | None = None, init_dict: Dict | None = None, init_json: str | None = None)
 
 Bases: `ABC`
 
@@ -1224,9 +1224,9 @@ Provides basic Python vBase object features.
 Implements base functionality shared across various objects and dataset records.
 Children implement object-specific logic.
 
-### cid *: str | None*
+### cid: str | None
 
-### data *: Any*
+### data: Any
 
 ### get_cid() → str
 
@@ -1236,7 +1236,7 @@ Calculates the CID if necessary and caches it for subsequent queries.
 * **Returns:**
   The CID generated.
 
-### *abstractmethod static* get_cid_for_data(record_data: Any) → str
+### abstractmethod static get_cid_for_data(record_data: Any) → str
 
 Generate a content identifier (CID) for an object with given data.
 The method may be called to post commitments without instantiating an object.
@@ -1260,7 +1260,7 @@ sets to DataFrames.
 * **Returns:**
   The dictionary representation of the object.
 
-## *class* vbase.VBasePortfolioObject(init_data: Dict[str, int | float] | None = None, init_dict: Dict[str, Dict[str, int | float]] | None = None, init_json: str | None = None)
+## class vbase.VBasePortfolioObject(init_data: Dict[str, int | float] | None = None, init_dict: Dict[str, Dict[str, int | float]] | None = None, init_json: str | None = None)
 
 Bases: [`VBaseObject`](#vbase.VBaseObject)
 
@@ -1268,7 +1268,7 @@ A portfolio object
 Each portfolio is a dictionary with
 symbol/id keys and weight values.
 
-### *static* get_cid_for_data(record_data: dict) → str
+### static get_cid_for_data(record_data: dict) → str
 
 Generate a content identifier (CID) for an object with given data.
 The method may be called to post commitments without instantiating an object.
@@ -1281,14 +1281,14 @@ their CID calculation is a primary job of an object.
 * **Returns:**
   The CID generated.
 
-## *class* vbase.VBasePrivateFloatObject(init_data: float | str | None = None, init_dict: Dict[str, float | str] | None = None, init_json: str | None = None)
+## class vbase.VBasePrivateFloatObject(init_data: float | str | None = None, init_dict: Dict[str, float | str] | None = None, init_json: str | None = None)
 
 Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 A float object that preserves object privacy
 Each object comprises a float value and a string salt.
 
-### *static* get_cid_for_data(record_data: Tuple[int, str]) → str
+### static get_cid_for_data(record_data: Tuple[int, str]) → str
 
 Generate a content identifier (CID) for an object with given data.
 The method may be called to post commitments without instantiating an object.
@@ -1301,7 +1301,7 @@ their CID calculation is a primary job of an object.
 * **Returns:**
   The CID generated.
 
-## *class* vbase.VBasePrivateIntObject(init_data: int | str | None = None, init_dict: Dict[str, int | str] | None = None, init_json: str | None = None)
+## class vbase.VBasePrivateIntObject(init_data: int | str | None = None, init_dict: Dict[str, int | str] | None = None, init_json: str | None = None)
 
 Bases: [`VBaseObject`](#vbase.VBaseObject)
 
@@ -1311,7 +1311,7 @@ The user-specified random salt preserves privacy of the data with low entropy.
 To verify the object, users must specify the preimage with salts.
 The source datasets to be validated will be commonly stored as a spreadsheet with two columns.
 
-### *static* get_cid_for_data(record_data: Tuple[int, str]) → str
+### static get_cid_for_data(record_data: Tuple[int, str]) → str
 
 Generate a content identifier (CID) for an object with given data.
 The method may be called to post commitments without instantiating an object.
@@ -1324,13 +1324,13 @@ their CID calculation is a primary job of an object.
 * **Returns:**
   The CID generated.
 
-## *class* vbase.VBaseStringObject(init_data: str | None = None, init_dict: Dict[str, str] | None = None, init_json: str | None = None)
+## class vbase.VBaseStringObject(init_data: str | None = None, init_dict: Dict[str, str] | None = None, init_json: str | None = None)
 
 Bases: [`VBaseObject`](#vbase.VBaseObject)
 
 A string object
 
-### *static* get_cid_for_data(record_data: str) → str
+### static get_cid_for_data(record_data: str) → str
 
 Generate a content identifier (CID) for an object with given data.
 The method may be called to post commitments without instantiating an object.
@@ -1343,7 +1343,7 @@ their CID calculation is a primary job of an object.
 * **Returns:**
   The CID generated.
 
-## *class* vbase.Web3HTTPCommitmentService(node_rpc_url: str, commitment_service_address: str, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentService.json', inject_geth_poa_middleware: bool = False)
+## class vbase.Web3HTTPCommitmentService(node_rpc_url: str, commitment_service_address: str, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentService.json', inject_geth_poa_middleware: bool = False)
 
 Bases: `Web3CommitmentService`
 
@@ -1413,7 +1413,7 @@ a schema for hashing complex information.
 * **Returns:**
   The commitment logs containing commitment receipts.
 
-### *static* create_instance_from_env(dotenv_path: str | None = None) → [Web3HTTPCommitmentService](#vbase.Web3HTTPCommitmentService)
+### static create_instance_from_env(dotenv_path: str | None = None) → [Web3HTTPCommitmentService](#vbase.Web3HTTPCommitmentService)
 
 Creates an instance initialized from environment variables.
 Syntactic sugar for initializing new commitment objects using settings
@@ -1430,7 +1430,7 @@ stored in a .env file or in environment variables.
 * **Returns:**
   The dictionary of arguments.
 
-### *static* get_init_args_from_env(dotenv_path: str | None = None) → dict
+### static get_init_args_from_env(dotenv_path: str | None = None) → dict
 
 Worker function to load the environment variables.
 
@@ -1489,7 +1489,7 @@ This is a low-level function that operates on object hashes.
   True if the commitment has been verified successfully;
   False otherwise.
 
-## *class* vbase.Web3HTTPCommitmentServiceTest(node_rpc_url: str = None, commitment_service_address: str = None, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentServiceTest.json', inject_geth_poa_middleware: bool = False)
+## class vbase.Web3HTTPCommitmentServiceTest(node_rpc_url: str = None, commitment_service_address: str = None, private_key: str | None = None, commitment_service_json_file_name: str | None = 'CommitmentServiceTest.json', inject_geth_poa_middleware: bool = False)
 
 Bases: [`Web3HTTPCommitmentService`](#vbase.Web3HTTPCommitmentService), `CommitmentServiceTest`
 
@@ -1557,7 +1557,7 @@ Clear all sets for the user.
 Used to clear state when testing.
 Only supported by test contracts.
 
-### *static* create_instance_from_env(dotenv_path: str | None = None) → [Web3HTTPCommitmentServiceTest](#vbase.Web3HTTPCommitmentServiceTest)
+### static create_instance_from_env(dotenv_path: str | None = None) → [Web3HTTPCommitmentServiceTest](#vbase.Web3HTTPCommitmentServiceTest)
 
 Creates an instance initialized from environment variables.
 Syntactic sugar for initializing new commitment objects using settings
@@ -1574,20 +1574,20 @@ stored in a .env file or in environment variables.
 * **Returns:**
   The dictionary of arguments.
 
-## *class* vbase.Web3HTTPIndexingService(commitment_services: List[[Web3HTTPCommitmentService](#vbase.Web3HTTPCommitmentService)])
+## class vbase.Web3HTTPIndexingService(commitment_services: List[[Web3HTTPCommitmentService](#vbase.Web3HTTPCommitmentService)])
 
 Bases: [`IndexingService`](#vbase.IndexingService)
 
 Indexing service accessible using Web3.HTTPProvider.
 Wraps RPC node event indexing to support commitment indexing operations.
 
-### RETRY_BACKOFF *= 2*
+### RETRY_BACKOFF = 2
 
-### RETRY_DELAY *= 2*
+### RETRY_DELAY = 2
 
-### RETRY_TRIES *= 5*
+### RETRY_TRIES = 5
 
-### *static* create_instance_from_env_json_descriptor(dotenv_path: str | None = None) → [Web3HTTPIndexingService](#vbase.Web3HTTPIndexingService)
+### static create_instance_from_env_json_descriptor(dotenv_path: str | None = None) → [Web3HTTPIndexingService](#vbase.Web3HTTPIndexingService)
 
 Creates an instance initialized from an environment variable
 containing a JSON descriptor.
@@ -1602,7 +1602,7 @@ indexers using multiple commitment service defined using complex JSON.
 * **Returns:**
   The IndexingService created.
 
-### *static* create_instance_from_json_descriptor(is_json: str) → [Web3HTTPIndexingService](#vbase.Web3HTTPIndexingService)
+### static create_instance_from_json_descriptor(is_json: str) → [Web3HTTPIndexingService](#vbase.Web3HTTPIndexingService)
 
 Creates an instance initialized from a JSON descriptor.
 This method is especially useful for constructing complex
