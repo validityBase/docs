@@ -504,18 +504,24 @@ curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
 This endpoint allows users to upload a file that has been previously stamped.
 It validates that the file exists in the blockchain for the authenticated user and specified collection.
 
+The collection can be specified using either:
+- collection_name: Name of the collection (case-insensitive)
+- collection_cid: CID of the collection
+
+At least one of 'collection_name' or 'collection_cid' must be provided.
+If both are provided, the stored CID for the named collection must match the provided collection_cid.
+
 The endpoint performs the following validations:
-1. Validates collection name is not empty
-2. Finds the collection by name (case-insensitive) for the authenticated user
-3. Extracts object CID from the uploaded file
-4. Verifies the file exists in blockchain records for the user's address
-5. Ensures exactly one matching record exists
-6. Uploads the file with blockchain validation
+- Ensures at least one collection identifier is provided.
+- Finds the collection for the authenticated user.
+- Extracts the object CID from the uploaded file.
+- Verifies that the file exists in blockchain records for the user's address and collection.
+- Uploads a separate copy of the file for each matching record.
 
 Note: User address is automatically determined from the authenticated user's profile.
 
 Returns structured error responses with appropriate HTTP status codes:
-- 400: Invalid input or validation failed
+- 400: Invalid input or validation failed, or collection_cid does not match collection_name
 - 404: Collection not found or no blockchain records found
 - 409: Multiple blockchain records found (conflict)
 - 500: File processing, blockchain, or upload errors
@@ -524,7 +530,10 @@ Returns structured error responses with appropriate HTTP status codes:
 
 ```yaml
 collection_name: string
+collection_cid: string
 file: string
+data: string
+file_name: string
 
 ```
 
@@ -532,13 +541,16 @@ file: string
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|object|true|none|
-|» collection_name|body|string|true|Collection name for blockchain verification (case-insensitive)|
-|» file|body|string(binary)|true|Previously stamped file to be uploaded|
+|body|body|object|false|none|
+|» collection_name|body|string|false|Collection name for blockchain verification (case-insensitive)|
+|» collection_cid|body|string|false|Collection CID for blockchain verification|
+|» file|body|string(binary)|false|Previously stamped file to be uploaded|
+|» data|body|string|false|Inline text or JSON data (alternative to file)|
+|» file_name|body|string|false|Custom file name for data (only used when 'data' is provided)|
 
 > Example responses
 
-> 201 Response
+> 200 Response
 
 ```json
 {
@@ -561,6 +573,7 @@ file: string
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|File was already uploaded. Returns the existing file object.|[StampCreatedResponse](#schemastampcreatedresponse)|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|File uploaded successfully|[StampCreatedResponse](#schemastampcreatedresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid input or validation failed|[Error](#schemaerror)|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Collection not found or no blockchain records found|[Error](#schemaerror)|
