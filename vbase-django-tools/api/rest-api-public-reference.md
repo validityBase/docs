@@ -523,7 +523,6 @@ Note: User address is automatically determined from the authenticated user's pro
 Returns structured error responses with appropriate HTTP status codes:
 - 400: Invalid input or validation failed, or collection_cid does not match collection_name
 - 404: Collection not found or no blockchain records found
-- 409: Multiple blockchain records found (conflict)
 - 500: File processing, blockchain, or upload errors
 
 ### Body parameter
@@ -577,7 +576,6 @@ file_name: string
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|File uploaded successfully|[StampCreatedResponse](#schemastampcreatedresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid input or validation failed|[Error](#schemaerror)|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Collection not found or no blockchain records found|[Error](#schemaerror)|
-|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Multiple blockchain records found for same user/collection|[Error](#schemaerror)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
