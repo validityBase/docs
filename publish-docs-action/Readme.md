@@ -2,8 +2,12 @@
 
 1. The user-facing documentation should be stored in the `docs` folder of the product repository. Folder names are case-sensitive.
 The documentation should be written in Markdown format.
-1. The internal documentation should be stored in the `dev-docs` folder of the product repository. It'll not be published to the central documentation repository.
-1. Each product repository should have a workflow for documentation publishing. The workflow should be based on `validityBase/docs/publish-docs-action@main` action. Here is an example of the workflow YAML:
+1. Internal agent documentation, specs, guides, and memory should live under the
+`internal/` folder of the product repository. It will not be published to the
+central documentation repository.
+1. New and migrated product repositories should use the shared reusable workflow
+from `validityBase/vbase-github-actions`. This local action is kept for legacy
+maintenance. Here is an example of the preferred workflow YAML:
 ``` yaml
 name: Update the Main Docs Repository
 
@@ -13,23 +17,18 @@ on:
       - main
 jobs:
   update-main-docs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # generate the documentation from the source code if needed
-      - name: Publish Documents
-        uses: validityBase/docs/publish-docs-action@main
-        with:
-          docs-repo-access-token: ${{ secrets.DOCS_REPO_ACCESS_TOKEN }}
-          #source-docs-path: # optional - default is 'docs'
-          #target-docs-path: # optional - default is the name of the current repository
-          #target-repository: # optional - default is 'validityBase/docs'
-          #target-repository-branch: # optional - default is the branch name of the current product branch
-          #preprocess-plant-uml: # optional - default is 'true'
-          #resolve-absolute-links-repos: |
-          #   vbase-py-tools
-          #   vbase-cs
+    uses: validityBase/vbase-github-actions/.github/workflows/publish-docs.yml@v1
+    with:
+      source-docs-path: docs
+      target-repository-branch: main
+      # target-docs-path: # optional - default is the name of the current repository
+      # target-repository: # optional - default is 'validityBase/docs'
+      # preprocess-plant-uml: # optional - default is 'true'
+      # resolve-absolute-links-repos: |
+      #   vbase-py-tools
+      #   vbase-cs
+    secrets:
+      DOCS_REPO_ACCESS_TOKEN: ${{ secrets.DOCS_REPO_ACCESS_TOKEN }}
     
 ```
 1. The diagrams in the documentation should be created using PlantUML. The source code for the diagrams should be enclosed in:\
@@ -40,7 +39,7 @@ jobs:
 1. During the document publishing process, this action will automatically replace all PlantUML code blocks with the corresponding image links to make them visible in the end-user browser.
 
 # The Purpose of this Custom Action  
-This action is created to simplify the process of publishing user documentation from the product repository to the central vBase documentation repository.  
+This legacy action is kept to support older documentation publishing workflows. New workflows should prefer the reusable workflow in `validityBase/vbase-github-actions`.
 
 It copies the Markdown files from the `Docs` folder of the product repository to the folder named after the product repository in the central vBase documentation repository.  
 
