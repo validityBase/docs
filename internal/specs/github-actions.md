@@ -20,5 +20,7 @@ Validation:
 ```bash
 cd publish-docs-action
 npm run build
-npm ls axios form-data undici --all
+npm audit
+npm audit --omit=dev
+npm ls @actions/core @actions/http-client undici --all
 ```

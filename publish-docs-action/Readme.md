@@ -41,7 +41,7 @@ jobs:
 # The Purpose of this Custom Action  
 This legacy action is kept to support older documentation publishing workflows. New workflows should prefer the reusable workflow in `validityBase/vbase-github-actions`.
 
-It copies the Markdown files from the `Docs` folder of the product repository to the folder named after the product repository in the central vBase documentation repository.  
+It copies the Markdown files from the configured source docs folder (`docs` by default) to the folder named after the product repository in the central vBase documentation repository.
 
 ## PlantUML Diagrams Preprocessing  
 Besides copying the files, it also preprocesses the PlantUML diagrams in the Markdown files. Specifically, it performs the following tasks:  
