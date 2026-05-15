@@ -42,6 +42,45 @@ Aggregate user set objects from all services, removing duplicates by transaction
 
 Aggregate user sets from all services, removing duplicates by transactionHash.
 
+## class vbase.BaseSetMatchingService
+
+Bases: `ABC`
+
+Abstract base class for set matching strategies.
+
+Subclass this to implement alternative matching logic (e.g. stricter
+timestamp tolerances, weighted scoring, or a non-SQL data source)
+
+### abstractmethod find_matching_sets(criteria: [SetMatchingCriteria](#vbase.SetMatchingCriteria)) → list[[SetMatch](#vbase.SetMatch)]
+
+Find committed sets that best match the provided criteria.
+
+Args:
+: criteria: describes what set we are trying to find a match for
+
+Returns:
+: Matching sets.
+
+## class vbase.ChainSetMatchingService(matching_services: list[[BaseSetMatchingService](#vbase.BaseSetMatchingService)])
+
+Bases: [`BaseSetMatchingService`](#vbase.BaseSetMatchingService)
+
+Aggregate multiple set matching strategies to return first non-empty result.
+
+This service executes matching strategies in order and returns the first
+non-empty result. If all strategies return empty results, it returns an
+empty list.
+
+### find_matching_sets(criteria: [SetMatchingCriteria](#vbase.SetMatchingCriteria)) → list[[SetMatch](#vbase.SetMatch)]
+
+Find committed sets that best match the provided criteria.
+
+Args:
+: criteria: describes what set we are trying to find a match for
+
+Returns:
+: Matching sets.
+
 ## class vbase.FailoverIndexingService(services: list[[IndexingService](#vbase.IndexingService)])
 
 Bases: [`IndexingService`](#vbase.IndexingService)
@@ -375,6 +414,83 @@ stored in a .env file or in environment variables.
 * **Returns:**
   The dictionary of arguments.
 
+## class vbase.FuzzySetMatchingService(db_url: str, tolerance: float = 0.2)
+
+Bases: [`BaseSetMatchingService`](#vbase.BaseSetMatchingService)
+
+Service for performing fuzzy set matching with tolerance.
+Finds sets whose elements match the criteria within a configurable tolerance.
+Searches the blockchain index SQL table of EventAddSetObject events with the
+following columns:
+
+- set_cid
+- user
+- object_cid
+- timestamp
+
+Each set is identified by its set_cid and user, and consists of all objects with
+the same set_cid ordered by timestamp. Elements may come from multiple chains
+(distributed sets).
+
+Unlike HeadBasedSetMatchingService which requires exact head matching, this
+service allows a configurable percentage of CIDs to differ.
+
+### MIN_CRITERIA_SIZE_FOR_TOLERANCE = 5
+
+### find_matching_sets(criteria: [SetMatchingCriteria](#vbase.SetMatchingCriteria)) → list[[SetMatch](#vbase.SetMatch)]
+
+Scans the blockchain index SQL table of EventAddSetObject events to find sets
+whose elements match the criteria within the configured tolerance.
+Access to the database is sqlmodel based.
+
+Algorithm:
+: - If criteria has fewer than MIN_CRITERIA_SIZE_FOR_TOLERANCE elements,
+    use exact matching (tolerance = 0).
+  - Find all sets that contain at least (1 - tolerance) \* 100% of the
+    criteria elements.
+  - Order criteria and candidate set elements by timestamp to build
+    comparable CID sequences.
+  - Rank candidate sets by CID sequence similarity (Levenshtein distance).
+
+Corner Cases:
+: - Empty search criteria: return an empty list.
+  - Multiple matches: return up to five matches, ranked by match quality.
+
+## class vbase.HeadBasedSetMatchingService(db_url: str)
+
+Bases: [`BaseSetMatchingService`](#vbase.BaseSetMatchingService)
+
+Service for performing head-based set matching.
+Finds sets whose head (first elements) matches the elements specified in the criteria.
+Searches the blockchain index SQL table of EventAddSetObject events with the following columns:
+
+- set_cid
+- user
+- object_cid
+- timestamp
+
+Each set is identified by its set_cid and user, and consists of all objects with
+the same set_cid ordered by timestamp. Elements may come from multiple chains
+(distributed sets).
+
+### find_matching_sets(criteria: [SetMatchingCriteria](#vbase.SetMatchingCriteria)) → list[[SetMatch](#vbase.SetMatch)]
+
+Scans the blockchain index SQL table of EventAddSetObject events to find sets
+whose head (first elements) matches the elements specified in the criteria.
+Access to the database is sqlmodel based.
+
+Algorithm:
+: - Find all sets that start with the first object in the criteria.
+  - For each candidate set, check whether the subsequent objects in the
+    criteria match the subsequent objects in the set.
+  - Use timestamps only to determine element ordering, not to filter
+    out matches.
+
+Corner Cases:
+: - Empty search criteria: return an empty list.
+  - Multiple matches: return the first five matches, ranked by how well
+    the element timestamps align.
+
 ## class vbase.IndexingService
 
 Bases: `ABC`
@@ -504,17 +620,7 @@ for a given user.
 * **Returns:**
   The list of commitment receipts for all user set commitments.
 
-## class vbase.ObjectAtTime(object_cid: str, timestamp: int)
-
-Bases: `object`
-
-Object at time structure.
-
-### object_cid: str
-
-### timestamp: int
-
-## class vbase.SQLIndexingService(db_url: str, matching_service: BaseMatchingService = None, indexing_stale_threshold_seconds: int = 60)
+## class vbase.SQLIndexingService(db_url: str, indexing_stale_threshold_seconds: int = 60)
 
 Bases: [`IndexingService`](#vbase.IndexingService)
 
@@ -527,17 +633,6 @@ Find the last object for a list of object cids.
 ### find_last_user_set_object(user: str, set_cid: str) → dict | None
 
 Find the last object for a user and set cid.
-
-### find_matching_user_sets(objects: list[[ObjectAtTime](#vbase.ObjectAtTime)], as_of: Timestamp | int | None = None) → list[[SetCandidate](#vbase.SetCandidate)]
-
-Find the best sets that approximately match the query objects.
-Args:
-
-> objects (list[ObjectAtTime]): List of objects with timestamps.
-> as_of (pd.Timestamp | int | None): Optional as_of timestamp.
-
-Returns:
-: list[SetCandidate]: List of candidate sets matching the criteria.
 
 ### find_object(object_cid: str, return_set_cids=False) → List[dict]
 
@@ -568,19 +663,48 @@ Find all objects for a user and set cid.
 
 Find all sets for a user.
 
-## class vbase.SetCandidate(score: float, created_at: int, set_cid: str, user: str)
+## class vbase.SetMatch(rank: float, set_cid: str, user: str, last_matching_element_timestamp: int, is_full_match: bool, data_freshness_timestamp: int | None = None)
 
 Bases: `object`
 
-SetCandidate structure.
+Represents a successful match of a set of objects to a set on the blockchain,
+along with metadata about the match.
 
-### created_at: int
+### data_freshness_timestamp: int | None = None
 
-### score: float
+### is_full_match: bool
+
+Whether the match is a full match (all criteria objects are in the set and all
+set objects are in the criteria), or a partial match where extra objects are in
+the set.
+
+### last_matching_element_timestamp: int
+
+### rank: float
 
 ### set_cid: str
 
 ### user: str
+
+## class vbase.SetMatchingCriteria(objects: list[[TimestampedCid](#vbase.TimestampedCid)])
+
+Bases: `object`
+
+Describes the set of elements for which we are trying to find a matching set on a
+blockchain. Criteria consist of elements where each element pairs an object_cid
+with its timestamp.
+
+### objects: list[[TimestampedCid](#vbase.TimestampedCid)]
+
+## class vbase.TimestampedCid(object_cid: str, timestamp: int)
+
+Bases: `object`
+
+Pair of object_cid and its timestamp criteria.
+
+### object_cid: str
+
+### timestamp: int
 
 ## class vbase.VBaseBytesObject(init_data: bytes | None = None, init_dict: Dict[str, str] | None = None, init_json: str | None = None)
 
