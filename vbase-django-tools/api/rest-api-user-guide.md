@@ -178,16 +178,21 @@ The upload stamped file endpoint performs comprehensive validation to ensure the
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| collection_name | String | Yes | Collection name (case-insensitive, must not be empty) |
-| file | File | Yes | Previously stamped file to upload |
+| collection_name | String | No | Collection name (case-insensitive, must not be empty). Provide this or `collection_cid`. |
+| collection_cid | String | No | Collection CID (hex hash). Provide this or `collection_name`. |
+| file | File | No | Previously stamped file to upload. Provide this or `data`, but not both. |
+| data | String | No | Inline text / JSON data to upload. Provide this or `file`, but not both. |
+| file_name | String | Conditional | Required when `data` is provided. |
 
 **Note**: User address is automatically determined from the authenticated user's profile, so no `user_address` parameter is needed.
+At least one of `collection_name` or `collection_cid` must be present, and exactly one of `file` or `data` must be present.
 
 #### Validation Process
 
 The endpoint performs the following validations in sequence:
 
 1. **Input Validation**: Validates collection name is not empty
+   Also validates collection identifiers (`collection_name`/`collection_cid`) and enforces exactly one content source (`file` xor `data`).
 2. **User Address Resolution**: Automatically determines user address from authenticated user's profile
 3. **Collection Lookup**: Finds the collection by name (case-insensitive) for the authenticated user
 4. **CID Extraction**: Extracts object CID from the uploaded file
