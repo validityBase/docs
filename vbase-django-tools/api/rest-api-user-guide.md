@@ -46,6 +46,12 @@ Authentication is required for all API requests. Use the Bearer token method by 
 Authorization: Bearer <your-api-token>
 ```
 
+## Request Validation Rules
+
+For endpoints that use strict request schemas, unknown or unrecognized request
+keys are rejected with `400 Bad Request`. Only documented request fields are
+accepted.
+
 ## Keeping your API credentials secure
 
 - Never share your API token publicly
@@ -199,6 +205,8 @@ The endpoint performs the following validations in sequence:
 5. **Blockchain Verification**: Verifies the file exists in blockchain records for the user's address
 6. **Record Validation**: Ensures exactly one matching record exists
 7. **File Upload**: Uploads the file with blockchain validation
+
+Unknown or unrecognized form fields are rejected with `400 Bad Request`.
 
 #### Response Codes
 
