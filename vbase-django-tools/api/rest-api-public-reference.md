@@ -205,8 +205,8 @@ Use the request `Content-Type` to choose the payload format:
 Send the CSV string directly with `Content-Type: text/csv`, for example:
 
 ```csv
-collection_name,user_address,collection_timezone
-vb-test,0x4A281DdC750359d5C0D2D51A890cefA43485EF2d,
+collection_name,user_address
+vb-test,0x4A281DdC750359d5C0D2D51A890cefA43485EF2d
 t,c,f
 2025-07-23 11:42:15+00:00,0x6f3328cba0ffde8429e66008708419751921bf41737e32a0fcd173849e325561,application-logs2025-07-15T19_46_13.098Z-2025-07-16T19_46_13.098Z_2025-07-23_11-42-15+0000.json
 2025-07-23 20:34:58+00:00,0xaeda4cf7d65f9d67b128bf795b5f237183550a814c9d4aa83c7e84f027d4aeec,attribcache140_2025-07-23_20-34-58+0000.bin
@@ -216,7 +216,7 @@ t,c,f
 omitted, the backend will try to infer metadata from the payload.
 
 For CSV requests, the leading metadata section
-`collection_name,user_address,collection_timezone` is optional.
+`collection_name,user_address` is optional.
 
 **Multipart/form-data (legacy)**
 Upload a `.csv` or `.json` file in the `file` field. The payload is normalized
