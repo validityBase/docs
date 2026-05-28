@@ -174,11 +174,17 @@ Each entry in `collections` identifies the verified collection by:
 
 **POST** `/v1/stamps/upload-stamped-file`
 
-This endpoint allows you to upload a file that has been previously stamped and verified against blockchain records.
+This endpoint allows you to upload a file or inline data that has been previously stamped and verified against blockchain records.
 
 #### Overview
 
-The upload stamped file endpoint performs comprehensive validation to ensure the file exists in the blockchain for the specified user and collection. It extracts the object CID from the file, verifies blockchain records, and uploads the file with proper validation.
+The upload stamped file endpoint calculates the object CID from the submitted file or inline data, verifies that matching blockchain commitments exist for the authenticated user and collection, uploads the content, and associates each uploaded file with its matching commitment.
+
+Content must be provided as either `file` or `data`, but not both. `file_name` is required whenever `data` is provided.
+
+If the same stamped content is uploaded again with a different file name, the endpoint is idempotent: it returns the existing file object with HTTP 200 and does not create another uploaded copy for the same commitment.
+
+If multiple commitments in the collection match the same object CID, the first successful upload stores one timestamped file copy for each matching commitment. The API response contains one matching `commitment_receipt` and `file_object`.
 
 #### Request Parameters
 
@@ -197,14 +203,13 @@ At least one of `collection_name` or `collection_cid` must be present, and exact
 
 The endpoint performs the following validations in sequence:
 
-1. **Input Validation**: Validates collection name is not empty
-   Also validates collection identifiers (`collection_name`/`collection_cid`) and enforces exactly one content source (`file` xor `data`).
+1. **Input Validation**: Validates collection name is not empty, validates collection identifiers (`collection_name`/`collection_cid`), enforces exactly one content source (`file` xor `data`), and requires `file_name` whenever `data` is provided.
 2. **User Address Resolution**: Automatically determines user address from authenticated user's profile
-3. **Collection Lookup**: Finds the collection by name (case-insensitive) for the authenticated user
-4. **CID Extraction**: Extracts object CID from the uploaded file
-5. **Blockchain Verification**: Verifies the file exists in blockchain records for the user's address
-6. **Record Validation**: Ensures exactly one matching record exists
-7. **File Upload**: Uploads the file with blockchain validation
+3. **Collection Lookup**: Finds the collection by name or CID for the authenticated user
+4. **CID Calculation**: Calculates object CID from the uploaded file, or from inline data when no file is provided
+5. **Blockchain Verification**: Verifies that matching commitments exist in blockchain records for the user's address and collection
+6. **File Association**: Uploads the file and associates it with each matching commitment that does not already have a file
+7. **Idempotent Duplicate Handling**: Returns the existing file object with HTTP 200 when a matching commitment is already associated with a file
 
 Unknown or unrecognized form fields are rejected with `400 Bad Request`.
 
@@ -212,11 +217,11 @@ Unknown or unrecognized form fields are rejected with `400 Bad Request`.
 
 | Status Code | Description | When It Occurs |
 |-------------|-------------|----------------|
-| 201 | File uploaded successfully | File passes all validations and uploads successfully |
+| 200 | File already uploaded | Matching commitment already has an associated file; no duplicate copy is created |
+| 201 | File uploaded successfully | File passes all validations and uploads successfully for one or more matching commitments |
 | 400 | Invalid input or validation failed | Empty collection name or missing required parameters |
 | 404 | Collection not found or no blockchain records found | Collection doesn't exist or no matching blockchain records |
-| 409 | Multiple blockchain records found (conflict) | Multiple records found for same user/collection combination |
-| 500 | File processing, blockchain, or upload errors | CID extraction fails, blockchain errors, or upload failures |
+| 500 | File processing, blockchain, or upload errors | CID calculation fails, blockchain errors, or upload failures |
 
 #### Example Requests
 
@@ -228,19 +233,47 @@ curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
 -F "file=@stamped_file.pdf"
 ```
 
+**Successful Upload Using Collection CID and Inline Data:**
+```bash
+curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
+-H "Authorization: Bearer YOUR_API_TOKEN" \
+-F "collection_cid=0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800" \
+-F "data={\"status\":\"approved\"}" \
+-F "file_name=stamped_data.json"
+```
+
 **Response (201):**
 ```json
 {
-  "fileObject": {
-    "file_name": "stamped_file_2025-01-01T12:00:00+00:00.pdf",
-    "file_path": "/uploads/user123/collection456/stamped_file_2025-01-01T12:00:00+00:00.pdf"
-  },
   "commitment_receipt": {
-    "user_address": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d",
-    "object_vid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
-    "timestamp": "2025-01-01 12:00:00+00:00",
     "transaction_hash": "0xbe3f57e7ad7b00e79f88b3f9ffc9fdee84d3251cfc2d121386d8fe793b0d782a",
-    "set_cid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800"
+    "user_address": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d",
+    "set_cid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
+    "object_cid": "0xf2ad58a03e4d1e4cf11f046e32b0e12fb9d835f63fa79fd5a4769d24ea5b3949",
+    "timestamp": "2025-01-01 12:00:00+00:00",
+    "chain_id": 1
+  },
+  "file_object": {
+    "file_name": "stamped_file_2025-01-01_12-00-00+0000.pdf",
+    "file_path": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d/collections/My Collection/stamped/stamped_file_2025-01-01_12-00-00+0000.pdf"
+  }
+}
+```
+
+**Duplicate Upload Response (200):**
+```json
+{
+  "commitment_receipt": {
+    "transaction_hash": "0xbe3f57e7ad7b00e79f88b3f9ffc9fdee84d3251cfc2d121386d8fe793b0d782a",
+    "user_address": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d",
+    "set_cid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800",
+    "object_cid": "0xf2ad58a03e4d1e4cf11f046e32b0e12fb9d835f63fa79fd5a4769d24ea5b3949",
+    "timestamp": "2025-01-01 12:00:00+00:00",
+    "chain_id": 1
+  },
+  "file_object": {
+    "file_name": "stamped_file_2025-01-01_12-00-00+0000.pdf",
+    "file_path": "0x4A281DdC750359d5C0D2D51A890cefA43485EF2d/collections/My Collection/stamped/stamped_file_2025-01-01_12-00-00+0000.pdf"
   }
 }
 ```
@@ -258,13 +291,6 @@ curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
 ```json
 {
   "error": "No records found for this object_cid: 0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800"
-}
-```
-
-**Multiple Records Conflict (409):**
-```json
-{
-  "error": "Multiple records found for the same user_address and collection_name"
 }
 ```
 
