@@ -1,13 +1,13 @@
 {
-    "add_string_dataset_record": 0.01,
+    "add_string_dataset_record": 0.007,
     "add_string_dataset_record_async": 0.005,
     "create_set": 0.005,
-    "github_codespaces_guide": 0.015,
+    "github_codespaces_guide": 0.014,
     "index": 0.012,
     "quickstart": 0.01,
-    "restore_dataset_provenance": 0.008,
+    "restore_dataset_provenance": 0.007,
     "stamp_alpaca_portfolio": 0.019,
     "stamp_interactive_brokers_portfolio": 0.013,
-    "windows_guide": 0.022,
+    "windows_guide": 0.023,
     "windows_subsystem_for_linux_guide": 0.011
 }
