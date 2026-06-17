@@ -13,11 +13,9 @@ The following steps guide you through this process of setting up vBase Python To
    ```bash
    mkdir ~/validityBase && cd ~/validityBase
    ```
-3. **Install the vBase Python SDK:**
-   Install the `vbase` Python package that provides the vBase Python SDK:
-   ```bash
-   pip install vbase
-   ```
+3. **Use the vBase Python SDK from PyPI:**
+   The `vbase` Python package is declared as a range dependency in
+   `requirements.in` and installed with `vbase-py-tools` in step 6.
 4. **Clone the vBase Python Tools:**
    Clone the `vbase-py-tools` GitHub repository:
    ```bash
@@ -29,10 +27,10 @@ The following steps guide you through this process of setting up vBase Python To
    ```bash
    cd vbase-py-tools
    ```
-6. **Install requirements:**
-   Install package requirements:
+6. **Install vbase-py-tools:**
+   Install the package and its runtime dependencies:
    ```bash
-   pip3 install -r requirements.txt
+   python -m pip install -e .
    ```
 7. **Configure vbase-py-tools:**
    vBase tools can be configured using an automatic configuration script or manually. We recommend an automatic configuration for the initial setup.

@@ -1,6 +1,6 @@
 {
-    "commit_s3_objects": 1.299,
+    "commit_s3_objects": 1.349,
     "index": 0.002,
-    "setup": 0.012,
+    "setup": 0.013,
     "verify_s3_objects": 0.006
 }
