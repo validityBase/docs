@@ -116,7 +116,7 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
 
 > **escalatedSendTransaction**(`web3`, `signer`, `to`, `data`, `logger`, `gasLimit`?): `Promise`\<`TransactionReceipt`\>
 
-Defined in: [transactions.ts:315](https://github.com/validityBase/vbase-ts/blob/d36ea51a6946f381fc966665d2891009039d4a7d/src/vbase/transactions.ts#L315)
+Defined in: [transactions.ts:566](https://github.com/validityBase/vbase-ts/blob/67d6620b4fa063ef3f679e08cf960079824fcd54/src/vbase/transactions.ts#L566)
 
 Sends an Ethereum transaction with escalation logic to increase gas price if needed.
 
@@ -174,7 +174,7 @@ If the transaction fails to send or encounters an error.
 
 > **jsonPrettyStringify**(`obj`): `string`
 
-Defined in: [utils.ts:54](https://github.com/validityBase/vbase-ts/blob/d36ea51a6946f381fc966665d2891009039d4a7d/src/vbase/utils.ts#L54)
+Defined in: [utils.ts:54](https://github.com/validityBase/vbase-ts/blob/67d6620b4fa063ef3f679e08cf960079824fcd54/src/vbase/utils.ts#L54)
 
 Converts an object into a pretty-printed JSON string.
 
@@ -201,7 +201,7 @@ A JSON-formatted string with indentation for readability.
 
 > **serializeBigInts**(`obj`): `any`
 
-Defined in: [utils.ts:14](https://github.com/validityBase/vbase-ts/blob/d36ea51a6946f381fc966665d2891009039d4a7d/src/vbase/utils.ts#L14)
+Defined in: [utils.ts:14](https://github.com/validityBase/vbase-ts/blob/67d6620b4fa063ef3f679e08cf960079824fcd54/src/vbase/utils.ts#L14)
 
 Recursively serializes BigInt values within an object, array, or nested structure.
 
