@@ -9,6 +9,8 @@ Maintenance rules:
 
 - Keep `node_modules` out of git.
 - Keep package dependencies in `package.json` and `package-lock.json`.
+- Direct package dependencies are pinned to exact versions without `^` or `~`.
+- Dependency installs use `npm ci --ignore-scripts`.
 - Rebuild the bundled `index.js` after changing TypeScript source or package
   dependencies.
 - Do not add dependencies that are unused by `src/`.
