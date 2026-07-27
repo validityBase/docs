@@ -15,7 +15,7 @@ The following steps guide you through this process of setting up vBase Python To
    ```
 3. **Use the vBase Python SDK from PyPI:**
    The `vbase` Python package is declared as a range dependency in
-   `requirements.in` and installed with `vbase-py-tools` in step 6.
+   `requirements/base.in` and installed with `vbase-py-tools` in step 6.
 4. **Clone the vBase Python Tools:**
    Clone the `vbase-py-tools` GitHub repository:
    ```bash
