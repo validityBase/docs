@@ -23,18 +23,18 @@ commit_s3_objects [-h] --dataset_name DATASET_NAME --bucket BUCKET [--key KEY]
 * [**`--bucket`**]() `BUCKET` - S3 bucket name
 * [**`--key`**]() `KEY` - S3 object key: 
   If supplied, a single object will be committed. 
-  –key, –key_prefix, or –key_pattern argument must be provided.
+  --key, --key_prefix, or --key_pattern argument must be provided.
 * [**`--key_prefix`**]() `KEY_PREFIX` - S3 object key prefix: 
   If supplied, objects matching the prefix will be committed. 
-  –key, –key_prefix, or –key_pattern argument must be provided.
+  --key, --key_prefix, or --key_pattern argument must be provided.
 * [**`--key_pattern`**]() `KEY_PATTERN` - S3 object key pattern: 
   If supplied, objects matching the wildcard pattern will be committed.  
-  –key, –key_prefix, or –key_pattern argument must be provided.
+  --key, --key_prefix, or --key_pattern argument must be provided.
 * [**`--version`**]() `VERSION` - S3 object version: 
   If latest is specified, the latest object will be committed. 
-  If version_id is specified, –version_id argument must be provided, 
+  If version_id is specified, --version_id argument must be provided, 
   and the version specified by version_id will be committed.
-  The version_id option is only compatible with single object (–key argument) commitments. (default: `latest`)
+  The version_id option is only compatible with single object (--key argument) commitments. (default: `latest`)
 * [**`--version_id`**]() `VERSION_ID` - S3 object version ID to commit
 * [**`--use_aws_access_key`**]() - use AWS authentication: If specified, AWS Access Key defined in .env will be used. 
   In this case, .env must define AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY variables.
