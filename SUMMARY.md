@@ -13,10 +13,12 @@
   * [Start Your Journey](docs/getting-started/start-your-journey.md)
   * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
   * [Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
-    <!-- * [Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
+<!-- 
+  * [Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
   * [Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
-  * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md) -->
-* [Python API Quickstart — Recommended](vbase-api-py/index.md)
+  * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md) 
+-->
+* [Python API Quickstart](docs/getting-started/python-api-quickstart.md "Python API Quickstart — Recommended")
 
 ## Deep Dive
 * [Technical Overview](docs/welcome/technical-overview.md)
@@ -24,13 +26,6 @@
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
 * [Verification Methods](docs/getting-started/verification-methods.md)
 
-## REST API
-* [User Guide](vbase-django-tools/api/rest-api-user-guide.md)
-* [Samples](vbase-django-tools/api/rest-api-user-examples.md)
-* [REST API Client](vbase-api-py/vbase_api_client.md)
-* [API models](vbase-api-py/vbase_api_models.md)
-
-## Web Tools
 
 ## Use Case How-Tos 
 <!--  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md) -->
@@ -46,6 +41,20 @@
   * [Predictive Models](docs/use-case-samples/predictive-model.md)
   * [Shareable Investment Dashboards](docs/use-case-samples/shareable-investment-dashboard.md)
   * [Verified GitHub Repos](docs/use-case-samples/verified-github-repo.md) -->
+
+## Developer APIs
+
+* Python API Client
+  * [Python API Quickstart](vbase-api-py/index.md)
+  * [Client Reference](vbase-api-py/vbase_api_client.md)
+  * [Models Reference](vbase-api-py/vbase_api_models.md)
+
+* REST API
+  * [User Guide](vbase-django-tools/api/rest-api-user-guide.md)
+  * [Samples](vbase-django-tools/api/rest-api-user-examples.md)
+  * [REST API Client](vbase-api-py/vbase_api_client.md)
+  * [API models](vbase-api-py/vbase_api_models.md)
+
 
 ## Python SDK
 
