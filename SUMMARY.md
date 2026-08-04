@@ -11,7 +11,7 @@
 * [Choose How to Use vBase](docs/getting-started/choose-how-to-use-vbase.md)
 * [Create a vBase Account](docs/getting-started/create-a-vbase-account.md)
 * Web App
-  * [Start Your Journey](docs/getting-started/start-your-journey.md)
+  * [Web App Overview](docs/web-tools/web-app-overview.md)
   * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
   * [Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
 <!-- 

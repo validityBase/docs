@@ -23,7 +23,7 @@ You can either:
 * Use one account for testing and create a separate account when you are ready to begin a live, verifiable record; or
 * Create a Collection named `TEST` and place your test stamps there.
 
-This helps keep experimental activity clearly separated from the Collections and stamps you may later share with clients, investors, or other verifiers.
+This helps keep experimental activity clearly separated from the Collections and audit trail records you may later share with clients, investors, or other verifiers.
 
 ## Find your account settings
 

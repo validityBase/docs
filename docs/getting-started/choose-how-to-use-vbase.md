@@ -21,13 +21,13 @@ For most users:
 | Stamp data from Excel                                  | [Excel and COM Tools](../../vbase-cs/user-guide.md)             |
 | Run command-line workflows                             | [vBase CLI](../../vbase-cli/index.md)                           |
 
-## Web App — Recommended for non-technical users
+## Web App — recommended for non-technical users
 
 Use the vBase web application when you want to create or verify stamps in your browser, without writing code.
 
 [Get Started with the Web App →](start-your-journey.md)
 
-## Python API Client — Easiest approach for technical users
+## Python API Client — easiest approach for technical users
 
 The Python API Client is the recommended integration for most Python users.
 
