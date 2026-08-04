@@ -26,7 +26,7 @@ managing vBase collections, and verifying stamped content.
 
 ```python
 client = VBaseAPIClient(api_key="your-bearer-token")
-collections = client.get_collections()
+collections = client.list_collections()
 stamp = client.create_stamp(data={"hello": "world"})
 ```
 
@@ -105,9 +105,7 @@ if stamp.file_object:
     print(f"File: {stamp.file_object.file_name}")
 
 # Stamp an existing CID
-stamp = client.create_stamp(
-    data_cid="0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800"
-)
+stamp = client.create_stamp(data_cid="Qm...")
 ```
 
 ### get_collections(user_address: str | None = None, is_pinned: bool | None = None) → List[[Collection](vbase_api_models.md#vbase_api.vbase_api_models.Collection)]
