@@ -6,18 +6,6 @@
 * [What is a Stamp?](docs/welcome/what-is-a-stamp.md)
 * [Example Use Cases](docs/welcome/example-use-cases.md)
 
-## Get Started
-
-* [Choose an Integration](docs/getting-started/choose-an-integration.md)
-* Web App
-  * [Start Your Journey](docs/getting-started/start-your-journey.md)
-  * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
-  * [Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
-    <!-- * [Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
-  * [Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
-  * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md) -->
-* [Python API Quickstart — Recommended](vbase-api-py/index.md)
-
 ## Deep Dive
 * [Technical Overview](docs/welcome/technical-overview.md)
 * [Why Blockchains?](docs/welcome/why-blockchains.md)
@@ -31,7 +19,13 @@
 * [API models](vbase-api-py/vbase_api_models.md)
 
 ## Web Tools
-
+  <!-- * [Introduction](docs/web-tools/readme.md) -->
+  * [Start your Journey](docs/getting-started/start-your-journey.md)
+  * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
+  * [Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
+  <!-- * [Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
+  * [Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
+  * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md) -->
 ## Use Case How-Tos 
 <!--  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md) -->
   * [Data Provider Workflow](docs/getting-started/data-provider-workflow.md)
