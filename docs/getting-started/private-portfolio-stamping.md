@@ -14,21 +14,27 @@ Every stamp records a Content ID (CID) — the SHA3-256 hash of your portfolio f
 
 **Keep the exact original file.** Any modification — a space, a line ending, encoding — produces a different hash and the upload will fail. Store the file securely until you are ready to reveal it.
 
+**Use a test account first.** Before you begin stamping live portfolios, run the full two-step workflow — stamp a sample file, then reveal it and confirm it appears correctly — using a test API key. Once verified, switch to your production API key. No other change is required.
+
 
 ## Step 1: Stamp privately
 
-Set `store_stamped_file=False`. The CID is recorded on the blockchain; the file contents are never sent to vBase.
+Compute the SHA3-256 hash of the portfolio file locally, then pass it as `data_cid`. The file contents never leave your machine — only the hash is sent to vBase.
 
 ```python
+import hashlib
 import os
+from pathlib import Path
 from vbase_api import VBaseAPIClient
 
 client = VBaseAPIClient(api_key=os.environ["VBASE_API_KEY"])
 
+portfolio_file = Path("portfolio_2025-01-31.csv")
+cid = "0x" + hashlib.sha3_256(portfolio_file.read_bytes()).hexdigest()
+
 stamp = client.create_stamp(
-    file="portfolio_2025-01-31.csv",
+    data_cid=cid,
     collection_name="global-macro-2025",
-    store_stamped_file=False,
 )
 
 print(f"Stamped at:  {stamp.commitment_receipt.timestamp}")
@@ -37,12 +43,12 @@ print(f"Transaction: {stamp.commitment_receipt.transaction_hash}")
 
 Save the receipt. You can stamp as many portfolios as you like before revealing any of them.
 
-**Using curl:** compute the CID locally and submit it directly.
+**Using curl:**
 
 ```bash
 CID=$(openssl dgst -sha3-256 portfolio_2025-01-31.csv | awk '{print "0x"$2}')
 
-curl -X POST https://app.vbase.com/api/v1/stamps/ \
+curl -X POST https://app.vbase.com/api/v1/stamps \
   -H "Authorization: Bearer $VBASE_API_KEY" \
   -F "data_cid=$CID" \
   -F "collection_name=global-macro-2025"
@@ -65,7 +71,7 @@ print(f"Revealed: {result.file_object.file_name}")
 **Using curl:**
 
 ```bash
-curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file/ \
+curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
   -H "Authorization: Bearer $VBASE_API_KEY" \
   -F "collection_name=global-macro-2025" \
   -F "file=@portfolio_2025-01-31.csv"

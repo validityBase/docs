@@ -27,7 +27,7 @@ The REST API is the foundation that all other integrations build on. It is a sta
 - Docs: [REST API User Guide](../../vbase-django-tools/api/rest-api-user-guide.md)
 
 ```bash
-curl -X POST https://app.vbase.com/api/v1/stamps/ \
+curl -X POST https://app.vbase.com/api/v1/stamps \
   -H "Authorization: Bearer $VBASE_API_KEY" \
   -F "collection_name=my-strategy" \
   -F "file=@portfolio.csv"

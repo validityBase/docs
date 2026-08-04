@@ -8,6 +8,8 @@ This guide covers the fastest path to stamping a portfolio with vBase using the 
 1. Sign up at [app.vbase.com](https://app.vbase.com).
 2. Go to [Account Settings](https://app.vbase.com/profile/#account_settings) and copy your API key.
 
+**Use a test account first.** Create a separate vBase account for testing and use its API key while you verify that your pipeline stamps files and validation passes end-to-end. When everything works as expected, swap in your production API key — that is the only change needed. This is the same practice as maintaining a staging and a production environment.
+
 
 ## Install
 
@@ -82,7 +84,7 @@ If you prefer curl or another HTTP client, the base URL is `https://app.vbase.co
 **Create a stamp:**
 
 ```bash
-curl -X POST https://app.vbase.com/api/v1/stamps/ \
+curl -X POST https://app.vbase.com/api/v1/stamps \
   -H "Authorization: Bearer $VBASE_API_KEY" \
   -F "collection_name=global-macro-2025" \
   -F "file=@portfolio_2025-01-31.csv"
