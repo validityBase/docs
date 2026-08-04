@@ -45,7 +45,7 @@
 ## Developer APIs
 
 * Python API Client
-  * [Python API Quickstart](vbase-api-py/index.md)
+  * [Python API Quickstart](docs/getting-started/python-api-quickstart.md)
   * [Client Reference](vbase-api-py/vbase_api_client.md)
   * [Models Reference](vbase-api-py/vbase_api_models.md)
 
