@@ -8,7 +8,7 @@
 
 ## Get Started
 
-* [Choose an Integration](docs/getting-started/choose-an-integration.md)
+* [Choose How to Use vBase](docs/getting-started/choose-how-to-use-vbase.md)
 * Web App
   * [Start Your Journey](docs/getting-started/start-your-journey.md)
   * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
