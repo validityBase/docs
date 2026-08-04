@@ -20,13 +20,6 @@
 -->
 * [Python API Quickstart](docs/getting-started/python-api-quickstart.md "Python API Quickstart — Recommended")
 
-## Deep Dive
-* [Technical Overview](docs/welcome/technical-overview.md)
-* [Why Blockchains?](docs/welcome/why-blockchains.md)
-* [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
-* [Verification Methods](docs/getting-started/verification-methods.md)
-
-
 ## Use Case How-Tos 
 <!--  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md) -->
   * [Data Provider Workflow](docs/getting-started/data-provider-workflow.md)
@@ -42,6 +35,13 @@
   * [Shareable Investment Dashboards](docs/use-case-samples/shareable-investment-dashboard.md)
   * [Verified GitHub Repos](docs/use-case-samples/verified-github-repo.md) -->
 
+
+## Deep Dive
+* [Technical Overview](docs/welcome/technical-overview.md)
+* [Why Blockchains?](docs/welcome/why-blockchains.md)
+* [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
+* [Verification Methods](docs/getting-started/verification-methods.md)
+
 ## Developer APIs
 
 * Python API Client
@@ -52,8 +52,6 @@
 * REST API
   * [User Guide](vbase-django-tools/api/rest-api-user-guide.md)
   * [Samples](vbase-django-tools/api/rest-api-user-examples.md)
-  * [REST API Client](vbase-api-py/vbase_api_client.md)
-  * [API models](vbase-api-py/vbase_api_models.md)
 
 
 ## Python SDK
