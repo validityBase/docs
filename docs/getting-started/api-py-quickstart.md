@@ -1,14 +1,17 @@
-# API Quickstart
+# Python REST Client Quickstart
 
-This guide covers the fastest path to stamping a portfolio with vBase using the Python client. If you prefer raw HTTP, see [Using the REST API directly](#using-the-rest-api-directly).
+Use the `vbase-api` Python client to stamp a portfolio through the REST API. For
+raw HTTP, see [Using the REST API directly](#using-the-rest-api-directly).
 
 
 ## Prerequisites
 
 1. Sign up at [app.vbase.com](https://app.vbase.com).
-2. Go to [Account Settings](https://app.vbase.com/profile/#account_settings) and copy your API key.
+2. Go to [Account Settings](https://app.vbase.com/profile#account_settings) and copy your API key.
 
-**Use a test account first.** Create a separate vBase account for testing and use its API key while you verify that your pipeline stamps files and validation passes end-to-end. When everything works as expected, swap in your production API key — that is the only change needed. This is the same practice as maintaining a staging and a production environment.
+**Test first.** Verify the workflow with a separate test account. Collections
+are account-specific, so re-create them in production before switching API
+keys.
 
 
 ## Install
@@ -17,19 +20,13 @@ This guide covers the fastest path to stamping a portfolio with vBase using the 
 pip install vbase-api
 ```
 
-The package requires Python 3.8 or later. Note that the install name (`vbase-api`) and import name (`vbase_api`) differ.
+Requires Python 3.8 or later. The package installs as `vbase-api` and imports as
+`vbase_api`. The similarly named `vbase` package is the lower-level core SDK.
 
 
-## Create a client
+## Configure your API key
 
-```python
-import os
-from vbase_api import VBaseAPIClient
-
-client = VBaseAPIClient(api_key=os.environ["VBASE_API_KEY"])
-```
-
-Store your key in an environment variable — never hardcode it or commit it to version control.
+Store the key in an environment variable. Never commit it to version control.
 
 macOS/Linux:
 
@@ -44,9 +41,20 @@ $env:VBASE_API_KEY="your-api-key"
 ```
 
 
+## Create a client
+
+```python
+import os
+from vbase_api import VBaseAPIClient
+
+client = VBaseAPIClient(api_key=os.environ["VBASE_API_KEY"])
+```
+
+
 ## Create a collection
 
-A collection is the named container for one strategy's history. Create one per strategy.
+A collection holds one strategy's history. Create it once; duplicate names
+return a conflict error.
 
 ```python
 client.create_collection(
@@ -55,12 +63,15 @@ client.create_collection(
 )
 ```
 
-You can also create and manage collections at [app.vbase.com/profile/#collections](https://app.vbase.com/profile/#collections).
+You can also create and manage collections at
+[app.vbase.com/profile#collections](https://app.vbase.com/profile#collections).
 
 
 ## Prepare your portfolio
 
-Build a CSV with one row per position. See [Portfolio Format](stamping-portfolios.md) for the full specification, including accepted column names and weight normalization rules.
+Create a CSV with one row per position. See
+[Portfolio Format](stamping-portfolios.md) for accepted columns and weight
+rules.
 
 ```
 symbol,weight
@@ -76,7 +87,8 @@ Weights are normalized decimals. Negative weights are short positions.
 
 ## Stamp a portfolio
 
-Pass the CSV file path and your collection name. vBase computes a cryptographic fingerprint of the file, records it on the blockchain with a timestamp, and stores a copy.
+Pass the file path and collection name. By default, vBase records its content
+ID and timestamp on-chain and stores the file.
 
 ```python
 stamp = client.create_stamp(
@@ -88,7 +100,16 @@ print(stamp.commitment_receipt.timestamp)
 print(stamp.commitment_receipt.transaction_hash)
 ```
 
-Stamp after each rebalance, or on a regular cadence, to build a continuous verified track record.
+Stamp after each rebalance or on a regular schedule.
+
+Resending identical content is idempotent for 3,600 seconds by default. See
+[Idempotency](api-py-guide.md#idempotency) before changing this behavior.
+
+Close the client's HTTP session when the script is finished:
+
+```python
+client.close()
+```
 
 
 ## Using the REST API directly
@@ -101,7 +122,8 @@ If you prefer curl or another HTTP client, the base URL is `https://app.vbase.co
 curl -X POST https://app.vbase.com/api/v1/stamps \
   -H "Authorization: Bearer $VBASE_API_KEY" \
   -F "collection_name=global-macro-2025" \
-  -F "file=@portfolio_2025-01-31.csv"
+  -F "file=@portfolio_2025-01-31.csv" \
+  -F "store_stamped_file=true"
 ```
 
 Full interactive documentation is available at [app.vbase.com/swagger/](https://app.vbase.com/swagger/).
@@ -109,6 +131,7 @@ Full interactive documentation is available at [app.vbase.com/swagger/](https://
 
 ## Next steps
 
-- [Python API Client Guide](api-py-guide.md) — full reference for all client operations.
+- [Python REST Client Guide](api-py-guide.md) — common operations and behavior.
+- [Python client API reference](../../vbase-api-py/index.md) — complete method and response-model reference.
 - [Private Portfolio Stamping](private-portfolio-stamping.md) — stamp without revealing positions; disclose on your schedule.
 - [Verified Track Record](verified-track-record.md) — share a live dashboard once you have a history.

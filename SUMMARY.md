@@ -14,8 +14,8 @@
 
 ## REST API
 * [Choosing Your Integration](docs/getting-started/choosing-your-integration.md)
-* [Python Client Quickstart](docs/getting-started/api-py-quickstart.md)
-* [Python Client Guide](docs/getting-started/api-py-guide.md)
+* [Python REST Client Quickstart](docs/getting-started/api-py-quickstart.md)
+* [Python REST Client Guide](docs/getting-started/api-py-guide.md)
 * [REST API User Guide](vbase-django-tools/api/rest-api-user-guide.md)
 * [Samples](vbase-django-tools/api/rest-api-user-examples.md)
 
@@ -43,7 +43,7 @@
   * [Shareable Investment Dashboards](docs/use-case-samples/shareable-investment-dashboard.md)
   * [Verified GitHub Repos](docs/use-case-samples/verified-github-repo.md) -->
 
-## Python SDK
+## Core Python SDK (`vbase`)
 
 * [Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
@@ -56,7 +56,7 @@
   * [Stamp Interactive Brokers Portfolio](vbase-py-samples/stamp_interactive_brokers_portfolio.md)
   * [Stamp Alpaca Portfolio](vbase-py-samples/stamp_alpaca_portfolio.md)
 * [Windows Setup Guide](vbase-py-samples/windows_guide.md)
-* [Package vbase-py](vbase-py/api.md)
+* [Package `vbase`](vbase-py/api.md)
 * [Package vbase-py-tools](vbase-py-tools/index.md)
   * [Setup](vbase-py-tools/setup.md)
   * [commit\_s3\_objects](vbase-py-tools/commit_s3_objects.md)

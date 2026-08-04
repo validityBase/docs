@@ -1,25 +1,41 @@
 # Private Portfolio Stamping with Delayed Reveal
 
-A manager may want to start building a verifiable track record well before disclosing positions. vBase supports this through a two-step workflow:
+Build a verifiable track record before disclosing positions:
 
-1. **Stamp privately** — record a cryptographic fingerprint of your portfolio on the blockchain immediately, without uploading the file contents.
-2. **Reveal later** — upload the original file when you are ready. vBase verifies it matches the fingerprint and incorporates it into your dashboards.
+1. **Stamp privately** — record the portfolio's Content ID (CID) without
+   uploading the file.
+2. **Reveal later** — upload the file. vBase verifies its CID and associates it
+   with the original commitment.
 
-This lets you accumulate months of verified, timestamped history in private, then publish the full record at once. Allocators can confirm that every portfolio was known ahead of the returns, not reconstructed after the fact.
+The original timestamps show that each portfolio existed before its subsequent
+returns were known.
+
+
+## Prerequisites
+
+- Python 3.8 or later with `vbase-api` installed
+- A vBase API key stored in `VBASE_API_KEY`
+- An existing collection; see the
+  [Python REST Client Quickstart](api-py-quickstart.md#create-a-collection)
 
 
 ## How it works
 
-Every stamp records a Content ID (CID) — the SHA3-256 hash of your portfolio file. When you later upload the file, vBase recomputes the hash and confirms it matches the one on the blockchain. The blockchain timestamp reflects the original stamp time, not the upload time.
+The CID is the SHA3-256 digest of the exact file bytes, encoded as a
+`0x`-prefixed hexadecimal string. On upload, vBase recomputes the CID and finds
+the matching commitment for the authenticated account and collection. The
+original stamp timestamp remains unchanged.
 
-**Keep the exact original file.** Any modification — a space, a line ending, encoding — produces a different hash and the upload will fail. Store the file securely until you are ready to reveal it.
+**Keep the exact file.** Changes to spacing, line endings, or encoding change
+the CID and prevent a match.
 
-**Use a test account first.** Before you begin stamping live portfolios, run the full two-step workflow — stamp a sample file, then reveal it and confirm it appears correctly — using a test API key. Once verified, switch to your production API key. No other change is required.
+**Test first.** Run both steps with a separate test account before stamping live
+portfolios.
 
 
 ## Step 1: Stamp privately
 
-Compute the SHA3-256 hash of the portfolio file locally, then pass it as `data_cid`. The file contents never leave your machine — only the hash is sent to vBase.
+Compute the CID locally and pass it as `data_cid`. No file bytes are sent.
 
 ```python
 import hashlib
@@ -27,21 +43,19 @@ import os
 from pathlib import Path
 from vbase_api import VBaseAPIClient
 
-client = VBaseAPIClient(api_key=os.environ["VBASE_API_KEY"])
-
 portfolio_file = Path("portfolio_2025-01-31.csv")
 cid = "0x" + hashlib.sha3_256(portfolio_file.read_bytes()).hexdigest()
 
-stamp = client.create_stamp(
-    data_cid=cid,
-    collection_name="global-macro-2025",
-)
+with VBaseAPIClient(api_key=os.environ["VBASE_API_KEY"]) as client:
+    stamp = client.create_stamp(
+        data_cid=cid,
+        collection_name="global-macro-2025",
+        store_stamped_file=False,
+    )
 
 print(f"Stamped at:  {stamp.commitment_receipt.timestamp}")
 print(f"Transaction: {stamp.commitment_receipt.transaction_hash}")
 ```
-
-Save the receipt. You can stamp as many portfolios as you like before revealing any of them.
 
 **Using curl:**
 
@@ -51,19 +65,23 @@ CID=$(openssl dgst -sha3-256 portfolio_2025-01-31.csv | awk '{print "0x"$2}')
 curl -X POST https://app.vbase.com/api/v1/stamps \
   -H "Authorization: Bearer $VBASE_API_KEY" \
   -F "data_cid=$CID" \
-  -F "collection_name=global-macro-2025"
+  -F "collection_name=global-macro-2025" \
+  -F "store_stamped_file=false"
 ```
-
 
 ## Step 2: Reveal when ready
 
-Upload the original file. vBase verifies the CID, associates the file with the earlier stamp, and adds it to your collection history and dashboards.
+Using the same account and collection, upload the original file:
 
 ```python
-result = client.upload_stamped_file(
-    collection_name="global-macro-2025",
-    file="portfolio_2025-01-31.csv",
-)
+import os
+from vbase_api import VBaseAPIClient
+
+with VBaseAPIClient(api_key=os.environ["VBASE_API_KEY"]) as client:
+    result = client.upload_stamped_file(
+        collection_name="global-macro-2025",
+        file="portfolio_2025-01-31.csv",
+    )
 
 print(f"Revealed: {result.file_object.file_name}")
 ```
@@ -77,11 +95,12 @@ curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
   -F "file=@portfolio_2025-01-31.csv"
 ```
 
-You can reveal files in any order and at any time. The original blockchain timestamps are preserved regardless of when you upload.
+Files can be revealed in any order. Their original timestamps remain unchanged.
 
 
 ## Dashboard activation
 
-Once files are revealed, vBase rebuilds your portfolio dashboards and performance analytics. Contact [hello@vbase.com](mailto:hello@vbase.com) with your collection name to get your dashboard link.
+Contact [hello@vbase.com](mailto:hello@vbase.com) with the collection name to
+configure portfolio dashboards and performance analytics.
 
 See [Verified Track Record](verified-track-record.md) for details on sharing your history with allocators.
