@@ -9,6 +9,7 @@
 ## Get Started
 
 * [Choose How to Use vBase](docs/getting-started/choose-how-to-use-vbase.md)
+* [Create a vBase Account](docs/getting-started/create-a-vbase-account.md)
 * Web App
   * [Start Your Journey](docs/getting-started/start-your-journey.md)
   * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
@@ -25,6 +26,7 @@
   * [Data Provider Workflow](docs/getting-started/data-provider-workflow.md)
   * [Verified Investment Track Records](docs/getting-started/verified-track-record.md)
   * [Stamping a Portfolio](docs/getting-started/stamping-portfolios.md)
+  * [Private Portfolio Stamping](docs/getting-started/private-portfolio-stamping.md)
   * [Linking with Interactive Brokers](docs/getting-started/linking-interactive-brokers.md)
   * [Linking with QuantConnect](docs/getting-started/linking-quantconnect.md)
 
