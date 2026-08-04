@@ -24,3 +24,9 @@ _book
 /publish-docs-action/node_modules
 /publish-docs-action/src/*.js
 
+# Claude Code local settings
+.claude/settings.json
+.claude/settings.local.json
+
+# Codex local settings
+.codex
