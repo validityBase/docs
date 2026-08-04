@@ -26,3 +26,20 @@ npm audit
 npm audit --omit=dev
 npm ls @actions/core @actions/http-client undici --all
 ```
+
+## `repo-backup.yml`
+
+`.github/workflows/repo-backup.yml` runs daily and can also be triggered
+manually. It delegates to
+`validityBase/vbase-github-actions/.github/workflows/repo-backup.yml@v1`,
+creates a full-history git bundle, checksum, and metadata file, and uploads the
+artifacts under the shared `github-backups` object storage prefix.
+
+Required GitHub Actions secrets:
+- `VBASE_COMMON_REPO_READ_TOKEN`
+- `VBASE_REPO_BACKUP_SECRETS_TOKEN`
+
+`VBASE_REPO_BACKUP_SECRETS_TOKEN` is the Bitwarden machine access token for the
+`vbase-repo-backups` project. Object storage credentials stay in Bitwarden under
+generic `OBJECT_STORAGE_*` secret names; do not add provider credentials
+directly to this repository's GitHub Secrets.
