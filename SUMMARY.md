@@ -15,7 +15,8 @@
 ## REST API
 * [Choosing Your Integration](docs/getting-started/choosing-your-integration.md)
 * [Python Client Quickstart](docs/getting-started/api-py-quickstart.md)
-* [User Guide](vbase-django-tools/api/rest-api-user-guide.md)
+* [Python Client Guide](docs/getting-started/api-py-guide.md)
+* [REST API User Guide](vbase-django-tools/api/rest-api-user-guide.md)
 * [Samples](vbase-django-tools/api/rest-api-user-examples.md)
 
 ## Web Tools

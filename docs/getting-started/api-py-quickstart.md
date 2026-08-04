@@ -14,8 +14,10 @@ This guide covers the fastest path to stamping a portfolio with vBase using the 
 ## Install
 
 ```bash
-pip install vbase-api-py
+pip install vbase-api
 ```
+
+The package requires Python 3.8 or later. Note that the install name (`vbase-api`) and import name (`vbase_api`) differ.
 
 
 ## Create a client
@@ -28,6 +30,18 @@ client = VBaseAPIClient(api_key=os.environ["VBASE_API_KEY"])
 ```
 
 Store your key in an environment variable — never hardcode it or commit it to version control.
+
+macOS/Linux:
+
+```bash
+export VBASE_API_KEY="your-api-key"
+```
+
+Windows PowerShell:
+
+```powershell
+$env:VBASE_API_KEY="your-api-key"
+```
 
 
 ## Create a collection
@@ -95,5 +109,6 @@ Full interactive documentation is available at [app.vbase.com/swagger/](https://
 
 ## Next steps
 
+- [Python API Client Guide](api-py-guide.md) — full reference for all client operations.
 - [Private Portfolio Stamping](private-portfolio-stamping.md) — stamp without revealing positions; disclose on your schedule.
 - [Verified Track Record](verified-track-record.md) — share a live dashboard once you have a history.
