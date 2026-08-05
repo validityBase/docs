@@ -59,7 +59,7 @@
 * [Interactive API Reference](https://app.vbase.com/swagger/)
 
 
-## Python Blockchain SDK (`vbase-py`) - Advanced
+## Python Blockchain SDK (`vbase`) - Advanced
 * [Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
   * [Local Installation](vbase-py-samples/quickstart.md)
