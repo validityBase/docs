@@ -1,22 +1,38 @@
-# Private Portfolio Stamping with Delayed Reveal
+# Private Stamping with Delayed Reveal
 
-Build a verifiable track record without disclosing your positions. When you
-share a file, others can match it to the blockchain record and confirm when you
-stamped it. The process has two steps:
+Stamp sensitive information before you are ready to disclose it. This workflow
+applies to predictive datasets, alternative data, research results, portfolios,
+and other files that you may share later. A recipient can match the exact file
+to the public blockchain record and confirm when it was stamped.
 
-1. **Stamp privately.** Record the portfolio's Content ID (CID) on-chain without uploading the file.
-2. **Reveal when ready.** Share the file for verification or upload it to vBase for dashboards and analytics.
+The process has two steps:
+
+1. **Stamp privately.** Calculate the file's Content ID (CID) on your computer
+   and stamp the CID without uploading the file.
+2. **Reveal when ready.** Share the exact file with selected recipients for
+   verification, or upload it to vBase if you want vBase to store it.
 
 ## How it works
 
-A Content ID is the SHA3-256 hash of the file, written as a `0x`-prefixed hex
-string. The API sends the CID and stamp details to vBase. The CID is public, so
-anyone with the exact file can hash it and find the matching stamp.
+A Content ID is the SHA3-256 hash of the file, written as a `0x`-prefixed
+hexadecimal string. The API sends the CID and stamp details to vBase, but it
+does not send the file. The CID is public, so anyone with the exact file can
+hash it and find the matching stamp.
+
+A CID is a hash, not encryption. Someone who can guess the exact contents can
+hash each guess and compare the results with the public CID. This workflow is
+suitable for detailed files whose exact bytes are hard to guess. A short value
+drawn from a predictable set needs a separate privacy method.
 
 When you upload the file, vBase calculates its CID and confirms that your
 account stamped it in the same collection. Any change to the file, including
 whitespace, line endings, or encoding, creates a different CID and prevents a
 match.
+
+If you start with structured data rather than a file, save the data to a file
+before calculating the CID. Keep that exact file for later verification.
+Writing the same values again with different spacing, field order, encoding, or
+line endings will produce a different CID.
 
 
 ## Prerequisites
@@ -25,14 +41,21 @@ match.
 - A vBase API key stored in `VBASE_API_KEY`; see
   [Configure your API key](api-py-quickstart.md#configure-your-api-key)
 - An existing collection; see [Create a collection](api-py-quickstart.md#create-a-collection)
-- For dashboard use, a CSV that meets the [portfolio format requirements](stamping-portfolios.md#what-counts-as-a-valid-portfolio-upload)
 - A separate account for testing before you use your main account
+
+If you are stamping a portfolio for use with vBase portfolio tools, the CSV
+must meet the
+[portfolio format requirements](stamping-portfolios.md#what-counts-as-a-valid-portfolio-upload).
+This requirement applies only to that portfolio use case.
 
 
 ## Step 1: Stamp privately
 
 Calculate the CID on your computer and pass it as `data_cid`. No part of the
 file leaves your machine during this step.
+
+The following example uses a private portfolio file. The same process applies
+to predictive datasets, alternative data, research results, and other files.
 
 ```python
 import hashlib
@@ -76,30 +99,33 @@ A successful stamp returns a commitment receipt:
     "user_address": "0x...",
     "transaction_hash": "0xabc...",
     "timestamp": "2025-06-01T09:00:00Z",
-    "chain_id": 137
+    "chain_id": 8453
   }
 }
 ```
 
-Keep the portfolio file exactly as it was when you calculated the CID. You need
-this file to show that it matches the stamp or to upload it later.
+Keep the file exactly as it was when you calculated the CID. You need this file
+to show that it matches the stamp or to upload it later.
 
 
 ## Step 2: Reveal when ready
 
-### Share with a third party
+### Share with a recipient
 
 Send the file to the person who needs to verify it. They can use
 [vBase Verify](https://app.vbase.com/verify/). The app hashes the file in their
 browser and finds the matching stamp. It does not upload the file, and the
 person does not need a vBase account.
 
-See [Verification Methods](verification-methods.md) for additional verification options.
+See [Verification Methods](verification-methods.md) for other ways to verify a
+stamp.
 
-### Upload to vBase
+### Store the file with vBase
 
-To use vBase dashboards and analytics, upload the file with the same account and
-collection name you used to stamp it. vBase stores the file.
+Upload the file if you want vBase to store it or use it with a feature that
+requires stored files. Use the same account and collection that you used for
+the stamp. vBase checks that the file's CID matches a stamp in that collection
+before storing it.
 
 ```python
 import os
@@ -127,9 +153,10 @@ You can upload files in any order. Uploading or sharing a file does not change
 its stamp time.
 
 
-## Set up dashboards
+## Portfolio-specific dashboard example
 
-Email [hello@vbase.com](mailto:hello@vbase.com) with the collection name to set
-up portfolio dashboards and analytics. See
-[Verified Track Record](verified-track-record.md) for how to share your history
-with allocators.
+This section applies only to portfolios. Email
+[hello@vbase.com](mailto:hello@vbase.com) with the collection name to set up
+portfolio dashboards and analytics. See
+[Verified Track Record](verified-track-record.md) for an example of sharing a
+portfolio history with allocators.

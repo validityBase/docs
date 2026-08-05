@@ -1,7 +1,8 @@
 # Python REST Client Guide
 
 `vbase-api` (`pip install vbase-api`; `import vbase_api`) is the Python client
-for the REST API. See the [quickstart](api-py-quickstart.md) for setup.
+for the REST API. You can use it to stamp and verify files or structured data
+and to manage collections. See the [quickstart](api-py-quickstart.md) for setup.
 
 ## Verify your connection
 
@@ -19,8 +20,8 @@ print(f"Blockchain address: {user.last_address}")
 
 ```python
 collection = client.create_collection(
-    name="Daily Positions",
-    description="Daily point-in-time portfolio position files",
+    name="Daily Demand Forecasts",
+    description="Daily demand predictions by region",
 )
 print(f"Collection CID: {collection.cid}")
 ```
@@ -47,12 +48,16 @@ user_collections = client.get_collections(user_address="0x...")
 
 ## Stamping
 
+The examples below use demand forecasts. The same calls work with other
+predictive datasets, alternative data, portfolios, research results, and other
+files.
+
 ### Stamp a file
 
 ```python
 stamp = client.create_stamp(
-    file="portfolio_2025-01-31.csv",
-    collection_name="global-macro-2025",
+    file="demand_forecast_2025-01-31.csv",
+    collection_name="daily-demand-forecasts",
 )
 print(stamp.commitment_receipt.timestamp)
 print(stamp.commitment_receipt.transaction_hash)
@@ -63,15 +68,15 @@ is still uploaded for CID calculation:
 
 ```python
 stamp = client.create_stamp(
-    file="portfolio_2025-01-31.csv",
-    collection_name="global-macro-2025",
+    file="demand_forecast_2025-01-31.csv",
+    collection_name="daily-demand-forecasts",
     store_stamped_file=False,
 )
 ```
 
 Use `upload_stamped_file` to store it later. If the file must not leave your
 machine before reveal, see
-[Private Portfolio Stamping](private-portfolio-stamping.md).
+[Private Stamping with Delayed Reveal](private-stamping.md).
 
 ### Stamp structured data
 
@@ -82,13 +87,13 @@ Pass a Python dict or string as `data`. The client serializes dicts with
 stamp = client.create_stamp(
     data={
         "as_of": "2025-01-31",
-        "positions": [
-            {"ticker": "AAPL", "weight": 0.20},
-            {"ticker": "MSFT", "weight": 0.15},
+        "predictions": [
+            {"region": "north", "demand": 127.4},
+            {"region": "south", "demand": 141.8},
         ],
     },
-    file_name="positions_2025-01-31.json",
-    collection_name="global-macro-2025",
+    file_name="demand_forecast_2025-01-31.json",
+    collection_name="daily-demand-forecasts",
 )
 ```
 
@@ -143,8 +148,8 @@ must match a commitment in that collection:
 
 ```python
 result = client.upload_stamped_file(
-    collection_name="global-macro-2025",
-    file="portfolio_2025-01-31.csv",
+    collection_name="daily-demand-forecasts",
+    file="demand_forecast_2025-01-31.csv",
 )
 print(f"Uploaded: {result.file_object.file_name}")
 ```
@@ -159,8 +164,8 @@ from vbase_api import VBaseAPIClient
 
 with VBaseAPIClient(api_key=os.environ["VBASE_API_KEY"]) as client:
     stamp = client.create_stamp(
-        file="portfolio.csv",
-        collection_name="my-strategy",
+        file="forecast.csv",
+        collection_name="daily-demand-forecasts",
     )
     print(stamp.commitment_receipt.timestamp)
 ```

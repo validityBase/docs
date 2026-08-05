@@ -30,9 +30,9 @@
 ## Use Case How-Tos 
 <!--  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md) -->
   * [Data Provider Workflow](docs/getting-started/data-provider-workflow.md)
+  * [Private Stamping with Delayed Reveal](docs/getting-started/private-stamping.md)
   * [Verified Investment Track Records](docs/getting-started/verified-track-record.md)
   * [Stamping a Portfolio](docs/getting-started/stamping-portfolios.md)
-  * [Private Portfolio Stamping](docs/getting-started/private-portfolio-stamping.md)
   * [Linking with Interactive Brokers](docs/getting-started/linking-interactive-brokers.md)
   * [Linking with QuantConnect](docs/getting-started/linking-quantconnect.md)
 

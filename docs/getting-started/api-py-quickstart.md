@@ -1,7 +1,10 @@
 # Python REST Client Quickstart
 
-Use the `vbase-api` Python client to stamp a portfolio through the REST API. For
-raw HTTP, see [Using the REST API directly](#using-the-rest-api-directly).
+Use the `vbase-api` Python client to stamp any file through the REST API. This
+example uses demand predictions, but the same process applies to other
+predictive datasets, alternative data, portfolios, research results, and other
+files. For raw HTTP, see
+[Using the REST API directly](#using-the-rest-api-directly).
 
 
 ## Prerequisites
@@ -53,13 +56,14 @@ client = VBaseAPIClient(api_key=os.environ["VBASE_API_KEY"])
 
 ## Create a collection
 
-A collection holds one strategy's history. Create it once; duplicate names
-return a conflict error.
+A collection groups related stamps. You might use one collection for versions
+of a dataset, a series of predictions, an alternative data feed, or a portfolio
+history. Create it once; duplicate names return a conflict error.
 
 ```python
 client.create_collection(
-    name="global-macro-2025",
-    description="Global macro strategy, launched January 2025",
+    name="daily-demand-forecasts",
+    description="Daily demand predictions by region",
 )
 ```
 
@@ -67,40 +71,39 @@ You can also create and manage collections at
 [app.vbase.com/profile#collections](https://app.vbase.com/profile#collections).
 
 
-## Prepare your portfolio
+## Prepare a file
 
-Create a CSV with one row per position. See
-[Portfolio Format](stamping-portfolios.md) for accepted columns and weight
-rules.
+Ordinary file stamping does not require a particular format. This example uses
+a small CSV of demand predictions:
 
 ```
-symbol,weight
-AAPL,0.20
-MSFT,0.15
-GLD,0.10
-TLT,-0.15
-SPY,-0.30
+date,region,predicted_demand
+2025-02-01,north,127.4
+2025-02-01,south,141.8
 ```
 
-Weights are normalized decimals. Negative weights are short positions.
+The file does not need to be a CSV or use specific columns. If you are preparing
+a portfolio for vBase portfolio tools, see the
+[portfolio format requirements](stamping-portfolios.md). Those requirements
+apply to that specific portfolio use case.
 
 
-## Stamp a portfolio
+## Stamp the file
 
 Pass the file path and collection name. By default, vBase records its content
 ID and timestamp on-chain and stores the file.
 
 ```python
 stamp = client.create_stamp(
-    file="portfolio_2025-01-31.csv",
-    collection_name="global-macro-2025",
+    file="demand_forecast_2025-01-31.csv",
+    collection_name="daily-demand-forecasts",
 )
 
 print(stamp.commitment_receipt.timestamp)
 print(stamp.commitment_receipt.transaction_hash)
 ```
 
-Stamp after each rebalance or on a regular schedule.
+Stamp each version that you want to include in the record.
 
 Resending identical content is idempotent for 3,600 seconds by default. See
 [Idempotency](api-py-guide.md#idempotency) before changing this behavior.
@@ -114,24 +117,32 @@ client.close()
 
 ## Using the REST API directly
 
-If you prefer curl or another HTTP client, the base URL is `https://app.vbase.com/api/v1/`. Authenticate with a `Bearer` token.
+If you prefer curl or another HTTP client, the base URL is
+`https://app.vbase.com/api/v1/`. Authenticate with a `Bearer` token.
 
 **Create a stamp:**
 
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
   -H "Authorization: Bearer $VBASE_API_KEY" \
-  -F "collection_name=global-macro-2025" \
-  -F "file=@portfolio_2025-01-31.csv" \
+  -F "collection_name=daily-demand-forecasts" \
+  -F "file=@demand_forecast_2025-01-31.csv" \
   -F "store_stamped_file=true"
 ```
 
-Full interactive documentation is available at [app.vbase.com/swagger/](https://app.vbase.com/swagger/).
+Full interactive documentation is available at
+[app.vbase.com/swagger/](https://app.vbase.com/swagger/).
 
 
 ## Next steps
 
-- [Python REST Client Guide](api-py-guide.md) — common operations and behavior.
-- [Python client API reference](../../vbase-api-py/index.md) — complete method and response-model reference.
-- [Private Portfolio Stamping](private-portfolio-stamping.md) — stamp without revealing positions; disclose on your schedule.
-- [Verified Track Record](verified-track-record.md) — share a live dashboard once you have a history.
+- [Python REST Client Guide](api-py-guide.md) covers common operations and
+  behavior.
+- [Python client API reference](../../vbase-api-py/index.md) lists every method
+  and response model.
+- [Private Stamping with Delayed Reveal](private-stamping.md) explains
+  how to stamp a file without sending its contents to vBase.
+- [Portfolio Format](stamping-portfolios.md) covers the specific requirements
+  for vBase portfolio tools.
+- [Verified Track Record](verified-track-record.md) is a portfolio-specific
+  example of sharing a stamped history.
