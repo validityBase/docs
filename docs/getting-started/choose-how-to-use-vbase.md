@@ -1,78 +1,77 @@
-# Choose How to Use vBase
+# Choosing Your Integration
 
-vBase can be used through the web application, the Python API Client, the REST API, or lower-level SDKs and developer tools.
+vBase can stamp and verify predictive datasets, alternative data, portfolios,
+and other files. It works from the browser, Python, the command line, and Excel.
+Pick the path that fits your environment.
 
-For most users:
+| What you want to do | Recommended option |
+|---|---|
+| Stamp or verify in your browser | [Web App](start-your-journey.md) |
+| Automate from Python | [`vbase-api`](../../vbase-api-py/index.md) |
+| Integrate from another language | [REST API](../../vbase-django-tools/api/rest-api-user-guide.md) |
+| Explore REST endpoints interactively | [Swagger UI](https://app.vbase.com/swagger/) |
+| Stamp from Excel | [Excel and COM Tools](../../vbase-cs/user-guide.md) |
+| Run command-line workflows | [CLI](../../vbase-cli/index.md) |
+| Low-level or direct blockchain access | [`vbase`](../../vbase-py/api.md) |
 
-* Use the **Web App** to stamp and verify data in your browser, without writing code. 
-* Use the **Python API Client** to automate vBase from Python.
-* Use the **REST API** to integrate from another programming language.
-* Use the **Python Blockchain SDK** only when you need lower-level or direct blockchain functionality.
+## Web App
 
-## Which integration should I use?
+Use [app.vbase.com](https://app.vbase.com) to manage collections and create or
+verify stamps without installing software. [Get started](start-your-journey.md).
 
-| What you want to do                                    | Recommended integration                                         |
-| ------------------------------------------------------ | --------------------------------------------------------------- |
-| Stamp or verify data in your browser                   | [Web App](start-your-journey.md)                                |
-| Automate stamping and verification from Python         | [Python API Client](../../vbase-api-py/index.md)                |
-| Integrate vBase from another language or system        | [REST API](../../vbase-django-tools/api/rest-api-user-guide.md) |
-| Explore and test REST endpoints interactively          | [Interactive API Reference](https://app.vbase.com/swagger/)     |
-| Interact directly with vBase blockchain infrastructure | [Python Blockchain SDK](python-quickstart-README.md)            |
-| Stamp data from Excel                                  | [Excel and COM Tools](../../vbase-cs/user-guide.md)             |
-| Run command-line workflows                             | [vBase CLI](../../vbase-cli/index.md)                           |
+## `vbase-api`: Python REST client
 
-## Web App — recommended for non-technical users
+The recommended option for Python users. It handles REST authentication, file
+uploads, and response parsing. Its package name is `vbase-api`; its import name
+is `vbase_api`.
 
-Use the vBase web application when you want to create or verify stamps in your browser, without writing code.
+```bash
+pip install vbase-api
+```
 
-[Get Started with the Web App →](start-your-journey.md)
-
-## Python API Client — easiest approach for technical users
-
-The Python API Client is the recommended integration for most Python users.
-
-It provides a simple interface to the hosted vBase API for:
-
-* Stamping files, structured data, or Content IDs
-* Validating Collections and their associated stamps (audit trail records)
-* Verifying audit trail records for previously stamped content
-* Uploading files associated with earlier stamps
-
-Start here when you want to add vBase to a Python application or automated workflow.
-
-[See the Python API Quickstart →](../../vbase-api-py/index.md)
+- Package: [`vbase-api` on PyPI](https://pypi.org/project/vbase-api/)
+- Source: [`validityBase/vbase-api-py` on GitHub](https://github.com/validityBase/vbase-api-py)
+- Docs: [Python client API reference](../../vbase-api-py/index.md)
+- Quickstart: [Python REST Client Quickstart](api-py-quickstart.md)
+- Private stamping: [Private Stamping with Delayed Reveal](private-stamping.md)
 
 ## REST API
 
-The REST API provides language-independent access to vBase over HTTP.
+The REST API works with any language or tool that can make HTTP requests,
+including R, JavaScript, C#, and shell scripts. `vbase-api` wraps this
+interface; the lower-level `vbase` SDK does not.
 
-Use it when:
+- Base URL: `https://app.vbase.com/api/v1/`
+- Swagger UI: [app.vbase.com/swagger/](https://app.vbase.com/swagger/)
+- Docs: [REST API User Guide](../../vbase-django-tools/api/rest-api-user-guide.md)
 
-* You are integrating from a language other than Python
-* You want to make HTTP requests directly
-* You are building an integration around the OpenAPI specification
-* You want greater control over individual API requests
+## Excel and COM Tools
 
-Python users should generally use the Python API Client, which provides a simpler interface to the same hosted vBase services.
+Stamp and verify from Excel or another COM-compatible application. See the
+[COM Library Overview](../../vbase-cs/user-guide.md).
 
-[Read the REST API Guide →](../../vbase-django-tools/api/rest-api-user-guide.md)
+## CLI
 
-[Explore the Interactive API Reference →](https://app.vbase.com/swagger/)
+Stamp and verify from a terminal or shell script. See the
+[Command Line Interface](../../vbase-cli/index.md).
 
-## Python Blockchain SDK — Advanced
+## `vbase`: core Python SDK
 
-The `vbase-py` SDK provides lower-level access to vBase commitment, indexing, and blockchain functionality.
+Use `vbase` for direct, low-level access to commitment services and blockchains.
+It supports CID computation, sets and objects, batch operations, point-in-time
+simulation, and typed objects. Most users should use `vbase-api`.
 
-Use it when you need:
+Appropriate use cases:
 
-* Direct blockchain interaction
-* Custom commitment-service configuration
-* Lower-level indexing or verification logic
-* Specialized infrastructure or deployment control
-* Support for an existing application already built on `vbase-py`
+- Custom CID computation and typed data
+- Batch commitments
+- Point-in-time simulation
+- Low-level integrations that do not use the REST API
 
-For ordinary Python stamping, Collection management, and verification workflows, use the Python API Client instead.
+```bash
+pip install vbase
+```
 
-[Explore the Python Blockchain SDK →](python-quickstart-README.md)
-
-
+- Package: [`vbase` on PyPI](https://pypi.org/project/vbase/)
+- Source: [`validityBase/vbase-py` on GitHub](https://github.com/validityBase/vbase-py)
+- Docs: [`vbase` API reference](../../vbase-py/api.md)

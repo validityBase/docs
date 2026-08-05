@@ -10,8 +10,11 @@
 
 * [Choose How to Use vBase](docs/getting-started/choose-how-to-use-vbase.md)
 * [Create a vBase Account](docs/getting-started/create-a-vbase-account.md)
+* [Web App Overview](docs/web-tools/web-app-overview.md)
+* [Python API Quickstart](docs/getting-started/api-py-quickstart.md)
+
+
 * Web App
-  * [Web App Overview](docs/web-tools/web-app-overview.md)
   * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
   * [Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
 <!-- 
@@ -19,11 +22,10 @@
   * [Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
   * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md) 
 -->
-* [Python API Quickstart](docs/getting-started/python-api-quickstart.md "Python API Quickstart — Recommended")
 
 ## Use Case How-Tos 
-<!--  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md) -->
   * [Data Provider Workflow](docs/getting-started/data-provider-workflow.md)
+  * [Private Stamping with Delayed Reveal](docs/getting-started/private-stamping.md)
   * [Verified Investment Track Records](docs/getting-started/verified-track-record.md)
   * [Stamping a Portfolio](docs/getting-started/stamping-portfolios.md)
   * [Private Portfolio Stamping](docs/getting-started/private-portfolio-stamping.md)
@@ -35,7 +37,9 @@
   * [Verified Backtests and Simulations](docs/use-case-samples/verified-backtest.md)
   * [Predictive Models](docs/use-case-samples/predictive-model.md)
   * [Shareable Investment Dashboards](docs/use-case-samples/shareable-investment-dashboard.md)
-  * [Verified GitHub Repos](docs/use-case-samples/verified-github-repo.md) -->
+  * [Verified GitHub Repos](docs/use-case-samples/verified-github-repo.md)
+  * [Build a Verifiable Archive](docs/use-case-samples/verifiable-archive.md) 
+  -->
 
 
 ## Deep Dive
@@ -44,19 +48,17 @@
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
 * [Verification Methods](docs/getting-started/verification-methods.md)
 
-## Developer APIs
+## Python API Client
+* [Quickstart](docs/getting-started/api-py-quickstart.md)
+* [Guide and Examples](docs/getting-started/api-py-guide.md)
 
-* Python API Client
-  * [Python API Quickstart](docs/getting-started/python-api-quickstart.md)
-  * [Client Reference](vbase-api-py/vbase_api_client.md)
-  * [Models Reference](vbase-api-py/vbase_api_models.md)
-
-* REST API
-  * [User Guide](vbase-django-tools/api/rest-api-user-guide.md)
-  * [Samples](vbase-django-tools/api/rest-api-user-examples.md)
+## REST API
+* [Guide](vbase-django-tools/api/rest-api-user-guide.md)
+* [Examples](vbase-django-tools/api/rest-api-user-examples.md)
+* [Interactive API Reference](https://app.vbase.com/swagger/)
 
 
-## Python SDK
+## Core Python SDK (`vbase`)
 
 * [Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
