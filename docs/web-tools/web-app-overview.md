@@ -29,7 +29,7 @@ Create a stamp for:
 
 During the stamping workflow, you can optionally assign the stamp to an existing Collection.
 
-<div style="padding-left: 10px;"><img src="Stamp_App_Main.png" width="70%" alt="vBase Stamper"></div><br>
+<div style="padding-left: 10px;"><img src="Stamp_Screen_UI_Example_2026-08.png" width="70%" alt="vBase Stamper"></div><br>
 
 [Read the vBase Stamper guide](how-to-use-vbase-stamper.md)
 
@@ -47,7 +47,7 @@ Verifying a file, Content ID, or user does not require a vBase account. Collecti
 
 When a matching record is found, vBase displays the available stamp details.
 
-<div style="padding-left: 10px;"><img src="Verify_App_Main.png" width="70%" alt="vBase Verify"></div><br>
+<div style="padding-left: 10px;"><img src="Example_VerifyStamp_Output_2026-08.png" width="70%" alt="vBase Verify"></div><br>
 
 For more details on verification, [read the vBase Verify guide](how-to-use-vbase-verify.md)
 
@@ -61,8 +61,6 @@ Create and manage Collections from your Profile. Once a Collection exists, you c
 * [Open Account Settings](https://app.vbase.com/profile/#account_settings)
 
 Your Profile also contains your API credentials and other available account and application settings.
-
-<div style="padding-left: 10px;"><img src="Get_API_Key_In_User_Profile.png" width="70%" alt="Account Settings in the vBase Profile"></div><br>
 
 ## Next steps
 
