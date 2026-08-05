@@ -3,25 +3,29 @@
 ## Overview
 * [Welcome to vBase](README.md)
 * [What vBase Verifies](docs/welcome/what-vbase-verifies.md)
-* [What is a Stamp?](docs/welcome/what-is-a-stamp.md)
+* [What Is a Stamp?](docs/welcome/what-is-a-stamp.md)
 * [Example Use Cases](docs/welcome/example-use-cases.md)
 
-## Get Started
 
+## Get Started
 * [Choose How to Use vBase](docs/getting-started/choose-how-to-use-vbase.md)
 * [Create a vBase Account](docs/getting-started/create-a-vbase-account.md)
 * [Web App Overview](docs/web-tools/web-app-overview.md)
 * [Python API Quickstart](docs/getting-started/api-py-quickstart.md)
 
-
-* Web App
-  * [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
-  * [Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
+## Web App
+* [Web App Overview](docs/web-tools/web-app-overview.md)
+* [Stamp an Object](docs/web-tools/how-to-use-vbase-stamper.md)
+* [Verify an Object](docs/web-tools/how-to-use-vbase-verify.md)
 <!-- 
   * [Verify a Collection](docs/web-tools/how-to-use-vbase-verify.md)
   * [Verify a User](docs/web-tools/how-to-use-vbase-verify.md)
   * [View Stamp History](docs/web-tools/how-to-view-stamp-history.md) 
 -->
+
+## Python API Client
+* [Quickstart](docs/getting-started/api-py-quickstart.md)
+* [Guide and Examples](docs/getting-started/api-py-guide.md)
 
 ## Use Case How-Tos 
   * [Data Provider Workflow](docs/getting-started/data-provider-workflow.md)
@@ -42,15 +46,12 @@
   -->
 
 
-## Deep Dive
+## Concepts and Architecture
 * [Technical Overview](docs/welcome/technical-overview.md)
 * [Why Blockchains?](docs/welcome/why-blockchains.md)
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
 * [Verification Methods](docs/getting-started/verification-methods.md)
 
-## Python API Client
-* [Quickstart](docs/getting-started/api-py-quickstart.md)
-* [Guide and Examples](docs/getting-started/api-py-guide.md)
 
 ## REST API
 * [Guide](vbase-django-tools/api/rest-api-user-guide.md)
@@ -58,8 +59,7 @@
 * [Interactive API Reference](https://app.vbase.com/swagger/)
 
 
-## Core Python SDK (`vbase`)
-
+## Python Blockchain SDK (`vbase-py`) - Advanced
 * [Quickstart](docs/getting-started/python-quickstart-README.md)
   * [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
   * [Local Installation](vbase-py-samples/quickstart.md)
@@ -71,27 +71,25 @@
   * [Stamp Interactive Brokers Portfolio](vbase-py-samples/stamp_interactive_brokers_portfolio.md)
   * [Stamp Alpaca Portfolio](vbase-py-samples/stamp_alpaca_portfolio.md)
 * [Windows Setup Guide](vbase-py-samples/windows_guide.md)
-* [Package vbase-py](vbase-py/api.md)
+* [SDK API Reference](vbase-py/api.md)
 * [Package vbase-py-tools](vbase-py-tools/index.md)
   * [Setup](vbase-py-tools/setup.md)
   * [commit\_s3\_objects](vbase-py-tools/commit_s3_objects.md)
   * [verify\_s3\_objects](vbase-py-tools/verify_s3_objects.md)
 
 
-## Other SDKs
-
+## Other SDKs and Tools
+* [Command Line Interface](vbase-cli/index.md)
+* [C#](vbase-cs/vbase-core.md)
+* [TypeScript](vbase-ts/README.md)
 * [COM Library Overview](vbase-cs/user-guide.md)
+* [COM API Reference](vbase-cs/vbase-com-sdk.md)
 * Working in Excel
   * [Via vBase Workbook](vbase-cs/workbook.md)
   * [Via Excel VBA](vbase-cs/vba.md)
-* [COM API Reference](vbase-cs/vbase-com-sdk.md)
-* [C#](vbase-cs/vbase-core.md)
-* [TypeScript](vbase-ts/README.md)
-
   
-## Technical Reference
 
-* [Command Line Interface](vbase-cli/index.md)
+## Technical Reference
 * [Windows Subsystem for Linux (WSL) Guide](vbase-py-samples/windows_subsystem_for_linux_guide.md)
-* [GCE S3 Compatible Bucket Setup](docs/technical-reference/setting_up_gcs_s3_compatible_bucket.md)
+* [GCE S3-Compatible Bucket Setup](docs/technical-reference/setting_up_gcs_s3_compatible_bucket.md)
 * [Smart Contract Addresses](docs/technical-reference/addresses.md)
