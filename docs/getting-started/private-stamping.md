@@ -40,7 +40,9 @@ line endings will produce a different CID.
 - Python 3.8 or later with `vbase-api` installed (`pip install vbase-api`)
 - A vBase API key stored in `VBASE_API_KEY`; see
   [Configure your API key](api-py-quickstart.md#configure-your-api-key)
-- An existing collection; see [Create a collection](api-py-quickstart.md#create-a-collection)
+- An existing collection. This portfolio example uses `global-macro-2025`.
+  Create it first or replace that name in every example with the name of your
+  collection. See [Create a collection](api-py-quickstart.md#create-a-collection).
 - A separate account for testing before you use your main account
 
 If you are stamping a portfolio for use with vBase portfolio tools, the CSV
@@ -98,7 +100,7 @@ A successful stamp returns a commitment receipt:
     "set_cid": "0x...",
     "user_address": "0x...",
     "transaction_hash": "0xabc...",
-    "timestamp": "2025-06-01T09:00:00Z",
+    "timestamp": "2025-01-31T21:00:00Z",
     "chain_id": 8453
   }
 }

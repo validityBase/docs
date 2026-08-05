@@ -20,8 +20,8 @@ print(f"Blockchain address: {user.last_address}")
 
 ```python
 collection = client.create_collection(
-    name="Daily Demand Forecasts",
-    description="Daily demand predictions by region",
+    name="daily-demand-forecasts",
+    description="Daily demand forecasts by region",
 )
 print(f"Collection CID: {collection.cid}")
 ```
@@ -87,7 +87,7 @@ Pass a Python dict or string as `data`. The client serializes dicts with
 stamp = client.create_stamp(
     data={
         "as_of": "2025-01-31",
-        "predictions": [
+        "forecasts": [
             {"region": "north", "demand": 127.4},
             {"region": "south", "demand": 141.8},
         ],
@@ -164,7 +164,7 @@ from vbase_api import VBaseAPIClient
 
 with VBaseAPIClient(api_key=os.environ["VBASE_API_KEY"]) as client:
     stamp = client.create_stamp(
-        file="forecast.csv",
+        file="demand_forecast_2025-01-31.csv",
         collection_name="daily-demand-forecasts",
     )
     print(stamp.commitment_receipt.timestamp)

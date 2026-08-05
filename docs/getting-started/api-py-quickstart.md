@@ -1,7 +1,7 @@
 # Python REST Client Quickstart
 
 Use the `vbase-api` Python client to stamp any file through the REST API. This
-example uses demand predictions, but the same process applies to other
+example uses demand forecasts, but the same process applies to other
 predictive datasets, alternative data, portfolios, research results, and other
 files. For raw HTTP, see
 [Using the REST API directly](#using-the-rest-api-directly).
@@ -63,7 +63,7 @@ history. Create it once; duplicate names return a conflict error.
 ```python
 client.create_collection(
     name="daily-demand-forecasts",
-    description="Daily demand predictions by region",
+    description="Daily demand forecasts by region",
 )
 ```
 
@@ -73,13 +73,13 @@ You can also create and manage collections at
 
 ## Prepare a file
 
-Ordinary file stamping does not require a particular format. This example uses
-a small CSV of demand predictions:
+Ordinary file stamping does not require a particular format. For this example,
+save the following CSV as `demand_forecast_2025-01-31.csv`:
 
 ```
-date,region,predicted_demand
-2025-02-01,north,127.4
-2025-02-01,south,141.8
+as_of,region,predicted_demand
+2025-01-31,north,127.4
+2025-01-31,south,141.8
 ```
 
 The file does not need to be a CSV or use specific columns. If you are preparing
