@@ -1,69 +1,55 @@
-# Use the vBase Web App
+# vBase Web Application Overview
 
-The vBase Web App lets you create and verify blockchain-backed records, manage Collections, and configure your account without writing code.
+Create and verify blockchain-backed records, manage Collections, and configure your vBase account directly from your browser.
 
-The application has three main areas:
+{% hint style="info" %}
+**Account requirements**
 
-* **Stamp** — Create verifiable records of files, text, Content IDs, and portfolios
-* **Verify** — Validate records for files, Content IDs, users, and Collections
-* **Profile** — Manage Collections, API credentials, and account settings
+An account is required to create stamps, manage Collections, and verify Collections.
 
-[Open the vBase Web App](https://app.vbase.com/)
+You can verify a file, Content ID, or user without signing in.
 
-> **Account requirements**
->
-> You need a vBase account to create stamps, manage Collections, and verify Collections.
->
-> You do not need an account to verify a file, Content ID, or user.
->
-> [Create a vBase account](../getting-started/create-a-vbase-account.md)
+[Create a vBase account](../getting-started/create-a-vbase-account.md)
+{% endhint %}
 
-## Stamp
+## Create a stamp
 
-Create a stamp for:
+Create a permanent, independently verifiable record of content.
 
-* [A file](https://app.vbase.com/stamp/?method=file)
-* [Text entered in the browser](https://app.vbase.com/stamp/?method=text)
-* [An existing Content ID](https://app.vbase.com/stamp/?method=hash)
-* [A portfolio](https://app.vbase.com/stamp/?method=portfolio)
+| Workflow | Description |
+|---|---|
+| [Stamp a file](https://app.vbase.com/stamp/?method=file) | Stamp the Content ID calculated from a file |
+| [Stamp text](https://app.vbase.com/stamp/?method=text) | Enter and stamp text directly in the browser |
+| [Stamp a Content ID](https://app.vbase.com/stamp/?method=hash) | Stamp an existing Content ID |
+| [Stamp a portfolio](https://app.vbase.com/stamp/?method=portfolio) | Create a stamp using the portfolio workflow |
 
-During the stamping workflow, you can optionally assign the stamp to an existing Collection.
+During any regular stamping workflow, you can optionally assign the stamp to an existing Collection.
 
-<div style="padding-left: 10px;"><img src="Stamp_Screen_UI_Example_2026-08.png" width="70%" alt="vBase Stamper"></div><br>
+[Read the Stamper guide](how-to-use-vbase-stamper.md)
 
-[Read the vBase Stamper guide](how-to-use-vbase-stamper.md)
+## Verify a record
 
-## Verify
+Check previously created records and review the available stamp details.
 
-Use vBase Verify to validate records for:
+| Workflow | Description |
+|---|---|
+| [Verify a file](https://app.vbase.com/verify/?method=file) | Calculate a file’s Content ID and find matching stamps |
+| [Verify a Content ID](https://app.vbase.com/verify/?method=hash) | Search directly using a known Content ID |
+| [Verify a user](https://app.vbase.com/verify/?method=user) | Review records associated with a user or blockchain address |
+| [Verify a Collection from ZIP](https://app.vbase.com/verify/?method=collection&collectionMethod=archive) | Compare a ZIP archive with a Collection record |
+| [Verify a Collection from S3](https://app.vbase.com/verify/?method=collection&collectionMethod=s3-credentials) | Verify a Collection using an S3 URI and credentials |
 
-* [A file](https://app.vbase.com/verify/?method=file)
-* [A known Content ID](https://app.vbase.com/verify/?method=hash)
-* [A user or blockchain address](https://app.vbase.com/verify/?method=user)
-* [A Collection from a ZIP archive](https://app.vbase.com/verify/?method=collection&collectionMethod=archive)
-* [A Collection from Amazon S3](https://app.vbase.com/verify/?method=collection&collectionMethod=s3-credentials)
+[Read the Verify guide](how-to-use-vbase-verify.md)
 
-Verifying a file, Content ID, or user does not require a vBase account. Collection verification requires you to sign in.
+## Manage Collections and settings
 
-When a matching record is found, vBase displays the available stamp details.
+Use your Profile to manage your account and organize related stamps.
 
-<div style="padding-left: 10px;"><img src="Example_VerifyStamp_Output_2026-08.png" width="70%" alt="vBase Verify"></div><br>
+| Area | What you can do |
+|---|---|
+| [Collections](https://app.vbase.com/profile/#collections) | Create and manage Collections that can be selected during stamping |
+| [Account Settings](https://app.vbase.com/profile/#account_settings) | Manage API credentials and available account preferences |
 
-For more details on verification, [read the vBase Verify guide](how-to-use-vbase-verify.md)
+## Automate your workflow
 
-## Collections and account settings
-
-Collections group related stamps under a shared identifier—for example, the successive files in a dataset, investment track record, portfolio, or research process.
-
-Create and manage Collections from your Profile. Once a Collection exists, you can select it when creating a stamp through the regular stamping workflow.
-
-* [Create or manage Collections](https://app.vbase.com/profile/#collections)
-* [Open Account Settings](https://app.vbase.com/profile/#account_settings)
-
-Your Profile also contains your API credentials and other available account and application settings.
-
-## Next steps
-
-* [How to Use the vBase Stamper](how-to-use-vbase-stamper.md)
-* [How to Verify an Object](how-to-use-vbase-verify.md)
-* [Choose How to Use vBase](../getting-started/choose-how-to-use-vbase.md)
+For recurring or programmatic stamping and verification, use the [Python API Client](../getting-started/api-py-quickstart.md).
