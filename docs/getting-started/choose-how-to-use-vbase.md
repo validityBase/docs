@@ -6,7 +6,7 @@ Pick the path that fits your environment.
 
 | What you want to do | Recommended option |
 |---|---|
-| Stamp or verify in your browser | [Web App](start-your-journey.md) |
+| Stamp or verify in your browser | [Web App](../web-tools/web-app-overview.md) |
 | Automate from Python | [`vbase-api`](../../vbase-api-py/index.md) |
 | Integrate from another language | [REST API](../../vbase-django-tools/api/rest-api-user-guide.md) |
 | Explore REST endpoints interactively | [Swagger UI](https://app.vbase.com/swagger/) |
@@ -17,7 +17,7 @@ Pick the path that fits your environment.
 ## Web App
 
 Use [app.vbase.com](https://app.vbase.com) to manage collections and create or
-verify stamps without installing software. [Get started](start-your-journey.md).
+verify stamps without installing software. [Get started by making an account](/create-a-vbase-account.md).
 
 ## `vbase-api`: Python REST client
 
