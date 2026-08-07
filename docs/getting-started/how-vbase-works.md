@@ -135,7 +135,7 @@ vBase handles that complexity and provides practical tools for creating, organiz
 
 Stamping data or trading strategies creates a useful asymmetry: a complete, point-in-time stamped history is easy for a producer to build and impossible to generate after the fact — so someone with predictive data or strategies can send an inexpensive but highly credible signal about their work.
 
-For more detail on why vBase uses a public blockchain, see [Why Blockchains?](why-blockchains.md).
+For more detail on why vBase uses a public blockchain, see [Why Blockchains?](../welcome/why-blockchains.md).
 
 ## Next Steps
 
