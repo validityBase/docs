@@ -2,9 +2,8 @@
 
 ## Overview
 * [Welcome to vBase](README.md)
-* [What vBase Verifies](docs/welcome/what-vbase-verifies.md)
-* [What Is a Stamp?](docs/welcome/what-is-a-stamp.md)
-* [Example Use Cases](docs/welcome/example-use-cases.md)
+* [How vBase Works](docs/getting-started/how-vbase-works.md)
+* [Example Use Cases](docs/getting-started/example-use-cases.md)
 
 
 ## Get Started

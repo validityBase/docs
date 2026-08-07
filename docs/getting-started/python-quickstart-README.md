@@ -2,7 +2,7 @@
 
 > **Looking for the recommended Python integration?**
 >
-> Most Python users should start with the [Python API Client](../../docs/getting-started/python-api-quickstart.md). It provides a simpler interface for stamping files and data, working with Collections, and verifying stamps through the hosted vBase API.
+> Most Python users should start with the [Python API Client](../../docs/getting-started/api-py-quickstart.md). It provides a simpler interface for stamping files and data, working with Collections, and verifying stamps through the hosted vBase API.
 
 The `vbase-py` SDK provides lower-level access to vBase commitment, indexing, and blockchain functionality.
 
