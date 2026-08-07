@@ -56,7 +56,7 @@ Depending on how vBase is used, an audit trail can provide independently verifia
 
 vBase does not determine whether the underlying data or prediction is good. It makes the history used to evaluate it independently verifiable.
 
-[Learn how vBase works](docs/welcome/how-vbase-works.md)
+[Learn how vBase works](docs/getting-started/how-vbase-works.md)
 
 
 ## Common use cases
