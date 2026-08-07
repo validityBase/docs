@@ -16,7 +16,7 @@ Financial products are often evaluated by looking at historical data, prediction
 
 ### Alternative Data Providers
 
-Stamp dataset deliveries such as sentiment scores, macro indicators, developer activity, mobility data, or other predictive data to make the verifiably point-in-time.
+Stamp dataset deliveries such as sentiment scores, macro indicators, developer activity, mobility data, or other predictive data to make them verifiably point-in-time.
 
 > **Purpose:** Create a point-in-time history that buyers can verify for evaluation and backtesting. 
 
