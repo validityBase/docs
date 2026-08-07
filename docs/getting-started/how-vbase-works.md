@@ -143,4 +143,4 @@ For more detail on why vBase uses a public blockchain, see [Why Blockchains?](wh
 - [Learn how to create a Stamp](../web-tools/how-to-use-vbase-stamper.md)
 - [Learn how to verify data](../web-tools/how-to-use-vbase-verify.md)
 - [Start with the Python API Client](../getting-started/api-py-quickstart.md)
-- [See example use cases](example-use-cases.md)
+- [See example use cases](/example-use-cases.md)
