@@ -3,7 +3,7 @@
 ## Overview
 * [Welcome to vBase](README.md)
 * [How vBase Works](docs/getting-started/how-vbase-works.md)
-* [Example Use Cases](docs/welcome/example-use-cases.md)
+* [Example Use Cases](docs/getting-started/example-use-cases.md)
 
 
 ## Get Started
