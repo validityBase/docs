@@ -66,7 +66,7 @@ Producers can continue sending files, delivering data through APIs, granting S3 
 
 <figure>
   <img src="verification_process.png" alt="The vBase Verification Process" width="80%">
-     <figcaption>The stamping process. Publication to the public ledger gives the Stamp an independently verifiable timestamp — one that doesn't depend on trusting vBase or the data producer.</figcaption>
+     <figcaption>The verification process. Recomputing the fingerprint and checking it against the public ledger confirms what data existed and by when — again without trusting vBase or the data producer.</figcaption>
 </figure>
 
 vBase is designed to make verification both **easy to perform** and **credible to rely on**.
