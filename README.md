@@ -19,7 +19,7 @@ vBase helps producers of predictive data demonstrate its value. Trading signals,
 
 vBase creates point-in-time audit trails that let investors and other data consumers validate historical records directly. This enables them to evaluate the underlying data or strategy without worrying about potential revisions, uncertain timestamps, or selective presentation.
 
-Because a vBase record is easy to build and impossible to backdate, it lets a producer send an inexpensive but highly credible signal about their work.
+Because a point-in-time vBase record is easy to build and impossible to generate after the fact, it lets a producer send an inexpensive but highly credible signal about their work.
 
 **The data can remain entirely private.** vBase uses cryptographic fingerprints (hashes) of the data to build audit trail records. Users can choose workflows in which the underlying data is **never sent to vBase.**
 

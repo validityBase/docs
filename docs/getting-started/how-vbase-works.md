@@ -16,10 +16,7 @@ Related records can be grouped into **Collections**, making it possible to verif
 
 <figure>
   <img src="stamping_process.png" alt="The vBase Stamping Process" width="80%">
-  </figure>
-
-<figure>
-  <img src="validation_process.png" alt="The vBase Validation Process" width="80%">
+   <figcaption>The stamping process. Publication to the public ledger gives the Stamp an independently verifiable timestamp — one that doesn't depend on trusting vBase or the data producer.</figcaption>
 </figure>
 
 
@@ -48,7 +45,7 @@ A **vBase Stamp** is an individual audit trail record for a file or other digita
 A Stamp links:
 
 - The **Content ID** of the stamped data
-- The **blockchain address** associated with the account that created the Stamp
+- The **blockchain address** associated with the vBase account that signs the Stamp
 - A publicly verifiable **publication timestamp** for the audit trail record
 - An optional **Collection ID** linking the Stamp to a larger audit trail
 
@@ -66,6 +63,11 @@ vBase does not need to change how data is distributed.
 Producers can continue sending files, delivering data through APIs, granting S3 access, or using other existing delivery methods. The vBase audit trail remains separate from the data itself.
 
 ### 5. Verify the history
+
+<figure>
+  <img src="verification_process.png" alt="The vBase Verification Process" width="80%">
+     <figcaption>The stamping process. Publication to the public ledger gives the Stamp an independently verifiable timestamp — one that doesn't depend on trusting vBase or the data producer.</figcaption>
+</figure>
 
 vBase is designed to make verification both **easy to perform** and **credible to rely on**.
 
@@ -129,9 +131,9 @@ These distinctions are important: vBase builds independently verifiable evidence
 
 Anyone can calculate a cryptographic hash and publish it to a public blockchain. Doing so directly, however, typically requires managing blockchain wallets, transaction fees, smart contracts, and infrastructure for retrieving and interpreting the resulting records.
 
-Stamping data or trading strategies creates a useful asymmetry: a complete, point-in-time stamped history is easy for a producer to build and impossible to generate after the fact — so someone with predictive data or strategies can send an inexpensive but highly credible signal about their work.
-
 vBase handles that complexity and provides practical tools for creating, organizing, and verifying audit trails through its Web App, APIs, and developer tools.
+
+Stamping data or trading strategies creates a useful asymmetry: a complete, point-in-time stamped history is easy for a producer to build and impossible to generate after the fact — so someone with predictive data or strategies can send an inexpensive but highly credible signal about their work.
 
 For more detail on why vBase uses a public blockchain, see [Why Blockchains?](why-blockchains.md).
 
