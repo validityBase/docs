@@ -70,7 +70,7 @@ vBase can be used anywhere the credibility of historical data matters. Common ex
 
 ## Get Started
 
-Use the **Web App** for browser-based stamping and verification, the **Python API Client** for most Python workflows, or the **REST API** for direct integration from other systems.
+Use the [**Web App**](docs/web-tools/web-app-overview.md) for browser-based stamping and verification, the [**Python API Client**](docs/getting-started/python-api-quickstart.md) for most Python workflows, or the [**REST API**](vbase-django-tools/api/rest-api-user-guide.md) for direct integration from other systems.
 
 * [Choose How to Use vBase](docs/getting-started/choose-how-to-use-vbase.md)
 * [Create a vBase Account](docs/getting-started/create-a-vbase-account.md)
