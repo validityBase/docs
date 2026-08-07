@@ -15,49 +15,63 @@ layout:
 
 # Welcome to vBase
 
-vBase helps the producers of predictive data, such as indicators, forecasts, financial research, [alternative data](https://www.neudata.co/blog/a-beginners-guide-to-alternative-data), and investment strategies, prove their value and helps the consumers of such data verify, acquire, and deploy valuable datasets faster and with more confidence.
+vBase helps producers of predictive data, trading strategies, and analytical products — including trading signals, alternative data, forecasts, research, and models — demonstrate their value. 
 
-By anchoring cryptographic fingerprints of datasets, portfolios, and research output to a public blockchain, vBase creates **globally credible, point-in-time records.** These records let others independently verify a dataset's timestamps, completeness and impartial presentation — all without revealing the underlying data.
+vBase creates independently verifiable, point-in-time audit trails that let investors and other data consumers validate historical records directly. This enables them to evaluate the underlying data or strategy without discounting it for potential revisions, uncertain timestamps, or selective presentation.
 
-Anyone can use vBase tools to prove **what they knew, when they knew it** or, **what data they had, and when they had it.**
+**The data can remain entirely private.** vBase uses cryptographic fingerprints (hashes) of the data to build audit trail records. Users can choose workflows in which the underlying data is **never sent to vBase.**
+
+## Why Verifiable History Matters
+
+Many predictive products — including trading strategies — are evaluated by how well their past predictions performed. 
+
+The problem is that a genuine historical record is often indistinguishable from one that is messy, revised, or selectively presented. Because a consumer cannot easily tell the difference, valuable data is often discounted. 
+
+Traditionally, producers address this problem by building trust one relationship at a time or, in some industries, through expensive third-party audits. 
+
+vBase makes the historical record independently verifiable, allowing each new data consumer to focus on evaluating the data rather than the data producer.
+
+## An Example 
+
+Suppose I tell you that I built a model that I claim can correctly predict whether gold prices will rise or fall each day. To demonstrate its value, I send you a spreadsheet containing my model’s predictions for the past five years.
+
+To evaluate my model, you would reasonably want to know: Were those historical predictions really made when the spreadsheet says they were? Were any revised later? Am I showing you every prediction the model made? Did I test many models and present only the best one?
+
+If the history is genuine and not selectively presented, my model is extraordinarily valuable. If the history was revised after the fact or cherry-picked, my model may have little or no value.
+
+Both sides struggle with this problem. It is difficult for me to prove that the history I present is genuine, and difficult for you to independently verify any history I send you.
+
+vBase lets the model builder present that prediction history in an independently verifiable form. The audit trail shows what data existed and by when, as well as the other audit trails maintained under the same vBase identity, allowing consumers to address the questions above and evaluate the underlying model on its own merits.
+
+## What vBase Makes Verifiable
+
+Depending on how vBase is used, an audit trail can provide independently verifiable evidence of:
+
+- **Timing** — what data existed and by when
+- **Integrity** — whether the data is unchanged from when its audit trail record was created
+- **Completeness** — whether the dataset, time series, or strategy being presented matches the full history previously recorded in its Collection
+- **Presentation context** — the other audit trails maintained under the same vBase identity, helping users assess whether a result may have been selectively presented
+
+vBase does not determine whether the underlying data or prediction is good. It makes the history used to evaluate it independently verifiable.
+
+[Learn how vBase works](docs/welcome/how-vbase-works.md)
 
 
-## Why It Matters
+## Common Use Cases
 
-In finance, data science, and other data-driven domains, data credibility depends on timeliness, completeness and impartial presentation. 
+vBase can be used anywhere the credibility of historical data matters. Common examples include:
 
-vBase makes these qualities provable — showing exactly what data, models, or results existed at each point-in-time. By turning **integrity of historical data** into a verifiable fact, vBase helps communicate results with confidence and build lasting trust with clients, investors, and partners.
+* **Trading strategies and signals** — build a verifiable track record
+* **Alternative and predictive data** — establish point-in-time history for buyer evaluation and backtesting
+* **Forecasts and research** — demonstrate when predictions, recommendations, or research outputs existed
+* **Models and AI systems** — maintain a verifiable history of model outputs and predictive claims
 
-
-## What vBase Proves
-
-Each vBase **stamp** serves as cryptographic proof of **when** a specific digital object (usually a file) existed and which dataset, known as a **Collection**, it belongs to.  
-
-When organized as a **Collection**, multiple stamps together provide verifiable proof of:
-
-- **Timestamp integrity** — the precise times at which data, files, or results within a dataset or strategy were created or updated.  
-- **Dataset integrity** — that the files or data within a Collection have not been altered since those timestamps, and that no extra or missing data is being presented beyond what was stamped to the Collection. 
-- **Impartial presentation** — that the dataset or trading strategy is not a selectively presented outlier among many parallel alternatives. vBase can verify how many datasets or models a user maintained at the time, making transparent the population from which any single dataset or strategy was drawn.
-
-Together, these create a **globally credible, independently verifiable audit trail** for any dataset, model, or portfolio — showing exactly what data existed, and when.
-
-
-
-## Use Cases
-
-vBase is used by investment managers, data providers, model builders, AI platforms, quant researchers, and compliance teams — anywhere data credibility and timestamp verification matter.
-
-Learn more: [Example Use Cases](docs/welcome/example-use-cases.md)
-
-
+[See more example use cases](docs/welcome/example-use-cases.md)
 
 ## Get Started
 
-vBase is designed for ease of use, accessible via an intuitive [web application](https://app.vbase.com/) or via our user-friendly [REST API](vbase-django-tools/api/rest-api-user-guide.md), developer tools & SDKs (Python, C#, TypeScript, CLI). 
+Use the **Web App** for browser-based stamping and verification, the **Python API Client** for most Python workflows, or the **REST API** for direct integration from other systems.
 
-
-## Quick Start Links
-
-- [**How vBase Works**](docs/welcome/how-vbase-works.md) — overview of the stamping and verification process  
-- [**Stamp an Object**](docs/web-tools/how-to-use-vbase-stamper.md) — create your first verifiable stamp  
-- [**REST API User Guide**](vbase-django-tools/api/rest-api-user-guide.md) — connect and integrate programmatically
+* [Choose How to Use vBase](docs/getting-started/choose-how-to-use-vbase.md)
+* [Create a vBase Account](docs/getting-started/create-a-vbase-account.md)
+* [How vBase Works](docs/welcome/how-vbase-works.md)
