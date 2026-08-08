@@ -2,7 +2,7 @@
 description: How vBase creates independently verifiable audit trails for historical data
 ---
 
-# How vBase Works
+# How vBase works
 
 vBase creates independently verifiable audit trail records that show **what data existed and by when**.
 
@@ -12,7 +12,7 @@ Related records can be grouped into **Collections**, making it possible to verif
 
 **The underlying data itself can remain fully private in building an audit trail. It does not need to be published or sent to vBase.**
 
-## The vBase Process
+## The vBase process
 
 <figure>
   <img src="stamping_process.png" alt="The vBase Stamping Process" width="80%">
@@ -87,7 +87,7 @@ Importantly, this is not a bespoke verification process created for a particular
 
 This makes verification easier to repeat and scale: a producer can build one credible audit trail, and future consumers can independently verify it.
 
-## How Collections Work
+## How collections work
 
 A **Collection** groups related Stamps under a shared identifier.
 
@@ -105,7 +105,7 @@ This allows users to evaluate not only individual records, but also the history 
 
 Collections are optional. A Stamp that is not associated with a Collection is still independently verifiable.
 
-## What the Audit Trail Can Establish
+## What the audit trail can establish
 
 Depending on how vBase is used, the resulting audit trail can provide independently verifiable evidence of:
 
@@ -114,7 +114,7 @@ Depending on how vBase is used, the resulting audit trail can provide independen
 - **Completeness** — whether the dataset, time series, or strategy being presented matches the history previously recorded in its Collection
 - **Presentation context** — the other audit trails recorded under the same vBase identity, giving consumers visibility into the broader set of strategies, datasets, or models recorded by that identity and helping them assess selective presentation
 
-## What vBase Does Not Verify by Itself
+## What vBase does not verify by itself
 
 vBase makes it possible to compare a dataset to its point-in-time history. It does not determine whether the underlying data, prediction, model, or strategy is useful or valuable.
 
@@ -127,7 +127,7 @@ A vBase audit trail does not, by itself, establish:
 
 These distinctions are important: vBase builds independently verifiable evidence that a particular dataset or trading strategy corresponds exactly to its point-in-time history, while leaving the evaluation of the data itself to the consumer.
 
-## Why Use vBase?
+## Why use vBase?
 
 Anyone can calculate a cryptographic hash and publish it to a public blockchain. Doing so directly, however, typically requires managing blockchain wallets, transaction fees, smart contracts, and infrastructure for retrieving and interpreting the resulting records.
 
@@ -137,9 +137,9 @@ Stamping data or trading strategies creates a useful asymmetry: a complete, poin
 
 For more detail on why vBase uses a public blockchain, see [Why Blockchains?](../welcome/why-blockchains.md).
 
-## Next Steps
+## Next steps
 
-- [Use the vBase Web App](../web-tools/web-app-overview.md)
+- [Use the vBase web app](../web-tools/web-app-overview.md)
 - [Learn how to create a Stamp](../web-tools/how-to-use-vbase-stamper.md)
 - [Learn how to verify data](../web-tools/how-to-use-vbase-verify.md)
 - [Start with the Python API Client](../getting-started/api-py-quickstart.md)
