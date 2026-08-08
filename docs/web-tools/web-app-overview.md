@@ -52,4 +52,4 @@ Use your Profile to manage your account and organize related stamps.
 
 ## Automate your workflow
 
-For recurring or programmatic stamping and verification, use the [Python API Client](../getting-started/api-py-quickstart.md).
+For recurring or programmatic stamping and verification, use the [Python API Client](../getting-started/api-py-quickstart.md), our [REST API](../../vbase-django-tools/api/rest-api-user-guide.md) or one of our [other automation interfaces](../getting-started/choose-how-to-use-vbase.md).
