@@ -176,6 +176,6 @@ If you do not use a `with` block, call `client.close()` when finished.
 
 - [`vbase-api` on PyPI](https://pypi.org/project/vbase-api/)
 - [`validityBase/vbase-api-py` on GitHub](https://github.com/validityBase/vbase-api-py)
-- [Python client API reference](../../vbase-api-py/index.md)
+- [Python client API reference]
 - [REST API User Guide](../../vbase-django-tools/api/rest-api-user-guide.md)
 - [Swagger UI](https://app.vbase.com/swagger/)
