@@ -138,7 +138,7 @@ Full interactive documentation is available at
 
 - [Python REST Client Guide](api-py-guide.md) covers common operations and
   behavior.
-- [Python client API reference](vbase-api-py/index.md) lists every method
+- [Python client API reference](../../vbase-api-py/index.md) lists every method
   and response model.
 - [Private Stamping with Delayed Reveal](private-stamping.md) explains
   how to stamp a file without sending its contents to vBase.
