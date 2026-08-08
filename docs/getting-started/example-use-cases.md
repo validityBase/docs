@@ -10,11 +10,11 @@ Individual audit trail records, or **Stamps**, can be grouped into **Collections
 
 Below are some common financial and non-financial applications.
 
-## Financial Applications
+## Financial applications
 
 Financial products are often evaluated by looking at historical data, predictions, or decisions. vBase helps make those histories independently verifiable.
 
-### Alternative Data Providers
+### Alternative data providers
 
 Stamp dataset deliveries such as sentiment scores, macro indicators, developer activity, mobility data, or other predictive data to make them verifiably point-in-time.
 
@@ -22,7 +22,7 @@ Stamp dataset deliveries such as sentiment scores, macro indicators, developer a
 
 **Example:** A provider stamps each daily delivery into a Collection. A client can later compare the dataset with the corresponding audit trail to verify the point-in-time integrity and completeness of the data. 
 
-### Trading Strategies, Signals & Models
+### Trading strategies, signals & models
 
 Stamp trading signals, model forecasts, portfolio weights, or rebalance files as they are produced.
 
@@ -30,7 +30,7 @@ Stamp trading signals, model forecasts, portfolio weights, or rebalance files as
 
 **Example:** A model builder stamps each weekly signal file in a Collection, creating a continuous point-in-time record that future investors can independently verify.
 
-### Investment Managers
+### Investment managers
 
 Create verifiable histories for model portfolios, fund sleeves, SMAs, or other investment strategies.
 
@@ -38,7 +38,7 @@ Create verifiable histories for model portfolios, fund sleeves, SMAs, or other i
 
 **Example:** An investment manager stamps each portfolio update as it occurs. Investors can later compare reported historical positions or performance with the point-in-time record.
 
-### Forecasts & Research
+### Forecasts & research
 
 Stamp forecasts, recommendation histories, research models, valuation frameworks, or investment memos as they are produced.
 
@@ -46,7 +46,7 @@ Stamp forecasts, recommendation histories, research models, valuation frameworks
 
 **Example:** An analyst stamps each published recommendation into a Collection, creating a verifiable history that can later be evaluated against subsequent outcomes.
 
-### Index Providers & Calculation Agents
+### Index providers & calculation agents
 
 Stamp index methodologies, constituent files, weights, and rebalance outputs.
 
@@ -54,7 +54,7 @@ Stamp index methodologies, constituent files, weights, and rebalance outputs.
 
 **Example:** An index provider stamps each rebalance file and relevant methodology version, allowing future users to verify the index's recorded history.
 
-### Backtests and Live Performance
+### Backtests and live performance
 
 Stamp model specifications, configuration files, or backtest results before subsequent performance occurs.
 
@@ -62,11 +62,11 @@ Stamp model specifications, configuration files, or backtest results before subs
 
 **Example:** A researcher stamps a model specification and backtest before beginning a live evaluation period. Later performance can then be assessed relative to the model definition that was recorded at the start of the period.
 
-## Non-Financial Applications
+## Non-financial applications
 
 vBase is domain-agnostic. Any field that produces data, predictions, research, or other digital records over time can benefit from independently verifiable history.
 
-### AI & Machine Learning
+### AI & machine learning
 
 Stamp model outputs, prediction batches, evaluation results, or model versions over time.
 
@@ -74,7 +74,7 @@ Stamp model outputs, prediction batches, evaluation results, or model versions o
 
 **Example:** A model developer uses a Collection to record successive evaluation outputs across model versions or retraining cycles.
 
-### Research & Academia
+### Research & academia
 
 Stamp datasets, manuscripts, experimental results, or research outputs.
 
@@ -82,7 +82,7 @@ Stamp datasets, manuscripts, experimental results, or research outputs.
 
 **Example:** A research team stamps datasets and experimental outputs as they are produced, creating an independently verifiable record of the research process.
 
-### Media & Publishing
+### Media & publishing
 
 Stamp articles, images, reports, press releases, or other original content.
 
@@ -90,7 +90,7 @@ Stamp articles, images, reports, press releases, or other original content.
 
 **Example:** A publisher stamps an original research report before distribution, allowing its publication history to be independently verified later.
 
-### Legal, Compliance & Recordkeeping
+### Legal, compliance & recordkeeping
 
 Stamp contracts, filings, policies, risk reports, valuation reports, or other important records.
 
@@ -98,7 +98,7 @@ Stamp contracts, filings, policies, risk reports, valuation reports, or other im
 
 **Example:** An organization stamps recurring compliance or risk reports into a Collection, creating a point-in-time history of what was recorded at each reporting interval.
 
-### Project & Client Deliverables
+### Project & client deliverables
 
 Stamp datasets, analyses, reports, or other deliverables as they are completed or handed off.
 
@@ -112,7 +112,7 @@ vBase can be useful anywhere historical data, predictions, or digital records ne
 
 The underlying content can remain private while its history becomes independently verifiable.
 
-## Related Pages
+## Related pages
 
 - [Choose how to use vBase](choose-how-to-use-vbase.md)
 - [How vBase works](how-vbase-works.md)
