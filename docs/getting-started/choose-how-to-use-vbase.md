@@ -7,7 +7,7 @@ Pick the path that fits your environment.
 | What you want to do | Recommended option |
 |---|---|
 | Stamp or verify in your browser | [Web App](../web-tools/web-app-overview.md) |
-| Automate from Python | [`vbase-api`](api-py-guide.md) |
+| Automate from Python | [`vbase-api`](api-py-quickstart.md) |
 | Integrate from another language | [REST API](../../vbase-django-tools/api/rest-api-user-guide.md) |
 | Explore REST endpoints interactively | [Swagger UI](https://app.vbase.com/swagger/) |
 | Stamp from Excel | [Excel and COM Tools](../../vbase-cs/user-guide.md) |
