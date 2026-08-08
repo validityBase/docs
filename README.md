@@ -56,7 +56,7 @@ Depending on how vBase is used, an audit trail can provide independently verifia
 
 vBase does not determine whether the underlying data or prediction is good. It makes the history used to evaluate it independently verifiable.
 
-[Learn how vBase works](docs/welcome/how-vbase-works.md)
+[Learn how vBase works](docs/getting-started/how-vbase-works.md)
 
 
 ## Common use cases
@@ -68,7 +68,7 @@ vBase can be used anywhere the credibility of historical data matters. Common ex
 * **Forecasts and research** — demonstrate when predictions, recommendations, or research outputs existed
 * **Models and AI systems** — maintain a verifiable history of model outputs and predictive claims
 
-[See more example use cases](docs/welcome/example-use-cases.md)
+[See more example use cases](docs/getting-started/example-use-cases.md)
 
 ## Get started
 
@@ -76,4 +76,4 @@ Use the [**Web App**](docs/web-tools/web-app-overview.md) for browser-based stam
 
 * [Choose how to use vBase](docs/getting-started/choose-how-to-use-vbase.md)
 * [Create a vBase account](docs/getting-started/create-a-vbase-account.md)
-* [How vBase works](docs/welcome/how-vbase-works.md)
+* [How vBase works](docs/getting-started/how-vbase-works.md)
