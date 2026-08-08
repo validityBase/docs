@@ -25,6 +25,7 @@
 ## Python API Client
 * [Quickstart](docs/getting-started/api-py-quickstart.md)
 * [Guide and Examples](docs/getting-started/api-py-guide.md)
+* [API Reference](docs/vbase-api-py/index.md)
 
 ## Use Case How-Tos 
   * [Data Provider Workflow](docs/getting-started/data-provider-workflow.md)
