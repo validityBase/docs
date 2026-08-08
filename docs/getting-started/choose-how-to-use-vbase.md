@@ -17,7 +17,7 @@ Pick the path that fits your environment.
 ## Web App
 
 Use [app.vbase.com](https://app.vbase.com) to manage collections and create or
-verify stamps without installing software. [Get started by making an account](/create-a-vbase-account.md).
+verify stamps without installing software. [Get started by making an account](create-a-vbase-account.md).
 
 ## `vbase-api`: Python REST client
 
