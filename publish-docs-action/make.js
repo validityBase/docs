@@ -30,7 +30,7 @@ var run = function (cl, inheritStreams, cwd) {
 var CLI = {};
 
 CLI.build = function() {
-    run('npm install', true);
+    run('npm ci --ignore-scripts', true);
     run('npm run lint', true);
     run('tsc --rootDir src');
     run('ncc build index.js -o "../"', true, 'src');

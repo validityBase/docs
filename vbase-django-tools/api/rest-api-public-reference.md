@@ -205,8 +205,8 @@ Use the request `Content-Type` to choose the payload format:
 Send the CSV string directly with `Content-Type: text/csv`, for example:
 
 ```csv
-collection_name,user_address,collection_timezone
-vb-test,0x4A281DdC750359d5C0D2D51A890cefA43485EF2d,
+collection_name,user_address
+vb-test,0x4A281DdC750359d5C0D2D51A890cefA43485EF2d
 t,c,f
 2025-07-23 11:42:15+00:00,0x6f3328cba0ffde8429e66008708419751921bf41737e32a0fcd173849e325561,application-logs2025-07-15T19_46_13.098Z-2025-07-16T19_46_13.098Z_2025-07-23_11-42-15+0000.json
 2025-07-23 20:34:58+00:00,0xaeda4cf7d65f9d67b128bf795b5f237183550a814c9d4aa83c7e84f027d4aeec,attribcache140_2025-07-23_20-34-58+0000.bin
@@ -216,7 +216,7 @@ t,c,f
 omitted, the backend will try to infer metadata from the payload.
 
 For CSV requests, the leading metadata section
-`collection_name,user_address,collection_timezone` is optional.
+`collection_name,user_address` is optional.
 
 **Multipart/form-data (legacy)**
 Upload a `.csv` or `.json` file in the `file` field. The payload is normalized
@@ -501,30 +501,49 @@ curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
 
 *Upload a stamped file*
 
-This endpoint allows users to upload a file that has been previously stamped.
-It validates that the file exists in the blockchain for the authenticated user and specified collection.
+This endpoint allows users to upload a file or inline data that has been
+previously stamped.
+It validates that a matching commitment exists in the blockchain records for the
+authenticated user and specified collection.
+
+The collection can be specified using either:
+- collection_name: Name of the collection (case-insensitive)
+- collection_cid: CID of the collection
+
+At least one of 'collection_name' or 'collection_cid' must be provided.
+If both are provided, the stored CID for the named collection must match
+the provided collection_cid.
+The content can be provided as either 'file' or 'data', but not both.
+'file_name' is required whenever 'data' is provided.
 
 The endpoint performs the following validations:
-1. Validates collection name is not empty
-2. Finds the collection by name (case-insensitive) for the authenticated user
-3. Extracts object CID from the uploaded file
-4. Verifies the file exists in blockchain records for the user's address
-5. Ensures exactly one matching record exists
-6. Uploads the file with blockchain validation
+- Ensures at least one collection identifier is provided.
+- Ensures exactly one of `file` or `data` is provided.
+- Ensures `file_name` is provided when `data` is used.
+- Finds the collection for the authenticated user.
+- Calculates the object CID from the uploaded file, or from inline data
+  when no file is provided.
+- Verifies that matching commitments exist in blockchain records for the
+  user's address and collection.
+- Uploads the file and associates it with each matching commitment.
+- Returns the existing file object with HTTP 200 when the matching
+  commitment is already associated with a file.
 
 Note: User address is automatically determined from the authenticated user's profile.
 
 Returns structured error responses with appropriate HTTP status codes:
-- 400: Invalid input or validation failed
+- 400: Invalid input or validation failed, or collection_cid does not match collection_name
 - 404: Collection not found or no blockchain records found
-- 409: Multiple blockchain records found (conflict)
 - 500: File processing, blockchain, or upload errors
 
 ### Body parameter
 
 ```yaml
 collection_name: string
+collection_cid: string
 file: string
+data: string
+file_name: string
 
 ```
 
@@ -532,13 +551,16 @@ file: string
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|object|true|none|
-|» collection_name|body|string|true|Collection name for blockchain verification (case-insensitive)|
-|» file|body|string(binary)|true|Previously stamped file to be uploaded|
+|body|body|object|false|none|
+|» collection_name|body|string|false|Collection name for blockchain verification (case-insensitive)|
+|» collection_cid|body|string|false|Collection CID for blockchain verification|
+|» file|body|string(binary)|false|Previously stamped file to be uploaded (mutually exclusive with 'data')|
+|» data|body|string|false|Inline text or JSON data (alternative to file; mutually exclusive with 'file')|
+|» file_name|body|string|false|Custom file name for data. Required whenever 'data' is provided.|
 
 > Example responses
 
-> 201 Response
+> 200 Response
 
 ```json
 {
@@ -561,10 +583,11 @@ file: string
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|File uploaded successfully|[StampCreatedResponse](#schemastampcreatedresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|File was already uploaded for the matching commitment. Returns the existing file object.|[StampCreatedResponse](#schemastampcreatedresponse)|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|File uploaded and associated with matching commitment(s)|[StampCreatedResponse](#schemastampcreatedresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid input or validation failed|[Error](#schemaerror)|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Collection not found or no blockchain records found|[Error](#schemaerror)|
-|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Multiple blockchain records found for same user/collection|[Error](#schemaerror)|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|File processing, blockchain, or upload errors|[Error](#schemaerror)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
