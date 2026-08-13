@@ -200,10 +200,24 @@ This is a low-level function that operates on set CIDs.
 It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
+The operation is idempotent. A successful transaction receipt containing
+a matching `AddSet` event is authoritative for the submitted write and
+avoids a potentially stale state read. If an idempotent transaction emits
+no event, the service confirms the existing commitment using bounded,
+exponential-backoff retries.
+
+Transaction confirmation does not guarantee immediate visibility through
+an indexing service. Consumers that query indexing immediately after a
+write may need read-your-write handling based on the returned transaction
+hash.
+
 * **Parameters:**
   **set_cid** – The CID identifying the set.
 * **Returns:**
   The commitment log containing commitment receipt info.
+* **Raises:**
+  **RuntimeError** – If a matching event is absent and the commitment
+  cannot be confirmed after retrying.
 
 ### add_set_object(set_cid: str, object_cid: str) → dict
 
@@ -760,10 +774,24 @@ This is a low-level function that operates on set CIDs.
 It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
+The operation is idempotent. A successful transaction receipt containing
+a matching `AddSet` event is authoritative for the submitted write and
+avoids a potentially stale state read. If an idempotent transaction emits
+no event, the service confirms the existing commitment using bounded,
+exponential-backoff retries.
+
+Transaction confirmation does not guarantee immediate visibility through
+an indexing service. Consumers that query indexing immediately after a
+write may need read-your-write handling based on the returned transaction
+hash.
+
 * **Parameters:**
   **set_cid** – The CID (hash) identifying the set.
 * **Returns:**
   The commitment log containing commitment receipt info.
+* **Raises:**
+  **RuntimeError** – If a matching event is absent and the commitment
+  cannot be confirmed after retrying.
 
 ### add_set_object(set_cid: str, object_cid: str) → dict
 
@@ -1493,10 +1521,24 @@ This is a low-level function that operates on set CIDs.
 It does not specify how a hash is built and does not provide
 a schema for hashing complex information.
 
+The operation is idempotent. A successful transaction receipt containing
+a matching `AddSet` event is authoritative for the submitted write and
+avoids a potentially stale state read. If an idempotent transaction emits
+no event, the service confirms the existing commitment using bounded,
+exponential-backoff retries.
+
+Transaction confirmation does not guarantee immediate visibility through
+an indexing service. Consumers that query indexing immediately after a
+write may need read-your-write handling based on the returned transaction
+hash.
+
 * **Parameters:**
   **set_cid** – The CID identifying the set.
 * **Returns:**
   The commitment log containing commitment receipt info.
+* **Raises:**
+  **RuntimeError** – If a matching event is absent and the commitment
+  cannot be confirmed after retrying.
 
 ### add_set_object(set_cid: str, object_cid: str) → dict
 
