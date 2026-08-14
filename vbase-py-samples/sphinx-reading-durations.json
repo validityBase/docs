@@ -4,10 +4,10 @@
     "create_set": 0.005,
     "github_codespaces_guide": 0.014,
     "index": 0.012,
-    "quickstart": 0.011,
+    "quickstart": 0.01,
     "restore_dataset_provenance": 0.007,
     "stamp_alpaca_portfolio": 0.02,
-    "stamp_interactive_brokers_portfolio": 0.013,
+    "stamp_interactive_brokers_portfolio": 0.012,
     "windows_guide": 0.022,
-    "windows_subsystem_for_linux_guide": 0.011
+    "windows_subsystem_for_linux_guide": 0.012
 }
