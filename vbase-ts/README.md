@@ -30,7 +30,7 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
 
 ## Tests
 
-### Unit Tests
+### Default-Network Tests
 
 1. Change to the working directory:
 
@@ -38,9 +38,9 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
    cd ~/validityBase/vbase-ts
    ```
 
-1. Run localhost tests:
+1. Run tests against Hardhat's default in-process network:
 
-   1. Run all tests:
+   1. Run all tests, including the stress suite:
 
       ```bash
       npm run test
@@ -53,6 +53,9 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
       ```
 
 ### Stress Tests
+
+Before running any proxy stress test, start an RPC service on `localhost:8545`.
+The proxy scripts listen on port 8546 and forward requests to that service.
 
 1. Run general RPC stress tests:
 
@@ -116,7 +119,7 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
 
 > **escalatedSendTransaction**(`web3`, `signer`, `to`, `data`, `logger`, `gasLimit`?): `Promise`\<`TransactionReceipt`\>
 
-Defined in: [transactions.ts:588](https://github.com/validityBase/vbase-ts/blob/eb2c096b966ec4cfbb66091037e6cd1cd97ac870/src/vbase/transactions.ts#L588)
+Defined in: [transactions.ts:588](https://github.com/validityBase/vbase-ts/blob/76c65d04e3d267eeb456bb8b39fb36b93b65e724/src/vbase/transactions.ts#L588)
 
 Sends an Ethereum transaction with escalation logic to increase gas price if needed.
 
@@ -162,7 +165,7 @@ Optional gas limit for the transaction.
 
 `Promise`\<`TransactionReceipt`\>
 
-- A promise that resolves to the transaction hash.
+- A promise that resolves to the transaction receipt.
 
 #### Throws
 
@@ -174,7 +177,7 @@ If the transaction fails to send or encounters an error.
 
 > **jsonPrettyStringify**(`obj`): `string`
 
-Defined in: [utils.ts:54](https://github.com/validityBase/vbase-ts/blob/eb2c096b966ec4cfbb66091037e6cd1cd97ac870/src/vbase/utils.ts#L54)
+Defined in: [utils.ts:54](https://github.com/validityBase/vbase-ts/blob/76c65d04e3d267eeb456bb8b39fb36b93b65e724/src/vbase/utils.ts#L54)
 
 Converts an object into a pretty-printed JSON string.
 
@@ -201,7 +204,7 @@ A JSON-formatted string with indentation for readability.
 
 > **serializeBigInts**(`obj`): `any`
 
-Defined in: [utils.ts:14](https://github.com/validityBase/vbase-ts/blob/eb2c096b966ec4cfbb66091037e6cd1cd97ac870/src/vbase/utils.ts#L14)
+Defined in: [utils.ts:14](https://github.com/validityBase/vbase-ts/blob/76c65d04e3d267eeb456bb8b39fb36b93b65e724/src/vbase/utils.ts#L14)
 
 Recursively serializes BigInt values within an object, array, or nested structure.
 
