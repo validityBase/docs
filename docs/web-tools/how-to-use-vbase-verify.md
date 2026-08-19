@@ -1,97 +1,153 @@
-# Verify an Object
+# How to Use vBase Verify
 
-The **vBase Verify** tool checks whether a file—or its content ID (SHA3 hash)—has previously been stamped on the blockchain using vBase. If a match is found, the app displays the full stamp details, including the timestamp, blockchain address, and other stamp details.
+**vBase Verify** lets you check content and historical records against vBase audit trails directly from your browser.
 
-## How to Verify a Stamp
-For a quick overview, [🎥 Watch the How-To Video](https://youtu.be/nzbC3UphfGM)
+You can verify:
 
-#### Step-by-Step Instructions
-1. Visit [vBase Verify](https://app.vbase.com/verify)  
-2. Select the file you want to verify  
-3. The app calculates the file’s content ID ([SHA3 hash](https://csrc.nist.gov/publications/detail/fips/202/final)) in your browser  
-4. It queries the blockchain (currently [Polygon](https://polygon.technology/)) for any stamp matching that content ID  
-5. If a match is found, full stamp details are displayed
+- A file
+- An existing Content ID
+- A user or blockchain address
+- A Collection using a ZIP archive
+- A Collection using Amazon S3
 
-## What Happens Behind the Scenes
+You do not need a vBase account to verify a file, Content ID, or user. You must sign in to verify a Collection.
 
-When you verify a file:
+[Open vBase Verify](https://app.vbase.com/verify/)
 
-1. The **SHA3 hash** (also called the content ID or digital fingerprint) is calculated **locally in your browser**  
-2. vBase uses this content ID to search for matching stamp transactions on the relevant blockchains (currently Polygon)  
-3. If a match is found, the app retrieves and displays the following **on-chain stamp metadata**:
+For a quick overview, [watch the how-to video](https://youtu.be/nzbC3UphfGM).
 
-      | 🔗 Data Type            | Description |
-      |------------------------|-------------|
-      | 📅 **Timestamp**       | When the stamp was recorded on-chain |
-      | 👤 **Blockchain Address** | The blockchain address associated with the vBase account that created the stamp |
-      | 🧩 **Content ID**      | A hash (unique fingerprint) of the file |
-      | 🗂️ **Collection ID**   | A hash of the name of the collection to which the file belongs (if applicable) |
-      | 🔗 **Transaction Hash** | Blockchain transaction ID for the stamp |
+## Verify a File
 
-> 💡 This information is pulled directly from the blockchain and is independently verifiable.
+[Open File Verification](https://app.vbase.com/verify/?method=file)
 
-In some cases, **off-chain metadata** from the vBase database (e.g., **Username**, **Collection Name**, **Identity Verification Status**) may also be shown if available.
+Use File Verification when you have a copy of a file and want to determine whether, when and by whom the exact same content was previously stamped.
 
-<figure>
-    <img src="Example_VerifyStamp_Output.png" width=500%, height=auto>
-    <figcaption>Example of vBase Verify Output</figcaption>
-</figure>
+1. Open the **File** verification workflow.
+2. Select the file you want to verify.
+3. vBase calculates the file's Content ID locally in your browser.
+4. vBase searches the public ledger records for matching Stamps.
+5. Review the matching audit trail records.
 
-> **User Notes**
->  - Your file’s hash is always calculated **locally in your browser**  
->  - The file itself is **never uploaded** or seen by vBase during verification  
->  - All stamps are currently recorded on the Polygon blockchain and are independently verifiable  
->  - Advanced users can query stamps directly via tools like [Dune](https://dune.com/), [Polygonscan](https://polygonscan.com/), or publicly available Polygon nodes<br>
+The file itself is not uploaded to vBase during verification.
 
-## Frequently Asked Questions
+### What the Results Show
 
-#### What If My File Doesn’t Match?
+When a matching Stamp is found, vBase displays a verification summary showing the key information associated with the record.
 
-Even a **1-character or 1-byte change** to a file will produce a completely different content ID.
+Depending on the Stamp, this may include:
 
-This means:
+- **Timestamp** — when the Stamp was recorded
+- **User** — the vBase account associated with the Stamp
+- **User Identity** — whether that user has a verified identity, and since when
+- **Collection** — the Collection associated with the Stamp, if applicable
 
-- The file must match **exactly**—bit-for-bit—with the originally stamped version  
-- If you've re-saved, edited, or reformatted the file in any way, the hash will not match  
-- You can calculate the SHA3 hash locally using tools like `sha3sum`, `openssl`, or browser-based hash calculators to compare with the content ID. A few public calculators are available [here](https://emn178.github.io/online-tools/sha3_256_checksum.html) and [here](https://www.browserling.com/tools/sha3-hash). 
+If the same content has been stamped more than once, vBase indicates this and displays the earliest matching Stamp by default. Other matching Stamps may have been created by different users or associated with different Collections.
 
-#### Can I Verify a Content ID Without Loading a File?
+The **Stamp Details** section provides the underlying technical record:
 
-Yes! If you already know your file’s **SHA3 hash**, you can paste it into the **"Verify by Content ID"** field:
+| Field | Description |
+|---|---|
+| **Blockchain Address** | The blockchain address associated with the stamping account |
+| **Content ID (SHA3-256)** | The cryptographic fingerprint of the verified content |
+| **Collection ID (SHA3-256)** | The identifier of the associated Collection, if applicable |
+| **Public Blockchain Record** | A link to the underlying blockchain transaction |
 
-1. Go to [vBase Verify](https://app.vbase.com/verify/?method=hash)  
-2. Click **"Verify by Hash"**  
-3. Paste the SHA3 hash (hex format, e.g., `0xabc123...`)  
-4. The app will search for a match and display any corresponding stamp
+You can also download a **Stamp Certificate PDF** summarizing the verification record.
 
-#### How Are Collections Handled?
+[Learn how vBase verification works](../getting-started/how-vbase-works.md).
 
-If the file was originally stamped as part of a **Collection**, the Verify app will:
+### If the File Does Not Match
 
-- Display the **Collection ID** associated with the file  
-- Show the **Collection Name**, if available
+A file must match the stamped content exactly.
 
-> 📌 This is especially useful when verifying which files belong to specific projects, datasets, or deliverables.
+Any change to the file will produce a different Content ID. If no matching Stamp is found, confirm that you are using the exact version of the file that was originally stamped.
 
-#### Can multiple people stamp the same file?
-Yes. If a user stamps the same file twice or two users stamp an identical file, it will produce the same content ID. The blockchain will show multiple transactions for that content ID, each with its own timestamp and blockchain address. For real-world data with any reasonable amount of entropy, this is extremely unlikely. 
+## Verify a Content ID
 
-#### Is there an API for verification?
-Yes, see the Python SDK samples for verifying via the API. 
+[Open Content ID Verification](https://app.vbase.com/verify/?method=hash)
 
-#### What happens if a stamp is deleted from vBase?
-Stamp records on the **blockchain are permanent**. If the original copy of the file is lost, then the associated Stamp will not be verifiable, however it will still be visible on-chain. 
+If you already know the Content ID of the content you want to check, you can search for it directly without providing the underlying data.
 
-## Glossary
+1. Open the **Content ID** verification workflow.
+2. Enter the Content ID.
+3. Search for matching Stamps.
+4. Review the available audit trail records.
 
-| Term              | Meaning |
-|------------------|---------|
-| **SHA3 Hash**     | A unique fingerprint for a file |
-| **Content ID**    | A vBase-specific name for an object's fingerprint |
-| **On-chain Data** | Info permanently stored on the blockchain |
-| **Off-chain Data**| Extra metadata, not on the blockchain |
+This workflow is useful when a Content ID has been calculated independently or provided as part of another vBase workflow.
 
-## Need Help?
+## Verify a User
 
-- 📖 [How to Stamp a File](how-to-use-vbase-stamper.md)  
-- 🧩 [What Is a SHA3 Hash?](https://en.wikipedia.org/wiki/SHA-3)  
+[Open User Verification](https://app.vbase.com/verify/?method=user)
+
+User Verification lets you review audit trail activity associated with a vBase user or blockchain address.
+
+1. Open the **User** verification workflow.
+2. Enter the user or blockchain address you want to review.
+3. Search for the user.
+4. Review the available Stamps, Collections, and identity information associated with that vBase identity.
+
+This provides broader context around the audit trails maintained under the same vBase identity.
+
+Activity conducted under another identity or outside vBase will not appear in that user's vBase history.
+
+## Verify a Collection
+
+A Collection groups related Stamps into a larger audit trail. Collection verification lets you compare a presented dataset or group of files with the history previously recorded in that Collection.
+
+A vBase account is required to verify Collections.
+
+### Verify a Collection Using a ZIP Archive
+
+[Open Collection ZIP Verification](https://app.vbase.com/verify/?method=collection&collectionMethod=archive)
+
+Use this workflow when the content you want to verify is available as a ZIP archive.
+
+1. Sign in to your vBase account.
+2. Open the **Collection — ZIP Archive** verification workflow.
+3. Select the Collection you want to verify.
+4. Provide the ZIP archive containing the files to compare with the Collection.
+5. Run the verification.
+6. Review the results.
+
+Collection verification compares the submitted content with the audit trail previously recorded for the Collection and identifies whether the presented objects correspond to the Stamps in the Collection.
+
+### Verify a Collection Using Amazon S3
+
+[Open Collection S3 Verification](https://app.vbase.com/verify/?method=collection&collectionMethod=s3-credentials)
+
+Use this workflow when the content to be verified is stored in Amazon S3.
+
+1. Sign in to your vBase account.
+2. Open the **Collection — S3** verification workflow.
+3. Select the Collection you want to verify.
+4. Provide the requested S3 location and credentials.
+5. Run the verification.
+6. Review the results.
+
+This allows a Collection to be checked directly against content stored in S3 rather than first assembling the files into a ZIP archive.
+
+{% hint style="info" %}
+Collection verification is different from verifying a single file. File verification asks whether a particular object matches an earlier Stamp. Collection verification compares a group of objects with the recorded history of a Collection.
+{% endhint %}
+
+## Understanding Verification
+
+A successful verification establishes that the content being reviewed corresponds to content represented by the earlier vBase audit trail record.
+
+It does not, by itself, establish whether the underlying data is accurate, useful, or valuable.
+
+For details on what Stamps, Content IDs, Collections, and verification can establish, see [How vBase Works](../getting-started/how-vbase-works.md).
+
+## Verify Programmatically
+
+For recurring or automated verification workflows, use the vBase developer APIs:
+
+- [Python API Client](../getting-started/api-py-quickstart.md)
+- [REST API](../../vbase-django-tools/api/rest-api-user-guide.md)
+- [Choose another vBase integration](../getting-started/choose-how-to-use-vbase.md)
+
+## Create a Stamp
+
+You can test the complete workflow yourself by stamping a file and then verifying the same file through vBase Verify.
+
+[Learn how to use the vBase Stamper](how-to-use-vbase-stamper.md).

@@ -24,7 +24,7 @@ For a quick overview, [watch the how-to video](https://www.youtube.com/watch?v=w
 3. Optionally, assign the Stamp to an existing **Collection**.
 4. Click **Make a Stamp**.
 
-Once the Stamp is created, vBase displays the resulting audit trail record.
+Once the Stamp is created, vBase displays the resulting Stamp (audit trail record).
 
 
 ### File Storage
