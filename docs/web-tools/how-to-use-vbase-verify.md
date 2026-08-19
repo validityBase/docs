@@ -124,6 +124,10 @@ Use this workflow when the content to be verified is stored in Amazon S3.
 5. Run the verification.
 6. Review the results.
 
+{% hint style="warning" %}
+**Use read-only S3 credentials.** vBase does not store the S3 credentials you provide for Collection verification. However, because credentials are entered into the browser and used to access the S3 bucket data, they should still be treated as sensitive. Use credentials scoped only to the bucket or prefix being verified, with the minimum permissions required to read the relevant files. Avoid using credentials with write, delete, or administrative permissions.
+{% endhint %}
+
 This allows a Collection to be checked directly against content stored in S3 rather than first assembling the files into a ZIP archive.
 
 {% hint style="info" %}
