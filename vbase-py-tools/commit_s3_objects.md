@@ -41,10 +41,8 @@ commit_s3_objects [-h] --dataset_name DATASET_NAME --bucket BUCKET [--key KEY]
 * [**`--verbose`**]() - verbose output
 * [**`--test`**]() - use a test vBase contract
 
-```none
 
 examples:
     python3 -m tools.commit_s3_objects --dataset_name=test --bucket=pitlabs-c2-test --key=commit_s3_objects/test_1.txt --use_aws_access_key
     python3 -m tools.commit_s3_objects --dataset_name=test --bucket=pitlabs-c2-test --key_prefix=commit_s3_objects/ --use_aws_access_key
-    python3 -m tools.commit_s3_objects --dataset_name=test --bucket=pitlabs-c2-test --key_pattern=commit_s3_objects/*.txt --use_aws_access_key --verbose
-```
+    python3 -m tools.commit_s3_objects --dataset_name=test --bucket=pitlabs-c2-test --key_pattern=commit_s3_objects/\*.txt --use_aws_access_key --verbose
