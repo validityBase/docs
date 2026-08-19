@@ -53,6 +53,8 @@ vBase records the Stamp on a public blockchain. Because the record is stored on 
 
 A Stamp provides evidence that the exact data represented by its Content ID existed **no later than the published blockchain timestamp**.
 
+Once recorded, a Stamp is permanent: it cannot be edited, replaced, or deleted from the blockchain. If the underlying data changes, the revised data can instead be given a new Stamp with its own Content ID and timestamp.
+
 Each Stamp is associated with the blockchain address of the stamping account. Where available, vBase also links that address to vBase profile and identity information, helping verifiers understand which producer created the record.
 
 
@@ -130,6 +132,8 @@ These distinctions are important: vBase builds independently verifiable evidence
 ## Why use vBase?
 
 Anyone can calculate a cryptographic hash and publish it to a public blockchain. Doing so directly, however, typically requires managing blockchain wallets, transaction fees, smart contracts, and infrastructure for retrieving and interpreting the resulting records.
+
+In vBase's hosted workflows, this blockchain interactions are handled for the user, including transaction submission and blockchain fees. Users do not need to acquire cryptocurrency, manage a blockchain wallet or query RPC nodes simply to create or verify audit trail records.
 
 vBase handles that complexity and provides practical tools for creating, organizing, and verifying audit trails through its Web App, APIs, and developer tools.
 
