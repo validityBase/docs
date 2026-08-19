@@ -133,7 +133,7 @@ These distinctions are important: vBase builds independently verifiable evidence
 
 Anyone can calculate a cryptographic hash and publish it to a public blockchain. Doing so directly, however, typically requires managing blockchain wallets, transaction fees, smart contracts, and infrastructure for retrieving and interpreting the resulting records.
 
-In vBase's hosted workflows, this blockchain interactions are handled for the user, including transaction submission and blockchain fees. Users do not need to acquire cryptocurrency, manage a blockchain wallet or query RPC nodes simply to create or verify audit trail records.
+In vBase's hosted workflows, these blockchain interactions are handled for the user, including transaction submission and blockchain fees. Users do not need to acquire cryptocurrency, manage a blockchain wallet, or query RPC nodes simply to create or verify audit trail records.
 
 vBase handles that complexity and provides practical tools for creating, organizing, and verifying audit trails through its Web App, APIs, and developer tools.
 
