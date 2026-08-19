@@ -20,7 +20,7 @@ For a quick overview, [watch the how-to video](https://youtu.be/nzbC3UphfGM).
 
 [Open File Verification](https://app.vbase.com/verify/?method=file)
 
-Use File Verification when you have a copy of a file and want to determine whether, when and by whom the exact same content was previously stamped.
+Use File Verification when you have a copy of a file and want to determine whether, when, and by whom the exact same content was previously stamped.
 
 1. Open the **File** verification workflow.
 2. Select the file you want to verify.
