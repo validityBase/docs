@@ -46,10 +46,20 @@
 
 
 ## Concepts and Architecture
+<!-- 
 * [Technical Overview](docs/welcome/technical-overview.md)
 * [Why Blockchains?](docs/welcome/why-blockchains.md)
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
 * [Verification Methods](docs/getting-started/verification-methods.md)
+--> 
+ 
+## Concepts and Architecture
+* [Building a Verifiable History](docs/concepts/building-a-verifiable-history.md)
+* [Privacy and Data Handling](docs/concepts/privacy-and-data-handling.md)
+* [Verification and Trust Model](docs/concepts/verification-and-trust-model.md)
+* [Why Public Blockchains?](docs/concepts/why-public-blockchains.md)
+* [Technical Architecture](docs/concepts/technical-architecture.md)
+
 
 
 ## REST API
