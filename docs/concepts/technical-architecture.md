@@ -8,7 +8,9 @@ For a less technical introduction, see [How vBase Works](../getting-started/how-
 
 The diagram shows five steps in two parallel flows: the producer's existing data flow and the vBase audit trail flow:
 
-![The vBase Technical Architecture](../assets/vbase_tech_architecture.svg)
+<figure>
+  <img src="assets/vbase_tech_architecture.svg" alt="The vBase Technical Architecture">
+</figure>
 
 The architecture separates the producer's normal **data flow** from the **audit trail flow**. A Content ID connects the two.
 

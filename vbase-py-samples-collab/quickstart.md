@@ -11,7 +11,7 @@ The easiest way to get started with vBase is by accessing Python notebook sample
 3. **Open the Google Collab secrets manager:**
     Access the secrets manager by clicking on the key icon in the left panel of Google Collab:
 
-    ![Google Collab secrets](google_collab_secrets.png "Google Collab secrets")
+    <img src="google_collab_secrets.png" alt="Google Collab secrets">
 
 4. **Set up your Google Collab environment:**
 
