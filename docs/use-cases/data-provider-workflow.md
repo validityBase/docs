@@ -4,7 +4,7 @@ Data providers, especially those selling to systematic investors, benefit from a
 
 vBase lets you create a verifiable, point-in-time history for your dataset without changing your production or delivery workflow.
 
-This page builds on concepts covered elsewhere in the documentation. If you are new to the basics, start with [What is a Stamp](/overview/what-is-a-stamp), [What vBase Verifies](/overview/what-vbase-verifies), and [Technical Overview](/deep-dive/technical-overview).
+This page builds on concepts covered elsewhere in the documentation. If you are new to the basics, start with [How vBase Works](../getting-started/how-vbase-works.md) and the [Technical Architecture](../concepts/technical-architecture.md).
 
 As a quick overview, stamps and collections together allow a data provider to create independently verifiable proof of:
 
@@ -12,7 +12,7 @@ As a quick overview, stamps and collections together allow a data provider to cr
 - the completeness of the dataset's historical record
 - the revision history for a dataset
 
-See [What vBase Verifies](/overview/what-vbase-verifies) for more detail.
+See [How vBase Works](../getting-started/how-vbase-works.md) for more detail.
 
 ## What vBase enables for data providers
 
@@ -95,9 +95,8 @@ Record them as new stamped data in the same Collection.
 
 ## Related docs
 
-- [What is a Stamp](/overview/what-is-a-stamp)
-- [What vBase Verifies](/overview/what-vbase-verifies)
-- [Technical Overview](/deep-dive/technical-overview)
-- [Verification Methods](/deep-dive/verification-methods)
-- [Stamping Best Practices](/deep-dive/dataset-commitments)
-- [REST API User Guide](/rest-api/rest-api-user-guide)
+- [How vBase Works](../getting-started/how-vbase-works.md)
+- [Technical Architecture](../concepts/technical-architecture.md)
+- [Verification and Trust Model](../concepts/verification-and-trust-model.md)
+- [Building a Verifiable History](../concepts/building-a-verifiable-history.md)
+- [REST API User Guide](../../vbase-django-tools/api/rest-api-user-guide.md)

@@ -19,7 +19,7 @@ Use this format to generate a CSV file of your current portfolio.
 
 [Example Portfolio CSV File](https://github.com/validityBase/docs/releases/download/Example_Portfolio/Example_Portfolio_CSV.csv)
 
-<img src="image-2.png" style="width:20%; height:auto;"><br><br>
+<img src="assets/image-2.png" style="width:20%; height:auto;"><br><br>
 
 
 ### Step 2: First-time Setup

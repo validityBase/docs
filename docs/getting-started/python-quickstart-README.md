@@ -16,5 +16,5 @@ Use this SDK when you need:
 
 ## Choose an SDK quickstart
 
-- [Cloud Notebooks](vbase-py-samples-collab/quickstart.md)
-- [Local Installation](vbase-py-samples/quickstart.md)
+- [Cloud Notebooks](../../vbase-py-samples-collab/quickstart.md)
+- [Local Installation](../../vbase-py-samples/quickstart.md)

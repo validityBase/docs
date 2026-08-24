@@ -33,7 +33,7 @@ pip install vbase-api
 - Source: [`validityBase/vbase-api-py` on GitHub](https://github.com/validityBase/vbase-api-py)
 - Docs: [Python client API reference](../../vbase-api-py/index.md)
 - Quickstart: [Python REST Client Quickstart](api-py-quickstart.md)
-- Private stamping: [Private Stamping with Delayed Reveal](private-stamping.md)
+- Private stamping: [Private Stamping with Delayed Reveal](../use-cases/private-stamping.md)
 
 ## REST API
 

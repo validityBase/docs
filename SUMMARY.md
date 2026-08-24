@@ -28,12 +28,12 @@
 * [API Reference](vbase-api-py/index.md)
 
 ## Use Case How-Tos 
-  * [Data Provider Workflow](docs/getting-started/data-provider-workflow.md)
-  * [Private Stamping with Delayed Reveal](docs/getting-started/private-stamping.md)
-  * [Verified Investment Track Records](docs/getting-started/verified-track-record.md)
-  * [Stamping a Portfolio](docs/getting-started/stamping-portfolios.md)
-  * [Linking with Interactive Brokers](docs/getting-started/linking-interactive-brokers.md)
-  * [Linking with QuantConnect](docs/getting-started/linking-quantconnect.md)
+  * [Data Provider Workflow](docs/use-cases/data-provider-workflow.md)
+  * [Private Stamping with Delayed Reveal](docs/use-cases/private-stamping.md)
+  * [Verified Investment Track Records](docs/use-cases/verified-track-record.md)
+  * [Stamping a Portfolio](docs/use-cases/stamping-portfolios.md)
+  * [Linking with Interactive Brokers](docs/use-cases/linking-interactive-brokers.md)
+  * [Linking with QuantConnect](docs/use-cases/linking-quantconnect.md)
 
   <!-- * [Point-in-Time Datasets](docs/use-case-samples/point-in-time-datasets.md)
   * [Verified Research Portfolios](docs/use-case-samples/verified-research-portfolio.md)
@@ -46,10 +46,20 @@
 
 
 ## Concepts and Architecture
+<!-- 
 * [Technical Overview](docs/welcome/technical-overview.md)
 * [Why Blockchains?](docs/welcome/why-blockchains.md)
 * [Stamping Best Practices](docs/getting-started/dataset-commitments.md)
 * [Verification Methods](docs/getting-started/verification-methods.md)
+--> 
+ 
+## Concepts and Architecture
+* [Building a Verifiable History](docs/concepts/building-a-verifiable-history.md)
+* [Privacy and Data Handling](docs/concepts/privacy-and-data-handling.md)
+* [Verification and Trust Model](docs/concepts/verification-and-trust-model.md)
+* [Why Public Blockchains?](docs/concepts/why-blockchains.md)
+* [Technical Architecture](docs/concepts/technical-architecture.md)
+
 
 
 ## REST API

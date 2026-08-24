@@ -76,7 +76,7 @@ stamp = client.create_stamp(
 
 Use `upload_stamped_file` to store it later. If the file must not leave your
 machine before reveal, see
-[Private Stamping with Delayed Reveal](private-stamping.md).
+[Private Stamping with Delayed Reveal](../use-cases/private-stamping.md).
 
 ### Stamp structured data
 

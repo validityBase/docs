@@ -15,7 +15,7 @@ Related records can be grouped into **Collections**, making it possible to verif
 ## The vBase process
 
 <figure>
-  <img src="stamping_process.png" alt="The vBase Stamping Process" width="80%">
+  <img src="assets/stamping_process.png" alt="The vBase Stamping Process" width="80%">
    <figcaption>The stamping process. Publication to the public ledger gives the Stamp an independently verifiable timestamp — one that doesn't depend on trusting vBase or the data producer.</figcaption>
 </figure>
 
@@ -67,7 +67,7 @@ Producers can continue sending files, delivering data through APIs, granting S3 
 ### 5. Verify the history
 
 <figure>
-  <img src="verification_process.png" alt="The vBase Verification Process" width="80%">
+  <img src="assets/verification_process.png" alt="The vBase Verification Process" width="80%">
      <figcaption>The verification process. Recomputing the fingerprint and checking it against the public ledger confirms what data existed and by when — again without trusting vBase or the data producer.</figcaption>
 </figure>
 
@@ -139,7 +139,7 @@ vBase handles that complexity and provides practical tools for creating, organiz
 
 Stamping data or trading strategies creates a useful asymmetry: a complete, point-in-time stamped history is easy for a producer to build and impossible to generate after the fact — so someone with predictive data or strategies can send an inexpensive but highly credible signal about their work.
 
-For more detail on why vBase uses a public blockchain, see [Why Blockchains?](../welcome/why-blockchains.md).
+For more detail on why vBase uses a public blockchain, see [Why Blockchains?](../concepts/why-blockchains.md).
 
 ## Next steps
 

@@ -11,10 +11,10 @@ Data fetching and preparation must be handled on the VBA side by the end user. T
 4. Ensure that the 'Developer' ribbon tab is visible. If it is not, enable it in the Excel options:
     1. Right-click on the ribbon and select 'Customize the Ribbon'.
     2. Check the 'Developer' checkbox in the ribbon tabs tree.
-       ![Customize the Ribbon](images/customize-the-ribbon.png)
+       <img src="images/customize-the-ribbon.png" alt="Customize the Ribbon">
 5. Go to the Developer ribbon tab and click on the 'Visual Basic' button.
 6. In Microsoft Visual Basic for Applications, add a reference to the library: **Tools** -> **References** -> find **vBase**.
-   ![Add Reference](images/add-reference.png)
+   <img src="images/add-reference.png" alt="Add Reference">
 7. The VBA code below demonstrates how to use the library:
 
 
