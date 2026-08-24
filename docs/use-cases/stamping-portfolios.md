@@ -1,6 +1,6 @@
 # Building Portfolio Weights for vBase
 
-vBase enables investors, allocators, and researchers to build a globally credible live performance record by [stamping](../welcome/what-is-a-stamp.md) portfolio rebalance weights.  
+vBase enables investors, allocators, and researchers to build a globally credible live performance record by [stamping](../getting-started/how-vbase-works.md) portfolio rebalance weights.  
 
 To ensure accurate parsing, uploads via the [Portfolio Stamping](https://app.vbase.com/stamp/?method=portfolio) interface must follow a simple standard format. To stamp a file of arbitrary structure, use the [File Stamping](https://app.vbase.com/stamp/?method=file) interface. 
 
@@ -86,4 +86,4 @@ Before stamping, vBase automatically:
 
 You can download the normalized CSV file on the confirmation page, or anytime via your account's [Stamped File Storage](https://app.vbase.com/profile/#user_data_storage).
 
-Any copy of these stamped, normalized CSV files [verifies your portfolio track record](../welcome/what-vbase-verifies.md) by showing that your history of rebalances is timestamped, complete and impartially presented. 
+Any copy of these stamped, normalized CSV files [verifies your portfolio track record](../getting-started/how-vbase-works.md) by showing that your history of rebalances is timestamped, complete and impartially presented. 

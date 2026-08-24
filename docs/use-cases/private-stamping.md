@@ -39,10 +39,10 @@ line endings will produce a different CID.
 
 - Python 3.8 or later with `vbase-api` installed (`pip install vbase-api`)
 - A vBase API key stored in `VBASE_API_KEY`; see
-  [Configure your API key](api-py-quickstart.md#configure-your-api-key)
+  [Configure your API key](../getting-started/api-py-quickstart.md#configure-your-api-key)
 - An existing collection. This portfolio example uses `global-macro-2025`.
   Create it first or replace that name in every example with the name of your
-  collection. See [Create a collection](api-py-quickstart.md#create-a-collection).
+  collection. See [Create a collection](../getting-started/api-py-quickstart.md#create-a-collection).
 - A separate account for testing before you use your main account
 
 If you are stamping a portfolio for use with vBase portfolio tools, the CSV
@@ -119,7 +119,7 @@ Send the file to the person who needs to verify it. They can use
 browser and finds the matching stamp. It does not upload the file, and the
 person does not need a vBase account.
 
-See [Verification Methods](verification-methods.md) for other ways to verify a
+See [Verification Methods](../concepts/verification-and-trust-model.md) for other ways to verify a
 stamp.
 
 ### Store the file with vBase

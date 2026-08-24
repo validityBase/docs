@@ -17,7 +17,7 @@ Connect your IBKR account to validityBase to securely **import positions and cas
 - Click your display name in the upper right corner and select [**User Profile**](https://app.vbase.com/profile).
 - In your Profile, select [**Broker Integrations**](https://app.vbase.com/profile#providers) from the top menu.
 
-<img src="broker-integrations-screenshot.png" alt="Profile menu showing “Broker Integrations" width="400" style="margin-left:50px;">
+<img src="assets/broker-integrations-screenshot.png" alt="Profile menu showing “Broker Integrations" width="400" style="margin-left:50px;">
 
 ### 2) Setup Account Link
 - Click **Link Account**.
@@ -33,7 +33,7 @@ Connect your IBKR account to validityBase to securely **import positions and cas
 
 ### 4) Confirm the connection
 - Back in validityBase, you’ll see a **Connection successful** message and your account details.  
-<img src="IBKR-success-screenshot.png" alt="IBKR success screenshot" width="400" style="margin-left:50px;">
+<img src="assets/IBKR-success-screenshot.png" alt="IBKR success screenshot" width="400" style="margin-left:50px;">
 
 - Occasionally the IBKR authorization can fail. If so, delete the provider and repeat steps 2–3.  
 - If you manage multiple IBKR sub-accounts under one login, email **portfolios@vbase.com** so we can configure the correct account(s).  

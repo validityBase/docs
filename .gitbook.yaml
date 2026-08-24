@@ -4,3 +4,34 @@ structure:
   summary: SUMMARY.md
 plugins:
   - search-plus
+
+redirects:
+  # Old Welcome section
+  welcome/example-use-cases: getting-started/example-use-cases.md
+  welcome/how-vbase-works: getting-started/how-vbase-works.md
+  welcome/what-vbase-verifies: getting-started/how-vbase-works.md
+  welcome/what-is-a-stamp: getting-started/how-vbase-works.md
+  welcome/technical-overview: docs/concepts/technical-architecture.md
+  welcome/why-blockchains: docs/concepts/why-public-blockchains.md
+  welcome/unique-advantages: docs/concepts/why-public-blockchains.md
+
+  # Retired / reorganized Getting Started pages
+  getting-started/verification-methods: docs/concepts/verification-and-trust-model.md
+  getting-started/dataset-commitments: docs/concepts/building-a-verifiable-history.md
+  getting-started/start-your-journey: docs/getting-started/choose-how-to-use-vbase.md
+
+  # Old Python API Quickstart name
+  getting-started/python-api-quickstart: getting-started/api-py-quickstart.md
+
+  # Generated Python API reference pages consolidated
+  vbase-api-py/vbase_api_client: vbase-api-py/index.md
+  vbase-api-py/vbase_api_models: vbase-api-py/index.md
+
+
+  # Move use-cases section
+  getting-started/data-provider-workflow: docs/use-cases/data-provider-workflow.md
+  getting-started/private-stamping: docs/use-cases/private-stamping.md
+  getting-started/verified-track-record: docs/use-cases/verified-track-record.md
+  getting-started/stamping-portfolios: docs/use-cases/stamping-portfolios.md
+  getting-started/linking-interactive-brokers: docs/use-cases/linking-interactive-brokers.md
+  getting-started/linking-quantconnect: docs/use-cases/linking-quantconnect.md
