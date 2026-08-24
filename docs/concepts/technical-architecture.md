@@ -1,74 +1,76 @@
 # Technical Architecture
 
-vBase is designed to build an external audit trail layer that sits alongside a data producer's existing production, storage, and delivery systems. Audit trail records are published to an external, publicly accessible ledger, while producers continue generating, storing, and distributing their underlying data through their normal tools and workflows.
+vBase builds an external audit trail layer that sits alongside a data producer's existing production, storage, and delivery processes. Audit trail records are published to an external public ledger, while producers continue generating, storing, and distributing their underlying data through their existing tools and workflows.
 
 For a less technical introduction, see [How vBase Works](../getting-started/how-vbase-works.md).
 
 ## Architecture at a Glance
 
-The diagram shows five steps across the normal data flow and the parallel audit trail flow:
+The diagram shows five steps in two parallel flows: the producer's existing data flow and the vBase audit trail flow:
 
-<figure>
-  <img src="vbase_tech_architecture.svg" alt="The vBase Process" width="80%">
-  <figcaption>The vBase audit trail layer operates alongside the producer's existing data production and delivery workflow.</figcaption>
-</figure>
+![The vBase Technical Architecture](../assets/vbase_tech_architecture.svg)
 
-The architecture separates the producer's normal **data flow** from the **audit trail flow**. vBase creates a separate, independently verifiable provenance record that sits external to a producer's existing data systems.
+*The vBase audit trail operates alongside the producer's existing data production, storage, and delivery workflow.*
+
+The architecture separates the producer's normal **data flow** from the **audit trail flow**. A Content ID connects the two.
+
+The Content ID is a cryptographic fingerprint calculated deterministically from the underlying data and published as part of each audit trail record. A consumer holding the exact same data can later independently recalculate its Content ID using standard, widely available hashing libraries and match it to the corresponding public audit trail record.
 
 ## End-to-End Data Flow
 
 A typical workflow looks like this:
 
-1. **Data generation** — Producers continue generating and storing data in their existing systems, such as files, databases, S3 buckets, models, and APIs.
+1. **Generate data** — The producer generates and stores data using its existing systems. Storage can be local, cloud-based, or external to the Producer's primary environment.
 
-2. **Data sharing** — Producers continue distributing data through their normal channels. The vBase audit trail remains separate from and external to the underlying data.
+2. **Send the Content ID to vBase** — The Producer cryptographically hashes the data to calculate a **Content ID** and sends that Content ID to vBase. The underlying data does not need to leave the producer's systems.
 
-3. **Content identification** — When the producer wishes to build an audit trail record, the data is cryptographically hashed to produce a **Content ID**. Depending on the workflow, the Content ID can be calculated locally or vBase can calculate it from the underlying content.
+3. **Publish the Stamp** — vBase creates a **Stamp** (audit trail record) by publishing the Content ID to a blockchain, linking it to the stamping account's blockchain address and, where applicable, a Collection ID. The Stamp establishes that the Content ID existed **no later than the blockchain publication timestamp**.
 
-4. **Stamp creation and blockchain publication** — vBase creates a **Stamp** (audit trail record) linking the Content ID to the Stamper's blockchain address and, where applicable, a Collection ID. The Stamp is published to a public blockchain, establishing that the Content ID existed **no later than the blockchain timestamp**.
+4. **Share the data** — The producer distributes the underlying data to consumers through its normal delivery channels. vBase does not need to sit between the producer and consumer or change the producer's existing delivery infrastructure.
 
-5. **Verification** — A consumer can calculate the Content ID of the data received from the Producer and compare it with the corresponding audit trail records either using vBase tools or by independently inspecting the blockchain records. Verification can happen any time after Stamp creation, and often happens months or years later. 
+5. **Verify data provenance** — A consumer can calculate the Content ID of the data received and compare it with the public audit trail record. Verification can be performed using vBase tools or by independently inspecting the blockchain records, and can happen at any time after Stamp creation.
 
 ### Key Implications of This Architecture
 
 Separating the data flow from the audit trail flow has several important consequences:
 
-- **No change required to normal data delivery** — Producers can continue storing and distributing data through their existing files, databases, APIs, S3 buckets, SFTP, or other systems. vBase does not need to sit between producer and consumer's existing sharing workflows.
+- **No change required to normal data production, storage, or delivery** — Producers can continue using their existing files, databases, APIs, S3 buckets, SFTP, or other systems. vBase creates audit trail records alongside the existing workflow, without requiring changes to how the underlying data is produced, stored, or delivered.
 
-- **Any holder of the data can verify the audit trail** — Because the audit trail is external to the underlying data, the data can move from one consumer, system, or archive to another multiple times, without losing its provenance. Any holder of the original data can validate its provenance against the public audit trail. No special files,  receipts or metadata need to travel with the data. 
+- **Underlying data need not be sent to vBase** — The Content ID can be calculated within the producer's environment, so only the cryptographic fingerprint needs to enter the audit trail flow.
 
-- **Underlying data need not be sent to vBase** — In workflows where the Content ID is calculated locally, only the cryptographic fingerprint enters the audit trail flow. 
+- **Provenance remains verifiable as data moves** — No special certificate, receipt, or embedded metadata needs to accompany the data. Data can move between consumers, systems, or archives and still be independently verified against its audit trail.
 
+- **Verification does not depend on vBase** — vBase provides convenient verification tools and outputs, but consumers can also validate by independently inspecting the underlying public blockchain records.
 
 ## System Components
 
 The architecture can be thought of as three primary layers:
 
-- **Producer and consumer systems** — The existing files, databases, S3 buckets, APIs, models, applications, and delivery infrastructure through which the underlying data is created, stored, and shared.
+- **Producer and consumer systems** — The files, databases, cloud storage, APIs, models, applications, and delivery infrastructure through which the underlying data is created, stored, and shared.
 
-- **vBase application layer** — The Web App, APIs, user accounts, Collection and identity metadata, blockchain transaction submission, record indexing and verification, and optional storage and reporting services.
+- **vBase APIs and services** — The Web App, APIs, user accounts, Collection and identity metadata, blockchain transaction submission, record indexing and verification, and optional storage, dashboard, and managed delivery services.
 
-- **Public blockchain** — The external ledger containing the core publicly verifiable Stamp records and their timestamps. vBase currently uses [Polygon](https://polygon.technology/) as its default public blockchain, while the architecture is designed so that other ledgers can also be used.
+- **Public blockchain** — The external public ledger containing the stamped records. vBase currently uses [Polygon](https://polygon.technology/) as its default public blockchain, while the architecture is designed so that other compatible ledgers can also be used.
 
-The vBase application layer makes the audit trail easy to create and use, while the public blockchain provides the independently verifiable record.
+vBase's application layer makes the audit trail easy to create and use, while the public blockchain contains the independently verifiable record.
 
-## On-Chain vs. Off-Chain Information
+## Record Storage
 
-vBase separates the core public audit trail from underlying data and additional application metadata.
+The Producer stores the underlying data, while the public blockchain contains the independently verifiable audit trail records. vBase's application layer optionally provides identity verification, use-case specific metadata, and other services around those records.
 
 | Information | Location |
 |---|---|
-| **Core Stamp record** — Content ID, Producer blockchain address, Collection ID (where applicable), transaction ID and timestamp | Public blockchain |
-| **Application metadata** — human-readable Collection names and other account metadata | vBase application layer |
-| **Identity metadata** — linkage of blockchain addresses to vBase identities and identity verification information | vBase application layer |
-| **Underlying stamped content** | Producer and/or optional vBase storage, depending on workflow |
+| **Underlying data** | Producer* |
+| **Audit trail record (Stamp)** | Public blockchain |
+| **Application-specific metadata** (optional) | vBase application |
 
-The public blockchain contains the core independently verifiable audit trail, while vBase's application layer adds identity, naming, storage, indexing, and other services around that record.
+**In the audit trail workflow, the underlying data remains with the Producer. Users may choose to share underlying data with vBase when using optional services such as backup storage, performance dashboards, or managed data delivery.*
 
-For more information, see [Verification and Trust Model](verification-and-trust-model.md). For details on when vBase receives or stores underlying content, see [Privacy and Data Handling](privacy-and-data-handling.md).
+For technical information about how vBase audit trail records verify data provenance, see [Verification and Trust Model](verification-and-trust-model.md). For details on how data is shared and processed in specific workflows, see [Privacy and Data Handling](privacy-and-data-handling.md).
 
-## Related Technical Documentation
+## Related Documentation
 
+- [How vBase Works](../getting-started/how-vbase-works.md)
 - [Why Public Blockchains?](why-public-blockchains.md)
 - [Independent Blockchain Verification](../technical-reference/independent-blockchain-verification.md)
 - [Python API Client](../getting-started/api-py-quickstart.md)
