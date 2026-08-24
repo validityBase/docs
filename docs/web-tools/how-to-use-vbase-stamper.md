@@ -78,7 +78,7 @@ The portfolio workflow is designed for creating point-in-time records of investm
 3. Follow the portfolio workflow to prepare and stamp your portfolio.
 4. Repeat the process at the cadence appropriate for your strategy, such as at each rebalance.
 
-For portfolio formats, Collection setup, stamping cadence, and strategy-specific guidance, see [Stamping a Portfolio](../getting-started/stamping-portfolios.md).
+For portfolio formats, Collection setup, stamping cadence, and strategy-specific guidance, see [Stamping a Portfolio](../use-cases/stamping-portfolios.md).
 
 ## Manage Collections
 
