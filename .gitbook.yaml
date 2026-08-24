@@ -5,43 +5,9 @@ structure:
 plugins:
   - search-plus
 
+# Redirect keys are old published URLs (group-slug/filename-slug);
+# values are current repo file paths.
 redirects:
-  # Old Welcome section
-  welcome/example-use-cases: getting-started/example-use-cases.md
-  welcome/how-vbase-works: getting-started/how-vbase-works.md
-  welcome/what-vbase-verifies: getting-started/how-vbase-works.md
-  welcome/what-is-a-stamp: getting-started/how-vbase-works.md
-  welcome/technical-overview: docs/concepts/technical-architecture.md
-  welcome/why-blockchains: docs/concepts/why-public-blockchains.md
-  welcome/unique-advantages: docs/concepts/why-public-blockchains.md
-
-  # Retired / reorganized Getting Started pages
-  getting-started/verification-methods: docs/concepts/verification-and-trust-model.md
-  getting-started/dataset-commitments: docs/concepts/building-a-verifiable-history.md
-  getting-started/start-your-journey: docs/getting-started/choose-how-to-use-vbase.md
-
-  # Old Python API Quickstart name
-  getting-started/python-api-quickstart: getting-started/api-py-quickstart.md
-
-  # Generated Python API reference pages consolidated
-  vbase-api-py/vbase_api_client: vbase-api-py/index.md
-  vbase-api-py/vbase_api_models: vbase-api-py/index.md
-
-
-  # Move use-cases section
-  getting-started/data-provider-workflow: docs/use-cases/data-provider-workflow.md
-  getting-started/private-stamping: docs/use-cases/private-stamping.md
-  getting-started/verified-track-record: docs/use-cases/verified-track-record.md
-  getting-started/stamping-portfolios: docs/use-cases/stamping-portfolios.md
-  getting-started/linking-interactive-brokers: docs/use-cases/linking-interactive-brokers.md
-  getting-started/linking-quantconnect: docs/use-cases/linking-quantconnect.md
-  # --- Appended: redirects keyed by actual published URL scheme (group-slug/filename) ---
-
-  # Test pair: visit docs.vbase.com/redirect-test-with-docs-prefix and
-  # /redirect-test-without-docs-prefix — whichever resolves shows if values need the docs/ prefix
-  redirect-test-with-docs-prefix: docs/getting-started/how-vbase-works.md
-  redirect-test-without-docs-prefix: getting-started/how-vbase-works.md
-
   # Old Overview pages absorbed into How vBase Works
   overview/what-vbase-verifies: docs/getting-started/how-vbase-works.md
   overview/what-is-a-stamp: docs/getting-started/how-vbase-works.md
@@ -64,7 +30,7 @@ redirects:
   # CLI moved out of old Technical Reference group
   technical-reference/index: vbase-cli/index.md
 
-  # Old Python SDK group (renamed) — deterministic slugs
+  # Old Python SDK group (renamed) - deterministic slugs
   python-sdk/python-quickstart-README: docs/getting-started/python-quickstart-README.md
   python-sdk/create_set: vbase-py-samples/create_set.md
   python-sdk/add_string_dataset_record: vbase-py-samples/add_string_dataset_record.md
