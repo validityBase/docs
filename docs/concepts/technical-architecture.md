@@ -8,7 +8,7 @@ For a less technical introduction, see [How vBase Works](../getting-started/how-
 
 The diagram shows five steps in two parallel flows: the producer's existing data flow and the vBase audit trail flow:
 
-![The vBase Technical Architecture](/assets/vbase_tech_architecture.svg)
+![The vBase Technical Architecture](../assets/vbase_tech_architecture.svg)
 
 The architecture separates the producer's normal **data flow** from the **audit trail flow**. A Content ID connects the two.
 
@@ -69,8 +69,8 @@ For technical information about how vBase audit trail records verify data proven
 ## Related Documentation
 
 - [How vBase Works](../getting-started/how-vbase-works.md)
-- [Why Public Blockchains?](why-public-blockchains.md)
-- [Independent Blockchain Verification](../technical-reference/independent-blockchain-verification.md)
+- [Why Public Blockchains?](why-blockchains.md)
+- [Independent Blockchain Verification](independent-verification.md)
 - [Python API Client](../getting-started/api-py-quickstart.md)
 - [REST API](../../vbase-django-tools/api/rest-api-user-guide.md)
 - [Interactive API Reference](https://app.vbase.com/swagger/)

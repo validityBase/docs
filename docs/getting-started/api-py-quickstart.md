@@ -84,7 +84,7 @@ as_of,region,predicted_demand
 
 The file does not need to be a CSV or use specific columns. If you are preparing
 a portfolio for vBase portfolio tools, see the
-[portfolio format requirements](stamping-portfolios.md). Those requirements
+[portfolio format requirements](../use-cases/stamping-portfolios.md). Those requirements
 apply to that specific portfolio use case.
 
 
@@ -140,9 +140,9 @@ Full interactive documentation is available at
   behavior.
 - [Python client API reference](../../vbase-api-py/index.md) lists every method
   and response model.
-- [Private Stamping with Delayed Reveal](private-stamping.md) explains
+- [Private Stamping with Delayed Reveal](../use-cases/private-stamping.md) explains
   how to stamp a file without sending its contents to vBase.
-- [Portfolio Format](stamping-portfolios.md) covers the specific requirements
+- [Portfolio Format](../use-cases/stamping-portfolios.md) covers the specific requirements
   for vBase portfolio tools.
-- [Verified Track Record](verified-track-record.md) is a portfolio-specific
+- [Verified Track Record](../use-cases/verified-track-record.md) is a portfolio-specific
   example of sharing a stamped history.

@@ -35,3 +35,53 @@ redirects:
   getting-started/stamping-portfolios: docs/use-cases/stamping-portfolios.md
   getting-started/linking-interactive-brokers: docs/use-cases/linking-interactive-brokers.md
   getting-started/linking-quantconnect: docs/use-cases/linking-quantconnect.md
+  # --- Appended: redirects keyed by actual published URL scheme (group-slug/filename) ---
+
+  # Test pair: visit docs.vbase.com/redirect-test-with-docs-prefix and
+  # /redirect-test-without-docs-prefix — whichever resolves shows if values need the docs/ prefix
+  redirect-test-with-docs-prefix: docs/getting-started/how-vbase-works.md
+  redirect-test-without-docs-prefix: getting-started/how-vbase-works.md
+
+  # Old Overview pages absorbed into How vBase Works
+  overview/what-vbase-verifies: docs/getting-started/how-vbase-works.md
+  overview/what-is-a-stamp: docs/getting-started/how-vbase-works.md
+
+  # Old Deep Dive section -> Concepts and Architecture
+  deep-dive/technical-overview: docs/concepts/technical-architecture.md
+  deep-dive/why-blockchains: docs/concepts/why-blockchains.md
+  deep-dive/dataset-commitments: docs/concepts/building-a-verifiable-history.md
+  deep-dive/verification-methods: docs/concepts/verification-and-trust-model.md
+
+  # Old Web Tools group (renamed to Web App)
+  web-tools/start-your-journey: docs/getting-started/choose-how-to-use-vbase.md
+  web-tools/how-to-use-vbase-stamper: docs/web-tools/how-to-use-vbase-stamper.md
+  web-tools/how-to-use-vbase-verify: docs/web-tools/how-to-use-vbase-verify.md
+
+  # Old REST API reference pages consolidated
+  rest-api/vbase_api_client: vbase-api-py/index.md
+  rest-api/vbase_api_models: vbase-api-py/index.md
+
+  # CLI moved out of old Technical Reference group
+  technical-reference/index: vbase-cli/index.md
+
+  # Old Python SDK group (renamed) — deterministic slugs
+  python-sdk/python-quickstart-README: docs/getting-started/python-quickstart-README.md
+  python-sdk/create_set: vbase-py-samples/create_set.md
+  python-sdk/add_string_dataset_record: vbase-py-samples/add_string_dataset_record.md
+  python-sdk/add_string_dataset_record_async: vbase-py-samples/add_string_dataset_record_async.md
+  python-sdk/restore_dataset_provenance: vbase-py-samples/restore_dataset_provenance.md
+  python-sdk/stamp_interactive_brokers_portfolio: vbase-py-samples/stamp_interactive_brokers_portfolio.md
+  python-sdk/stamp_alpaca_portfolio: vbase-py-samples/stamp_alpaca_portfolio.md
+  python-sdk/windows_guide: vbase-py-samples/windows_guide.md
+  python-sdk/api: vbase-py/api.md
+  python-sdk/setup: vbase-py-tools/setup.md
+  python-sdk/commit_s3_objects: vbase-py-tools/commit_s3_objects.md
+  python-sdk/verify_s3_objects: vbase-py-tools/verify_s3_objects.md
+
+  # Old Other SDKs group (renamed to Other SDKs and Tools)
+  other-sdks/user-guide: vbase-cs/user-guide.md
+  other-sdks/workbook: vbase-cs/workbook.md
+  other-sdks/vba: vbase-cs/vba.md
+  other-sdks/vbase-com-sdk: vbase-cs/vbase-com-sdk.md
+  other-sdks/vbase-core: vbase-cs/vbase-core.md
+  other-sdks/readme: vbase-ts/README.md

@@ -72,7 +72,7 @@ vBase provides tools that automate Content ID calculation, Stamp lookup, Collect
 
 These tools are conveniences, not the source of the underlying public evidence. Technically capable users can inspect the blockchain records independently or build their own software against the public blockchain interfaces.
 
-For instructions on validating blockchain records directly, see [Independent Blockchain Verification](../technical-reference/independent-blockchain-verification.md).
+For instructions on validating blockchain records directly, see [Independent Blockchain Verification](independent-verification.md).
 
 ## Trust Model at a Glance
 
@@ -92,6 +92,6 @@ The most important verification claims and their sources of evidence can be summ
 
 - [How vBase Works](../getting-started/how-vbase-works.md)
 - [Building a Verifiable History](building-a-verifiable-history.md)
-- [Why Public Blockchains?](why-public-blockchains.md)
+- [Why Public Blockchains?](why-blockchains.md)
 - [Privacy and Data Handling](privacy-and-data-handling.md)
 - [Technical Architecture](technical-architecture.md)
