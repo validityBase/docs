@@ -10,8 +10,6 @@ The diagram shows five steps in two parallel flows: the producer's existing data
 
 ![The vBase Technical Architecture](../assets/vbase_tech_architecture.svg)
 
-*The vBase audit trail operates alongside the producer's existing data production, storage, and delivery workflow.*
-
 The architecture separates the producer's normal **data flow** from the **audit trail flow**. A Content ID connects the two.
 
 The Content ID is a cryptographic fingerprint calculated deterministically from the underlying data and published as part of each audit trail record. A consumer holding the exact same data can later independently recalculate its Content ID using standard, widely available hashing libraries and match it to the corresponding public audit trail record.
@@ -64,7 +62,7 @@ The Producer stores the underlying data, while the public blockchain contains th
 | **Audit trail record (Stamp)** | Public blockchain |
 | **Application-specific metadata** (optional) | vBase application |
 
-**In the audit trail workflow, the underlying data remains with the Producer. Users may choose to share underlying data with vBase when using optional services such as backup storage, performance dashboards, or managed data delivery.*
+**Users may choose to share underlying data with vBase when using optional services such as backup storage, performance dashboards, or managed data delivery.*
 
 For technical information about how vBase audit trail records verify data provenance, see [Verification and Trust Model](verification-and-trust-model.md). For details on how data is shared and processed in specific workflows, see [Privacy and Data Handling](privacy-and-data-handling.md).
 
