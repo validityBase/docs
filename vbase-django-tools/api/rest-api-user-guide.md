@@ -294,6 +294,13 @@ curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
 }
 ```
 
+If a matching blockchain receipt is verified but its local `UserStampedFiles`
+row is missing, the endpoint recreates that row with `success` stamp status and
+the authenticated user, object CID, collection CID, receipt timestamp, and full
+receipt. It then continues the upload and returns the normal `201` response.
+Repeating the request reuses the recovered row and stored file rather than
+creating a duplicate.
+
 **File Processing Error (500):**
 ```json
 {
