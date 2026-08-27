@@ -19,7 +19,7 @@ Connect your IBKR account to validityBase to securely **import positions and cas
 
 <img src="assets/broker-integrations-screenshot.png" alt="Profile menu showing “Broker Integrations" width="400" style="margin-left:50px;">
 
-### 2) Setup Account Link
+### 2) Setup account link
 - Click **Link Account**.
 - Enter a label (to help you identify the account later).
 - Click **Next**.
@@ -53,7 +53,7 @@ See this [example dashboard](https://portfolios.vbase.com/?sym=ASGSP5DR) to unde
 ## Common issues & fixes
 
 **No data after linking**  
-- Within 2 minutes you should see your first portfolio stamp in [Stamped File Storage](https://app.vbase.com/profile#user_data_storage). If nothing appears, retry the link.  
+- Within 2 minutes you should see your first portfolio Stamp in [Stamped File Storage](https://app.vbase.com/profile#user_data_storage). If nothing appears, retry the link.  
 
 **Multiple sub-accounts**  
 - For corporate IBKR accounts with multiple sub-accounts, link as usual, then email **portfolios@vbase.com** specifying which sub-account(s) you’d like connected.  

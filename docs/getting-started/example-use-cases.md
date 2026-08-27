@@ -2,7 +2,7 @@
 description: Example use cases for vBase across financial and non-financial domains
 ---
 
-# Example Use Cases for vBase
+# Example use cases for vBase
 
 vBase creates independently verifiable, point-in-time audit trails for data, models, trading strategies, research outputs, and other digital content.
 

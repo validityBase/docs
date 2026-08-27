@@ -1,4 +1,4 @@
-# Why Public Blockchains?
+# Why public blockchains?
 
 vBase's goal is to create data audit trails that remain credible and accessible, allowing data consumers to independently verify the provenance of historical data.
 
@@ -11,7 +11,7 @@ vBase uses [Polygon](https://polygon.technology/) as its default public blockcha
 For an overview of how Stamps, Content IDs, and Collections work, see [How vBase Works](../getting-started/how-vbase-works.md).
 
 
-## Publicly Timestamped, Independently Verifiable Records
+## Publicly timestamped, independently verifiable records
 
 For many datasets, strategies, forecasts, and models, the critical question is not simply what the data says, but **what it said at a particular point in time**.
 
@@ -23,7 +23,7 @@ One way to think about a blockchain is as a public-notice service that allows au
 
 This is particularly valuable for predictive products. A forecast, signal, or model output is more meaningful when a consumer can independently confirm that it existed before the outcome it predicts.
 
-## No Walled Garden
+## No walled garden
 
 **You do not need vBase to verify a vBase Stamp.**
 
@@ -35,7 +35,7 @@ vBase is the application layer that makes the system easy to use, not the custod
 
 For more detail, see [Verification and Trust Model](verification-and-trust-model.md).
 
-## Persistent Provenance
+## Persistent provenance
 
 A vBase Stamp does not become stale as time passes. This is useful for data that may need to be verified years later. 
 
@@ -43,7 +43,7 @@ With trusted third-party or certificate-based approaches, older records can beco
 
 Public blockchain records are highly durable because their history is replicated across many independent participants and archival services, and any surviving copy can be independently checked for integrity.
 
-## Portable Provenance
+## Portable provenance
 
 Because the audit trail is recorded separately on a public blockchain, it does not need to travel with the underlying data.
 
@@ -57,13 +57,13 @@ Producer → Customer → Downstream User → Archive
 
 As long as the data itself doesn't change as it moves, any later holder can calculate its Content ID and locate the corresponding public audit trail records.
 
-## Why Not Use a Trusted Third Party?
+## Why not use a trusted third party?
 
 A trusted third party can provide credible timestamping and integrity verification, but doing so creates an ongoing dependency on that intermediary to preserve the records, operate the verification infrastructure, provide access to the evidence, and remain trusted by market participants.
 
 vBase uses a public blockchain to provide the convenience of a trusted third party without becoming the source of truth. The producer and verifier can instead refer to the same publicly available evidence.
 
-## vBase Hides the Blockchain Complexity
+## vBase hides the blockchain complexity
 
 The properties of public blockchains are useful for audit trails, but interacting with blockchains directly can require wallets, transaction fees, smart contracts, and specialized infrastructure.
 
@@ -73,7 +73,7 @@ The blockchain is therefore part of the **trust infrastructure**, not something 
 
 The underlying content itself does not need to be published to the blockchain. For details on what vBase receives, stores, and publishes in different workflows, see [Privacy and Data Handling](privacy-and-data-handling.md).
 
-## Next Steps
+## Next steps
 
 - [How vBase Works](../getting-started/how-vbase-works.md)
 - [Verification and Trust Model](verification-and-trust-model.md)

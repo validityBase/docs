@@ -1,4 +1,4 @@
-# vBase REST API Python Client Samples
+# vBase REST API Python client samples
 
 # Contents:
 

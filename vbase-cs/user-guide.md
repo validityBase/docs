@@ -1,4 +1,4 @@
-# What Functionality is Covered by the vBase COM Library
+# What functionality is covered by the vBase COM library
 This library allows you to create vBase datasets and add records to them. 
 
 Data fetching and preparation must be handled on the VBA side by the end user. The library does not implement any data-fetching capabilities from Excel sheets or other sources.

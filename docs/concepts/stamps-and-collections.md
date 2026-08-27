@@ -2,7 +2,7 @@
 description: How Content IDs, Stamps, and Collections form vBase audit trails
 ---
 
-# Stamps and collections
+# Stamps and Collections
 
 vBase audit trails are built up from individual audit trail records (**Stamps**). Each Stamp is a public, timestamped record that identifies underlying data using cryptographic fingerprints called **Content IDs**.
 
@@ -74,7 +74,7 @@ For more detail, see [Verification and Trust Model](verification-and-trust-model
 
 ## Collections
 
-A **Collection** is the set of Stamps created by a particular Stamper Address that were each assigned the same **Collection ID** *at the time they were stamped.*
+A **Collection** is the set of Stamps created by a particular Stamper address that were each assigned the same **Collection ID** *at the time they were stamped.*
 
 The Collection ID is recorded as part of each Stamp, so membership in a Collection is established when the Stamp is created and becomes part of the public audit trail.
 
@@ -161,7 +161,7 @@ Underlying Data       Stamping Account       Collection Name
 
 The **Content ID** identifies the underlying data.
 
-The **Stamper Address** identifies the blockchain address that created the Stamp.
+The **Stamper address** identifies the blockchain address that created the Stamp.
 
 The **Collection ID**, when assigned, identifies the audit trail to which the Stamp belongs.
 

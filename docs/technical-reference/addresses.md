@@ -1,4 +1,4 @@
-# Smart Contract Addresses
+# Smart contract addresses
 
 Below are the addresses for smart contracts providing commitment services for the latest vBase release.
 

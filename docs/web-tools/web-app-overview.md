@@ -1,4 +1,4 @@
-# vBase Web Application Overview
+# vBase web application overview
 
 Create and verify blockchain-backed records, manage Collections, and configure your vBase account directly from your browser.
 
@@ -12,7 +12,7 @@ You can verify a file, Content ID, or user without signing in.
 [Create a vBase account](../getting-started/create-a-vbase-account.md)
 {% endhint %}
 
-## Create a stamp
+## Create a Stamp
 
 Create a permanent, independently verifiable record of content.
 

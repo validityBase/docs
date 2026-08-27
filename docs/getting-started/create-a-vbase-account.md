@@ -1,4 +1,4 @@
-# Create a vBase Account
+# Create a vBase account
 
 Create a vBase account to use the Web App and authenticated developer APIs.
 
@@ -14,14 +14,14 @@ After signing up, you can stamp and verify content in the browser or obtain an A
 
 Your account is now ready to use.
 
-## Before creating test stamps
+## Before creating test Stamps
 
-vBase stamps create permanent blockchain records associated with your account. Before using vBase for production data, decide how you want to separate testing from live activity.
+vBase Stamps create permanent blockchain records associated with your account. Before using vBase for production data, decide how you want to separate testing from live activity.
 
 You can either:
 
 * Use one account for testing and create a separate account when you are ready to begin a live, verifiable record; or
-* Create a Collection named `TEST` and place your test stamps there.
+* Create a Collection named `TEST` and place your test Stamps there.
 
 This helps keep experimental activity clearly separated from the Collections and audit trail records you may later share with clients, investors, or other verifiers.
 

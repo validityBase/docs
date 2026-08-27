@@ -1,4 +1,4 @@
-# Building a Live Ticker for your Account, Fund or Paper Strategy
+# Building a live ticker for your account, fund or paper strategy
 
 ## Introduction
 
@@ -9,9 +9,9 @@ vBase creates a point-in-time record of your portfolios to build a live Ticker. 
 This guide will walk you through the process of getting a live verified vBase Ticker for your strategy.<br><br>
 
 
-## Steps to Build a Live Verified Track Record
+## Steps to build a live verified track record
 
-### Step 1: Generate a CSV of your **Current** Portfolio
+### Step 1: Generate a CSV of your **current** portfolio
 
 vBase ingests portfolio data from simple CSVs. Below is an example of a portfolio file. Your file should follow this format, using any widely recognized SEC Master for ticker symbols.
 
@@ -22,17 +22,17 @@ Use this format to generate a CSV file of your current portfolio.
 <img src="assets/image-2.png" style="width:20%; height:auto;"><br><br>
 
 
-### Step 2: First-time Setup
+### Step 2: First-time setup
 
 1. Go to [app.vbase.com](https://www.vbase.com/)
 2. If you don't yet have an account, register for a free account by clicking [Create an Account](https://app.vbase.com/accounts/signup/) in the upper right and following the registration process. 
 3. Sign in to your vBase Account
 4. Go into your user profile, click the Collections tab. Shortcut: [https://app.vbase.com/profile/#collections](https://app.vbase.com/profile/#collections) 
-5. Create a collection name for the strategy you plan to stamp. This is the strategy name that will be visible publicly when you share your live ticker. 
+5. Create a Collection name for the strategy you plan to stamp. This is the strategy name that will be visible publicly when you share your live ticker. 
 <br><br>
 
 
-### Step 3: Stamping your Portfolio
+### Step 3: Stamping your portfolio
 
 Stamping your portfolio means calculating the digital fingerprint of the CSV file you created in Step 1,  and publishing that fingerprint to a public blockchain. By publishing the fingerprint, you assign an independently verifiable timestamp to your portfolio. 
 
@@ -58,7 +58,7 @@ vBase allows you to stamp via API, Excel or our web application. This guide will
 <br><br>
 
 
-### Step 4: View and Share your Live Strategy Ticker! 
+### Step 4: View and share your live strategy ticker!
 
 
 vBase uses your point-in-time portfolios to generate a ticker and live set of verified dashboards for your strategy. 
@@ -69,7 +69,7 @@ To get your ticker and dashboard link, please e-mail us at [hello@vbase.com](mai
 <br><br>
 
 
-## Best Practices
+## Best practices
 - **Ensure Accuracy:** Provide complete and accurate data to avoid discrepancies.
 - **Use Standard Ticker SEC Master:** vBase uses tickers to look-up price data for your portfolio
 - **Review Regularly:** Periodically review your dashboards to ensure data matches your expectations and cross-check against internal records

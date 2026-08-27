@@ -1,4 +1,4 @@
-# Verification and Trust Model
+# Verification and trust model
 
 vBase creates **independently verifiable public evidence** for establishing the provenance of data and digital objects. The core audit trail does not require a verifier to rely on either vBase or the data producer as the source of truth. 
 
@@ -8,7 +8,7 @@ This page explains where the different parts of a vBase verification come from a
 
 For a broader overview of Stamps, Content IDs, Collections, and verification, see [How vBase Works](../getting-started/how-vbase-works.md).
 
-## How Data Is Matched to Stamps
+## How data is matched to Stamps
 
 Each vBase Stamp contains a cryptographic hash of the stamped data, which vBase calls a **Content ID**. The Content ID acts as a digital fingerprint: even a small change to the underlying content produces a different hash.
 
@@ -23,7 +23,7 @@ Because SHA3-256 is a public standard, this calculation does not require vBase s
 For more detail, see [Privacy and Data Handling](privacy-and-data-handling.md).
 
 
-## Collection and Dataset Completeness
+## Collection and dataset completeness
 
 A **Collection** groups the Stamps associated with a particular dataset, strategy, model, portfolio, or other product. It does this by publishing a **Collection ID** as part of each Stamp. Stamps associated with the same Collection ID therefore form a single identifiable audit trail, typically representing a discrete dataset or product.
 
@@ -33,27 +33,27 @@ When a verifier is presented with a dataset or data product, they can compare th
 
 The blockchain timestamps additionally provide independently verifiable evidence of **when each object in the dataset existed**, allowing the verifier to validate the dataset's point-in-time history.
 
-## Identity and Attribution
+## Identity and attribution
 
 Collection verification can establish the completeness and point-in-time integrity of a particular dataset or product. A separate challenge for consumers evaluating predictive data is determining whether the history being presented is the producer's only history or one selected from among several. For example, is the trading track record being evaluated the only one the provider maintained, or simply the best-performing one?
 
 vBase addresses this critical question through three layers of identity attribution.
 
-### Layer 1 - Blockchain Address: Complete Public Activity
+### Layer 1 - Blockchain address: Complete public activity
 
 Each vBase Stamp is **digitally signed** by the Stamper's blockchain address. Because a blockchain is a public ledger, a verifier can independently inspect the complete set of vBase Stamps and Collections made by that address.
 
-### Layer 2 - vBase Identity: Links One or More Blockchain Addresses
+### Layer 2 - vBase identity: Links one or more blockchain addresses
 
 A vBase identity can use one or more blockchain addresses. vBase links all addresses used by that identity so their activity can be evaluated together rather than appearing as unrelated histories.
 
-### Layer 3 - Identity Verification: Links vBase Identity to a Real-World Identity
+### Layer 3 - Identity verification: Links vBase identity to a real-world identity
 
 vBase can verify the real-world person or organization associated with a vBase identity. For a verified producer, a consumer can see the vBase audit trails associated with that identity across all of its linked blockchain addresses.
 
 This helps address **selective presentation or cherry-picking**. A consumer evaluating one Collection can see the other Collections associated with the same verified identity and judge the presented history in the context of the producer's broader vBase record.
 
-### Evidentiary Basis and Limits
+### Evidentiary basis and limits
 
 Activity associated with a blockchain address is independently verifiable from the public blockchain records. The linkage of one or more blockchain addresses to a vBase identity, and the verification of that identity as a particular person or organization, are currently provided by vBase and are not independently verifiable from the blockchain alone.
 
@@ -62,7 +62,7 @@ vBase will only verify one vBase identity for a given person or organization. Th
 Where independent corroboration of the real-world identity matters, the association between a stamping address and a person or organization can also be supported through external evidence, such as the producer publishing the address on its own website or in a press release.
 
 
-## Independent Verification
+## Independent verification
 
 vBase provides tools that automate Content ID calculation, Stamp lookup, Collection validation, and display of available identity and Collection metadata:
 
@@ -74,7 +74,7 @@ These tools are conveniences, not the source of the underlying public evidence. 
 
 For instructions on validating blockchain records directly, see [Independent Blockchain Verification](independent-verification.md).
 
-## Trust Model at a Glance
+## Trust model at a glance
 
 The most important verification claims and their sources of evidence can be summarized as follows:
 
@@ -88,7 +88,7 @@ The most important verification claims and their sources of evidence can be summ
 | **A vBase identity represents a particular real-world person or organization** | vBase's identity-verification process | **No** — currently provided by vBase |
 
 
-## Next Steps
+## Next steps
 
 - [How vBase Works](../getting-started/how-vbase-works.md)
 - [Building a Verifiable History](building-a-verifiable-history.md)

@@ -1,4 +1,4 @@
-# vbase-cli Documentation
+# vbase-cli documentation
 
 ## vbase-cli
 

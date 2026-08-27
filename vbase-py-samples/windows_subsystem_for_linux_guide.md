@@ -1,10 +1,10 @@
-# Windows Subsystem for Linux (WSL) vBase Setup Guide
+# Windows subsystem for Linux (WSL) vBase setup guide
 
 <!-- omit in toc -->
 
 This tutorial guides you through setting up Windows Subsystem for Linux (WSL) to run vBase samples.
 
-## 1. Install Windows Subsystem for Linux (WSL)<a href="#install-windows-subsystem-for-linux-wsl" id="install-windows-subsystem-for-linux-wsl"></a>
+## 1. Install Windows subsystem for Linux (WSL)<a href="#install-windows-subsystem-for-linux-wsl" id="install-windows-subsystem-for-linux-wsl"></a>
 
 1. **Open PowerShell as Administrator:** Right-click the Start button and select “Windows PowerShell (Admin)”.
 2. **Enable WSL**: Type the following command into PowerShell and press Enter:
@@ -42,7 +42,7 @@ This tutorial guides you through setting up Windows Subsystem for Linux (WSL) to
    sudo apt install git -y
    ```
 
-## 4. Clone the vbase-py-samples Git Repository<a href="#clone-the-vbase-py-samples-git-repository" id="clone-the-vbase-py-samples-git-repository"></a>
+## 4. Clone the vbase-py-samples Git repository<a href="#clone-the-vbase-py-samples-git-repository" id="clone-the-vbase-py-samples-git-repository"></a>
 
 1. **Create the vBase directory:** Create the directory where you want to clone vBase repositories and switch to this directory by running:
    ```bash
@@ -53,7 +53,7 @@ This tutorial guides you through setting up Windows Subsystem for Linux (WSL) to
    git clone https://github.com/validityBase/vbase-py-samples
    ```
 
-## 5. Install the Samples<a href="#install-the-samples" id="install-the-samples"></a>
+## 5. Install the samples<a href="#install-the-samples" id="install-the-samples"></a>
 
 1. **Navigate to the Repository Directory:**
    ```bash
@@ -73,7 +73,7 @@ This tutorial guides you through setting up Windows Subsystem for Linux (WSL) to
 
    Open `.env` in an editor and set `VBASE_API_KEY` to the key from [vBase Account Settings](https://app.vbase.com/profile/#account_settings). Do not commit `.env`.
 
-## 6. Run Jupyter Lab and Open a Notebook<a href="#run-jupyter-lab-and-open-a-notebook" id="run-jupyter-lab-and-open-a-notebook"></a>
+## 6. Run Jupyter Lab and open a notebook<a href="#run-jupyter-lab-and-open-a-notebook" id="run-jupyter-lab-and-open-a-notebook"></a>
 
 1. **Navigate to the Repository Directory:**
    ```bash

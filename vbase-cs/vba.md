@@ -1,4 +1,4 @@
-# Using Excel VBA to Create Stamps
+# Using Excel VBA to create Stamps
 
 The **vBase Excel VBA library** enables you to generate verifiable data and datasets directly from Excel's VBA environment.
 
@@ -28,7 +28,7 @@ The instructions below explain how to create **Stamps** and **Collections** usin
 
 
 
-## VBA Sample Stamping Code
+## VBA sample stamping code
 
 The VBA code below demonstrates how to use the vBase library. Copy and paste it into an Excel VBA module to get started.
 

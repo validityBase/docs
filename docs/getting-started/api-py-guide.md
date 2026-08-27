@@ -1,8 +1,8 @@
-# Python REST Client Guide
+# Python REST client guide
 
 `vbase-api` (`pip install vbase-api`; `import vbase_api`) is the Python client
 for the REST API. You can use it to stamp and verify files or structured data
-and to manage collections. See the [quickstart](api-py-quickstart.md) for setup.
+and to manage Collections. See the [quickstart](api-py-quickstart.md) for setup.
 
 ## Verify your connection
 
@@ -16,7 +16,7 @@ print(f"Blockchain address: {user.last_address}")
 
 ## Collections
 
-### Create a collection
+### Create a Collection
 
 ```python
 collection = client.create_collection(
@@ -26,7 +26,7 @@ collection = client.create_collection(
 print(f"Collection CID: {collection.cid}")
 ```
 
-### Retrieve collections
+### Retrieve Collections
 
 ```python
 collections = client.get_collections()
@@ -40,7 +40,7 @@ Filter by pinning status:
 pinned = client.get_collections(is_pinned=True)
 ```
 
-Retrieve collections for a specific blockchain address:
+Retrieve Collections for a specific blockchain address:
 
 ```python
 user_collections = client.get_collections(user_address="0x...")
@@ -64,7 +64,7 @@ print(stamp.commitment_receipt.transaction_hash)
 ```
 
 `store_stamped_file=False` prevents vBase from retaining the file, but the file
-is still uploaded for CID calculation:
+is still uploaded for Content ID (CID) calculation:
 
 ```python
 stamp = client.create_stamp(
@@ -102,7 +102,7 @@ stamp = client.create_stamp(
 
 ### Commitment receipt
 
-Every successful stamp returns a commitment receipt:
+Every successful Stamp returns a commitment receipt:
 
 ```python
 receipt = stamp.commitment_receipt
@@ -118,9 +118,9 @@ By default, resending identical content within 3,600 seconds can return the
 existing receipt. Set `idempotent=False` only when identical content needs a
 new timestamp.
 
-## Verifying stamps
+## Verifying Stamps
 
-Look up existing stamps by content ID:
+Look up existing Stamps by Content ID:
 
 ```python
 verification = client.verify_stamps(
@@ -132,7 +132,7 @@ for s in verification.stamp_list:
 ```
 
 `filter_by_user=True` limits results to the authenticated user; the default
-searches all users. Pass multiple content IDs in one call:
+searches all users. Pass multiple Content IDs in one call:
 
 ```python
 verification = client.verify_stamps(
@@ -143,8 +143,8 @@ verification = client.verify_stamps(
 ## Uploading a previously stamped file
 
 If you stamped with `store_stamped_file=False` or `data_cid`, you can upload the
-file later. The authenticated user must own the collection, and the file's CID
-must match a commitment in that collection:
+file later. The authenticated user must own the Collection, and the file's CID
+must match a Stamp in that Collection:
 
 ```python
 result = client.upload_stamped_file(

@@ -1,4 +1,4 @@
-# How to Use vBase Verify
+# How to use vBase Verify
 
 **vBase Verify** lets you check content and historical records against vBase audit trails directly from your browser.
 
@@ -16,7 +16,7 @@ You do not need a vBase account to verify a file, Content ID, or user. You must 
 
 For a quick overview, [watch the how-to video](https://youtu.be/nzbC3UphfGM).
 
-## Verify a File
+## Verify a file
 
 [Open File Verification](https://app.vbase.com/verify/?method=file)
 
@@ -30,7 +30,7 @@ Use File Verification when you have a copy of a file and want to determine wheth
 
 The file itself is not uploaded to vBase during verification.
 
-### What the Results Show
+### What the results show
 
 When a matching Stamp is found, vBase displays a verification summary showing the key information associated with the record.
 
@@ -47,7 +47,7 @@ The **Stamp Details** section provides the underlying technical record:
 
 | Field | Description |
 |---|---|
-| **Blockchain Address** | The blockchain address associated with the stamping account |
+| **Blockchain Address** | The blockchain address associated with the Stamper |
 | **Content ID (SHA3-256)** | The cryptographic fingerprint of the verified content |
 | **Collection ID (SHA3-256)** | The identifier of the associated Collection, if applicable |
 | **Public Blockchain Record** | A link to the underlying blockchain transaction |
@@ -56,7 +56,7 @@ You can also download a **Stamp Certificate PDF** summarizing the verification r
 
 [Learn how vBase verification works](../getting-started/how-vbase-works.md).
 
-### If the File Does Not Match
+### If the file does not match
 
 A file must match the stamped content exactly.
 
@@ -75,7 +75,7 @@ If you already know the Content ID of the content you want to check, you can sea
 
 This workflow is useful when a Content ID has been calculated independently or provided as part of another vBase workflow.
 
-## Verify a User
+## Verify a user
 
 [Open User Verification](https://app.vbase.com/verify/?method=user)
 
@@ -96,7 +96,7 @@ A Collection groups related Stamps into a larger audit trail. Collection verific
 
 A vBase account is required to verify Collections.
 
-### Verify a Collection Using a ZIP Archive
+### Verify a Collection using a ZIP archive
 
 [Open Collection ZIP Verification](https://app.vbase.com/verify/?method=collection&collectionMethod=archive)
 
@@ -111,7 +111,7 @@ Use this workflow when the content you want to verify is available as a ZIP arch
 
 Collection verification compares the submitted content with the audit trail previously recorded for the Collection and identifies whether the presented objects correspond to the Stamps in the Collection.
 
-### Verify a Collection Using Amazon S3
+### Verify a Collection using Amazon S3
 
 [Open Collection S3 Verification](https://app.vbase.com/verify/?method=collection&collectionMethod=s3-credentials)
 
@@ -134,7 +134,7 @@ This allows a Collection to be checked directly against content stored in S3 rat
 Collection verification is different from verifying a single file. File verification asks whether a particular object matches an earlier Stamp. Collection verification compares a group of objects with the recorded history of a Collection.
 {% endhint %}
 
-## Understanding Verification
+## Understanding verification
 
 A successful verification establishes that the content being reviewed corresponds to content represented by the earlier vBase audit trail record.
 
@@ -142,7 +142,7 @@ It does not, by itself, establish whether the underlying data is accurate, usefu
 
 For details on what Stamps, Content IDs, Collections, and verification can establish, see [How vBase Works](../getting-started/how-vbase-works.md).
 
-## Verify Programmatically
+## Verify programmatically
 
 For recurring or automated verification workflows, use the vBase developer APIs:
 
