@@ -1,54 +1,58 @@
-# vBase Cloud Notebooks Quickstart
+# vBase Google Colab Quickstart
 
-The easiest way to get started with vBase is by accessing Python notebook samples using a cloud notebook service such as [Google Collab](https://colab.research.google.com/). The following steps guide you through this process:
+The samples run in [Google Colab](https://colab.research.google.com/) and use
+the `vbase-api` Python package. Basic samples require only a vBase API key.
 
-1. **Get a vBase API key:**
-    Please [contact vBase](https://www.vbase.com/contact/) and request an API key if you wish to have the simplest experience. The API key is needed to access the forwarder API service, which simplifies commitment and validation operations but is not required for interacting with vBase.
+## 1. Get a vBase API Key
 
-2. **Access Google Collab:**
-    Access Google Collab via the following link: [https://colab.research.google.com](https://colab.research.google.com)
+1. Sign in to [vBase](https://app.vbase.com).
+2. Open [Account Settings](https://app.vbase.com/profile#account_settings).
+3. Copy your API key and keep it private.
 
-3. **Open the Google Collab secrets manager:**
-    Access the secrets manager by clicking on the key icon in the left panel of Google Collab:
+## 2. Add the API Key to Google Colab
 
-    <img src="google_collab_secrets.png" alt="Google Collab secrets">
+Open the [setup notebook](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/setup.ipynb),
+then select the key icon in the left sidebar to open the Secrets panel.
 
-4. **Set up your Google Collab environment:**
+![Google Colab secrets](google_collab_secrets.png "Google Colab secrets")
 
-   1. **Option 1: Use a Notebook to set up your vBase environment:**
-    Once you have the API key, the following notebook will guide you through the steps of setting up your Google Collab environment: [https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/setup.ipynb](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/setup.ipynb)
+Create a secret named `VBASE_API_KEY`, paste the API key as its value, and
+enable notebook access. Do not paste the API key into a code cell or save it in
+notebook output. Run the setup notebook's validation cell to confirm that vBase
+accepts the key before opening another sample.
 
-   2. **Option 2: Copy your existing vBase environment:**
-    If you have previously configured vBase access, for instance, when using the `vbase-py-tools` package, you can re-use those settings from the `.env` file created during the initialization. Copy `FORWARDER_ENDPOINT_URL`, `FORWARDER_API_KEY`, and `PRIVATE_KEY` values from your `.env` file to the secrets manager.
+The vBase API client uses `https://app.vbase.com` by default. The samples do not
+require a Forwarder URL or a blockchain private key.
 
-5. **Verify your environment:**
-    Below is a summary of the configuration settings.
-    These are the variables that must be defined in the secrets manager:
+## 3. Configure Amazon S3 When Needed
 
-    1. **FORWARDER_ENDPOINT_URL**
-   
-        This is the vBase Forwarder URL. 
-        The following is the production vBase Forwarder service URL.
-        Users should not change this value:
+Only the four producer and verifier samples with `_s3` in their file names
+need AWS configuration. Add these Google Colab secrets:
 
-        `https://api.vbase.com/forwarder/`
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_DEFAULT_REGION`
+- `AWS_S3_BUCKET`
+- `AWS_SESSION_TOKEN` when using temporary credentials
 
-    2. **FORWARDER_API_KEY**
-   
-        This is the API key for accessing the vBase Forwarder service.
-        Users should set this value to the API key they received from vBase.
+Use a dedicated AWS identity with access limited to the bucket and prefix used
+by the samples. The bucket must already exist.
 
-        `YOUR_VBASE_API_KEY`
+The producer samples write below these prefixes:
 
-    3. **PRIVATE_KEY**
+- `vbase-samples/portfolio-history/`
+- `vbase-samples/sentiment-history/`
 
-        This is the private key for making stamps/commitments.
-        This key signs and controls all operations for the user &mdash; it must be kept secret.
-        vBase will never request this value.
+## 4. Run a Sample
 
-        `YOUR_PRIVATE_KEY`
+Start with [Create a collection](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/create_set.ipynb)
+or [Stamp a text record](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/add_string_dataset_record.ipynb).
+Run cells from top to bottom.
 
-6.  **Open notebooks in Collab:** Open any of the sample notebooks in Google Collab and get going!
+For an S3 workflow, run a producer before its matching verification sample.
+The producer prints the collection name, collection CID, owner address, and S3
+location. Copy the printed CID to `COLLECTION_CID` in the matching verifier.
+Verification defaults to the current vBase account; to verify data from another
+producer, also set `OWNER_ADDRESS` to the address supplied by that producer.
 
-    [https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/)
-7. **You are all set!** You can make and verify commitments. Please review the samples and their documentation for additional info.
+See the [repository README](../README.md#samples) for the complete sample list.
