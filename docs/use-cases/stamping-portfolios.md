@@ -1,3 +1,7 @@
+---
+description: Prepare and stamp portfolio weights to build a verifiable portfolio history
+---
+
 # Building portfolio weights for vBase
 
 vBase enables investors, allocators, and researchers to build a globally credible live performance record by [stamping](../getting-started/how-vbase-works.md) portfolio rebalance weights.  

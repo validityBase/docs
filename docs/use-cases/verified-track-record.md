@@ -1,3 +1,7 @@
+---
+description: Create a live, independently verifiable track record and shareable ticker for your strategy
+---
+
 # Building a live ticker for your account, fund or paper strategy
 
 ## Introduction
@@ -65,7 +69,7 @@ vBase uses your point-in-time portfolios to generate a ticker and live set of ve
 
 Your dashboards will be displayed at https://portfolios.vbase.com/?sym=YOUR_TICKER
 
-To get your ticker and dashboard link, please e-mail us at [hello@vbase.com](mailto:hello@vbase.com) and let us know the Collection Name under which you are stamping your strategy. 
+To get your ticker and dashboard link, please e-mail us at [portfolios@vbase.com](mailto:portfolios@vbase.com) and let us know the Collection Name under which you are stamping your strategy. 
 <br><br>
 
 

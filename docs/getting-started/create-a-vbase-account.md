@@ -1,3 +1,7 @@
+---
+description: Sign up for vBase and get the credentials needed for the Web App and authenticated API access
+---
+
 # Create a vBase account
 
 Create a vBase account to use the Web App and authenticated developer APIs.

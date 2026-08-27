@@ -45,7 +45,7 @@ The written instructions below guide you through the process using the latest ve
    - **Keyboard Shortcut:**  
      Press **Ctrl + Shift + S** to stamp the selected range via the `StampRange` macro.
 
-> **Note:** Stamps are assigned to a [Collection](../docs/getting-started/how-vbase-works.md#collection) based on the **Collection Name** specified in the Stamping Parameters.
+> **Note:** Stamps are assigned to a [Collection](../docs/concepts/stamps-and-collections.md#collections) based on the **Collection Name** specified in the Stamping Parameters.
 
 4. You're now ready to start creating verifiable data!
 

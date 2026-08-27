@@ -1,3 +1,7 @@
+---
+description: What information vBase makes public, how local-only workflows keep data private, and when optional services access underlying data
+---
+
 # Privacy and data handling
 
 **Creating a vBase audit trail does not make the underlying data public.** vBase publishes cryptographic fingerprints (known as Content IDs or hashes) of the data to a public blockchain, not the underlying data itself. 
@@ -68,7 +72,7 @@ Common workflows can be summarized as follows:
 | **Performance dashboard service** | **Yes** | **No** |
 | **Managed data delivery** | **Yes** | **No** |
 
-## Related documentation
+## Learn more
 
 - [Technical Architecture](technical-architecture.md)
 - [Verification and Trust Model](verification-and-trust-model.md)

@@ -1,3 +1,7 @@
+---
+description: Stamp a file's Content ID without revealing the data, then reveal and verify it later
+---
+
 # Private stamping with delayed reveal
 
 Stamp sensitive information before you are ready to disclose it. This workflow
@@ -158,7 +162,7 @@ its stamp time.
 ## Portfolio-specific dashboard example
 
 This section applies only to portfolios. Email
-[hello@vbase.com](mailto:hello@vbase.com) with the Collection name to set up
+[portfolios@vbase.com](mailto:portfolios@vbase.com) with the Collection name to set up
 portfolio dashboards and analytics. See
 [Verified Track Record](verified-track-record.md) for an example of sharing a
 portfolio history with allocators.

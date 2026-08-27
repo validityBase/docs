@@ -1,3 +1,7 @@
+---
+description: cURL and Python examples for the vBase REST API stamp and verify endpoints
+---
+
 # Examples
 
 ## Stamp endpoint

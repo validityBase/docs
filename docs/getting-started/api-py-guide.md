@@ -1,3 +1,7 @@
+---
+description: Create Collections, stamp and verify data, and manage stored files with the vbase-api Python client
+---
+
 # Python REST client guide
 
 `vbase-api` (`pip install vbase-api`; `import vbase_api`) is the Python client

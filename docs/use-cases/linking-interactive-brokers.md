@@ -1,6 +1,6 @@
 ---
 title: Connecting Interactive Brokers (IBKR) to validityBase
-description: Link your IBKR account to validityBase to create a verifiable, live performance record and dashboard of your trading.
+description: Link your IBKR account to validityBase to create a verifiable, live performance record and dashboard of your trading
 estimatedTime: 5-10 minutes
 ---
 
@@ -15,7 +15,7 @@ Connect your IBKR account to validityBase to securely **import positions and cas
 ### 1) Sign in to validityBase & navigate to Broker Integrations
 - Visit [**app.vbase.com**](https://app.vbase.com/) and sign in (or create an account).
 - Click your display name in the upper right corner and select [**User Profile**](https://app.vbase.com/profile).
-- In your Profile, select [**Broker Integrations**](https://app.vbase.com/profile#providers) from the top menu.
+- In your Profile, select [**Broker Integrations**](https://app.vbase.com/profile/#providers) from the top menu.
 
 <img src="assets/broker-integrations-screenshot.png" alt="Profile menu showing “Broker Integrations" width="400" style="margin-left:50px;">
 
@@ -53,7 +53,7 @@ See this [example dashboard](https://portfolios.vbase.com/?sym=ASGSP5DR) to unde
 ## Common issues & fixes
 
 **No data after linking**  
-- Within 2 minutes you should see your first portfolio Stamp in [Stamped File Storage](https://app.vbase.com/profile#user_data_storage). If nothing appears, retry the link.  
+- Within 2 minutes you should see your first portfolio Stamp in [Stamped File Storage](https://app.vbase.com/profile/#user_data_storage). If nothing appears, retry the link.  
 
 **Multiple sub-accounts**  
 - For corporate IBKR accounts with multiple sub-accounts, link as usual, then email **portfolios@vbase.com** specifying which sub-account(s) you’d like connected.  
@@ -67,7 +67,7 @@ No. Access is **read-only**—we cannot trade or move funds.
 We sync automatically each day around **3:15 pm EST**.  
 
 **What gets stamped for verification?**  
-Your portfolio weights are cryptographically stamped. Copies are stored in your [Stamped File Storage](https://app.vbase.com/profile#user_data_storage). Note the vBase track record is built on portfolio weights, not trade history. 
+Your portfolio weights are cryptographically stamped. Copies are stored in your [Stamped File Storage](https://app.vbase.com/profile/#user_data_storage). Note the vBase track record is built on portfolio weights, not trade history. 
 
 **Can I disconnect later?**  
 Yes. Go to **Profile → Broker Integrations → IBKR → Disconnect**. You can also ask us to delete your dashboard link. 

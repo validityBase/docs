@@ -1,3 +1,7 @@
+---
+description: How vBase creates independently verifiable audit trails that show what data existed and by when
+---
+
 # How vBase works
 
 vBase creates independently verifiable audit trails that show **what data existed and by when**.
@@ -46,7 +50,7 @@ Because the audit trail uses standardized publicly accessible records, the same 
 
 For a more detailed explanation of what vBase verification establishes and its limits, see [Verification and Trust Model](../concepts/verification-and-trust-model.md).
 
-## Learn more
+## Next steps
 
 - [Example Use Cases](example-use-cases.md) — see how vBase is used with datasets, trading strategies, research, models, and other data products
 - [Stamps and Collections](../concepts/stamps-and-collections.md) — how vBase audit trails are built and organized

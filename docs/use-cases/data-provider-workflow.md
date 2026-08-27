@@ -1,3 +1,7 @@
+---
+description: How data providers stamp production releases to give clients an independently verifiable point-in-time history
+---
+
 # Data provider workflow
 
 Data providers, especially those selling to systematic investors, benefit from a complete, point-in-time dataset history that users can independently validate. See [Why Quants Pay More for Point-in-Time Data](https://www.vbase.com/blog/why-quants-pay-more-for-point-in-time-data/) for more on why this matters.
@@ -93,7 +97,7 @@ A Collection is the publicly verifiable record for all data stamped and associat
 Record them as new stamped data in the same Collection.
 
 
-## Related docs
+## Next steps
 
 - [How vBase Works](../getting-started/how-vbase-works.md)
 - [Technical Architecture](../concepts/technical-architecture.md)

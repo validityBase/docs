@@ -1,3 +1,7 @@
+---
+description: Check files, Content IDs, users, and Collections against vBase audit trails directly from your browser
+---
+
 # How to use vBase Verify
 
 **vBase Verify** lets you check content and historical records against vBase audit trails directly from your browser.

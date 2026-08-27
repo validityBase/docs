@@ -1,3 +1,7 @@
+---
+description: Configure a Google Cloud Storage bucket with S3-compatible access for vBase workflows
+---
+
 <!-- omit in toc -->
 # Setting up a Google Cloud Storage (GCS) S3-compatible bucket
 

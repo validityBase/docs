@@ -1,6 +1,6 @@
 # vBase REST API Python client samples
 
-# Contents:
+## Contents
 
 * [vBase Python Samples Quickstart](quickstart.md)
   * [1. Get a vBase API key <a href="#get-a-vbase-api-key" id="get-a-vbase-api-key"></a>](quickstart.md#get-a-vbase-api-key)
@@ -31,11 +31,11 @@
   * [Configure the API key](github_codespaces_guide.md#configure-the-api-key)
   * [Open and prepare the codespace](github_codespaces_guide.md#open-and-prepare-the-codespace)
 * [Windows vBase Setup Guide](windows_guide.md)
-  * [1. Install Python and Git](windows_guide.md#install-python-and-git)
-  * [2. Get the samples](windows_guide.md#get-the-samples)
-  * [3. Create the environment](windows_guide.md#create-the-environment)
-  * [4. Configure vBase](windows_guide.md#configure-vbase)
-  * [5. Run a sample](windows_guide.md#run-a-sample)
+  * [1. Install Python and Git](windows_guide.md#1-install-python-and-git)
+  * [2. Get the samples](windows_guide.md#2-get-the-samples)
+  * [3. Create the environment](windows_guide.md#3-create-the-environment)
+  * [4. Configure vBase](windows_guide.md#4-configure-vbase)
+  * [5. Run a sample](windows_guide.md#5-run-a-sample)
 * [Windows Subsystem for Linux (WSL) vBase Setup Guide](windows_subsystem_for_linux_guide.md)
   * [1. Install Windows Subsystem for Linux (WSL)<a href="#install-windows-subsystem-for-linux-wsl" id="install-windows-subsystem-for-linux-wsl"></a>](windows_subsystem_for_linux_guide.md#install-windows-subsystem-for-linux-wsl)
   * [2. Install Python<a href="#install-python" id="install-python"></a>](windows_subsystem_for_linux_guide.md#install-python)

@@ -112,7 +112,7 @@ vBase can be useful anywhere historical data, predictions, or digital records ne
 
 The underlying content can remain private while its history becomes independently verifiable.
 
-## Related pages
+## Next steps
 
 - [Choose how to use vBase](choose-how-to-use-vbase.md)
 - [How vBase works](how-vbase-works.md)

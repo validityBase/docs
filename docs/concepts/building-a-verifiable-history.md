@@ -1,3 +1,7 @@
+---
+description: Best practices for stamping production data so the resulting audit trail is complete, point-in-time, and useful to verifiers
+---
+
 # Building a verifiable history
 
 This page describes **best practices for setting up a stamping process** so that the resulting audit trail is as useful as possible to future consumers and verifiers.
@@ -20,7 +24,7 @@ For example:
 - A research process might stamp each recommendation or report
 - A model developer might stamp successive model outputs, model versions, or parameter updates
 
-### Choose the right unit to Stamp
+### Choose the right unit to stamp
 
 A production release may consist of one file or many. Choose a stamping unit that corresponds to what a customer would recognize as the release.
 
@@ -165,7 +169,7 @@ For many recurring workflows, the basic pattern is:
 The result is a dataset or product with an independently verifiable record of its timing, integrity, revision history, and completeness.
 
 
-## Next steps
+## Learn more
 
 - [Learn How vBase Works](../getting-started/how-vbase-works.md)
 - [Use the vBase Stamper](../web-tools/how-to-use-vbase-stamper.md)

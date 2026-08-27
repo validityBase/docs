@@ -1,4 +1,8 @@
-# vBase Django tools API documentation
+---
+description: Authenticate to the vBase REST API and use the stamp, verify, and upload endpoints
+---
+
+# REST API user guide
 
 ## About the REST API
 

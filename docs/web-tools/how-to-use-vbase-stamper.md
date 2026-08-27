@@ -1,3 +1,7 @@
+---
+description: Create Stamps for files, text, Content IDs, and portfolios directly from your browser
+---
+
 # How to use the vBase Stamper
 
 The **vBase Stamper** lets you create independently verifiable audit trail records directly from your browser.
@@ -92,7 +96,7 @@ Once created, the Collection will be available for selection from the Collection
 
 ## What happens next
 
-Creating a Stamp records the content's cryptographic fingerprint, the stamping account, a publicly verifiable timestamp, and, when applicable, its Collection relationship in the vBase audit trail.
+Creating a Stamp records the content's Content ID, the Stamper address, a publicly verifiable timestamp, and, when applicable, its Collection relationship in the vBase audit trail.
 
 [Learn how vBase works](../getting-started/how-vbase-works.md).
 

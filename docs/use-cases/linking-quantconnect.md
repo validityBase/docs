@@ -1,3 +1,7 @@
+---
+description: Export trading signals from QuantConnect to vBase to build a verifiable strategy track record
+---
+
 # Exporting signals from QuantConnect to vBase
 
 Link your QuantConnect algorithm to validityBase (vBase) to create a verifiable, point‑in‑time audit trail of your strategy’s live portfolio targets. This guide mirrors our other How‑Tos and walks you through setup, usage, and troubleshooting for the QuantConnect **Signal Exports → vBase** integration.
@@ -18,11 +22,11 @@ Link your QuantConnect algorithm to validityBase (vBase) to create a verifiable,
 
 1. **vBase account & API Key**
 
-   * Sign in to vBase and copy your API key from **[Account Settings](https://app.vbase.com/profile#account_settings)**.
+   * Sign in to vBase and copy your API key from **[Account Settings](https://app.vbase.com/profile/#account_settings)**.
 
 2. **A vBase Collection**
 
-   * Think of a *Collection* as the dataset/strategy name where your stamped targets will live. Create one in **[Collections](https://app.vbase.com/profile#collections)** if you haven't previously set one up. 
+   * Think of a *Collection* as the dataset/strategy name where your stamped targets will live. Create one in **[Collections](https://app.vbase.com/profile/#collections)** if you haven't previously set one up. 
    * You can also set up Collections via our [REST API](../../vbase-py/api.md)
 
 3. **QuantConnect project** running in live or paper trading.
@@ -185,4 +189,4 @@ All asset classes supported by your algorithm are supported by the vBase signal 
 
 ---
 
-*Questions?* Reach us on [support@vbase.com](mailto:support@vbase.com) or the vBase [Discord](https://discord.gg/THHst83J) channel.
+*Questions?* Reach us at [support@vbase.com](mailto:support@vbase.com).

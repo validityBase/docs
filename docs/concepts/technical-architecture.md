@@ -1,3 +1,7 @@
+---
+description: How the vBase audit trail layer fits alongside existing data production, storage, and delivery systems
+---
+
 # Technical architecture
 
 vBase builds an external audit trail layer that sits alongside a data producer's existing production, storage, and delivery processes. Audit trail records are published to an external public ledger, while producers continue generating, storing, and distributing their underlying data through their existing tools and workflows.
@@ -68,7 +72,7 @@ The Producer stores the underlying data, while the public blockchain contains th
 
 For technical information about how vBase audit trail records verify data provenance, see [Verification and Trust Model](verification-and-trust-model.md). For details on how data is shared and processed in specific workflows, see [Privacy and Data Handling](privacy-and-data-handling.md).
 
-## Related documentation
+## Learn more
 
 - [How vBase Works](../getting-started/how-vbase-works.md)
 - [Why Public Blockchains?](why-blockchains.md)

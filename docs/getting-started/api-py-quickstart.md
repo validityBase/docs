@@ -1,3 +1,7 @@
+---
+description: Install the vbase-api Python client, configure your API key, and create your first Stamp
+---
+
 # Python REST client quickstart
 
 Use the `vbase-api` Python client to stamp any file through the REST API. This
@@ -10,7 +14,7 @@ files. For raw HTTP, see
 ## Prerequisites
 
 1. Sign up at [app.vbase.com](https://app.vbase.com).
-2. Go to [Account Settings](https://app.vbase.com/profile#account_settings) and copy your API key.
+2. Go to [Account Settings](https://app.vbase.com/profile/#account_settings) and copy your API key.
 
 **Test first.** Verify the workflow with a separate test account. Collections
 are account-specific, so re-create them in production before switching API
@@ -68,7 +72,7 @@ client.create_collection(
 ```
 
 You can also create and manage Collections at
-[app.vbase.com/profile#collections](https://app.vbase.com/profile#collections).
+[app.vbase.com/profile/#collections](https://app.vbase.com/profile/#collections).
 
 
 ## Prepare a file

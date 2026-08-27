@@ -1,4 +1,8 @@
-# Choosing your integration
+---
+description: Compare the Web App, Python clients, REST API, CLI, and Excel tools to pick the right vBase integration
+---
+
+# Choose how to use vBase
 
 vBase can stamp and verify predictive datasets, alternative data, portfolios,
 and other files. It works from the browser, Python, the command line, and Excel.

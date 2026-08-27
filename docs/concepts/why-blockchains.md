@@ -1,3 +1,7 @@
+---
+description: Why vBase publishes audit trail records to a public blockchain instead of relying on a trusted third party
+---
+
 # Why public blockchains?
 
 vBase's goal is to create data audit trails that remain credible and accessible, allowing data consumers to independently verify the provenance of historical data.
@@ -73,7 +77,7 @@ The blockchain is therefore part of the **trust infrastructure**, not something 
 
 The underlying content itself does not need to be published to the blockchain. For details on what vBase receives, stores, and publishes in different workflows, see [Privacy and Data Handling](privacy-and-data-handling.md).
 
-## Next steps
+## Learn more
 
 - [How vBase Works](../getting-started/how-vbase-works.md)
 - [Verification and Trust Model](verification-and-trust-model.md)

@@ -1,3 +1,7 @@
+---
+description: What vBase verification establishes, where its evidence comes from, and which claims are independently verifiable
+---
+
 # Verification and trust model
 
 vBase creates **independently verifiable public evidence** for establishing the provenance of data and digital objects. The core audit trail does not require a verifier to rely on either vBase or the data producer as the source of truth. 
@@ -88,7 +92,7 @@ The most important verification claims and their sources of evidence can be summ
 | **A vBase identity represents a particular real-world person or organization** | vBase's identity-verification process | **No** — currently provided by vBase |
 
 
-## Next steps
+## Learn more
 
 - [How vBase Works](../getting-started/how-vbase-works.md)
 - [Building a Verifiable History](building-a-verifiable-history.md)
