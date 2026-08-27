@@ -1,7 +1,3 @@
----
-description: How Content IDs, Stamps, and Collections form vBase audit trails
----
-
 # Stamps and collections
 
 vBase audit trails are built up from individual audit trail records (**Stamps**). Each Stamp is a public, timestamped record that identifies underlying data using cryptographic fingerprints called **Content IDs**.
