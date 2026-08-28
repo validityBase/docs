@@ -17,7 +17,7 @@ Later, vBase lets data consumers compare the historical data they receive with t
 vBase leaves the producer's existing data sharing workflow unchanged while creating an external public audit trail that consumers can use for provenance verification.
 
 <figure>
-  <img src="assets/how_vbase_works_diagram.svg" alt="How vBase creates and verifies data audit trails" width="40%">
+  <img src="assets/how_vbase_works_diagram.svg" alt="How vBase creates and verifies data audit trails" width="80%">
   <figcaption>Producers share data through their existing workflows while vBase publishes and helps verify the corresponding public audit trail records.</figcaption>
 </figure>
 
