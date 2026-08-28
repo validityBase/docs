@@ -1,4 +1,4 @@
-# Using Excel Workbook to Create Stamps and Collections
+# Using Excel workbook to create Stamps and Collections
 
 The vBase Excel Library enables you to generate verifiable data and datasets directly from Excel.
 
@@ -27,7 +27,7 @@ The written instructions below guide you through the process using the latest ve
 
 
 
-## Getting Started
+## Getting started
 
 1. Fill in the **Stamping Parameters** table on the `vBase Setup` sheet.
     - Your API and Private Key, require you to [register for a free vBase account](https://app.vbase.com/accounts/signup/).
@@ -45,14 +45,14 @@ The written instructions below guide you through the process using the latest ve
    - **Keyboard Shortcut:**  
      Press **Ctrl + Shift + S** to stamp the selected range via the `StampRange` macro.
 
-> **Note:** Stamps are assigned to a [Collection](../docs/getting-started/how-vbase-works.md#collection) based on the **Collection Name** specified in the Stamping Parameters.
+> **Note:** Stamps are assigned to a [Collection](../docs/concepts/stamps-and-collections.md#collections) based on the **Collection Name** specified in the Stamping Parameters.
 
 4. You're now ready to start creating verifiable data!
 
 
 
 
-## Verifying Your Stamps and Collections
+## Verifying your Stamps and Collections
 
 ### Stamps
 

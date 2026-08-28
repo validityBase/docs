@@ -1,3 +1,7 @@
+---
+description: Quickstart options for the lower-level vbase Python SDK, in the cloud or installed locally
+---
+
 # Python API SDK
 
 > **Looking for the recommended Python integration?**

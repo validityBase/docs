@@ -1,4 +1,8 @@
-# Python REST Client Quickstart
+---
+description: Install the vbase-api Python client, configure your API key, and create your first Stamp
+---
+
+# Python REST client quickstart
 
 Use the `vbase-api` Python client to stamp any file through the REST API. This
 example uses demand forecasts, but the same process applies to other
@@ -10,7 +14,7 @@ files. For raw HTTP, see
 ## Prerequisites
 
 1. Sign up at [app.vbase.com](https://app.vbase.com).
-2. Go to [Account Settings](https://app.vbase.com/profile#account_settings) and copy your API key.
+2. Go to [Account Settings](https://app.vbase.com/profile/#account_settings) and copy your API key.
 
 **Test first.** Verify the workflow with a separate test account. Collections
 are account-specific, so re-create them in production before switching API
@@ -54,9 +58,9 @@ client = VBaseAPIClient(api_key=os.environ["VBASE_API_KEY"])
 ```
 
 
-## Create a collection
+## Create a Collection
 
-A collection groups related stamps. You might use one collection for versions
+A Collection groups related Stamps. You might use one Collection for versions
 of a dataset, a series of predictions, an alternative data feed, or a portfolio
 history. Create it once; duplicate names return a conflict error.
 
@@ -67,8 +71,8 @@ client.create_collection(
 )
 ```
 
-You can also create and manage collections at
-[app.vbase.com/profile#collections](https://app.vbase.com/profile#collections).
+You can also create and manage Collections at
+[app.vbase.com/profile/#collections](https://app.vbase.com/profile/#collections).
 
 
 ## Prepare a file
@@ -90,7 +94,7 @@ apply to that specific portfolio use case.
 
 ## Stamp the file
 
-Pass the file path and collection name. By default, vBase records its content
+Pass the file path and Collection name. By default, vBase records its content
 ID and timestamp on-chain and stores the file.
 
 ```python
@@ -120,7 +124,7 @@ client.close()
 If you prefer curl or another HTTP client, the base URL is
 `https://app.vbase.com/api/v1/`. Authenticate with a `Bearer` token.
 
-**Create a stamp:**
+**Create a Stamp:**
 
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \

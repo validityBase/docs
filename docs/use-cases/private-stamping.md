@@ -1,4 +1,8 @@
-# Private Stamping with Delayed Reveal
+---
+description: Stamp a file's Content ID without revealing the data, then reveal and verify it later
+---
+
+# Private stamping with delayed reveal
 
 Stamp sensitive information before you are ready to disclose it. This workflow
 applies to predictive datasets, alternative data, research results, portfolios,
@@ -25,7 +29,7 @@ suitable for detailed files whose exact bytes are hard to guess. A short value
 drawn from a predictable set needs a separate privacy method.
 
 When you upload the file, vBase calculates its CID and confirms that your
-account stamped it in the same collection. Any change to the file, including
+account stamped it in the same Collection. Any change to the file, including
 whitespace, line endings, or encoding, creates a different CID and prevents a
 match.
 
@@ -40,9 +44,9 @@ line endings will produce a different CID.
 - Python 3.8 or later with `vbase-api` installed (`pip install vbase-api`)
 - A vBase API key stored in `VBASE_API_KEY`; see
   [Configure your API key](../getting-started/api-py-quickstart.md#configure-your-api-key)
-- An existing collection. This portfolio example uses `global-macro-2025`.
+- An existing Collection. This portfolio example uses `global-macro-2025`.
   Create it first or replace that name in every example with the name of your
-  collection. See [Create a collection](../getting-started/api-py-quickstart.md#create-a-collection).
+  Collection. See [Create a Collection](../getting-started/api-py-quickstart.md#create-a-collection).
 - A separate account for testing before you use your main account
 
 If you are stamping a portfolio for use with vBase portfolio tools, the CSV
@@ -125,8 +129,8 @@ stamp.
 ### Store the file with vBase
 
 Upload the file if you want vBase to store it or use it with a feature that
-requires stored files. Use the same account and collection that you used for
-the stamp. vBase checks that the file's CID matches a stamp in that collection
+requires stored files. Use the same account and Collection that you used for
+the Stamp. vBase checks that the file's CID matches a Stamp in that Collection
 before storing it.
 
 ```python
@@ -158,7 +162,7 @@ its stamp time.
 ## Portfolio-specific dashboard example
 
 This section applies only to portfolios. Email
-[hello@vbase.com](mailto:hello@vbase.com) with the collection name to set up
+[portfolios@vbase.com](mailto:portfolios@vbase.com) with the Collection name to set up
 portfolio dashboards and analytics. See
 [Verified Track Record](verified-track-record.md) for an example of sharing a
 portfolio history with allocators.

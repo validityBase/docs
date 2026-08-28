@@ -30,7 +30,7 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
 
 ## Tests
 
-### Default-Network Tests
+### Default-network tests
 
 1. Change to the working directory:
 
@@ -52,7 +52,7 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
       npm run test -- --grep "Executes addSet$"
       ```
 
-### Stress Tests
+### Stress tests
 
 Before running any proxy stress test, start an RPC service on `localhost:8545`.
 The proxy scripts listen on port 8546 and forward requests to that service.

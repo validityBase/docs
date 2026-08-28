@@ -1,4 +1,8 @@
-# Building Portfolio Weights for vBase
+---
+description: Prepare and stamp portfolio weights to build a verifiable portfolio history
+---
+
+# Building portfolio weights for vBase
 
 vBase enables investors, allocators, and researchers to build a globally credible live performance record by [stamping](../getting-started/how-vbase-works.md) portfolio rebalance weights.  
 
@@ -27,13 +31,13 @@ SPY,0.70
 
 
 
-## Assigning Portfolio to a Collection
+## Assigning portfolio to a Collection
 
 Every portfolio stamp must belong to a **Portfolio Collection**.
 
 > 📌 A Collection organizes portfolio stamps into a verifiable investment strategy or signal.
 
-You can add new collections by clicking the + icon next to the collection dropdown or [in your account](https://app.vbase.com/profile/#collections)
+You can add new Collections by clicking the + icon next to the Collection dropdown or [in your account](https://app.vbase.com/profile/#collections)
 
 
 ## Optional column headers
@@ -70,7 +74,7 @@ vBase normalizes:
 
 
 
-## Portfolio Normalization
+## Portfolio normalization
 
 Before stamping, vBase automatically:
 

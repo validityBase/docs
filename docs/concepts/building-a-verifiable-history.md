@@ -1,4 +1,8 @@
-# Building a Verifiable History
+---
+description: Best practices for stamping production data so the resulting audit trail is complete, point-in-time, and useful to verifiers
+---
+
+# Building a verifiable history
 
 This page describes **best practices for setting up a stamping process** so that the resulting audit trail is as useful as possible to future consumers and verifiers.
 
@@ -8,7 +12,7 @@ That means stamping production releases and revisions as they occur and preservi
 
 For an overview of Stamps, Content IDs, Collections, and verification, see [How vBase Works](../getting-started/how-vbase-works.md).
 
-## Stamp the Production Record
+## Stamp the production record
 
 Stamp the content that you would have delivered to a live customer, user, or client at that point in time.
 
@@ -20,7 +24,7 @@ For example:
 - A research process might stamp each recommendation or report
 - A model developer might stamp successive model outputs, model versions, or parameter updates
 
-### Choose the Right Unit to Stamp
+### Choose the right unit to stamp
 
 A production release may consist of one file or many. Choose a stamping unit that corresponds to what a customer would recognize as the release.
 
@@ -32,7 +36,7 @@ For example:
 Also consider stamping important inputs that could later become useful products or diligence artifacts themselves. For example, a national inflation forecast may be built from state-level estimates that customers later want to evaluate or purchase separately. This does not mean stamping every intermediate artifact. Focus on inputs with a reasonable chance of being independently valuable.
 
 
-## Use Collections for Each Dataset or Product
+## Use Collections for each dataset or product
 
 A **Collection** groups the Stamps for a particular dataset, strategy, model, portfolio, or other product into a single audit trail, allowing its recorded history to be evaluated as a whole.
 
@@ -45,7 +49,7 @@ Avoid mixing unrelated datasets, strategies, models, or experimental activity in
 Broader questions about other products or histories maintained by the same producer are addressed through the vBase identity and verification model. See [Verification and Trust Model](verification-and-trust-model.md).
 
 
-## Preserve the Exact Stamped Content
+## Preserve the exact stamped content
 
 Future verification requires access to the exact content represented by each Stamp. Make sure the exact content you stamp remains available for later verification, either in your own storage or using optional vBase storage. 
 
@@ -59,7 +63,7 @@ For details on when vBase receives or stores content, see [Privacy and Data Hand
 
 
 
-## Stamp Promptly
+## Stamp promptly
 
 Create a Stamp as close as practical to the point when the relevant output is finalized or made available.
 
@@ -68,7 +72,7 @@ A Stamp establishes that the exact content represented by its Content ID existed
 For predictive data, forecasts, trading signals, and similar products, earlier timestamps are often more valuable because they establish that the prediction or signal existed before more of the outcome was known. A forecast stamped two months before an event generally provides more useful evidence of predictive value than the same forecast first stamped the day before the event.
 
 
-### If You Miss a Stamp
+### If you miss a Stamp
 
 Occasional gaps are to be expected in any production data pipeline. If no data release was produced, there is nothing to stamp; simply resume stamping when production resumes.
 
@@ -79,7 +83,7 @@ A missed Stamp does not invalidate the rest of the audit trail. An audit trail w
 
 
 
-## Record Revisions and Corrections
+## Record revisions and corrections
 
 Historical data, estimates, and model outputs are often revised or corrected after publication.
 
@@ -105,7 +109,7 @@ Revisions and corrections should generally remain in the same Collection as the 
 In many datasets, it is clear from the data itself which earlier values or records a revision replaces. Where that relationship is not obvious, make it explicit in the data or if necessary in the accompanying metadata.
 
 
-## Backfilled Data
+## Backfilled data
 
 A backfill is historical data from before the live audit trail period.
 
@@ -126,7 +130,7 @@ Not established:       Content existed in June 2024
 From the point live stamping begins, subsequent data releases can build a verifiable point-in-time audit trail.
 
 
-## Full Snapshots vs. Incremental Updates
+## Full snapshots vs. incremental updates
 
 A recurring dataset can be stamped as either **full snapshots** or **incremental updates**.
 
@@ -139,7 +143,7 @@ Use a consistent approach and make the meaning of each stamped object clear.
 
 
 
-## Automate Recurring Workflows
+## Automate recurring workflows
 
 For recurring production data, automation is usually the best way to stamp promptly and consistently.
 
@@ -148,11 +152,11 @@ The vBase Python API Client, REST API, and other integrations can make stamping 
 [Choose an integration for automated workflows](../getting-started/choose-how-to-use-vbase.md).
 
 
-## Keep Testing Separate From Production
+## Keep testing separate from production
 
 Test Stamps can be useful while setting up a workflow. Consider using a separate testing account or a clearly designated test Collection before beginning the live audit trail.
 
-## A Recommended Workflow
+## A recommended workflow
 
 For many recurring workflows, the basic pattern is:
 
@@ -165,7 +169,7 @@ For many recurring workflows, the basic pattern is:
 The result is a dataset or product with an independently verifiable record of its timing, integrity, revision history, and completeness.
 
 
-## Next Steps
+## Learn more
 
 - [Learn How vBase Works](../getting-started/how-vbase-works.md)
 - [Use the vBase Stamper](../web-tools/how-to-use-vbase-stamper.md)

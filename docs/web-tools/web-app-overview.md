@@ -1,18 +1,22 @@
-# vBase Web Application Overview
+---
+description: Create and verify Stamps, manage Collections, and configure your vBase account from the browser
+---
+
+# vBase web application overview
 
 Create and verify blockchain-backed records, manage Collections, and configure your vBase account directly from your browser.
 
 {% hint style="info" %}
 **Account requirements**
 
-An account is required to create stamps, manage Collections, and verify Collections.
+An account is required to create Stamps, manage Collections, and verify Collections.
 
 You can verify a file, Content ID, or user without signing in.
 
 [Create a vBase account](../getting-started/create-a-vbase-account.md)
 {% endhint %}
 
-## Create a stamp
+## Create a Stamp
 
 Create a permanent, independently verifiable record of content.
 
@@ -21,19 +25,19 @@ Create a permanent, independently verifiable record of content.
 | [Stamp a file](https://app.vbase.com/stamp/?method=file) | Stamp the Content ID calculated from a file |
 | [Stamp text](https://app.vbase.com/stamp/?method=text) | Enter and stamp text directly in the browser |
 | [Stamp a Content ID](https://app.vbase.com/stamp/?method=hash) | Stamp an existing Content ID |
-| [Stamp a portfolio](https://app.vbase.com/stamp/?method=portfolio) | Create a stamp using the portfolio workflow |
+| [Stamp a portfolio](https://app.vbase.com/stamp/?method=portfolio) | Create a Stamp using the portfolio workflow |
 
-During any regular stamping workflow, you can optionally assign the stamp to an existing Collection.
+During any regular stamping workflow, you can optionally assign the Stamp to an existing Collection.
 
 [Read the Stamper guide](how-to-use-vbase-stamper.md)
 
 ## Verify a record
 
-Check previously created records and review the available stamp details.
+Check previously created records and review the available Stamp details.
 
 | Workflow | Description |
 |---|---|
-| [Verify a file](https://app.vbase.com/verify/?method=file) | Calculate a file’s Content ID and find matching stamps |
+| [Verify a file](https://app.vbase.com/verify/?method=file) | Calculate a file’s Content ID and find matching Stamps |
 | [Verify a Content ID](https://app.vbase.com/verify/?method=hash) | Search directly using a known Content ID |
 | [Verify a user](https://app.vbase.com/verify/?method=user) | Review records associated with a user or blockchain address |
 | [Verify a Collection from ZIP](https://app.vbase.com/verify/?method=collection&collectionMethod=archive) | Compare a ZIP archive with a Collection record |
@@ -43,7 +47,7 @@ Check previously created records and review the available stamp details.
 
 ## Manage Collections and settings
 
-Use your Profile to manage your account and organize related stamps.
+Use your Profile to manage your account and organize related Stamps.
 
 | Area | What you can do |
 |---|---|

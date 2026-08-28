@@ -1,4 +1,8 @@
-# Exporting Signals from QuantConnect to vBase
+---
+description: Export trading signals from QuantConnect to vBase to build a verifiable strategy track record
+---
+
+# Exporting signals from QuantConnect to vBase
 
 Link your QuantConnect algorithm to validityBase (vBase) to create a verifiable, point‑in‑time audit trail of your strategy’s live portfolio targets. This guide mirrors our other How‑Tos and walks you through setup, usage, and troubleshooting for the QuantConnect **Signal Exports → vBase** integration.
 
@@ -18,12 +22,12 @@ Link your QuantConnect algorithm to validityBase (vBase) to create a verifiable,
 
 1. **vBase account & API Key**
 
-   * Sign in to vBase and copy your API key from **[Account Settings](https://app.vbase.com/profile#account_settings)**.
+   * Sign in to vBase and copy your API key from **[Account Settings](https://app.vbase.com/profile/#account_settings)**.
 
 2. **A vBase Collection**
 
-   * Think of a *collection* as the dataset/strategy name where your stamped targets will live. Create one in **[Collections](https://app.vbase.com/profile#collections)** if you haven't previously set one up. 
-   * You can also setup collections via our [REST API](../../vbase-py/api.md)
+   * Think of a *Collection* as the dataset/strategy name where your stamped targets will live. Create one in **[Collections](https://app.vbase.com/profile/#collections)** if you haven't previously set one up. 
+   * You can also set up Collections via our [REST API](../../vbase-py/api.md)
 
 3. **QuantConnect project** running in live or paper trading.
 
@@ -108,9 +112,9 @@ public class MyAlgo : QCAlgorithm
 | Argument                                  | Type   | Default | Description                                                                                                                                                   |
 | ----------------------------------------- | ------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `api_key` / `apiKey`                      | string | —       | Your vBase API key (Account Settings).                                                                                                                        |
-| `collection_name` / `collectionName`      | string | —       | The vBase collection to receive these stamps. Use one collection per strategy, unless you need separate feeds.                                                |
+| `collection_name` / `collectionName`      | string | —       | The vBase Collection to receive these Stamps. Use one Collection per strategy, unless you need separate feeds.                                                |
 | `store_stamped_file` / `storeStampedFile` | bool   | `True`  | If `True`, vBase stores the stamped CSV for you (recommended). If `False`, you **must** store the exact stamped file yourself or you’ll lose verifiability.   |
-| `idempotent`                              | bool   | `False` | If `True`, resending identical targets won’t create duplicate stamps.                                                                                         |
+| `idempotent`                              | bool   | `False` | If `True`, resending identical targets won’t create duplicate Stamps.                                                                                         |
 
 > You can register **multiple** signal export providers per algorithm if you need to broadcast to several destinations.
 
@@ -132,11 +136,11 @@ All asset classes supported by your algorithm are supported by the vBase signal 
 
 ---
 
-## Verifying your stamps in vBase
+## Verifying your Stamps in vBase
 
 1. Open the vBase app, go to **Stamped File Storage** in User Settings, and download a zip of your strategy history. 
 2. Anyone can now load that archive into [https://app.vbase.com/verify/?method=collection](https://app.vbase.com/verify/?method=collection) to verify that the strategy history is completely, point-in-time, and free from selective presentation. 
-3. Use the collection as a source for [live performance dashboards and a shareable live index](https://docs.vbase.com/use-case-how-tos/verified-track-record).
+3. Use the Collection as a source for [live performance dashboards and a shareable live index](https://docs.vbase.com/use-case-how-tos/verified-track-record).
 
 ---
 
@@ -149,17 +153,17 @@ All asset classes supported by your algorithm are supported by the vBase signal 
 
 ## Troubleshooting
 
-**I don’t see stamps arriving in vBase**
+**I don’t see Stamps arriving in vBase**
 
 * Confirm the provider was added in `initialize()` and that `set_target_portfolio()` is being called.
-* Check that the `collection_name` matches an existing collection you own.
+* Check that the `collection_name` matches an existing Collection you own.
 * Verify the API key and project parameter name.
 
 **I set `store_stamped_file=False` and now I can’t verify**
 
 * You must retain the **exact** stamped CSV emitted at export time. If it was lost or modified, the proof won’t match. Prefer `True` unless you have strict storage policies.
 
-**Duplicate stamps**
+**Duplicate Stamps**
 
 * Set `idempotent=True` to de‑duplicate identical exports. In some cases idempotency will be undesirable if you wish to stamp portfolio weights identical to those you've stamped previously. 
 
@@ -172,17 +176,17 @@ All asset classes supported by your algorithm are supported by the vBase signal 
 ## Security & best practices
 
 * Prefer **project parameters** or secret management to avoid hard‑coding API keys.
-* Use **separate collections** for different strategies.
+* Use **separate Collections** for different strategies.
 * Stamp **before** you trade if you want your intent on record; or **after** fills if you only want executed target states—both patterns are fine, just be consistent.
 
 ---
 
 ## Next steps
 
-* Build a **vBase dashboard** or **live ticker** from your stamped targets. E-mail portfolios@vbase.com with your collection name to enable this. 
+* Build a **vBase dashboard** or **live ticker** from your stamped targets. E-mail portfolios@vbase.com with your Collection name to enable this. 
 * Share a read‑only link with teammates or allocators.
 * Explore automated backtest → stamp → live handoff pipelines using our SDKs.
 
 ---
 
-*Questions?* Reach us on [support@vbase.com](mailto:support@vbase.com) or the vBase [Discord](https://discord.gg/THHst83J) channel.
+*Questions?* Reach us at [support@vbase.com](mailto:support@vbase.com).

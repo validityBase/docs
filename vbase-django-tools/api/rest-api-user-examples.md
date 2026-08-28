@@ -1,10 +1,14 @@
+---
+description: cURL and Python examples for the vBase REST API stamp and verify endpoints
+---
+
 # Examples
 
-## Stamp Endpoint
+## Stamp endpoint
 
-### Curl Examples
+### cURL examples
 
-#### Stamping Without a Collection
+#### Stamping without a Collection
 
 1. Stamping a file:
 ```bash
@@ -26,7 +30,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 -F "idempotency_window=3600"
 ```
 
-3. Stamping a Content Identifier (CID) without revealing data:
+3. Stamping a Content ID (CID) without revealing data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
@@ -35,7 +39,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 -F "idempotency_window=3600"
 ```
 
-#### Stamping to a Collection Identified by a Name
+#### Stamping to a Collection identified by a name
 
 1. Stamping a file:
 ```bash
@@ -59,7 +63,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 -F "idempotency_window=3600"
 ```
 
-3. Stamping a Content Identifier (CID) without revealing data:
+3. Stamping a Content ID (CID) without revealing data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
@@ -69,7 +73,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 -F "idempotency_window=3600"
 ```
 
-#### Stamping to a Collection Identified by a Content Identifier (Collection CID)
+#### Stamping to a Collection identified by a Content ID (Collection CID)
 
 1. Stamping a file:
 ```bash
@@ -82,7 +86,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 -F "idempotency_window=3600"
 ```
 
-2. Stamping a Content Identifier (CID) without revealing data:
+2. Stamping a Content ID (CID) without revealing data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
 -H "Authorization: Bearer YOUR_API_TOKEN" \
@@ -105,9 +109,9 @@ After local lookup succeeds, the backend also validates that the collection has 
 
 This means **on-chain-only, unknown-name collections are intentionally unsupported** in `POST /api/v1/stamps` when file storage is requested, because current storage paths require a known collection name.
 
-## Verify Endpoint
+## Verify endpoint
 
-### Curl Examples
+### cURL examples
 
 1. Verifying CIDs:
 ```bash
@@ -121,7 +125,7 @@ curl -X POST "https://dev.app.vbase.com/api/v1/stamps/verify" \
   }'
 ```
 
-## Python Examples
+## Python examples
 
 ```python
 """

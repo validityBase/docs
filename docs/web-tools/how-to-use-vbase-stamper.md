@@ -1,4 +1,8 @@
-# How to Use the vBase Stamper
+---
+description: Create Stamps for files, text, Content IDs, and portfolios directly from your browser
+---
+
+# How to use the vBase Stamper
 
 The **vBase Stamper** lets you create independently verifiable audit trail records directly from your browser.
 
@@ -15,7 +19,7 @@ A vBase account is required to create Stamps.
 
 For a quick overview, [watch the how-to video](https://www.youtube.com/watch?v=wRJCNvDkKR8).
 
-## Stamp a File
+## Stamp a file
 
 [Open the File Stamper](https://app.vbase.com/stamp/?method=file)
 
@@ -27,7 +31,7 @@ For a quick overview, [watch the how-to video](https://www.youtube.com/watch?v=w
 Once the Stamp is created, vBase displays the resulting Stamp (audit trail record).
 
 
-### File Storage
+### File storage
 
 By default, the Web App can retain a backup copy of files you stamp. You can manage this preference in your [Account Settings](https://app.vbase.com/profile/#account_settings).
 
@@ -35,7 +39,7 @@ If file storage is disabled, the file's Content ID is calculated locally in your
 
 If you choose not to store a backup through vBase, retain the exact original file yourself. You will need it to verify the file against the Stamp later.
 
-## Stamp Text
+## Stamp text
 
 [Open the Text Stamper](https://app.vbase.com/stamp/?method=text)
 
@@ -67,7 +71,7 @@ If you have already calculated a Content ID for your data, you can stamp the Con
 You are responsible for retaining the underlying data corresponding to the Content ID. If you do not retain the exact original data, you may not be able to verify the underlying data against the Stamp later.
 {% endhint %}
 
-## Stamp a Portfolio
+## Stamp a portfolio
 
 [Open the Portfolio Stamper](https://app.vbase.com/stamp/?method=portfolio)
 
@@ -90,13 +94,13 @@ If the content you are stamping belongs to an existing Collection, select that C
 
 Once created, the Collection will be available for selection from the Collection dropdown in the regular stamping workflow.
 
-## What Happens Next
+## What happens next
 
-Creating a Stamp records the content's cryptographic fingerprint, the stamping account, a publicly verifiable timestamp, and, when applicable, its Collection relationship in the vBase audit trail.
+Creating a Stamp records the content's Content ID, the Stamper address, a publicly verifiable timestamp, and, when applicable, its Collection relationship in the vBase audit trail.
 
 [Learn how vBase works](../getting-started/how-vbase-works.md).
 
-## Verify Your Stamp
+## Verify your Stamp
 
 After creating a Stamp, you or another user can verify the corresponding content against its audit trail record using vBase Verify or another verification method. You can also test the workflow yourself by stamping a file and then verifying it.
 

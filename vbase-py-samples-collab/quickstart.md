@@ -1,15 +1,15 @@
-# vBase Google Colab Quickstart
+# vBase Google Colab quickstart
 
 The samples run in [Google Colab](https://colab.research.google.com/) and use
 the `vbase-api` Python package. Basic samples require only a vBase API key.
 
-## 1. Get a vBase API Key
+## 1. Get a vBase API key
 
 1. Sign in to [vBase](https://app.vbase.com).
 2. Open [Account Settings](https://app.vbase.com/profile#account_settings).
 3. Copy your API key and keep it private.
 
-## 2. Add the API Key to Google Colab
+## 2. Add the API key to Google Colab
 
 Open the [setup notebook](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/setup.ipynb),
 then select the key icon in the left sidebar to open the Secrets panel.
@@ -24,7 +24,7 @@ accepts the key before opening another sample.
 The vBase API client uses `https://app.vbase.com` by default. The samples do not
 require a Forwarder URL or a blockchain private key.
 
-## 3. Configure Amazon S3 When Needed
+## 3. Configure Amazon S3 when needed
 
 Only the four producer and verifier samples with `_s3` in their file names
 need AWS configuration. Add these Google Colab secrets:
@@ -43,7 +43,7 @@ The producer samples write below these prefixes:
 - `vbase-samples/portfolio-history/`
 - `vbase-samples/sentiment-history/`
 
-## 4. Run a Sample
+## 4. Run a sample
 
 Start with [Create a collection](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/create_set.ipynb)
 or [Stamp a text record](https://colab.research.google.com/github/validityBase/vbase-py-samples-collab/blob/main/samples/add_string_dataset_record.ipynb).

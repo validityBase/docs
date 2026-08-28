@@ -1,4 +1,8 @@
-# Privacy and Data Handling
+---
+description: What information vBase makes public, how local-only workflows keep data private, and when optional services access underlying data
+---
+
+# Privacy and data handling
 
 **Creating a vBase audit trail does not make the underlying data public.** vBase publishes cryptographic fingerprints (known as Content IDs or hashes) of the data to a public blockchain, not the underlying data itself. 
 
@@ -13,7 +17,7 @@ This page explains what information is public, how local-only workflows operate,
 
 For the broader system architecture, see [Technical Architecture](technical-architecture.md).
 
-## What Is Public?
+## What is public?
 
 The public audit trail records vBase creates contain only cryptographic identifiers:
 
@@ -27,15 +31,15 @@ The publication of the audit trail record to a blockchain also creates a transac
 
 A Content ID is a SHA3-256 cryptographic hash of the content, not the content itself. For more detail on how Content IDs work, see [Verification and Trust Model](verification-and-trust-model.md).
 
-## Local-Only Workflows
+## Local-only workflows
 
-Underlying data does not need to be shared with vBase in order to create an audit trail. Content IDs are calculated locally using widely available hashing libraries. Only the Content ID enters the vBase audit-trail flow; the underlying data remains within the producer's environment.
+Underlying data does not need to be shared with vBase in order to create an audit trail. Content IDs are calculated locally using widely available hashing libraries. Only the Content ID enters the vBase audit trail flow; the underlying data remains within the producer's environment.
 
 Because SHA3-256 is a public standard with widely available implementations, any future data consumer with the same underlying data can independently calculate the same Content ID and compare it with the public audit trail. This does not require proprietary vBase software, methodology, or infrastructure.
 
 For example, the vBase Web App calculates a file's Content ID directly in the user's browser, while API users can calculate it within their own environment.
 
-## Sharing Data with vBase
+## Sharing data with vBase
 
 vBase offers optional services that require access to the underlying data:
 
@@ -45,13 +49,13 @@ vBase offers optional services that require access to the underlying data:
 
 - **Managed data delivery** — for some data providers, vBase helps deliver underlying data to end users as part of a managed delivery workflow.
 
-These are optional convenience and managed-service features layered on top of the core audit-trail system. **If you do not need vBase to provide one of these services, the underlying data does not need to be shared with vBase.**
+These are optional convenience and managed-service features layered on top of the core audit trail system. **If you do not need vBase to provide one of these services, the underlying data does not need to be shared with vBase.**
 
 Content that is privately shared with or stored by vBase remains separate from the public audit trail and is not published to the blockchain.
 
 **Your data remains yours.** When you share data with vBase, its use is governed by our [Terms of Service](https://www.vbase.com/terms-of-service/) and [Privacy Policy](https://www.vbase.com/privacy-policy/). vBase does not acquire ownership of user data or its derivatives, and may use it only as necessary to provide and support the services you have chosen. vBase does not sell user data or use it for unrelated purposes.
 
-## Data Handling by Workflow
+## Data handling by workflow
 
 Common workflows can be summarized as follows:
 
@@ -68,7 +72,7 @@ Common workflows can be summarized as follows:
 | **Performance dashboard service** | **Yes** | **No** |
 | **Managed data delivery** | **Yes** | **No** |
 
-## Related Documentation
+## Learn more
 
 - [Technical Architecture](technical-architecture.md)
 - [Verification and Trust Model](verification-and-trust-model.md)

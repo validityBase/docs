@@ -1,4 +1,8 @@
-# Data Provider Workflow
+---
+description: How data providers stamp production releases to give clients an independently verifiable point-in-time history
+---
+
+# Data provider workflow
 
 Data providers, especially those selling to systematic investors, benefit from a complete, point-in-time dataset history that users can independently validate. See [Why Quants Pay More for Point-in-Time Data](https://www.vbase.com/blog/why-quants-pay-more-for-point-in-time-data/) for more on why this matters.
 
@@ -6,7 +10,7 @@ vBase lets you create a verifiable, point-in-time history for your dataset witho
 
 This page builds on concepts covered elsewhere in the documentation. If you are new to the basics, start with [How vBase Works](../getting-started/how-vbase-works.md) and the [Technical Architecture](../concepts/technical-architecture.md).
 
-As a quick overview, stamps and collections together allow a data provider to create independently verifiable proof of:
+As a quick overview, Stamps and Collections together allow a data provider to create independently verifiable proof of:
 
 - when specific data releases enter the historical record
 - the completeness of the dataset's historical record
@@ -47,7 +51,7 @@ A standard workflow usually looks like this:
    This may be a daily file, an intraday snapshot, a weekly archive, a model output, or any digital object. 
 
 2. **Stamp the release at publication**  
-   The data is fingerprinted, and the fingerprint is sent to vBase. vBase publishes the fingerprint to an immutable ledger, creating a publicly verifiable audit trail. Audit trails are grouped into collections to create verifiable history for entire datasets. 
+   The data is fingerprinted, and the fingerprint is sent to vBase. vBase publishes the fingerprint to an immutable ledger, creating a publicly verifiable audit trail. Audit trails are grouped into Collections to create verifiable history for entire datasets. 
 
 3. **Enable verification of published data, and data history**  
    Data provider's clients can verify individual deliveries or, where relevant, broader dataset history using vBase tools or independent verification methods.
@@ -87,13 +91,13 @@ Yes. Revisions and corrections should generally be stamped.
 Yes. The verifiable history is the foundation. In some enterprise deployments, validityBase can also provide additional support during buyer diligence, including verification support, attestation, and explanatory materials around point-in-time controls and revision handling.
 
 ### What is a Collection?
-A Collection is the publicly verifiable record for all data stamped and associated with a particular dataset. In most cases, each dataset product should have its own collection. 
+A Collection is the publicly verifiable record for all data stamped and associated with a particular dataset. In most cases, each dataset product should have its own Collection. 
 
 ### How should revisions, corrections, and backfills be handled?
 Record them as new stamped data in the same Collection.
 
 
-## Related docs
+## Next steps
 
 - [How vBase Works](../getting-started/how-vbase-works.md)
 - [Technical Architecture](../concepts/technical-architecture.md)

@@ -1,14 +1,18 @@
-# vBase Django Tools API Documentation
+---
+description: Authenticate to the vBase REST API and use the stamp, verify, and upload endpoints
+---
+
+# REST API user guide
 
 ## About the REST API
 
-The REST API provides a programmatic interface to interact with our services, allowing you to stamp files, inline data, or existing CIDs. This API is designed to be flexible and secure, supporting various data formats and authentication methods.
+The REST API provides a programmatic interface to interact with our services, allowing you to stamp files, inline data, or existing Content IDs (CIDs). This API is designed to be flexible and secure, supporting various data formats and authentication methods.
 
-## Getting Started with the REST API
+## Getting started with the REST API
 
 To begin using the REST API, you need to have a valid API token for authentication. The API is accessible via standard HTTP methods and returns JSON responses.
 
-### How to Obtain an API Key
+### How to obtain an API key
 
 1. **Log in** to your vBase account at [https://app.vbase.com](https://app.vbase.com)
 2. In your User Profile, navigate to ["Account Settings"](https://app.vbase.com/profile#account_settings)
@@ -19,7 +23,7 @@ To begin using the REST API, you need to have a valid API token for authenticati
 https://app.vbase.com/api/v1/
 ```
 
-## About the OpenAPI Description for the REST API
+## About the OpenAPI description for the REST API
 
 Our REST API is documented using OpenAPI, providing a comprehensive description of available endpoints, parameters, and response formats. You can explore the API using the Swagger UI, which offers an interactive interface for testing API calls.
 
@@ -46,7 +50,7 @@ Authentication is required for all API requests. Use the Bearer token method by 
 Authorization: Bearer <your-api-token>
 ```
 
-## Request Validation Rules
+## Request validation rules
 
 For endpoints that use strict request schemas, unknown or unrecognized request
 keys are rejected with `400 Bad Request`. Only documented request fields are
@@ -59,16 +63,16 @@ accepted.
 - Use environment variables to store your API token
 - Never commit API tokens to version control
 
-## API Endpoints
+## API endpoints
 
-### Verify User Collection
+### Verify user Collection
 
 **POST** `/v1/collections/verify`
 
 This endpoint verifies a stamped collection against blockchain records for the
 authenticated user.
 
-#### Request Formats
+#### Request formats
 
 Choose the request body format with `Content-Type`:
 
@@ -90,7 +94,7 @@ file in the `file` field.
 
 Use `Accept: application/json` for the response.
 
-#### Example Requests
+#### Example requests
 
 **JSON body:**
 ```bash
@@ -128,7 +132,7 @@ curl -X POST https://app.vbase.com/api/v1/collections/verify \
 -F "file=@collection.json;type=application/json"
 ```
 
-#### Example Response
+#### Example response
 
 **Response (200):**
 ```json
@@ -170,7 +174,7 @@ Each entry in `collections` identifies the verified collection by:
 - `unmatched_objects`: submitted objects with no matching blockchain receipt for this collection
 - `unmatched_receipts`: blockchain receipts with no matching submitted object for this collection
 
-### Upload Stamped File
+### Upload stamped file
 
 **POST** `/v1/stamps/upload-stamped-file`
 
@@ -186,7 +190,7 @@ If the same stamped content is uploaded again with a different file name, the en
 
 If multiple commitments in the collection match the same object CID, the first successful upload stores one timestamped file copy for each matching commitment. The API response contains one matching `commitment_receipt` and `file_object`.
 
-#### Request Parameters
+#### Request parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
@@ -199,7 +203,7 @@ If multiple commitments in the collection match the same object CID, the first s
 **Note**: User address is automatically determined from the authenticated user's profile, so no `user_address` parameter is needed.
 At least one of `collection_name` or `collection_cid` must be present, and exactly one of `file` or `data` must be present.
 
-#### Validation Process
+#### Validation process
 
 The endpoint performs the following validations in sequence:
 
@@ -213,7 +217,7 @@ The endpoint performs the following validations in sequence:
 
 Unknown or unrecognized form fields are rejected with `400 Bad Request`.
 
-#### Response Codes
+#### Response codes
 
 | Status Code | Description | When It Occurs |
 |-------------|-------------|----------------|
@@ -223,7 +227,7 @@ Unknown or unrecognized form fields are rejected with `400 Bad Request`.
 | 404 | Collection not found or no blockchain records found | Collection doesn't exist or no matching blockchain records |
 | 500 | File processing, blockchain, or upload errors | CID calculation fails, blockchain errors, or upload failures |
 
-#### Example Requests
+#### Example requests
 
 **Successful Upload:**
 ```bash
@@ -308,7 +312,7 @@ creating a duplicate.
 }
 ```
 
-#### Error Handling
+#### Error handling
 
 The API uses structured error responses with appropriate HTTP status codes to help you handle different error scenarios:
 
@@ -317,7 +321,7 @@ The API uses structured error responses with appropriate HTTP status codes to he
 
 Always check the HTTP status code first, then parse the error message for specific details about what went wrong.
 
-#### Best Practices
+#### Best practices
 
 1. **Validate Input**: Ensure collection names are not empty before sending requests
 2. **Handle Errors**: Implement proper error handling for all status codes

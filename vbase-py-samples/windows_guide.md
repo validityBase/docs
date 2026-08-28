@@ -1,4 +1,4 @@
-# Windows vBase Setup Guide
+# Windows vBase setup guide
 
 Use these steps to run the vBase samples from PowerShell on Windows 10 or 11.
 

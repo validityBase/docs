@@ -1,4 +1,8 @@
-# Choosing Your Integration
+---
+description: Compare the Web App, Python clients, REST API, CLI, and Excel tools to pick the right vBase integration
+---
+
+# Choose how to use vBase
 
 vBase can stamp and verify predictive datasets, alternative data, portfolios,
 and other files. It works from the browser, Python, the command line, and Excel.
@@ -16,8 +20,8 @@ Pick the path that fits your environment.
 
 ## Web App
 
-Use [app.vbase.com](https://app.vbase.com) to manage collections and create or
-verify stamps without installing software. [Get started by making an account](create-a-vbase-account.md).
+Use [app.vbase.com](https://app.vbase.com) to manage Collections and create or
+verify Stamps without installing software. [Get started by making an account](create-a-vbase-account.md).
 
 ## `vbase-api`: Python REST client
 
@@ -45,7 +49,7 @@ interface; the lower-level `vbase` SDK does not.
 - Swagger UI: [app.vbase.com/swagger/](https://app.vbase.com/swagger/)
 - Docs: [REST API User Guide](../../vbase-django-tools/api/rest-api-user-guide.md)
 
-## Excel and COM Tools
+## Excel and COM tools
 
 Stamp and verify from Excel or another COM-compatible application. See the
 [COM Library Overview](../../vbase-cs/user-guide.md).
@@ -55,10 +59,10 @@ Stamp and verify from Excel or another COM-compatible application. See the
 Stamp and verify from a terminal or shell script. See the
 [Command Line Interface](../../vbase-cli/index.md).
 
-## `vbase`: core Python SDK
+## `vbase`: Core Python SDK
 
 Use `vbase` for direct, low-level access to commitment services and blockchains.
-It supports CID computation, sets and objects, batch operations, point-in-time
+It supports Content ID (CID) computation, sets and objects, batch operations, point-in-time
 simulation, and typed objects. Most users should use `vbase-api`.
 
 Appropriate use cases:
