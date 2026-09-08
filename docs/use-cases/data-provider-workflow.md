@@ -6,7 +6,9 @@ description: How data providers set up and maintain an audit trail
 
 Data providers, particularly those selling predictive data to investors, benefit from showing that their dataset's history is a complete, point-in-time representation of what the consumer would have received live. See [Why Quants Pay More for Point-in-Time Data](https://www.vbase.com/blog/why-quants-pay-more-for-point-in-time-data/) for more on why this matters.
 
-A vBase audit trail gives data providers independently verifiable evidence that a dataset is point-in-time and complete relative to its recorded history — with no missing, extra, or altered data relative to the point-in-time audit trail. Providers can also share the audit trail with consumers, allowing Consumers to quickly compare the a presented dataset with that audit trail during diligence.
+A vBase audit trail gives data providers independently verifiable evidence that a dataset is point-in-time and complete — with no missing, extra, or altered data relative to the point-in-time audit trail records. 
+
+Providers can also share the audit trail with consumers as proof of point-in-time data integrity. vBase enables data consumers to quickly compare a presented dataset with its audit trail during diligence.
 
 ## How an audit trail is created
 
