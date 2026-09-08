@@ -1,106 +1,125 @@
 ---
-description: How data providers stamp production releases to give clients an independently verifiable point-in-time history
+description: How data providers set up and maintain an audit trail
 ---
 
 # Data provider workflow
 
-Data providers, especially those selling to systematic investors, benefit from a complete, point-in-time dataset history that users can independently validate. See [Why Quants Pay More for Point-in-Time Data](https://www.vbase.com/blog/why-quants-pay-more-for-point-in-time-data/) for more on why this matters.
+Data providers, particularly those selling predictive data to investors, benefit from showing that their dataset's history is a complete, point-in-time representation of what the consumer would have received live. See [Why Quants Pay More for Point-in-Time Data](https://www.vbase.com/blog/why-quants-pay-more-for-point-in-time-data/) for more on why this matters.
 
-vBase lets you create a verifiable, point-in-time history for your dataset without changing your production or delivery workflow.
+A vBase audit trail gives data providers independently verifiable evidence that data is point-in-time and complete, and enables consumers to quickly match the point-in-time audit trail to the underlying data. 
 
-This page builds on concepts covered elsewhere in the documentation. If you are new to the basics, start with [How vBase Works](../getting-started/how-vbase-works.md) and the [Technical Architecture](../concepts/technical-architecture.md).
+## How an audit trail is created
 
-As a quick overview, Stamps and Collections together allow a data provider to create independently verifiable proof of:
+As a provider stores or delivers data, vBase creates and publishes **Stamps**, publicly timestamped audit trail records that contain the data's fingerprint (Content ID). 
 
-- when specific data releases enter the historical record
-- the completeness of the dataset's historical record
-- the revision history for a dataset
+**These Stamps do not contain the underlying data itself** and audit trails can be built without changing how providers produce, store, or deliver data. 
 
-See [How vBase Works](../getting-started/how-vbase-works.md) for more detail.
+<figure>
+  <img src="assets/data-provider-workflow.svg" alt="vBase data provider workflow" width="60%">
+  <figcaption>The provider's existing data flow runs alongside the vBase audit trail flow.</figcaption>
+</figure>
 
-## What vBase enables for data providers
+If you are new to vBase, see [How vBase Works](../getting-started/how-vbase-works.md) and [Stamps and Collections](../concepts/stamps-and-collections.md).
 
-### 1. An independently verifiable release history
-Every data delivery, revision, and correction is recorded with a tamper-proof timestamp. The result is a complete point-in-time history for each dataset that neither the provider nor vBase can alter after the fact.
+For what an audit trail enables a data consumer to verify, see [What the Audit Trail Can Establish](../getting-started/how-vbase-works.md#what-the-audit-trail-can-establish).
 
-### 2. Self-service verification for clients
-A data provider's clients can check what they received against the published record themselves — through audit reports, web tools, or APIs — without needing to rely on the data provider's representations. 
+## One-time setup
 
-### 3. Diligence-ready documentation
-During buyer due diligence, the verifiable history serves as evidence of point-in-time controls and revision handling. For enterprise deployments, vBase can provide additional attestation support.
+### 1. Create a vBase account
 
+Create a vBase account at [https://app.vbase.com/accounts/signup/](https://app.vbase.com/accounts/signup/). The account establishes the audit trail's creator identity. 
 
-## Where vBase sits in the pipeline
+For a step-by-step guide, see [Create a vBase Account](../getting-started/create-a-vbase-account.md).
 
-vBase typically sits at the publication step of the provider’s existing pipeline. The provider continues to generate and deliver data as usual. vBase adds a data stamping step at the end. 
+### 2. Create a Collection for the dataset
 
-In many workflows, stamping does not require exposing the underlying data. Audit trails can be created from data fingerprints rather than raw data.
+Create a **Collection** for each dataset or product whose history will form a single audit trail.
 
-
-## Standard stamping workflow
-
-<img
-  src="./assets/stamping-workflow-diagram.png"
-  alt="Standard stamping workflow"
-  width=100%
-/>
-
-A standard workflow usually looks like this:
-
-1. **Generate new data**  
-   This may be a daily file, an intraday snapshot, a weekly archive, a model output, or any digital object. 
-
-2. **Stamp the release at publication**  
-   The data is fingerprinted, and the fingerprint is sent to vBase. vBase publishes the fingerprint to an immutable ledger, creating a publicly verifiable audit trail. Audit trails are grouped into Collections to create verifiable history for entire datasets. 
-
-3. **Enable verification of published data, and data history**  
-   Data provider's clients can verify individual deliveries or, where relevant, broader dataset history using vBase tools or independent verification methods.
+Create Collections [via the vBase Web App](https://app.vbase.com/profile/#collections) or [the API](../getting-started/api-py-quickstart.md).
 
 
+## Ongoing workflow
 
-## What should be stamped
+### 1. Stamp each update or revision
 
-The right object to stamp is the one that will be delivered to clients as part of the historical data for your product. 
+#### How to stamp
 
-Common examples include:
-- a daily flat file
-- an intraday snapshot
-- a weekly or monthly report
-- a model output file
-- a database export
-- a pull from an API 
+For most recurring data pipelines, we recommend automating stamping through the [Python API Client](../getting-started/api-py-quickstart.md) or [REST API](../../vbase-django-tools/api/rest-api-user-guide.md).
 
-The goal is to stamp the data whose history your clients will want to validate to be sure the history they're seeing is point-in-time and complete. 
+Other options include the browser-based [vBase Web App](../web-tools/web-app-overview.md) and managed workflows using email, S3, SFTP, or other integrations.
+
+See [Choose How to Use vBase](../getting-started/choose-how-to-use-vbase.md) for an overview of available stamping methods and interfaces.
+
+
+#### What to stamp
+
+A properly built audit trail answers: **Had the data consumer been receiving this dataset live all along, what would they have seen at each point in time?**
+
+Stamp the production data a consumer would actually have received at that point in time: a file, a full dataset snapshot, a model, or another digital object. Create the Stamp as close as possible to the time that the data is stored or delivered. The Stamp's timestamp shows by when the data was available, so earlier is better.
+
+Stamp every release, revision, and correction for the dataset using the same Collection. For example:
+
+```text
+Dataset: DAILY-DEMAND-DATA
+
+Jan 5   Production release → Stamp A | Collection: DAILY-DEMAND-DATA
+Jan 6   Production release → Stamp B | Collection: DAILY-DEMAND-DATA
+Jan 7   Jan 5 revision     → Stamp C | Collection: DAILY-DEMAND-DATA
+Jan 7   Production release → Stamp D | Collection: DAILY-DEMAND-DATA
+
+All Stamps share the same stamping address and Collection
+```
+
+Together, these Stamps form the point-in-time audit trail for the `DAILY-DEMAND-DATA` dataset.
+
+For more stamping best practices, see [Building a Verifiable History](../concepts/building-a-verifiable-history.md).
+
+
+### 2. Keep an exact copy of the stamped data
+
+An audit trail can only be verified against an exact copy of the data. If no exact copy of stamped data is available, the Stamps will still exist, but they cannot be matched to the underlying data. 
+
+In many managed workflows vBase stores a backup copy of each stamped object. If the underlying data is not stored with vBase, providers should save the stamped content themselves. 
+
+
+### 3. Share the audit trail with consumers
+
+Once the audit trail is accumulating records, the provider can share it with data consumers as part of diligence.
+
+Consumers can either use vBase tools or inspect audit trail records independently to compare a dataset with its public audit trail and verify that the data matches the audit trail records, thus verifying that the dataset is point-in-time and complete. 
+
+Providers that want additional support can also use vBase's managed verification services and third-party verification reports.
+
+See [How to Use vBase Verify](../web-tools/how-to-use-vbase-verify.md) for the verification workflow and [Verification and Trust Model](../concepts/verification-and-trust-model.md) for how to verify datasets and what the resulting verification establishes.
 
 
 ## Common questions
 
-### Do I need to change my delivery pipeline?
-Usually not. vBase is intended to sit alongside the provider’s existing production and delivery workflow.
+### Do I need to change my production or delivery pipeline?
 
-### What is the client-facing output of this workflow?
-Clients get a way to verify what they received, when it entered the record, and how later revisions were handled. Clients can use vBase audit reports, web tools, APIs, or the blockchain record itself to see validate data history. 
+Usually not. vBase operates alongside the provider's existing production, storage, and delivery workflow. Data can continue to be generated and distributed through the same systems used today.
 
-### Does validityBase need access to my raw data?
-Not necessarily. In many workflows, only the data's fingerprint (hash) is used to build audit trails. 
+### Does vBase need access to my underlying data?
 
-### Should revisions be stamped too?
-Yes. Revisions and corrections should generally be stamped. 
+No. Providers can build and verify audit trails using only Content IDs, without sharing data with vBase. In many managed workflows, however, vBase saves a backup copy of the data to support managed verification and delivery services.
 
-### Does validityBase provide support in buyer diligence?
-Yes. The verifiable history is the foundation. In some enterprise deployments, validityBase can also provide additional support during buyer diligence, including verification support, attestation, and explanatory materials around point-in-time controls and revision handling.
+See [Privacy and Data Handling](../concepts/privacy-and-data-handling.md) for more info. 
 
-### What is a Collection?
-A Collection is the publicly verifiable record for all data stamped and associated with a particular dataset. In most cases, each dataset product should have its own Collection. 
+### Does vBase provide support for verification?
 
-### How should revisions, corrections, and backfills be handled?
-Record them as new stamped data in the same Collection.
+Yes. vBase provides tools that consumers can use to verify datasets against their audit trails.
+
+For users who want additional support during diligence or verification, vBase can also provide managed verification services and dataset-specific point-in-time integrity reports.
+
+Contact [support@vbase.com](mailto:support@vbase.com) for more information.
 
 
-## Next steps
 
-- [How vBase Works](../getting-started/how-vbase-works.md)
-- [Technical Architecture](../concepts/technical-architecture.md)
-- [Verification and Trust Model](../concepts/verification-and-trust-model.md)
-- [Building a Verifiable History](../concepts/building-a-verifiable-history.md)
-- [REST API User Guide](../../vbase-django-tools/api/rest-api-user-guide.md)
+
+## Learn more
+
+- [Building a Verifiable History](../concepts/building-a-verifiable-history.md) — best practices for deciding what and when to stamp
+- [Stamps and Collections](../concepts/stamps-and-collections.md) — how vBase audit trails are organized
+- [Choose How to Use vBase](../getting-started/choose-how-to-use-vbase.md) — available stamping methods and interfaces
+- [Private Stamping with Delayed Reveal](private-stamping.md) — workflows where data is stamped before it is disclosed
+- [Technical Architecture](../concepts/technical-architecture.md) — how the audit trail fits alongside existing production, storage, and delivery systems
