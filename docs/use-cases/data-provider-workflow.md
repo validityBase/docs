@@ -88,7 +88,9 @@ Once the audit trail is accumulating records, the provider can share it with dat
 
 Consumers can either use vBase tools or inspect audit trail records independently to compare a dataset with its public audit trail and verify that the data matches the audit trail records, thus verifying that the dataset is point-in-time and complete. 
 
-Providers that want additional support can also use vBase's managed verification services and third-party verification reports.
+Consumers can also view other audit trails published by the same vBase identity, providing broader context around the provider's audit trail history.
+
+Providers that want additional support with verification can also use vBase's managed verification services and third-party verification reports.
 
 See [How to Use vBase Verify](../web-tools/how-to-use-vbase-verify.md) for the verification workflow and [Verification and Trust Model](../concepts/verification-and-trust-model.md) for how to verify datasets and what the resulting verification establishes.
 
