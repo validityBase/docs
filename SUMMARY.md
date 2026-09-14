@@ -31,9 +31,9 @@
   * [Data Provider Workflow](docs/use-cases/data-provider-workflow.md)
   * [Private Stamping with Delayed Reveal](docs/use-cases/private-stamping.md)
   * [Verified Investment Track Records](docs/use-cases/verified-track-record.md)
-  * [Stamping a Portfolio](docs/use-cases/stamping-portfolios.md)
-  * [Linking with Interactive Brokers](docs/use-cases/linking-interactive-brokers.md)
-  * [Linking with QuantConnect](docs/use-cases/linking-quantconnect.md)
+    * [Stamping a Portfolio](docs/use-cases/stamping-portfolios.md)
+    * [Linking with Interactive Brokers](docs/use-cases/linking-interactive-brokers.md)
+    * [Linking with QuantConnect](docs/use-cases/linking-quantconnect.md)
 
   <!-- * [Point-in-Time Datasets](docs/use-case-samples/point-in-time-datasets.md)
   * [Verified Research Portfolios](docs/use-case-samples/verified-research-portfolio.md)
