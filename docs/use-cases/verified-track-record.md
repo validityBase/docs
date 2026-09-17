@@ -1,84 +1,152 @@
 ---
-description: Create a live, independently verifiable track record and shareable ticker for your strategy
+description: How investment managers and signal producers build independently verifiable track records
 ---
 
-# Building a live ticker for your account, fund or paper strategy
+# Verified investment track records
 
-## Introduction
+Investment managers, researchers, and signal producers can use vBase to build independently verifiable track records for trading strategies and signals.
 
-validityBase is a trusted platform for building shareable live global tickers for any trading strategy. 
+A vBase audit trail enables allocators to quickly validate that a historical track record is based on the **complete**, **unrevised** set of **publicly timestamped** strategy outputs. vBase also surfaces other audit trails associated with the same producer, providing context around potential selective presentation.
 
-vBase creates a point-in-time record of your portfolios to build a live Ticker. These portfolios are saved and then used as the basis for calculating live investment performance dashboards for your strategy. 
+The approach works across strategies and asset classes, but is not designed for high-frequency trading workflows that require recording large numbers of sub-second events.
 
-This guide will walk you through the process of getting a live verified vBase Ticker for your strategy.<br><br>
+For supported asset classes such as equities, commodities, futures, and crypto, vBase can also build live, shareable strategy tearsheets from verified portfolio histories, such as [ASGSP5DR](https://portfolios.vbase.com/?sym=ASGSP5DR).
 
+If you are new to vBase, see [How vBase Works](../getting-started/how-vbase-works.md) and [Stamps and Collections](../concepts/stamps-and-collections.md).
 
-## Steps to build a live verified track record
+## Choose what kind of track record you want to build
 
-### Step 1: Generate a CSV of your **current** portfolio
+As a strategy generates outputs — such as portfolio weights, trades, or model parameters — the producer stamps those outputs into a **Collection**, creating a point-in-time audit trail.
 
-vBase ingests portfolio data from simple CSVs. Below is an example of a portfolio file. Your file should follow this format, using any widely recognized SEC Master for ticker symbols.
+Possible track-record representations are:
 
-Use this format to generate a CSV file of your current portfolio. 
+- **Portfolio weights**
+- **Trades**
+- **Other strategy outputs**
 
-[Example Portfolio CSV File](https://github.com/validityBase/docs/releases/download/Example_Portfolio/Example_Portfolio_CSV.csv)
-
-<img src="assets/image-2.png" style="width:20%; height:auto;"><br><br>
-
-
-### Step 2: First-time setup
-
-1. Go to [app.vbase.com](https://www.vbase.com/)
-2. If you don't yet have an account, register for a free account by clicking [Create an Account](https://app.vbase.com/accounts/signup/) in the upper right and following the registration process. 
-3. Sign in to your vBase Account
-4. Go into your user profile, click the Collections tab. Shortcut: [https://app.vbase.com/profile/#collections](https://app.vbase.com/profile/#collections) 
-5. Create a Collection name for the strategy you plan to stamp. This is the strategy name that will be visible publicly when you share your live ticker. 
-<br><br>
-
-
-### Step 3: Stamping your portfolio
-
-Stamping your portfolio means calculating the digital fingerprint of the CSV file you created in Step 1,  and publishing that fingerprint to a public blockchain. By publishing the fingerprint, you assign an independently verifiable timestamp to your portfolio. 
-
-vBase allows you to stamp via API, Excel or our web application. This guide will explain how to create Stamps in the web application. See these docs for instructions to use our brokerage integrations, our [API](../../vbase-py-samples/quickstart.md) or our [Excel tools](../../vbase-cs/workbook.md). 
+Choose the representation that best matches what a broker or index calculator would have received live. The stamped data should naturally support calculation of investment performance. A strategy can maintain more than one type of track record audit trail where useful.
 
 
 
-1. Go to Stamp page - [https://app.vbase.com/stamp/](https://app.vbase.com/stamp/)
-2. Load your portfolio CSV for a particular strategy into the Stamper dialog box
-3. Check the box that this Stamp belongs to a Collection
-4. Select from the Collection dropdown menu the name of your Strategy
-5. Click Make a Stamp
-6. Generate and Stamp a new CSV of your portfolio on a regular cadence or each time you have a major rebalance 
-<br><br>
+### Portfolio track records
 
-**Stamping Notes:** 
+Stamp portfolio weights or holdings at each rebalance or update.
 
-- A digital fingerprint is a SHA3 256-bit [cryptographic hash](https://csrc.nist.gov/glossary/term/cryptographic_hash_function), which provides a unique identifier for your portfolio CSV file without disclosing its contents.
+**Use this representation if you want vBase to build a live performance tearsheet.**
 
-- If you ever wish to confirm your Portfolio CSV was properly Stamped, simply load it into the [vBase Verify](https://app.vbase.com/verify/) interface
+See [Stamping a Portfolio](stamping-portfolios.md) for the required format and implementation guidance.
 
-- By default, the web application saves a copy of any stamped data. To turn this off and stamp data privately, please update your preference in your User Profile under [Account Settings](https://app.vbase.com/profile/#account_settings)
-<br><br>
+### Trade and other strategy-output track records
 
+For trades, signals, scores, rankings, model parameters, target prices, or other outputs, stamp the production outputs as they are generated.
 
-### Step 4: View and share your live strategy ticker!
+Use a stable format that preserves what you may want to validate later.
+
+A strategy can maintain multiple Collections for different representations of the same track record, such as one for portfolio weights and another for trades.
 
 
-vBase uses your point-in-time portfolios to generate a ticker and live set of verified dashboards for your strategy. 
 
-Your dashboards will be displayed at https://portfolios.vbase.com/?sym=YOUR_TICKER
+## Recommended workflow
 
-To get your ticker and dashboard link, please e-mail us at [portfolios@vbase.com](mailto:portfolios@vbase.com) and let us know the Collection Name under which you are stamping your strategy. 
-<br><br>
+### One-time setup
+
+#### 1. Create a vBase account
+
+Create the vBase account that will be used to stamp the strategy.
+
+The account establishes the vBase identity under which the strategy's audit trail will be created.
+
+See [Create a vBase Account](../getting-started/create-a-vbase-account.md).
+
+#### 2. Create a Collection for the strategy
+
+Create a separate **Collection** for each strategy and track record representation whose history should form a single audit trail.
+
+For example:
+
+```text
+Strategy: US-EQUITY-MARKET-NEUTRAL
+
+Sep 1   Strategy output → Stamp A | Collection: US-EQUITY-MARKET-NEUTRAL
+Sep 2   Strategy output → Stamp B | Collection: US-EQUITY-MARKET-NEUTRAL
+Sep 3   Strategy output → Stamp C | Collection: US-EQUITY-MARKET-NEUTRAL
+Sep 4   Strategy output → Stamp D | Collection: US-EQUITY-MARKET-NEUTRAL
+
+All Stamps: same Stamper address + same Collection ID
+```
+
+Together, these Stamps form the strategy's point-in-time audit trail.
+
+For more detail, see [Stamps and Collections](../concepts/stamps-and-collections.md).
+
+### Ongoing workflow
+
+#### 3. Stamp each strategy update
+
+Stamp each new production output as the strategy is traded or rebalanced. 
+
+The guiding question is:
+
+**Had a broker or index calculator been receiving your instructions live, what would they have received at each point in time?**
+
+Stamp the output at or as close as practical to the time it would have been communicated to a broker.
+
+For most recurring systematic strategies, we recommend automating stamping through the [Python API Client](../getting-started/api-py-quickstart.md) or [REST API](../../vbase-django-tools/api/rest-api-user-guide.md).
+
+vBase also supports direct integrations with [Interactive Brokers](linking-interactive-brokers.md) and [QuantConnect](linking-quantconnect.md), which can automate stamping from existing brokerage or research workflows.
+
+Other options include the browser-based [vBase Web App](../web-tools/web-app-overview.md) and managed integrations. See [Choose How to Use vBase](../getting-started/choose-how-to-use-vbase.md) for available stamping methods and interfaces.
+
+#### 4. Preserve the stamped strategy data
+
+vBase can optionally store stamped data in supported workflows. If the underlying strategy data is not stored with vBase, preserve the exact stamped content in your own archive so it remains available for later validation.
 
 
-## Best practices
-- **Ensure Accuracy:** Provide complete and accurate data to avoid discrepancies.
-- **Use Standard Ticker SEC Master:** vBase uses tickers to look-up price data for your portfolio
-- **Review Regularly:** Periodically review your dashboards to ensure data matches your expectations and cross-check against internal records
-<br><br>
 
-## Conclusion
+## Sharing the track record
 
-validityBase allows anyone to quickly, easily, and cost-effectively build globally credible, live track records with shareable beautiful dashboards for their trading and model portfolios. 
+Once the strategy has accumulated a live history, the producer can share its audit trail with investors, allocators, or other diligence counterparties.
+
+Investors can compare the historical track record with the public audit trail and independently verify the point-in-time series of strategy outputs, using [vBase Verify](../web-tools/how-to-use-vbase-verify.md) or by inspecting the underlying public records directly. Consumers can also view other Collections associated with the producer's vBase identity, providing context around whether a track record is being selected from among many parallel recorded strategies.
+
+For supported portfolio strategies, producers can also share a verified live performance tearsheet like [this example](https://portfolios.vbase.com/?sym=ASGSP5DR) — tearsheets are served at `portfolios.vbase.com/?sym=YOUR_TICKER`.
+
+<figure>
+  <img src="assets/tearsheet-example.png" alt="Live verified strategy tearsheet" width="70%">
+  <figcaption>A live verified tearsheet — the "Live on vBase" marker separates backfilled history from the independently verifiable live record (<a href="https://portfolios.vbase.com/?sym=ASGSP5DR">view live</a>).</figcaption>
+</figure>
+
+To activate a tearsheet for your strategy, follow [Stamping a Portfolio](stamping-portfolios.md) when setting up the strategy so the required portfolio data is properly recorded, then email [portfolios@vbase.com](mailto:portfolios@vbase.com) with your Collection name and preferred TICKER to receive your dashboard link.
+
+
+## Common questions
+
+### What data does vBase make public?
+
+vBase publishes **Stamps**, which contain Content IDs, the Stamper's blockchain address, and the Collection ID where applicable. **The underlying stamped data is not published to the blockchain.**
+
+See [Privacy and Data Handling](../concepts/privacy-and-data-handling.md).
+
+### Can I build a track record without sharing my data with vBase?
+
+Yes. Content IDs can be calculated locally and submitted to vBase without sharing the underlying strategy data.
+
+Some optional services, including performance tearsheets, require vBase to receive the relevant portfolio data.
+
+See [Privacy and Data Handling](../concepts/privacy-and-data-handling.md).
+
+### Can I stamp a backtest?
+
+Yes, but a Stamp created today establishes only that the backtest existed **by the Stamp timestamp**. It does not establish that the backtest existed during the historical period it covers.
+
+Historical and backtested performance can be displayed in the vBase performance tearsheets. The strongest evidence of live predictive performance comes from Stamps created prospectively as strategy outputs are generated.
+
+
+
+
+## Next steps
+
+- [Stamping a Portfolio](stamping-portfolios.md) — build a portfolio-based track record and live performance tearsheet
+- [Building a Verifiable History](../concepts/building-a-verifiable-history.md) — best practices for maintaining a prospective audit trail
+- [Verification and Trust Model](../concepts/verification-and-trust-model.md) — what track-record verification establishes and its limits
+- [Privacy and Data Handling](../concepts/privacy-and-data-handling.md) — how strategy data is handled in different workflows
