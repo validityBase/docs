@@ -6,37 +6,33 @@ description: How investment managers and signal producers build independently ve
 
 Investment managers, researchers, and signal producers can use vBase to build independently verifiable track records for trading strategies and signals.
 
-A vBase audit trail enables allocators to quickly validate that a historical track record is based on the **complete**, **unrevised** set of **publicly timestamped** strategy outputs. vBase also surfaces other audit trails associated with the same producer, providing context around potential selective presentation.
-
 The approach works across strategies and asset classes, but is not designed for high-frequency trading workflows that require recording large numbers of sub-second events.
 
-For supported asset classes such as equities, commodities, futures, and crypto, vBase can also build live, shareable strategy tearsheets from verified portfolio histories, such as [ASGSP5DR](https://portfolios.vbase.com/?sym=ASGSP5DR).
+For supported asset classes such as equities, commodities, futures, and crypto, vBase can also build live, shareable strategy tearsheets from verified portfolio histories, [like this example](https://portfolios.vbase.com/?sym=ASGSP5DR).
 
 If you are new to vBase, see [How vBase Works](../getting-started/how-vbase-works.md) and [Stamps and Collections](../concepts/stamps-and-collections.md).
 
 ## Choose what kind of track record you want to build
 
-As a strategy generates outputs — such as portfolio weights, trades, or model parameters — the producer stamps those outputs into a **Collection**, creating a point-in-time audit trail.
+As a strategy generates outputs — such as portfolio weights, trades, or model parameters — the producer stamps those outputs into a **Collection**, creating a point-in-time audit trail. This audit trail enables fast and simple validation that the strategy's track record is based on the **complete**, **unrevised** set of **publicly timestamped** outputs, and provides context around selective presentation and cherry-picking. 
 
-Possible track-record representations are:
+Common track-record representations are:
 
 - **Portfolio weights**
 - **Trades**
 - **Other strategy outputs**
 
-Choose the representation that best matches what a broker or index calculator would have received live. The stamped data should naturally support calculation of investment performance. A strategy can maintain more than one type of track record audit trail where useful.
+Choose the representation that best matches what a broker or index calculator is receiving or would have received live. The stamped data should naturally support calculation of investment performance. A strategy can maintain more than one type of track record audit trail where useful.
 
 
 
-### Portfolio track records
+### Portfolio weights
 
-Stamp portfolio weights or holdings at each rebalance or update.
-
-**Use this representation if you want vBase to build a live performance tearsheet.**
+Stamp portfolio weights or holdings at each rebalance or update. This is the representation you want if you want to build live performance tearsheets for your strategies. 
 
 See [Stamping a Portfolio](stamping-portfolios.md) for the required format and implementation guidance.
 
-### Trade and other strategy-output track records
+### Trades and other strategy-output track records
 
 For trades, signals, scores, rankings, model parameters, target prices, or other outputs, stamp the production outputs as they are generated.
 
@@ -83,19 +79,11 @@ For more detail, see [Stamps and Collections](../concepts/stamps-and-collections
 
 #### 3. Stamp each strategy update
 
-Stamp each new production output as the strategy is traded or rebalanced. 
+Stamp each new production output as the strategy is traded or rebalanced, as close as practical to the time it would have been communicated to a broker. 
 
-The guiding question is:
+The guiding question is: **What is a broker or index calculator receiving if these are live actual execution instructions?**
 
-**Had a broker or index calculator been receiving your instructions live, what would they have received at each point in time?**
-
-Stamp the output at or as close as practical to the time it would have been communicated to a broker.
-
-For most recurring systematic strategies, we recommend automating stamping through the [Python API Client](../getting-started/api-py-quickstart.md) or [REST API](../../vbase-django-tools/api/rest-api-user-guide.md).
-
-vBase also supports direct integrations with [Interactive Brokers](linking-interactive-brokers.md) and [QuantConnect](linking-quantconnect.md), which can automate stamping from existing brokerage or research workflows.
-
-Other options include the browser-based [vBase Web App](../web-tools/web-app-overview.md) and managed integrations. See [Choose How to Use vBase](../getting-started/choose-how-to-use-vbase.md) for available stamping methods and interfaces.
+For most recurring systematic strategies, we recommend automating stamping through the [Python API Client](../getting-started/api-py-quickstart.md) or [REST API](../../vbase-django-tools/api/rest-api-user-guide.md). vBase also supports direct integrations with [Interactive Brokers](linking-interactive-brokers.md) and [QuantConnect](linking-quantconnect.md), as well as a browser-based [Web App](../web-tools/web-app-overview.md) and managed integrations. See [Choose How to Use vBase](../getting-started/choose-how-to-use-vbase.md) for a discussion of available stamping methods and interfaces.
 
 #### 4. Preserve the stamped strategy data
 
