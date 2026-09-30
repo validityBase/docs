@@ -6,6 +6,8 @@ description: How investment managers and signal producers build independently ve
 
 Investment managers, researchers, and signal producers can use vBase to build independently verifiable track records for trading strategies and signals.
 
+A verified track record is more than a verified return series. Because the underlying portfolio history is independently verifiable, allocators can move beyond simple performance audits and evaluate verified analytics on underlying portfolio risks and sources of returns — the questions a return series alone does not answer.
+
 The approach works across strategies and asset classes, but is not designed for high-frequency trading workflows that require recording large numbers of sub-second events.
 
 For supported asset classes such as equities, commodities, futures, and crypto, vBase can also build live, shareable strategy tearsheets from verified portfolio histories, [like this example](https://portfolios.vbase.com/?sym=ASGSP5DR).
@@ -56,22 +58,7 @@ See [Create a vBase Account](../getting-started/create-a-vbase-account.md).
 
 #### 2. Create a Collection for the strategy
 
-Create a separate **Collection** for each strategy and track record representation whose history should form a single audit trail.
-
-For example:
-
-```text
-Strategy: US-EQUITY-MARKET-NEUTRAL
-
-Sep 1   Strategy output → Stamp A | Collection: US-EQUITY-MARKET-NEUTRAL
-Sep 2   Strategy output → Stamp B | Collection: US-EQUITY-MARKET-NEUTRAL
-Sep 3   Strategy output → Stamp C | Collection: US-EQUITY-MARKET-NEUTRAL
-Sep 4   Strategy output → Stamp D | Collection: US-EQUITY-MARKET-NEUTRAL
-
-All Stamps: same Stamper address + same Collection ID
-```
-
-Together, these Stamps form the strategy's point-in-time audit trail.
+Create a separate **Collection** for each strategy and track record representation whose history should form a single audit trail. The Collection groups the strategy's stamped outputs so consumers can verify its history as a whole.
 
 For more detail, see [Stamps and Collections](../concepts/stamps-and-collections.md).
 
@@ -82,6 +69,19 @@ For more detail, see [Stamps and Collections](../concepts/stamps-and-collections
 Stamp each new production output as the strategy is traded or rebalanced, as close as practical to the time it would have been communicated to a broker. 
 
 The guiding question is: **What is a broker or index calculator receiving if these are live actual execution instructions?**
+
+Over time, the stamped outputs accumulate into the strategy's point-in-time audit trail. For example, a daily-rebalanced strategy would build a record like:
+
+```text
+Collection: US-EQUITY-MARKET-NEUTRAL
+
+2026-09-01 20:05 UTC   portfolio_2026-09-01.csv → stamped
+2026-09-02 20:05 UTC   portfolio_2026-09-02.csv → stamped
+2026-09-03 20:05 UTC   portfolio_2026-09-03.csv → stamped
+2026-09-04 20:05 UTC   portfolio_2026-09-04.csv → stamped
+
+All records share the same user address and Collection ID.
+```
 
 For most recurring systematic strategies, we recommend automating stamping through the [Python API Client](../getting-started/api-py-quickstart.md) or [REST API](../../vbase-django-tools/api/rest-api-user-guide.md). vBase also supports direct integrations with [Interactive Brokers](linking-interactive-brokers.md) and [QuantConnect](linking-quantconnect.md), as well as a browser-based [Web App](../web-tools/web-app-overview.md) and managed integrations. See [Choose How to Use vBase](../getting-started/choose-how-to-use-vbase.md) for a discussion of available stamping methods and interfaces.
 
@@ -111,7 +111,7 @@ To activate a tearsheet for your strategy, follow [Stamping a Portfolio](stampin
 
 ### What data does vBase make public?
 
-vBase publishes **Stamps**, which contain Content IDs, the Stamper's blockchain address, and the Collection ID where applicable. **The underlying stamped data is not published to the blockchain.**
+vBase publishes **Stamps**, which contain Content IDs, the user's blockchain address, and the Collection ID where applicable. **The underlying stamped data is not published to the blockchain.**
 
 See [Privacy and Data Handling](../concepts/privacy-and-data-handling.md).
 
