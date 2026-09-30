@@ -31,12 +31,7 @@ ORCL,0.15
 AMZN,0.10
 ```
 
-<figure>
-  <img src="../assets/example-portfolio.png" alt="Example portfolio CSV with ticker and weight columns" width="65%">
-  <figcaption>Example portfolio weights in a simple two-column format.</figcaption>
-</figure>
-
-[Download the example portfolio CSV](../assets/Example_Portfolio.csv).
+[Download the example portfolio CSV](/assets/Example_Portfolio.csv).
 
 The format follows these rules:
 
