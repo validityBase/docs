@@ -32,7 +32,9 @@ ORCL,0.15
 AMZN,0.10
 ```
 
-[Download the example portfolio CSV](/assets/Example_Portfolio.csv).
+{% file src="assets/Example_Portfolio.csv" %}
+Example portfolio CSV
+{% endfile %}
 
 The standard format follows these rules:
 
@@ -54,18 +56,18 @@ The resulting history might look like:
 ```text
 Collection: DIVERSIFIED-LONG-SHORT-STRATEGY
 
-Sep 1  Portfolio weights → Stamp A
-Sep 5  Portfolio weights → Stamp B
-Sep 9  Portfolio weights → Stamp C
+2026-09-01 19:55 UTC   portfolio_2026-09-01.csv → stamped
+2026-09-05 19:55 UTC   portfolio_2026-09-05.csv → stamped
+2026-09-09 19:55 UTC   portfolio_2026-09-09.csv → stamped
 
-All Stamps: same Stamper + same Collection ID
+All records share the same user address and Collection ID.
 ```
 
 Each Stamp gives that portfolio update a publicly verifiable timestamp.
 
 For live tearsheet calculations, a stamped portfolio takes effect at the next applicable market close. For example, a portfolio stamped at 2pm ET on a trading day takes effect at that day's close; a portfolio stamped after the close takes effect at the next trading-day close.
 
-Stamping does **not** publish the portfolio itself. The public Stamp contains the Content ID and other audit-trail identifiers, not the underlying positions. See [Privacy and Data Handling](../concepts/privacy-and-data-handling.md).
+Stamping does **not** publish the portfolio itself. The public Stamp contains the Content ID and other audit trail identifiers, not the underlying positions. See [Privacy and Data Handling](../concepts/privacy-and-data-handling.md).
 
 ### Choose how to stamp
 
