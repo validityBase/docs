@@ -3,12 +3,17 @@
 
 ## 1. Introduction
 
-vBase provides a variety of managed services compatible with AWS Simple Storage Service (S3):
+vBase provides a variety of managed services compatible with Amazon Simple Storage Service (S3):
+
 - Automated commitment of buckets and objects for data producers (provers)
 - Automated validation of buckets and objects for data consumers (verifiers)
 - Derived data and dashboards with verified calculation and cryptographically assured provenance
 
-Users of Google Cloud Storage (GCS) can use the following guide to set up GCE datasets to be shared in an S3-compatible manner, enabling read access by vBase managed services.
+Users of Google Cloud Storage (GCS) can use the following guide to set up GCS datasets to be shared in an S3-compatible manner, enabling read access by vBase managed services.
+
+This guide uses a dedicated service account with read access to one bucket and an [HMAC access ID and secret](https://docs.cloud.google.com/storage/docs/authentication/hmackeys) for S3-compatible authentication. Store both securely when you create the HMAC key; the secret is only shown at creation. A service-account JSON private-key file is a different credential and is not needed for this route.
+
+Choose either the Console or CLI setup below, then test the connection. The administrator performing setup needs permission to create the bucket and service account, grant bucket access, and [create HMAC keys](https://docs.cloud.google.com/storage/docs/authentication/managing-hmackeys). Organization policies must also permit service-account HMAC key creation and authentication; check the prerequisites in the linked guide.
 
 ## 2. Setup Using the Google Cloud Console
 
@@ -18,23 +23,32 @@ Below are the instructions for users of the Google Cloud Console web interface:
 
 #### 2.1.1. Create a GCS Bucket:
    - Go to the [Google Cloud Console](https://console.cloud.google.com/).
-   - Navigate to **Storage** > **Create Bucket**.
+   - Select your project, then navigate to **Cloud Storage** > **Buckets** > **Create**.
    - Choose a globally unique name for the bucket.
-   - Set appropriate permissions and lifecycle rules for your data.
+   - Choose **Uniform** access as explained below, and set appropriate lifecycle rules for your data.
 
-#### 2.1.2. Enable Interoperability with S3:
-   - Navigate to **Storage** > **Settings**.
-   - Enable **Interoperable Storage Access**.
-   - Create an **Access Key** and **Secret Key** for interoperability.
+#### 2.1.2. Choose the Access Model:
+
+[Uniform bucket-level access](https://docs.cloud.google.com/storage/docs/uniform-bucket-level-access) disables bucket and object ACLs so that access is controlled through IAM. It does not enable an interoperability API and is not required for HMAC authentication. Before enabling it on an existing bucket, review any access that depends on ACLs.
 
 ### 2.2. Configure IAM Permissions
 
-#### 2.2.1. Define IAM Roles:
-   - Assign role `Storage Object Viewer` to grant the necessary permissions to vBase.
-   - Use **Service Accounts** to grant programmatic access.
-   
-#### 2.2.2. Create IAM Policies:
-   - Define bucket policies to restrict or allow access based on conditions like user roles or geographic IP ranges.
+#### 2.2.1. Create a Service Account for vBase:
+
+   - In the selected project, navigate to **IAM & Admin** > **Service Accounts**.
+   - Create a service account named `vbase-access` without granting project-wide roles.
+
+#### 2.2.2. Grant the Service Account Access to the Bucket:
+
+   - Open the target bucket's **Permissions** tab and select **Grant access**.
+   - Add the service account's email as the principal.
+   - Assign **Storage Object Viewer** (`roles/storage.objectViewer`) on this bucket to allow listing and reading its objects.
+
+#### 2.2.3. Create an HMAC Key:
+
+   - Navigate to **Cloud Storage** > **Settings** > **Interoperability**.
+   - Select **Create a key for a service account**, choose `vbase-access`, and select **Create key**.
+   - Save the returned access ID and secret securely.
 
 ## 3. Setup Using the gcloud CLI
 
@@ -47,29 +61,21 @@ Below are the instructions for users of the Google Cloud CLI:
    - Authenticate to Google Cloud:
      ```bash
      gcloud auth login
+     gcloud config set project PROJECT_ID
      ```
+   - Replace `PROJECT_ID` with the project ID to use for the bucket and service account.
 
 #### 3.1.2. Create a GCS Bucket:
-   - Use the `gcloud` CLI to create a bucket:
+   - Create a bucket with uniform bucket-level access, as described under [Choose the Access Model](#212-choose-the-access-model):
      ```bash
-     gcloud storage buckets create BUCKET_NAME --location=LOCATION
+     gcloud storage buckets create gs://BUCKET_NAME --location=LOCATION \
+         --uniform-bucket-level-access
      ```
    - Replace `BUCKET_NAME` with a unique name and `LOCATION` with your preferred location (e.g., `us-central1`).
 
-#### 3.1.3. Enable Interoperability with S3:
-   - Enable the Interoperability API:
-     ```bash
-     gcloud storage buckets update BUCKET_NAME --uniform-bucket-level-access
-     ```
-   - Generate an access key and secret key:
-     ```bash
-     gcloud storage interoperability access-keys create
-     ```
-   - Note the `Access Key` and `Secret Key` for later use.
-
 ### 3.2. Grant Access to the Bucket:
 
-To create an IAM policy for **vBase** to access the bucket using the **API key only**, you can utilize **service accounts** and **key-based authentication** instead of binding the policy to a specific user's email.
+Create a dedicated service account and grant it permission to list and read objects in the target bucket.
 
 #### 3.2.1. Create a Service Account for vBase:
    ```bash
@@ -81,23 +87,50 @@ To create an IAM policy for **vBase** to access the bucket using the **API key o
 #### 3.2.2. Grant the Service Account Access to the Bucket:
    - Replace `BUCKET_NAME` with your bucket's name:
    ```bash
-   gcloud storage buckets add-iam-policy-binding BUCKET_NAME \
+   gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
        --member="serviceAccount:vbase-access@PROJECT_ID.iam.gserviceaccount.com" \
        --role="roles/storage.objectViewer"
    ```
    - Replace `PROJECT_ID` with your Google Cloud project ID.
 
-#### 3.2.3. Generate an API Key for the Service Account:
+#### 3.2.3. Create an HMAC Key:
    ```bash
-   gcloud iam service-accounts keys create vbase-key.json \
-       --iam-account=vbase-access@PROJECT_ID.iam.gserviceaccount.com
+   gcloud storage hmac create vbase-access@PROJECT_ID.iam.gserviceaccount.com
    ```
-   This creates a JSON file (`vbase-key.json`) containing the API key and credentials. Share this file securely with vBase.
+   Save the returned access ID and secret securely. See the [HMAC command reference](https://docs.cloud.google.com/sdk/gcloud/reference/storage/hmac/create).
 
-## 4. Provide API Keys to vBase
+## 4. Test the S3-Compatible Connection
 
-Share the access key and secret key securely with vBase using a vault system or by encrypting and sending them.
-   
-## 5. (Optional) Automate Provisioning
+Configure your S3 client with the HMAC access ID as its access key ID, the HMAC secret as its secret access key, and `https://storage.googleapis.com` as its endpoint. Google documents this configuration in its [interoperability guide](https://docs.cloud.google.com/storage/docs/interoperability).
 
-Use Terraform or Cloud Deployment Manager to automate bucket and IAM setup.
+For example, install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and configure a dedicated local profile:
+
+```bash
+aws configure --profile gcs-vbase
+```
+
+At the prompts, enter the HMAC access ID for **AWS Access Key ID**, the HMAC secret for **AWS Secret Access Key**, `auto` for **Default region name**, and `json` for **Default output format**. This stores the credentials locally; protect the resulting AWS credentials file.
+
+List up to one object in the target bucket:
+
+```bash
+aws --profile gcs-vbase --endpoint-url https://storage.googleapis.com \
+    s3api list-objects-v2 --bucket BUCKET_NAME --max-keys 1 --no-paginate
+```
+
+Read an existing object:
+
+```bash
+aws --profile gcs-vbase --endpoint-url https://storage.googleapis.com \
+    s3api get-object --bucket BUCKET_NAME --key "OBJECT_NAME" gcs-test-download
+```
+
+Replace `BUCKET_NAME` with the bucket name and `OBJECT_NAME` with the full name of a small existing object. Choose an unused local filename in place of `gcs-test-download`. A successful listing and download confirm list and read access through the S3-compatible endpoint. If the bucket is empty, upload a test object using your administrator account first. Newly created HMAC keys and IAM grants may take time to become usable; retry after they propagate.
+
+## 5. Provide Connection Details to vBase
+
+Provide the bucket name, endpoint, HMAC access ID, and HMAC secret to vBase. Transfer the credentials securely using a vault system or encrypted channel.
+
+## 6. (Optional) Automate Provisioning
+
+Use Terraform to automate bucket and IAM setup.
