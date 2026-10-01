@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="611" height="150" viewBox="0 0 457.89 112.74" font-family="Aptos, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10">
+  <title>Existing Provider Workflow</title>
+  <desc>Generate Data → Store Data → Deliver Data, with a vBase stamp created from stored data.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 3.0 3.0" refX="3.0" refY="1.5" markerWidth="3.0" markerHeight="3.0" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L3.0,1.5 L0,3.0 Z" fill="#000000"/></marker>
+  </defs>
+  <rect id="background" x="0" y="0" width="457.89" height="112.74" fill="#FFFFFF"/>
+  <rect id="panel" x="4.95" y="3.66" width="446.34" height="68.5" fill="#F2F2F2" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text id="label" x="23.62" y="18.47" font-family="Consolas, 'SF Mono', Menlo, 'Courier New', monospace" font-weight="bold" fill="#000000">EXISTING PROVIDER WORKFLOW</text>
+  <g id="steps">
+    <rect x="22.47" y="33.29" width="108.0" height="26.64" rx="4.44" ry="4.44" fill="#000000" stroke="#000000" stroke-width="1.5"/>
+    <text x="76.47" y="50.11" text-anchor="middle" fill="#FFFFFF">Generate Data</text>
+    <rect x="172.36" y="33.29" width="108.0" height="26.64" rx="4.44" ry="4.44" fill="#000000" stroke="#000000" stroke-width="1.5"/>
+    <text x="226.36" y="50.11" text-anchor="middle" fill="#FFFFFF">Store Data</text>
+    <rect x="322.26" y="33.29" width="108.0" height="26.64" rx="4.44" ry="4.44" fill="#000000" stroke="#000000" stroke-width="1.5"/>
+    <text x="376.26" y="50.11" text-anchor="middle" fill="#FFFFFF">Deliver Data</text>
+  </g>
+  <g id="stamp">
+    <rect x="128.4" y="85.26" width="197.36" height="22.24" rx="3.71" ry="3.71" fill="#C1E5F5" stroke="#000000" stroke-width="0.75"/>
+    <text x="227.08" y="99.88" text-anchor="middle" fill="#000000">Create vBase Stamp</text>
+  </g>
+  <g id="connectors" stroke="#000000" stroke-width="1.0" fill="none" marker-end="url(#arrow)">
+    <line x1="130.47" y1="46.61" x2="172.36" y2="46.61"/>
+    <line x1="280.36" y1="46.61" x2="322.26" y2="46.61"/>
+    <line x1="226.36" y1="59.93" x2="227.08" y2="85.26"/>
+  </g>
+</svg>

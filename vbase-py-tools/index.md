@@ -1,4 +1,4 @@
-# vbase-py-tools Documentation
+# vbase-py-tools documentation
 
 * [Setup](setup.md)
 * [commit_s3_objects](commit_s3_objects.md)

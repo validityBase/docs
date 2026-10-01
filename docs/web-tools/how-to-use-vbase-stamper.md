@@ -1,81 +1,107 @@
-# How to Use the vBase Stamper
+---
+description: Create Stamps for files, text, Content IDs, and portfolios directly from your browser
+---
 
-The **vBase Stamper** records a file’s **timestamp**, **author**, and **digital fingerprint** (SHA3 hash) on a public blockchain. This metadata—known as [**provenance**](https://www.ibm.com/think/topics/data-provenance)—provides permanent, verifiable proof of a file’s authenticity and timestamp.
+# How to use the vBase Stamper
 
+The **vBase Stamper** lets you create independently verifiable audit trail records directly from your browser.
 
-## How to Make a Stamp  
-For a quick overview, [🎥 Watch the How-to Video](https://www.youtube.com/watch?v=wRJCNvDkKR8)
+You can stamp:
 
-#### Step-by-Step Instructions
-1. Visit the [vBase App](https://app.vbase.com/)  
-2. Sign in or register for a free account  
-3. Go to the Stamper page: [app.vbase.com/stamp](https://app.vbase.com/stamp)  
-4. Click **“Browse for File”** and select your file  
-5. *(Optional)* Check the box if the file belongs to a **Collection**  
-6. *(Optional)* Select or create the relevant Collection  
-7. Click **“Make a Stamp”**
+- A file
+- Text entered directly in the Web App
+- An existing Content ID
+- A portfolio
 
+A vBase account is required to create Stamps.
 
-## What Happens When You Stamp a File
+[Open the vBase Stamper](https://app.vbase.com/stamp/)
 
-When you click **“Make a Stamp”**, the following process occurs:
+For a quick overview, [watch the how-to video](https://www.youtube.com/watch?v=wRJCNvDkKR8).
 
-- Your file’s **SHA3 hash** (also called the content ID) is calculated locally in your browser  
-- This hash is published to a [**public blockchain**](https://www.investopedia.com/terms/b/blockchain.asp), where it’s permanently recorded  
-- A **timestamp** is returned, reflecting when the blockchain included your content ID  
-- This becomes an **independently verifiable record** of your file’s existence and integrity  
+## Stamp a file
 
-The following data is recorded to the blockchain:
+[Open the File Stamper](https://app.vbase.com/stamp/?method=file)
 
-- **Blockchain Address**: Your vBase account’s public blockchain address  
-- **Content ID**: The file’s SHA3 hash, serving as its unique digital fingerprint  
-- **Collection ID** *(if applicable)*: The identifier of the Collection the file belongs to  
+1. Sign in to your vBase account.
+2. Drag a file into the upload area or click **Browse for File** and select the file.
+3. Optionally, assign the Stamp to an existing **Collection**.
+4. Click **Make a Stamp**.
 
-#### Example of a vBase Stamp
-
->- **Blockchain Address:** `0x0bf1504fB66c716161A8bc60906eC38792eA2000`  
->- **Content ID:** `0x49adefb456c981ec67ab09b2b301b22a434922456169244e1f3b7e51d9fe54ee`  
->- **Collection ID:** `0x9c22ff5f21f0b81b113e63f7db6da94fedef11b2119b4088b89664fb9a3cb658`  
->- **Timestamp:** `2023-08-08 21:34:00+00:00`
+Once the Stamp is created, vBase displays the resulting Stamp (audit trail record).
 
 
-**Note:** vBase does not publish or share your actual file, filename, or personal information on-chain. Only cryptographic identifiers are recorded to preserve privacy and ensure long-term verifiability.
+### File storage
 
+By default, the Web App can retain a backup copy of files you stamp. You can manage this preference in your [Account Settings](https://app.vbase.com/profile/#account_settings).
 
-## What Is a Collection?
+If file storage is disabled, the file's Content ID is calculated locally in your browser and the underlying file does not need to be uploaded to vBase.
 
-A **Collection** groups related files—such as portfolios, observations, documents, data points, or project files—under a single identifier. When a file is stamped with a Collection, the blockchain record reflects that relationship, and this relationship itself becomes verifiable.
+If you choose not to store a backup through vBase, retain the exact original file yourself. You will need it to verify the file against the Stamp later.
 
-### Why Use Collections?
+## Stamp text
 
-- 📦 **Dataset Integrity**: Prove a file was part of a specific group (e.g. a portfolio belongs to a particular strategy, or an observation belongs to a particular experiment)  
-- ✅ **Collection Verification**: Validate the completeness of a Collection. Using Collection stamping, you can assure a verifier that they're seeing all the data associated with a particular Collection, and no extra or missing data.   
-- 🧩 **Better Organization**: Track provenance across a project, experiment, strategy, or dataset
+[Open the Text Stamper](https://app.vbase.com/stamp/?method=text)
 
-> 📌 **Tip:** Collections are optional. Files not in a collection are still independently verifiable.
+1. Sign in to your vBase account.
+2. Select the **Text** stamping workflow.
+3. Enter and format the text you want to stamp.
+4. Optionally, assign the Stamp to an existing Collection.
+5. Create the Stamp.
 
+The formatting you apply is part of the stamped content, so changes to the text or its formatting will produce a different Content ID.
 
-## File Backups and Data Integrity
+When you create the Stamp, vBase generates an HTML version of the content. You can download that HTML file for your own records, and vBase also saves a copy of the HTML to your vBase account.
 
-By default, vBase saves a **secure backup** of your file to help prevent data loss. You can enable or disable this setting in your [**Account Settings**](https://app.vbase.com/profile/#account_settings) under your profile.
+## Stamp a Content ID
 
-**Important:** If backups are disabled, be sure to store your file safely. If the file is lost or changed, its provenance can no longer be verified.
+[Open the Content ID Stamper](https://app.vbase.com/stamp/?method=hash)
 
+If you have already calculated a Content ID for your data, you can stamp the Content ID directly without submitting the underlying data.
 
-## Quick FAQs
+1. Sign in to your vBase account.
+2. Select the **Content ID** stamping workflow.
+3. Enter the Content ID.
+4. Optionally, assign the Stamp to an existing Collection.
+5. Create the Stamp.
 
-#### Can a Stamp Be Revoked?
+{% hint style="warning" %}
+**Stamping a Content ID directly is an advanced workflow.**
 
-No. Blockchain stamps are **permanent and immutable**.  You can stamp a new version of a file, but existing stamps cannot be changed or deleted. 
+You are responsible for retaining the underlying data corresponding to the Content ID. If you do not retain the exact original data, you may not be able to verify the underlying data against the Stamp later.
+{% endhint %}
 
-#### How Do I Verify a Stamped File Later?
+## Stamp a portfolio
 
-You’ll need the **original file** and access to the blockchain record.  Follow the guide here: [How to Verify a Stamped File](how-to-use-vbase-verify.md)
+[Open the Portfolio Stamper](https://app.vbase.com/stamp/?method=portfolio)
 
+The portfolio workflow is designed for creating point-in-time records of investment portfolios and strategy positions.
 
-## Additional Notes
+1. Sign in to your vBase account.
+2. Open the **Portfolio** stamping workflow.
+3. Follow the portfolio workflow to prepare and stamp your portfolio.
+4. Repeat the process at the cadence appropriate for your strategy, such as at each rebalance.
 
-- Your file’s content ID (aka hash) is calculated **locally in your browser**. If backup is disabled, your file is **never uploaded** or seen by vBase  
-- [🔗 View a sample stamp](https://polygonscan.com/tx/0xe7dbb99c2f521a5c636d4cc7f6fd3c60cdf427c284230aa0093faac338b9d651) on Polygonscan  
-- Stamps are stored on the **Polygon blockchain** and can be independently verified using tools like [**Dune Analytics**](https://www.dune.com) or by querying Polygon nodes directly  
-- [🔒 SHA3](https://en.wikipedia.org/wiki/SHA-3) is a widely trusted cryptographic standard used in banking, telecom, and secure systems
+For portfolio formats, Collection setup, stamping cadence, and strategy-specific guidance, see [Stamping a Portfolio](../use-cases/stamping-portfolios.md).
+
+## Manage Collections
+
+Collections group related Stamps under a shared identifier and make it possible to build a verifiable history for an entire dataset, strategy, portfolio, or other body of work.
+
+If the content you are stamping belongs to an existing Collection, select that Collection during the stamping workflow. Collections are optional; content stamped without a Collection still receives its own independently verifiable Stamp.
+
+[Create or manage Collections](https://app.vbase.com/profile/#collections)
+
+Once created, the Collection will be available for selection from the Collection dropdown in the regular stamping workflow.
+
+## What happens next
+
+Creating a Stamp records the content's Content ID, the Stamper address, a publicly verifiable timestamp, and, when applicable, its Collection relationship in the vBase audit trail.
+
+[Learn how vBase works](../getting-started/how-vbase-works.md).
+
+## Verify your Stamp
+
+After creating a Stamp, you or another user can verify the corresponding content against its audit trail record using vBase Verify or another verification method. You can also test the workflow yourself by stamping a file and then verifying it.
+
+[Learn how to use vBase Verify](how-to-use-vbase-verify.md).

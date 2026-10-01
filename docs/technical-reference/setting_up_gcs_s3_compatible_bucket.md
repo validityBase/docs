@@ -1,5 +1,9 @@
+---
+description: Configure a Google Cloud Storage bucket with S3-compatible access for vBase workflows
+---
+
 <!-- omit in toc -->
-# Setting up a Google Cloud Storage (GCS) S3-Compatible Bucket
+# Setting up a Google Cloud Storage (GCS) S3-compatible bucket
 
 ## 1. Introduction
 
@@ -15,13 +19,13 @@ This guide uses a dedicated service account with read access to one bucket and a
 
 Choose either the Console or CLI setup below, then test the connection. The administrator performing setup needs permission to create the bucket and service account, grant bucket access, and [create HMAC keys](https://docs.cloud.google.com/storage/docs/authentication/managing-hmackeys). Organization policies must also permit service-account HMAC key creation and authentication; check the prerequisites in the linked guide.
 
-## 2. Setup Using the Google Cloud Console
+## 2. Setup using the Google Cloud Console
 
 Below are the instructions for users of the Google Cloud Console web interface:
 
-### 2.1. Set Up Google Cloud Storage (GCS)
+### 2.1. Set up Google Cloud Storage (GCS)
 
-#### 2.1.1. Create a GCS Bucket:
+#### 2.1.1. Create a GCS bucket:
    - Go to the [Google Cloud Console](https://console.cloud.google.com/).
    - Select your project, then navigate to **Cloud Storage** > **Buckets** > **Create**.
    - Choose a globally unique name for the bucket.
@@ -31,7 +35,7 @@ Below are the instructions for users of the Google Cloud Console web interface:
 
 [Uniform bucket-level access](https://docs.cloud.google.com/storage/docs/uniform-bucket-level-access) disables bucket and object ACLs so that access is controlled through IAM. It does not enable an interoperability API and is not required for HMAC authentication. Before enabling it on an existing bucket, review any access that depends on ACLs.
 
-### 2.2. Configure IAM Permissions
+### 2.2. Configure IAM permissions
 
 #### 2.2.1. Create a Service Account for vBase:
 
@@ -50,13 +54,13 @@ Below are the instructions for users of the Google Cloud Console web interface:
    - Select **Create a key for a service account**, choose `vbase-access`, and select **Create key**.
    - Save the returned access ID and secret securely.
 
-## 3. Setup Using the gcloud CLI
+## 3. Setup using the gcloud CLI
 
 Below are the instructions for users of the Google Cloud CLI:
 
-### 3.1. Set Up Google Cloud Storage (GCS)
+### 3.1. Set up Google Cloud Storage (GCS)
 
-#### 3.1.1. Install and Authenticate the gcloud CLI:
+#### 3.1.1. Install and authenticate the gcloud CLI:
    - Install the `gcloud` CLI tool from the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install).
    - Authenticate to Google Cloud:
      ```bash
@@ -77,14 +81,14 @@ Below are the instructions for users of the Google Cloud CLI:
 
 Create a dedicated service account and grant it permission to list and read objects in the target bucket.
 
-#### 3.2.1. Create a Service Account for vBase:
+#### 3.2.1. Create a service account for vBase:
    ```bash
    gcloud iam service-accounts create vbase-access \
        --description="Service account for vBase bucket access" \
        --display-name="vBase Access"
    ```
 
-#### 3.2.2. Grant the Service Account Access to the Bucket:
+#### 3.2.2. Grant the service account access to the bucket:
    - Replace `BUCKET_NAME` with your bucket's name:
    ```bash
    gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
