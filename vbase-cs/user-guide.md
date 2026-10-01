@@ -1,9 +1,9 @@
-# What Functionality is Covered by the vBase COM Library
+# What functionality is covered by the vBase COM library
 This library allows you to create vBase datasets and add records to them. 
 
 Data fetching and preparation must be handled on the VBA side by the end user. The library does not implement any data-fetching capabilities from Excel sheets or other sources.
 
-# How to use vBase COM library
+## How to use vBase COM library
 
 1. Uninstall the library if it is already installed on your machine.
 2. Install the new version using the `setup.exe` in the [`vBase COM Setup Files`](https://raw.githubusercontent.com/validityBase/vbase-cs/refs/heads/main/Docs/vBase_Excel_Setup_Latest.zip).
@@ -11,10 +11,10 @@ Data fetching and preparation must be handled on the VBA side by the end user. T
 4. Ensure that the 'Developer' ribbon tab is visible. If it is not, enable it in the Excel options:
     1. Right-click on the ribbon and select 'Customize the Ribbon'.
     2. Check the 'Developer' checkbox in the ribbon tabs tree.
-       ![Customize the Ribbon](images/customize-the-ribbon.png)
+       <img src="images/customize-the-ribbon.png" alt="Customize the Ribbon">
 5. Go to the Developer ribbon tab and click on the 'Visual Basic' button.
 6. In Microsoft Visual Basic for Applications, add a reference to the library: **Tools** -> **References** -> find **vBase**.
-   ![Add Reference](images/add-reference.png)
+   <img src="images/add-reference.png" alt="Add Reference">
 7. The VBA code below demonstrates how to use the library:
 
 

@@ -17,5 +17,8 @@ documentation.
 - `publish-docs-action` is the legacy docs publication action kept in this repo.
 - New and migrated repositories should prefer the shared implementation in
   `validityBase/vbase-github-actions`.
+- Repository backups use `.github/workflows/repo-backup.yml`, which delegates
+  to the shared `repo-backup.yml@v1` workflow and resolves generic object
+  storage credentials from the `vbase-repo-backups` Bitwarden project.
 - When `publish-docs-action` dependencies or TypeScript source change, rebuild
   and commit the bundled `publish-docs-action/index.js`.
