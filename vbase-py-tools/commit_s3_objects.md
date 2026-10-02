@@ -30,7 +30,7 @@ commit_s3_objects [-h] --dataset_name DATASET_NAME --bucket BUCKET [--key KEY]
 * [**`--key_pattern`**]() `KEY_PATTERN` - S3 object key pattern: 
   If supplied, objects matching the wildcard pattern will be committed.  
   --key, --key_prefix, or --key_pattern argument must be provided.
-* [**`--version`**]() `VERSION` - S3 object version: 
+* [**`--version`**]() `{latest,version_id}` - S3 object version: 
   If latest is specified, the latest object will be committed. 
   If version_id is specified, --version_id argument must be provided, 
   and the version specified by version_id will be committed.
@@ -41,8 +41,10 @@ commit_s3_objects [-h] --dataset_name DATASET_NAME --bucket BUCKET [--key KEY]
 * [**`--verbose`**]() - verbose output
 * [**`--test`**]() - use a test vBase contract
 
+```none
 
 examples:
     python3 -m tools.commit_s3_objects --dataset_name=test --bucket=pitlabs-c2-test --key=commit_s3_objects/test_1.txt --use_aws_access_key
     python3 -m tools.commit_s3_objects --dataset_name=test --bucket=pitlabs-c2-test --key_prefix=commit_s3_objects/ --use_aws_access_key
-    python3 -m tools.commit_s3_objects --dataset_name=test --bucket=pitlabs-c2-test --key_pattern=commit_s3_objects/\*.txt --use_aws_access_key --verbose
+    python3 -m tools.commit_s3_objects --dataset_name=test --bucket=pitlabs-c2-test --key_pattern=commit_s3_objects/*.txt --use_aws_access_key --verbose
+```

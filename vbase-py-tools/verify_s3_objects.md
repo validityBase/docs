@@ -28,5 +28,7 @@ verify_s3_objects [-h] --dataset_name DATASET_NAME --bucket BUCKET [--key_prefix
 * [**`--verbose`**]() - verbose output
 * [**`--test`**]() - use a test vBase contract
 
+```none
 
 examples:
+```
