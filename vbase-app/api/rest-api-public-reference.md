@@ -482,6 +482,69 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
+## stamps_certificate_create
+
+<a id="opIdstamps_certificate_create"></a>
+
+### Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://app.vbase.com/api/v1/stamps/certificate \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+`POST /stamps/certificate`
+
+*Download a stamp certificate PDF (public)*
+
+Resolve the exact receipt and return generated PDF bytes directly.
+
+### Body parameter
+
+```json
+{
+  "object_cid": "string",
+  "transaction_hash": "string",
+  "chain_id": 1,
+  "collection_cid": "string"
+}
+```
+
+<h3 id="stamps_certificate_create-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|object|true|none|
+|» object_cid|body|string|true|none|
+|» transaction_hash|body|string|true|none|
+|» chain_id|body|integer|true|none|
+|» collection_cid|body|string|false|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+"string"
+```
+
+<h3 id="stamps_certificate_create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|PDF attachment|string|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid selectors|None|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Stamp not found|None|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Ambiguous stamp|None|
+|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Certificate temporarily unavailable|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 ## Upload Stamped File
 
 <a id="opIdstamps_upload-stamped-file_create"></a>
