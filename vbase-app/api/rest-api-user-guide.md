@@ -46,6 +46,24 @@ Authentication is required for all API requests. Use the Bearer token method by 
 Authorization: Bearer <your-api-token>
 ```
 
+## curl Command Conventions
+
+These examples use Bash quoting. When quoting a static value, put single
+quotes around the complete argument, such as
+`--form-string 'data_cid=0x...'`. Simple tokens such as `POST` and URLs
+without shell-special characters can remain unquoted. Use double quotes
+when an argument needs shell variable expansion, such as
+`-H "Authorization: Bearer $API_TOKEN"`. Do not add quotes around the value
+after `=`: those quotes would become part of the value sent to the API.
+
+For multipart requests, use `--form-string 'name=value'` for text fields
+(including CIDs, data, names, booleans, and numbers) and `-F 'file=@path'`
+for file uploads. In `--form-string 'data={"status":"approved"}'`, the
+double quotes belong to the JSON value. Bash `$'...'` quoting is used
+only when escape sequences, such as newlines in a CSV body, are needed.
+See the [curl form options](https://curl.se/docs/manpage.html#--form-string)
+and [Bash quoting rules](https://www.gnu.org/software/bash/manual/html_node/Quoting.html).
+
 ## Request Validation Rules
 
 For endpoints that use strict request schemas, unknown or unrecognized request
@@ -95,9 +113,9 @@ Use `Accept: application/json` for the response.
 **JSON body:**
 ```bash
 curl -X POST https://app.vbase.com/api/v1/collections/verify \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--H "Content-Type: application/json" \
--H "Accept: application/json" \
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json' \
 -d '{
   "collection_name": "my-collection",
   "user_address": "0x123",
@@ -114,18 +132,18 @@ curl -X POST https://app.vbase.com/api/v1/collections/verify \
 **CSV body:**
 ```bash
 curl -X POST https://app.vbase.com/api/v1/collections/verify \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--H "Content-Type: text/csv" \
--H "Accept: application/json" \
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+-H 'Content-Type: text/csv' \
+-H 'Accept: application/json' \
 --data-binary $'collection_name,user_address,collection_timezone\nvb-test,0x4A281DdC750359d5C0D2D51A890cefA43485EF2d,\nt,c,f\n2025-07-23 11:42:15+00:00,0x6f3328cba0ffde8429e66008708419751921bf41737e32a0fcd173849e325561,application-logs2025-07-15T19_46_13.098Z-2025-07-16T19_46_13.098Z_2025-07-23_11-42-15+0000.json\n2025-07-23 20:34:58+00:00,0xaeda4cf7d65f9d67b128bf795b5f237183550a814c9d4aa83c7e84f027d4aeec,attribcache140_2025-07-23_20-34-58+0000.bin\n'
 ```
 
 **Legacy multipart upload:**
 ```bash
 curl -X POST https://app.vbase.com/api/v1/collections/verify \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--H "Accept: application/json" \
--F "file=@collection.json;type=application/json"
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+-H 'Accept: application/json' \
+-F 'file=@collection.json;type=application/json'
 ```
 
 #### Example Response
@@ -228,18 +246,18 @@ Unknown or unrecognized form fields are rejected with `400 Bad Request`.
 **Successful Upload:**
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--F "collection_name=My Collection" \
--F "file=@stamped_file.pdf"
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+--form-string 'collection_name=My Collection' \
+-F 'file=@stamped_file.pdf'
 ```
 
 **Successful Upload Using Collection CID and Inline Data:**
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--F "collection_cid=0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800" \
--F "data={\"status\":\"approved\"}" \
--F "file_name=stamped_data.json"
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+--form-string 'collection_cid=0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800' \
+--form-string 'data={"status":"approved"}' \
+--form-string 'file_name=stamped_data.json'
 ```
 
 **Response (201):**
