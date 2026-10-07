@@ -48,9 +48,11 @@ Authorization: Bearer <your-api-token>
 
 ## curl Command Conventions
 
-These examples use Bash quoting. Put single quotes around each complete,
-static command argument, such as `--form-string 'data_cid=0x...'`.
-Use double quotes when an argument needs shell variable expansion, such as
+These examples use Bash quoting. When quoting a static value, put single
+quotes around the complete argument, such as
+`--form-string 'data_cid=0x...'`. Simple tokens such as `POST` and URLs
+without shell-special characters can remain unquoted. Use double quotes
+when an argument needs shell variable expansion, such as
 `-H "Authorization: Bearer $API_TOKEN"`. Do not add quotes around the value
 after `=`: those quotes would become part of the value sent to the API.
 
