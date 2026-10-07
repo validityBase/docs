@@ -90,9 +90,9 @@ CID=$(openssl dgst -sha3-256 portfolio_2025-01-31.csv | awk '{print "0x"$2}')
 
 curl -X POST https://app.vbase.com/api/v1/stamps \
   -H "Authorization: Bearer $VBASE_API_KEY" \
-  -F "data_cid=$CID" \
-  -F "collection_name=global-macro-2025" \
-  -F "store_stamped_file=false"
+  --form-string "data_cid=$CID" \
+  --form-string 'collection_name=global-macro-2025' \
+  --form-string 'store_stamped_file=false'
 ```
 
 A successful stamp returns a commitment receipt:
@@ -151,8 +151,8 @@ print(f"Uploaded: {result.file_object.file_name}")
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
   -H "Authorization: Bearer $VBASE_API_KEY" \
-  -F "collection_name=global-macro-2025" \
-  -F "file=@portfolio_2025-01-31.csv"
+  --form-string 'collection_name=global-macro-2025' \
+  -F 'file=@portfolio_2025-01-31.csv'
 ```
 
 You can upload files in any order. Uploading or sharing a file does not change
