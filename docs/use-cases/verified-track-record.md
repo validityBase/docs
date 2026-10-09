@@ -83,7 +83,7 @@ Collection: US-EQUITY-MARKET-NEUTRAL
 All records share the same user address and Collection ID.
 ```
 
-For most recurring systematic strategies, we recommend automating stamping through the [Python API Client](../getting-started/api-py-quickstart.md) or [REST API](../../vbase-django-tools/api/rest-api-user-guide.md). vBase also supports direct integrations with [Interactive Brokers](linking-interactive-brokers.md) and [QuantConnect](linking-quantconnect.md), as well as a browser-based [Web App](../web-tools/web-app-overview.md) and managed integrations. See [Choose How to Use vBase](../getting-started/choose-how-to-use-vbase.md) for a discussion of available stamping methods and interfaces.
+For most recurring systematic strategies, we recommend automating stamping through the [Python API Client](../getting-started/api-py-quickstart.md) or [REST API](../../vbase-app/api/rest-api-user-guide.md). vBase also supports direct integrations with [Interactive Brokers](linking-interactive-brokers.md) and [QuantConnect](linking-quantconnect.md), as well as a browser-based [Web App](../web-tools/web-app-overview.md) and managed integrations. See [Choose How to Use vBase](../getting-started/choose-how-to-use-vbase.md) for a discussion of available stamping methods and interfaces.
 
 #### 4. Preserve the stamped strategy data
 
