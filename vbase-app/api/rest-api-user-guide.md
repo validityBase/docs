@@ -53,11 +53,8 @@ quotes around the complete argument, such as
 `--form-string 'data_cid=0x...'`. Simple tokens such as `POST` and URLs
 without shell-special characters can remain unquoted. Use double quotes
 when an argument needs shell variable expansion, such as
-`-H "Authorization: Bearer $API_TOKEN"` or `--form-string "data=$DATA"`.
-Bash removes shell quoting, including quotes after `=` in
-`--form-string data="$DATA"`; neither form sends quote characters in the
-value. Quotes nested inside another quoted argument are literal:
-`--form-string "data='$DATA'"` sends apostrophes as part of the value.
+`-H "Authorization: Bearer $API_TOKEN"`. Do not add quotes around the value
+after `=`: those quotes would become part of the value sent to the API.
 
 For multipart requests, use `--form-string 'name=value'` for text fields
 (including CIDs, data, names, booleans, and numbers) and `-F 'file=@path'`
