@@ -1,5 +1,13 @@
 # Examples
 
+Before running the curl or Python examples, [get your API key](../../docs/getting-started/create-a-vbase-account.md#get-your-api-key) and set it in your environment:
+
+```bash
+export VBASE_API_KEY='your-api-key'
+```
+
+Replace the placeholder with your key. Do not commit the key to source control.
+
 ## Stamp Endpoint
 
 ### Curl Examples
