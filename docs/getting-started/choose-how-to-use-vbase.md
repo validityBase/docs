@@ -12,7 +12,7 @@ Pick the path that fits your environment.
 |---|---|
 | Stamp or verify in your browser | [Web App](../web-tools/web-app-overview.md) |
 | Automate from Python | [`vbase-api`](api-py-quickstart.md) |
-| Integrate from another language | [REST API](../../vbase-django-tools/api/rest-api-user-guide.md) |
+| Integrate from another language | [REST API](../../vbase-app/api/rest-api-user-guide.md) |
 | Explore REST endpoints interactively | [Swagger UI](https://app.vbase.com/swagger/) |
 | Stamp from Excel | [Excel and COM Tools](../../vbase-cs/user-guide.md) |
 | Run command-line workflows | [CLI](../../vbase-cli/index.md) |
@@ -47,7 +47,7 @@ interface; the lower-level `vbase` SDK does not.
 
 - Base URL: `https://app.vbase.com/api/v1/`
 - Swagger UI: [app.vbase.com/swagger/](https://app.vbase.com/swagger/)
-- Docs: [REST API User Guide](../../vbase-django-tools/api/rest-api-user-guide.md)
+- Docs: [REST API User Guide](../../vbase-app/api/rest-api-user-guide.md)
 
 ## Excel and COM tools
 
