@@ -30,7 +30,7 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
 
 ## Tests
 
-### Default-network tests
+### Default-Network Tests
 
 1. Change to the working directory:
 
@@ -52,7 +52,7 @@ With vBase, creating and consuming provably correct data is as easy as pressing 
       npm run test -- --grep "Executes addSet$"
       ```
 
-### Stress tests
+### Stress Tests
 
 Before running any proxy stress test, start an RPC service on `localhost:8545`.
 The proxy scripts listen on port 8546 and forward requests to that service.
@@ -119,7 +119,7 @@ The proxy scripts listen on port 8546 and forward requests to that service.
 
 > **escalatedSendTransaction**(`web3`, `signer`, `to`, `data`, `logger`, `gasLimit`?): `Promise`\<`TransactionReceipt`\>
 
-Defined in: [transactions.ts:588](https://github.com/validityBase/vbase-ts/blob/76c65d04e3d267eeb456bb8b39fb36b93b65e724/src/vbase/transactions.ts#L588)
+Defined in: [transactions.ts:588](https://github.com/validityBase/vbase-ts/blob/cde4160ef5dec4151c17875bc2a5d6ab352b8ce8/src/vbase/transactions.ts#L588)
 
 Sends an Ethereum transaction with escalation logic to increase gas price if needed.
 
@@ -177,7 +177,7 @@ If the transaction fails to send or encounters an error.
 
 > **jsonPrettyStringify**(`obj`): `string`
 
-Defined in: [utils.ts:54](https://github.com/validityBase/vbase-ts/blob/76c65d04e3d267eeb456bb8b39fb36b93b65e724/src/vbase/utils.ts#L54)
+Defined in: [utils.ts:54](https://github.com/validityBase/vbase-ts/blob/cde4160ef5dec4151c17875bc2a5d6ab352b8ce8/src/vbase/utils.ts#L54)
 
 Converts an object into a pretty-printed JSON string.
 
@@ -204,7 +204,7 @@ A JSON-formatted string with indentation for readability.
 
 > **serializeBigInts**(`obj`): `any`
 
-Defined in: [utils.ts:14](https://github.com/validityBase/vbase-ts/blob/76c65d04e3d267eeb456bb8b39fb36b93b65e724/src/vbase/utils.ts#L14)
+Defined in: [utils.ts:14](https://github.com/validityBase/vbase-ts/blob/cde4160ef5dec4151c17875bc2a5d6ab352b8ce8/src/vbase/utils.ts#L14)
 
 Recursively serializes BigInt values within an object, array, or nested structure.
 
