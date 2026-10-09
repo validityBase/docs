@@ -129,9 +129,9 @@ If you prefer curl or another HTTP client, the base URL is
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
   -H "Authorization: Bearer $VBASE_API_KEY" \
-  -F "collection_name=daily-demand-forecasts" \
-  -F "file=@demand_forecast_2025-01-31.csv" \
-  -F "store_stamped_file=true"
+  --form-string 'collection_name=daily-demand-forecasts' \
+  -F 'file=@demand_forecast_2025-01-31.csv' \
+  --form-string 'store_stamped_file=true'
 ```
 
 Full interactive documentation is available at

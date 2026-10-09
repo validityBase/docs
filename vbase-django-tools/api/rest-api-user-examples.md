@@ -4,35 +4,37 @@
 
 ### Curl Examples
 
+See [curl command conventions](rest-api-user-guide.md#curl-command-conventions) for quoting and multipart fields.
+
 #### Stamping Without a Collection
 
 1. Stamping a file:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--F "file=@testfile.txt" \
--F "store_stamped_file=true" \
--F "idempotent=true" \
--F "idempotency_window=3600"
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+-F 'file=@testfile.txt' \
+--form-string 'store_stamped_file=true' \
+--form-string 'idempotent=true' \
+--form-string 'idempotency_window=3600'
 ```
 
 2. Stamping inline data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--F "data='1212121212'" \
--F "store_stamped_file=true" \
--F "idempotent=true" \
--F "idempotency_window=3600"
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+--form-string 'data=1212121212' \
+--form-string 'store_stamped_file=true' \
+--form-string 'idempotent=true' \
+--form-string 'idempotency_window=3600'
 ```
 
 3. Stamping a Content Identifier (CID) without revealing data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--F "data_cid='0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800'" \
--F "idempotent=true" \
--F "idempotency_window=3600"
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+--form-string 'data_cid=0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800' \
+--form-string 'idempotent=true' \
+--form-string 'idempotency_window=3600'
 ```
 
 #### Stamping to a Collection Identified by a Name
@@ -40,33 +42,33 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 1. Stamping a file:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--F "collection_name=Test Collection" \
--F "file=@testfile.txt" \
--F "store_stamped_file=true" \
--F "idempotent=true" \
--F "idempotency_window=3600"
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+--form-string 'collection_name=Test Collection' \
+-F 'file=@testfile.txt' \
+--form-string 'store_stamped_file=true' \
+--form-string 'idempotent=true' \
+--form-string 'idempotency_window=3600'
 ```
 
 2. Stamping inline data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--F "collection_name=Test Collection" \
--F "data='1212121212'" \
--F "store_stamped_file=true" \
--F "idempotent=true" \
--F "idempotency_window=3600"
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+--form-string 'collection_name=Test Collection' \
+--form-string 'data=1212121212' \
+--form-string 'store_stamped_file=true' \
+--form-string 'idempotent=true' \
+--form-string 'idempotency_window=3600'
 ```
 
 3. Stamping a Content Identifier (CID) without revealing data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--F "collection_name=Test Collection" \
--F "data_cid='0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800'" \
--F "idempotent=true" \
--F "idempotency_window=3600"
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+--form-string 'collection_name=Test Collection' \
+--form-string 'data_cid=0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800' \
+--form-string 'idempotent=true' \
+--form-string 'idempotency_window=3600'
 ```
 
 #### Stamping to a Collection Identified by a Content Identifier (Collection CID)
@@ -74,22 +76,22 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 1. Stamping a file:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--F "collection_cid=0x36f028580bb02cc8272a9a020f4200e346e276ae664e45ee80745574e2f5ab80" \
--F "file=@testfile.txt" \
--F "store_stamped_file=true" \
--F "idempotent=true" \
--F "idempotency_window=3600"
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+--form-string 'collection_cid=0x36f028580bb02cc8272a9a020f4200e346e276ae664e45ee80745574e2f5ab80' \
+-F 'file=@testfile.txt' \
+--form-string 'store_stamped_file=true' \
+--form-string 'idempotent=true' \
+--form-string 'idempotency_window=3600'
 ```
 
 2. Stamping a Content Identifier (CID) without revealing data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer YOUR_API_TOKEN" \
--F "collection_cid=0x36f028580bb02cc8272a9a020f4200e346e276ae664e45ee80745574e2f5ab80" \
--F "data_cid='0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800'" \
--F "idempotent=true" \
--F "idempotency_window=3600"
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
+--form-string 'collection_cid=0x36f028580bb02cc8272a9a020f4200e346e276ae664e45ee80745574e2f5ab80' \
+--form-string 'data_cid=0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800' \
+--form-string 'idempotent=true' \
+--form-string 'idempotency_window=3600'
 ```
 
 #### Collection CID validation behavior
@@ -109,12 +111,14 @@ This means **on-chain-only, unknown-name collections are intentionally unsupport
 
 ### Curl Examples
 
+See [curl command conventions](rest-api-user-guide.md#curl-command-conventions) for quoting and multipart fields.
+
 1. Verifying CIDs:
 ```bash
-curl -X POST "https://dev.app.vbase.com/api/v1/stamps/verify" \
-  -H "Authorization: Bearer YOUR_API_TOKEN" \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json" \
+curl -X POST 'https://dev.app.vbase.com/api/v1/stamps/verify' \
+  -H 'Authorization: Bearer YOUR_API_TOKEN' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
   -d '{
     "cids": ["0xdb...5"],
     "filter_by_user": false
