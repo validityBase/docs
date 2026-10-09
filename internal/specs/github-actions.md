@@ -31,9 +31,10 @@ npm ls @actions/core @actions/http-client undici --all
 
 `.github/workflows/repo-backup.yml` runs daily and can also be triggered
 manually. It delegates to
-`validityBase/vbase-github-actions/.github/workflows/repo-backup.yml@v1`,
-creates a full-history git bundle, checksum, and metadata file, and uploads the
-artifacts under the shared `github-backups` object storage prefix.
+`validityBase/vbase-github-actions/.github/workflows/repo-backup.yml@v2`,
+stores a monthly full Git bundle and daily differential backups under the
+shared `github-backups` object storage prefix. Restore details are in the
+[shared backup spec](https://github.com/validityBase/vbase-github-actions/blob/main/internal/specs/repo-backup.md).
 
 Required GitHub Actions secrets:
 - `VBASE_COMMON_REPO_READ_TOKEN`

@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   backup:
-    uses: validityBase/vbase-github-actions/.github/workflows/repo-backup.yml@v1
+    uses: validityBase/vbase-github-actions/.github/workflows/repo-backup.yml@v2
     with:
       backup-prefix: github-backups
       bundle-name: repo.bundle
