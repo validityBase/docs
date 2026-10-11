@@ -69,5 +69,5 @@ Choose the interface or integration that fits your workflow:
 
 * [Use the vBase Web App](../web-tools/web-app-overview.md)
 * [Start with the Python API Client](api-py-quickstart.md)
-* [Read the REST API Guide](../../vbase-django-tools/api/rest-api-user-guide.md)
+* [Read the REST API Guide](../../vbase-app/api/rest-api-user-guide.md)
 * [Choose How to Use vBase](choose-how-to-use-vbase.md)

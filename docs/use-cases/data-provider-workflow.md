@@ -46,7 +46,7 @@ Create Collections [via the vBase Web App](https://app.vbase.com/profile/#collec
 
 #### How to stamp
 
-For most recurring data pipelines, we recommend automating stamping through the [Python API Client](../getting-started/api-py-quickstart.md) or [REST API](../../vbase-django-tools/api/rest-api-user-guide.md).
+For most recurring data pipelines, we recommend automating stamping through the [Python API Client](../getting-started/api-py-quickstart.md) or [REST API](../../vbase-app/api/rest-api-user-guide.md).
 
 Other options include the browser-based [vBase Web App](../web-tools/web-app-overview.md) and managed workflows using email, S3, SFTP, or other integrations.
 

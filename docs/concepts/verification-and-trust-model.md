@@ -72,7 +72,7 @@ vBase provides tools that automate Content ID calculation, Stamp lookup, Collect
 
 - [vBase Verify via Web App](../web-tools/how-to-use-vbase-verify.md)
 - [Python API Client](../getting-started/api-py-quickstart.md)
-- [REST API](../../vbase-django-tools/api/rest-api-user-guide.md)
+- [REST API](../../vbase-app/api/rest-api-user-guide.md)
 
 These tools are conveniences, not the source of the underlying public evidence. Technically capable users can inspect the blockchain records independently or build their own software against the public blockchain interfaces.
 

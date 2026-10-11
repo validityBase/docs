@@ -53,8 +53,8 @@
 * [Technical Architecture](docs/concepts/technical-architecture.md)
 
 ## REST API
-* [Guide](vbase-django-tools/api/rest-api-user-guide.md)
-* [Examples](vbase-django-tools/api/rest-api-user-examples.md)
+* [Guide](vbase-app/api/rest-api-user-guide.md)
+* [Examples](vbase-app/api/rest-api-user-examples.md)
 * [Interactive API Reference](https://app.vbase.com/swagger/)
 
 

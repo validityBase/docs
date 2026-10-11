@@ -151,7 +151,7 @@ For details on what Stamps, Content IDs, Collections, and verification can estab
 For recurring or automated verification workflows, use the vBase developer APIs:
 
 - [Python API Client](../getting-started/api-py-quickstart.md)
-- [REST API](../../vbase-django-tools/api/rest-api-user-guide.md)
+- [REST API](../../vbase-app/api/rest-api-user-guide.md)
 - [Choose another vBase integration](../getting-started/choose-how-to-use-vbase.md)
 
 ## Create a Stamp

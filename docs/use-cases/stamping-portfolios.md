@@ -73,7 +73,7 @@ Stamping does **not** publish the portfolio itself. The public Stamp contains th
 
 There are two common approaches:
 
-- **Stamp the standard portfolio representation directly** — if your portfolio is already in the format described above, stamp that representation through the [File Stamping tool](https://app.vbase.com/stamp/?method=file), [Python API Client](../getting-started/api-py-quickstart.md), [REST API](../../vbase-django-tools/api/rest-api-user-guide.md), or another integration.
+- **Stamp the standard portfolio representation directly** — if your portfolio is already in the format described above, stamp that representation through the [File Stamping tool](https://app.vbase.com/stamp/?method=file), [Python API Client](../getting-started/api-py-quickstart.md), [REST API](../../vbase-app/api/rest-api-user-guide.md), or another integration.
 
 - **Normalize and stamp** — if your source data needs validation or normalization, use the [Portfolio Stamping tool](https://app.vbase.com/stamp/?method=portfolio). The tool converts supported portfolio inputs into the standard vBase representation and stamps the normalized portfolio directly through the browser.
 
