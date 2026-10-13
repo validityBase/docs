@@ -1,13 +1,5 @@
 # Examples
 
-Before running the curl or Python examples, [get your API key](../../docs/getting-started/create-a-vbase-account.md#get-your-api-key) and set it in your environment:
-
-```bash
-export VBASE_API_KEY='your-api-key'
-```
-
-Replace the placeholder with your key. Do not commit the key to source control.
-
 ## Stamp Endpoint
 
 ### Curl Examples
@@ -19,7 +11,7 @@ See [curl command conventions](rest-api-user-guide.md#curl-command-conventions) 
 1. Stamping a file:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer $VBASE_API_KEY" \
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
 -F 'file=@testfile.txt' \
 --form-string 'store_stamped_file=true' \
 --form-string 'idempotent=true' \
@@ -29,7 +21,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 2. Stamping inline data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer $VBASE_API_KEY" \
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
 --form-string 'data=1212121212' \
 --form-string 'store_stamped_file=true' \
 --form-string 'idempotent=true' \
@@ -39,7 +31,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 3. Stamping a Content Identifier (CID) without revealing data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer $VBASE_API_KEY" \
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
 --form-string 'data_cid=0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800' \
 --form-string 'idempotent=true' \
 --form-string 'idempotency_window=3600'
@@ -50,7 +42,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 1. Stamping a file:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer $VBASE_API_KEY" \
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
 --form-string 'collection_name=Test Collection' \
 -F 'file=@testfile.txt' \
 --form-string 'store_stamped_file=true' \
@@ -61,7 +53,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 2. Stamping inline data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer $VBASE_API_KEY" \
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
 --form-string 'collection_name=Test Collection' \
 --form-string 'data=1212121212' \
 --form-string 'store_stamped_file=true' \
@@ -72,7 +64,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 3. Stamping a Content Identifier (CID) without revealing data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer $VBASE_API_KEY" \
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
 --form-string 'collection_name=Test Collection' \
 --form-string 'data_cid=0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800' \
 --form-string 'idempotent=true' \
@@ -84,7 +76,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 1. Stamping a file:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer $VBASE_API_KEY" \
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
 --form-string 'collection_cid=0x36f028580bb02cc8272a9a020f4200e346e276ae664e45ee80745574e2f5ab80' \
 -F 'file=@testfile.txt' \
 --form-string 'store_stamped_file=true' \
@@ -95,7 +87,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 2. Stamping a Content Identifier (CID) without revealing data:
 ```bash
 curl -X POST https://app.vbase.com/api/v1/stamps \
--H "Authorization: Bearer $VBASE_API_KEY" \
+-H 'Authorization: Bearer YOUR_API_TOKEN' \
 --form-string 'collection_cid=0x36f028580bb02cc8272a9a020f4200e346e276ae664e45ee80745574e2f5ab80' \
 --form-string 'data_cid=0x229c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800' \
 --form-string 'idempotent=true' \
@@ -123,8 +115,8 @@ See [curl command conventions](rest-api-user-guide.md#curl-command-conventions) 
 
 1. Verifying CIDs:
 ```bash
-curl -X POST 'https://app.vbase.com/api/v1/stamps/verify' \
-  -H "Authorization: Bearer $VBASE_API_KEY" \
+curl -X POST 'https://dev.app.vbase.com/api/v1/stamps/verify' \
+  -H 'Authorization: Bearer YOUR_API_TOKEN' \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -d '{
@@ -267,7 +259,7 @@ class VBaseClientAPI:
             raise
 
 
-API_TOKEN = os.environ["VBASE_API_KEY"]
+API_TOKEN = "YOUR-API-KEY"
 BASE_URL = "https://app.vbase.com"
 
 def test_stamp_file():
