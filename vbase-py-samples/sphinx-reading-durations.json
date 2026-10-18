@@ -1,13 +1,13 @@
 {
-    "add_string_dataset_record": 0.005,
-    "add_string_dataset_record_async": 0.003,
-    "create_set": 0.003,
-    "github_codespaces_guide": 0.004,
-    "index": 0.007,
-    "quickstart": 0.004,
-    "restore_dataset_provenance": 0.003,
-    "stamp_alpaca_portfolio": 0.003,
-    "stamp_interactive_brokers_portfolio": 0.003,
-    "windows_guide": 0.004,
-    "windows_subsystem_for_linux_guide": 0.007
+    "add_string_dataset_record": 0.007,
+    "add_string_dataset_record_async": 0.005,
+    "create_set": 0.004,
+    "github_codespaces_guide": 0.006,
+    "index": 0.012,
+    "quickstart": 0.007,
+    "restore_dataset_provenance": 0.005,
+    "stamp_alpaca_portfolio": 0.005,
+    "stamp_interactive_brokers_portfolio": 0.005,
+    "windows_guide": 0.006,
+    "windows_subsystem_for_linux_guide": 0.011
 }

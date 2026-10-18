@@ -1,4 +1,4 @@
-# vBase Python samples quickstart
+# vBase Python Samples Quickstart
 
 This guide configures the recommended `vbase-api` Python client and runs the first samples.
 
