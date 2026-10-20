@@ -1,6 +1,6 @@
 {
     "add_string_dataset_record": 0.007,
-    "add_string_dataset_record_async": 0.005,
+    "add_string_dataset_record_async": 0.004,
     "create_set": 0.004,
     "github_codespaces_guide": 0.006,
     "index": 0.012,
