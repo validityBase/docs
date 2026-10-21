@@ -782,61 +782,6 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-## Get User
-
-<a id="opIdusers_read"></a>
-
-### Code samples
-
-```shell
-# You can also use wget
-curl -X GET https://app.vbase.com/api/v1/users/{user_address} \
-  -H 'Accept: application/json' \
-  -H 'Authorization: API_KEY'
-
-```
-
-`GET /users/{user_address}`
-
-Handle GET request to retrieve user account settings.
-
-<h3 id="users_read-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|user_address|path|string|true|none|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "name": "string",
-  "email": "user@example.com",
-  "persistent_id": "string",
-  "description": "string",
-  "display_timezone": "string",
-  "date_joined": "2019-08-24T14:15:22Z",
-  "last_address": "string",
-  "last_name": "string",
-  "last_is_verified": true,
-  "storage_type": "string"
-}
-```
-
-<h3 id="users_read-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Account settings retrieved successfully|[AccountSettings](#schemaaccountsettings)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found|[Error](#schemaerror)|
-
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-Bearer
-</aside>
-
 # Schemas
 
 <h2 id="tocS_Collection">Collection</h2>
