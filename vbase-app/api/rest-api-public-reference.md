@@ -749,7 +749,7 @@ curl -X GET https://app.vbase.com/api/v1/users/me \
 
 `GET /users/me`
 
-Handle GET request to retrieve user account settings.
+Return the caller's private account settings.
 
 > Example responses
 
@@ -775,6 +775,55 @@ Handle GET request to retrieve user account settings.
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Account settings retrieved successfully|[AccountSettings](#schemaaccountsettings)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found|[Error](#schemaerror)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
+## Get User
+
+<a id="opIdusers_read"></a>
+
+### Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://app.vbase.com/api/v1/users/{user_address} \
+  -H 'Accept: application/json' \
+  -H 'Authorization: API_KEY'
+
+```
+
+`GET /users/{user_address}`
+
+Return public fields even when the address belongs to the caller.
+
+<h3 id="users_read-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|user_address|path|string|true|none|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "name": "string",
+  "last_address": "string",
+  "last_is_verified": true
+}
+```
+
+<h3 id="users_read-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Public user profile|[PublicUserProfile](#schemapublicuserprofile)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid user address|[Error](#schemaerror)|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found|[Error](#schemaerror)|
 
 <aside class="warning">
@@ -1150,4 +1199,28 @@ Bearer
 |last_name|string|false|none|none|
 |last_is_verified|boolean|false|none|none|
 |storage_type|string|false|none|none|
+
+<h2 id="tocS_PublicUserProfile">PublicUserProfile</h2>
+<!-- backwards compatibility -->
+<a id="schemapublicuserprofile"></a>
+<a id="schema_PublicUserProfile"></a>
+<a id="tocSpublicuserprofile"></a>
+<a id="tocspublicuserprofile"></a>
+
+```json
+{
+  "name": "string",
+  "last_address": "string",
+  "last_is_verified": true
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string¦null|false|none|none|
+|last_address|string¦null|false|none|none|
+|last_is_verified|boolean¦null|false|none|none|
 

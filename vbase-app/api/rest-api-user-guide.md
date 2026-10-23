@@ -67,6 +67,31 @@ only when escape sequences, such as newlines in a CSV body, are needed.
 See the [curl form options](https://curl.se/docs/manpage.html#--form-string)
 and [Bash quoting rules](https://www.gnu.org/software/bash/manual/html_node/Quoting.html).
 
+## Commitment Receipt Fields
+
+Commitment receipts use `set_cid` for the blockchain set containing the stamped
+object (the SDK field is `setCid`). For a collection-associated stamp, this is
+the collection's CID, stored internally as `UserCollection.set_cid`. Collection
+objects expose that same identifier as `cid`,
+and API requests select a collection with `collection_cid`. Receipts retain
+`set_cid`; they do not duplicate it as `collection_cid`.
+
+## Paginating Collections
+
+`GET /v1/collections` returns every collection as a JSON array by default. To
+page through the list, pass `limit` (1–1000) and optionally `offset` (requires
+`limit`). Paged responses keep the array shape and add an `X-Total-Count`
+header, plus a `Link: <url>; rel="next"` header while more results remain.
+With `is_pinned=false`, blockchain-only collections follow database collections
+in collection-hash order and have no database ID or creation timestamp. The next
+link is relative to the API host. Database collections are ordered newest first; a
+collection created while you page can shift later pages by one item.
+
+```bash
+curl -i 'https://app.vbase.com/api/v1/collections?limit=100' \
+-H "Authorization: Bearer $VBASE_API_KEY"
+```
+
 ## Request Validation Rules
 
 For endpoints that use strict request schemas, unknown or unrecognized request
