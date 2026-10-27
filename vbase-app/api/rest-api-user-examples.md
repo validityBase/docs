@@ -45,6 +45,14 @@ curl -X POST https://app.vbase.com/api/v1/stamps \
 --form-string 'idempotency_window=3600'
 ```
 
+4. Stamping inline data with a JSON body (see [request body formats](rest-api-user-guide.md#request-body-formats)):
+```bash
+curl -X POST https://app.vbase.com/api/v1/stamps \
+-H "Authorization: Bearer $VBASE_API_KEY" \
+-H 'Content-Type: application/json' \
+-d '{"data": "{\"hello\":\"world\"}", "store_stamped_file": true, "idempotent": true, "idempotency_window": 3600}'
+```
+
 #### Stamping to a Collection Identified by a Name
 
 1. Stamping a file:

@@ -21,14 +21,17 @@ https://app.vbase.com/api/v1/
 
 ## About the OpenAPI Description for the REST API
 
-Our REST API is documented using OpenAPI, providing a comprehensive description of available endpoints, parameters, and response formats. You can explore the API using the Swagger UI, which offers an interactive interface for testing API calls.
+The REST API description uses OpenAPI 3.1.0. It describes endpoint request
+formats, mutually exclusive inputs, response fields, and nullable values for
+API clients and SDK generators. Swagger UI provides an interactive interface
+for exploring and testing API calls.
 
 Access the Swagger UI at:
 ```
 https://app.vbase.com/swagger/
 ```
 
-For programmatic clients (agents, SDKs), fetch the OpenAPI/Swagger JSON at:
+For programmatic clients (agents, SDKs), fetch the OpenAPI 3.1 JSON at:
 ```
 https://app.vbase.com/swagger.json
 ```
@@ -38,16 +41,28 @@ The Swagger UI route also supports:
 https://app.vbase.com/swagger/?format=openapi
 ```
 
+These schema URLs remain available without authentication. The URL
+`swagger.json` is retained for compatibility; the document identifies itself
+with `"openapi": "3.1.0"`. ReDoc is available at
+[app.vbase.com/redoc/](https://app.vbase.com/redoc/).
+
 ## Authenticating to the REST API
 
-Authentication is required for all API requests. Use the Bearer token method by including an `Authorization` header in your requests. The format should be:
+Protected API operations require your API key in the `Authorization` header.
+The OpenAPI description identifies which operations require authentication;
+public operations, including stamp certificate download, remain anonymous.
+Use this header format for protected operations:
 
 ```
 Authorization: Bearer <your-api-token>
 ```
 
-Before running the curl examples, set `VBASE_API_KEY` as described in
-[How to Obtain an API Key](#how-to-obtain-an-api-key).
+The token is your opaque vBase API key, not a JWT. In Swagger UI's Authorize
+dialog, enter the API key itself; the HTTP bearer scheme adds the `Bearer`
+prefix to the request header.
+
+Before running the curl examples, [obtain an API key](#how-to-obtain-an-api-key)
+and set `VBASE_API_KEY` as shown in [Examples](rest-api-user-examples.md).
 
 ## curl Command Conventions
 
@@ -66,6 +81,22 @@ double quotes belong to the JSON value. Bash `$'...'` quoting is used
 only when escape sequences, such as newlines in a CSV body, are needed.
 See the [curl form options](https://curl.se/docs/manpage.html#--form-string)
 and [Bash quoting rules](https://www.gnu.org/software/bash/manual/html_node/Quoting.html).
+
+## Request Body Formats
+
+Swagger UI offers a request content-type selector for JSON, multipart, and
+URL-encoded stamp writes. Choose `application/json` for inline data or a CID,
+and `multipart/form-data` to upload a file. The downloadable schema is OpenAPI
+3.1.0; it uses full `/api/v1` paths, `components`, and response `content`.
+
+`POST /v1/stamps` and `POST /v1/stamps/upload-stamped-file` accept either form
+fields (`multipart/form-data` or `application/x-www-form-urlencoded`) or a JSON
+object with `Content-Type: application/json`. Both formats use the same field
+names. File uploads require `multipart/form-data`; in JSON, send inline content
+as the string field `data`. Arrays and objects are not accepted as field values.
+
+`POST /v1/collections` also accepts a JSON object, URL-encoded form fields, or
+multipart form fields with the same collection field names.
 
 ## Commitment Receipt Fields
 
@@ -96,7 +127,23 @@ curl -i 'https://app.vbase.com/api/v1/collections?limit=100' \
 
 For endpoints that use strict request schemas, unknown or unrecognized request
 keys are rejected with `400 Bad Request`. Only documented request fields are
-accepted.
+accepted. The stamp endpoint also retains its existing camelCase aliases, such
+as `dataCid` and `storeStampedFile`; examples use snake_case names.
+
+For `POST /api/v1/stamps`, send a JSON object, multipart form, or URL-encoded form. File
+uploads require multipart. Select exactly one content source: a file, nonempty
+`data`, or `data_cid`. At most one nonempty collection selector,
+`collection_cid` or `collection_name`, is allowed. Empty optional text fields do
+not select another content source. If `data` contains JSON, send that JSON as a
+string in the form field or JSON body; `data` itself must remain a string.
+In multipart requests, an empty text `file` field is ignored and can accompany
+`data` or `data_cid`. An uploaded file with a name remains selected even if it
+has zero bytes, so it conflicts with another content source.
+
+Stamp idempotency is disabled unless `idempotent=true` is supplied. Storage is
+enabled only when `store_stamped_file=true` is supplied. An idempotent replay
+returns HTTP 200; a new stamp returns HTTP 201. The creation response contains
+`file_object: null` when there is no stored file object.
 
 ## Keeping your API credentials secure
 
@@ -257,7 +304,7 @@ The endpoint performs the following validations in sequence:
 6. **File Association**: Uploads the file and associates it with each matching commitment that does not already have a file
 7. **Idempotent Duplicate Handling**: Returns the existing file object with HTTP 200 when a matching commitment is already associated with a file
 
-Unknown or unrecognized form fields are rejected with `400 Bad Request`.
+Unknown or unrecognized form or JSON fields are rejected with `400 Bad Request`.
 
 #### Response Codes
 
@@ -286,6 +333,14 @@ curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
 --form-string 'collection_cid=0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800' \
 --form-string 'data={"status":"approved"}' \
 --form-string 'file_name=stamped_data.json'
+```
+
+**Successful Upload Using a JSON Body:**
+```bash
+curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
+-H "Authorization: Bearer $VBASE_API_KEY" \
+-H 'Content-Type: application/json' \
+-d '{"collection_cid": "0x329c036f2bcedbb9c44521c22a84d82ae328fef03e942c42b447d4ae67bbd800", "data": "{\"status\":\"approved\"}", "file_name": "stamped_data.json"}'
 ```
 
 **Response (201):**

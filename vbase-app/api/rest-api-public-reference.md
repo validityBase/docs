@@ -8,6 +8,8 @@
 
 Base URLs:
 
+* <a href="https://app.vbase.com">https://app.vbase.com</a>
+
 * <a href="https://app.vbase.com/api/v1">https://app.vbase.com/api/v1</a>
 
 # Authentication
@@ -25,7 +27,7 @@ Base URLs:
 
 ```shell
 # You can also use wget
-curl -X GET https://app.vbase.com/api/v1/collections \
+curl -X GET https://app.vbase.com/collections \
   -H 'Accept: application/json' \
   -H 'Authorization: API_KEY'
 
@@ -100,7 +102,7 @@ Bearer
 
 ```shell
 # You can also use wget
-curl -X POST https://app.vbase.com/api/v1/collections \
+curl -X POST https://app.vbase.com/collections \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'Authorization: API_KEY'
@@ -171,7 +173,7 @@ Bearer
 
 ```shell
 # You can also use wget
-curl -X POST https://app.vbase.com/api/v1/collections/verify \
+curl -X POST https://app.vbase.com/collections/verify \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'Accept: application/json' \
@@ -302,7 +304,7 @@ Bearer
 
 ```shell
 # You can also use wget
-curl -X POST https://app.vbase.com/api/v1/stamp/ \
+curl -X POST https://app.vbase.com/stamp/ \
   -H 'Content-Type: multipart/form-data' \
   -H 'Accept: application/json' \
   -H 'Authorization: API_KEY'
@@ -397,7 +399,7 @@ Bearer
 
 ```shell
 # You can also use wget
-curl -X POST https://app.vbase.com/api/v1/stamps \
+curl -X POST https://app.vbase.com/stamps \
   -H 'Content-Type: multipart/form-data' \
   -H 'Accept: application/json' \
   -H 'Authorization: API_KEY'
@@ -490,7 +492,7 @@ Bearer
 
 ```shell
 # You can also use wget
-curl -X POST https://app.vbase.com/api/v1/stamps/certificate \
+curl -X POST https://app.vbase.com/stamps/certificate \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
@@ -553,7 +555,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST https://app.vbase.com/api/v1/stamps/upload-stamped-file \
+curl -X POST https://app.vbase.com/stamps/upload-stamped-file \
   -H 'Content-Type: multipart/form-data' \
   -H 'Accept: application/json' \
   -H 'Authorization: API_KEY'
@@ -665,7 +667,7 @@ Bearer
 
 ```shell
 # You can also use wget
-curl -X POST https://app.vbase.com/api/v1/stamps/verify \
+curl -X POST https://app.vbase.com/stamps/verify \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'Authorization: API_KEY'
@@ -741,7 +743,7 @@ Bearer
 
 ```shell
 # You can also use wget
-curl -X GET https://app.vbase.com/api/v1/users/me \
+curl -X GET https://app.vbase.com/users/me \
   -H 'Accept: application/json' \
   -H 'Authorization: API_KEY'
 
@@ -790,7 +792,7 @@ Bearer
 
 ```shell
 # You can also use wget
-curl -X GET https://app.vbase.com/api/v1/users/{user_address} \
+curl -X GET https://app.vbase.com/users/{user_address} \
   -H 'Accept: application/json' \
   -H 'Authorization: API_KEY'
 

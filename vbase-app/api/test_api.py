@@ -1,6 +1,8 @@
+"""Example client for stamping files and data with the vBase REST API.
+
+Set VBASE_API_KEY before running; BASE_URL can override the production URL.
 """
-A Python client for the VBase API to stamp files and data.
-"""
+
 from typing import TypedDict, Optional, Dict, Any, List
 import json
 import os
@@ -133,8 +135,8 @@ class VBaseClientAPI:
             raise
 
 
-API_TOKEN = os.getenv("API_TOKEN")
-BASE_URL = os.getenv("BASE_URL", "https://dev.app.vbase.com")
+API_TOKEN = os.environ["VBASE_API_KEY"]
+BASE_URL = os.getenv("BASE_URL", "https://app.vbase.com")
 
 
 def test_stamp_file():
