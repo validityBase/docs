@@ -161,12 +161,22 @@ returns HTTP 200; a new stamp returns HTTP 201. The creation response contains
 This endpoint verifies a stamped collection against blockchain records for the
 authenticated user.
 
-#### Request Formats
+#### Request Format
 
-Choose the request body format with `Content-Type`:
+Send a JSON object with `Content-Type: application/json`. CSV bodies and
+multipart uploads are no longer accepted by this API and return HTTP 415:
 
-- `application/json`: send the verify request JSON body
-- `text/csv`: send the raw CSV string in the body
+```json
+{
+  "error": "Unsupported Content-Type. Use application/json.",
+  "timestamp": "2026-10-29T12:00:00Z"
+}
+```
+
+To migrate, convert CSV rows to `objects` entries with `timestamp` (CSV `t`),
+`cid` (CSV `c`), and optional `file_name` (CSV `f`). Put optional collection
+identity fields at the top level and send the JSON body directly, rather than
+uploading a file. The Verify page continues to support CSV and ZIP input.
 
 For JSON requests, top-level `collection_name` and `user_address` are optional.
 If they are omitted or set to `null`, the backend will try to infer collection
@@ -174,12 +184,6 @@ metadata from the submitted records.
 
 The `context` object is also optional and may be omitted or set to `null`.
 Each entry in `objects` may omit `file_name` or set it to `null`.
-
-For CSV requests, the leading metadata section
-`collection_name,user_address,collection_timezone` is optional.
-
-Legacy `multipart/form-data` uploads are also supported with a `.csv` or `.json`
-file in the `file` field.
 
 Use `Accept: application/json` for the response.
 
@@ -202,23 +206,6 @@ curl -X POST https://app.vbase.com/api/v1/collections/verify \
     }
   ]
 }'
-```
-
-**CSV body:**
-```bash
-curl -X POST https://app.vbase.com/api/v1/collections/verify \
--H "Authorization: Bearer $VBASE_API_KEY" \
--H 'Content-Type: text/csv' \
--H 'Accept: application/json' \
---data-binary $'collection_name,user_address,collection_timezone\nvb-test,0x4A281DdC750359d5C0D2D51A890cefA43485EF2d,\nt,c,f\n2025-07-23 11:42:15+00:00,0x6f3328cba0ffde8429e66008708419751921bf41737e32a0fcd173849e325561,application-logs2025-07-15T19_46_13.098Z-2025-07-16T19_46_13.098Z_2025-07-23_11-42-15+0000.json\n2025-07-23 20:34:58+00:00,0xaeda4cf7d65f9d67b128bf795b5f237183550a814c9d4aa83c7e84f027d4aeec,attribcache140_2025-07-23_20-34-58+0000.bin\n'
-```
-
-**Legacy multipart upload:**
-```bash
-curl -X POST https://app.vbase.com/api/v1/collections/verify \
--H "Authorization: Bearer $VBASE_API_KEY" \
--H 'Accept: application/json' \
--F 'file=@collection.json;type=application/json'
 ```
 
 #### Example Response
