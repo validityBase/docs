@@ -154,6 +154,40 @@ returns HTTP 200; a new stamp returns HTTP 201. The creation response contains
 
 ## API Endpoints
 
+### Account Stamp Credits
+
+`GET /api/v1/billing/credits` returns the authenticated account's stored stamp
+balance and plan. Use the same bearer API key as other protected endpoints:
+
+```bash
+curl https://app.vbase.com/api/v1/billing/credits \
+  -H "Authorization: Bearer $VBASE_API_KEY"
+```
+
+Example response:
+
+```json
+{
+  "subscription_plan": "free",
+  "next_renewal_date": "2026-10-25",
+  "free_stamp_credits": 0,
+  "paid_stamp_credits": 200,
+  "total_stamp_credits": 200
+}
+```
+
+Free credits are the stored expiring credits; paid credits are non-expiring.
+The total is their sum, including any negative stored balance. Free plans use
+`"free"`; paid plans use their existing base-plan slug, excluding add-ons. The
+plan is null if no plan is available. The renewal date is a UTC date or null
+when unknown. An account without a balance row returns zero credits and a null
+renewal date.
+
+Results are cached per account for 10 seconds and can lag spending, purchases,
+plan changes, or renewal by that amount. This request does not renew credits
+or create a balance. Spending checks use live balances. Credit balances are
+separate from request throughput quotas and rate-limit headers.
+
 ### Verify User Collection
 
 **POST** `/v1/collections/verify`
