@@ -450,6 +450,48 @@ Always check the HTTP status code first, then parse the error message for specif
 5. **Retry Logic**: Implement retry logic for 5xx errors (server issues)
 6. **Rate Limiting**: Respect API rate limits to avoid throttling
 
+## Verification and certificate request methods
+
+`POST /api/v1/stamps/verify` accepts CID batches and an optional user filter.
+It requires authentication. It does not create stamps.
+Use one of these body formats:
+
+- `application/json`
+- `multipart/form-data`
+- `application/x-www-form-urlencoded`
+
+In JSON, send `cids` as an array. Send `filter_by_user` as a boolean.
+In forms, repeat the `cids` field for each CID.
+Send `filter_by_user` once. Use `true` or `false`.
+If the filter is omitted, it defaults to false.
+Repeated filter values and unknown fields return 400.
+Form boolean filtering extends the accepted inputs.
+Existing successful CID requests remain supported.
+Verification responses omit `display_timezone`.
+Verification timestamps use ISO 8601 UTC with an explicit `+00:00` offset.
+
+Example URL-encoded body with two CIDs:
+
+```text
+cids=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&cids=0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb&filter_by_user=true
+```
+
+`POST /api/v1/collections/verify` accepts JSON only.
+Other media types return 415. Browser verification retains CSV and ZIP support.
+`POST /api/v1/stamps/certificate` accepts JSON receipt selectors.
+It reuses a matching current saved PDF when available.
+Otherwise, it generates a PDF in memory without saving it. These operations do not create stamps.
+Use the existing POST URLs. GET is not supported.
+
+CID verification returns 400 for invalid input.
+It returns 500 for connection failures, unexpected service failures, or invalid
+service output. Service and model-validation failures use an `error` field.
+
+Certificate download remains public.
+Every certificate response uses `Cache-Control: no-store`, including failures.
+Do not cache a generated PDF or an error response.
+Changing the HTTP method alone would not enable caching under this policy.
+
 ## Saved certificate downloads
 
 `POST /api/v1/stamps/certificate` validates the selected stamp, then loads a matching
