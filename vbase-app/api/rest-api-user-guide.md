@@ -244,10 +244,12 @@ curl -X POST https://app.vbase.com/api/v1/collections/verify \
 
 #### Example Response
 
+Verification timestamps use ISO 8601 UTC with an explicit offset. Clients control
+timezone rendering; verification responses do not include `display_timezone`.
+
 **Response (200):**
 ```json
 {
-  "display_timezone": "UTC",
   "collections": [
     {
       "name": "my-collection",
