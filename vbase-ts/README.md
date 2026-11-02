@@ -119,7 +119,7 @@ The proxy scripts listen on port 8546 and forward requests to that service.
 
 > **escalatedSendTransaction**(`web3`, `signer`, `to`, `data`, `logger`, `gasLimit`?): `Promise`\<`TransactionReceipt`\>
 
-Defined in: [transactions.ts:588](https://github.com/validityBase/vbase-ts/blob/37028230e8bf3c011135115a6749e9d7f0cf62e5/src/vbase/transactions.ts#L588)
+Defined in: [transactions.ts:588](https://github.com/validityBase/vbase-ts/blob/c473849f1eabebbca46e048b59770759571d9a25/src/vbase/transactions.ts#L588)
 
 Sends an Ethereum transaction with escalation logic to increase gas price if needed.
 
@@ -173,11 +173,33 @@ If the transaction fails to send or encounters an error.
 
 ***
 
+### estimateGasLimit()
+
+> **estimateGasLimit**(`data`, `logger`): `number`
+
+Defined in: [transactions.ts:438](https://github.com/validityBase/vbase-ts/blob/c473849f1eabebbca46e048b59770759571d9a25/src/vbase/transactions.ts#L438)
+
+#### Parameters
+
+##### data
+
+`string`
+
+##### logger
+
+`Logger`\<`never`, `boolean`\>
+
+#### Returns
+
+`number`
+
+***
+
 ### jsonPrettyStringify()
 
 > **jsonPrettyStringify**(`obj`): `string`
 
-Defined in: [utils.ts:54](https://github.com/validityBase/vbase-ts/blob/37028230e8bf3c011135115a6749e9d7f0cf62e5/src/vbase/utils.ts#L54)
+Defined in: [utils.ts:54](https://github.com/validityBase/vbase-ts/blob/c473849f1eabebbca46e048b59770759571d9a25/src/vbase/utils.ts#L54)
 
 Converts an object into a pretty-printed JSON string.
 
@@ -204,7 +226,7 @@ A JSON-formatted string with indentation for readability.
 
 > **serializeBigInts**(`obj`): `any`
 
-Defined in: [utils.ts:14](https://github.com/validityBase/vbase-ts/blob/37028230e8bf3c011135115a6749e9d7f0cf62e5/src/vbase/utils.ts#L14)
+Defined in: [utils.ts:14](https://github.com/validityBase/vbase-ts/blob/c473849f1eabebbca46e048b59770759571d9a25/src/vbase/utils.ts#L14)
 
 Recursively serializes BigInt values within an object, array, or nested structure.
 
