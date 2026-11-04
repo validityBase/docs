@@ -502,3 +502,7 @@ without saving it. Downloads do not update certificate state or upload new PDFs.
 Stored PDFs retain the display information and hash instructions from when they were
 generated; freshly rendered public PDFs use the current display information and neutral
 hash guidance. Anonymous access and `Cache-Control: no-store` remain unchanged.
+
+Certificate generation is rate-limited; honor `Retry-After` on HTTP 429.
+Authentication and CSRF requirements are described in the
+[OpenAPI documentation](#about-the-openapi-description-for-the-rest-api).
