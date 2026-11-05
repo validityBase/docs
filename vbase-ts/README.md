@@ -117,7 +117,7 @@ The proxy scripts listen on port 8546 and forward requests to that service.
 
 ### ConfirmationTimeoutError
 
-Defined in: [src/vbase/transactions.ts:122](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L122)
+Defined in: [src/vbase/transactions.ts:122](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L122)
 
 Thrown by escalatedSendTransaction() when no receipt is found after the
 initial send and all gas-price escalations. The transaction may be pending
@@ -133,7 +133,7 @@ or mined, so the outcome is uncertain and the credit is NOT refunded.
 
 > **new ConfirmationTimeoutError**(`maxEscalations`, `txHashes`): [`ConfirmationTimeoutError`](README.md#confirmationtimeouterror)
 
-Defined in: [src/vbase/transactions.ts:129](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L129)
+Defined in: [src/vbase/transactions.ts:129](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L129)
 
 ###### Parameters
 
@@ -189,7 +189,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
 
 > `readonly` **txHashes**: readonly `string`[]
 
-Defined in: [src/vbase/transactions.ts:128](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L128)
+Defined in: [src/vbase/transactions.ts:128](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L128)
 
 Every submitted transaction hash: the initial send and each same-nonce
 replacement. At most one can be mined; query their receipts to determine
@@ -267,7 +267,7 @@ Create .stack property on a target object
 
 ### MinedRevertError
 
-Defined in: [src/vbase/transactions.ts:102](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L102)
+Defined in: [src/vbase/transactions.ts:102](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L102)
 
 Thrown by escalatedSendTransaction() when a submitted transaction is mined
 with a revert status. Gas was spent regardless of the revert, so the credit
@@ -283,7 +283,7 @@ is NOT refunded.
 
 > **new MinedRevertError**(`txHash`, `status`): [`MinedRevertError`](README.md#minedreverterror)
 
-Defined in: [src/vbase/transactions.ts:107](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L107)
+Defined in: [src/vbase/transactions.ts:107](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L107)
 
 ###### Parameters
 
@@ -339,7 +339,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
 
 > `readonly` **status**: `unknown`
 
-Defined in: [src/vbase/transactions.ts:106](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L106)
+Defined in: [src/vbase/transactions.ts:106](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L106)
 
 The receipt's on-chain status value (e.g. `0n`).
 
@@ -347,7 +347,7 @@ The receipt's on-chain status value (e.g. `0n`).
 
 > `readonly` **txHash**: `string`
 
-Defined in: [src/vbase/transactions.ts:104](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L104)
+Defined in: [src/vbase/transactions.ts:104](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L104)
 
 Hash of the reverted transaction.
 
@@ -423,7 +423,7 @@ Create .stack property on a target object
 
 ### PreSubmissionError
 
-Defined in: [src/vbase/transactions.ts:61](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L61)
+Defined in: [src/vbase/transactions.ts:61](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L61)
 
 Thrown by escalatedSendTransaction() when there is positive evidence that no
 transaction reached the network: fetching the gas price or nonce failed, or
@@ -442,7 +442,7 @@ credit.
 
 > **new PreSubmissionError**(`cause`): [`PreSubmissionError`](README.md#presubmissionerror)
 
-Defined in: [src/vbase/transactions.ts:68](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L68)
+Defined in: [src/vbase/transactions.ts:68](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L68)
 
 ###### Parameters
 
@@ -464,7 +464,7 @@ Defined in: [src/vbase/transactions.ts:68](https://github.com/validityBase/vbase
 
 > `readonly` **cause**: `unknown`
 
-Defined in: [src/vbase/transactions.ts:67](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L67)
+Defined in: [src/vbase/transactions.ts:67](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L67)
 
 The underlying error, for inspecting its type, code, and stack. When the
 initial send exhausts its retry budget, this is the retry-budget error,
@@ -572,7 +572,7 @@ Create .stack property on a target object
 
 ### SubmissionUncertainError
 
-Defined in: [src/vbase/transactions.ts:85](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L85)
+Defined in: [src/vbase/transactions.ts:85](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L85)
 
 Thrown by escalatedSendTransaction() when the initial send never returned a
 transaction hash, but at least one attempt failed in a way that does not
@@ -591,7 +591,7 @@ the account's nonce and pending transactions before resubmitting.
 
 > **new SubmissionUncertainError**(`cause`): [`SubmissionUncertainError`](README.md#submissionuncertainerror)
 
-Defined in: [src/vbase/transactions.ts:88](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L88)
+Defined in: [src/vbase/transactions.ts:88](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L88)
 
 ###### Parameters
 
@@ -613,7 +613,7 @@ Defined in: [src/vbase/transactions.ts:88](https://github.com/validityBase/vbase
 
 > `readonly` **cause**: `unknown`
 
-Defined in: [src/vbase/transactions.ts:87](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L87)
+Defined in: [src/vbase/transactions.ts:87](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L87)
 
 The underlying error; structured as [PreSubmissionError.cause](README.md#cause).
 
@@ -721,7 +721,7 @@ Create .stack property on a target object
 
 > **escalatedSendTransaction**(`web3`, `signer`, `to`, `data`, `logger`, `gasLimit`?, `maxGasLimit`?): `Promise`\<`TransactionReceipt`\>
 
-Defined in: [src/vbase/transactions.ts:884](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L884)
+Defined in: [src/vbase/transactions.ts:884](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L884)
 
 Sends an Ethereum transaction with escalation logic to increase gas price if needed.
 
@@ -804,7 +804,7 @@ If no receipt is found after the initial
 
 > **estimateGasLimit**(`data`, `logger`): `number`
 
-Defined in: [src/vbase/transactions.ts:723](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/transactions.ts#L723)
+Defined in: [src/vbase/transactions.ts:723](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/transactions.ts#L723)
 
 #### Parameters
 
@@ -826,7 +826,7 @@ Defined in: [src/vbase/transactions.ts:723](https://github.com/validityBase/vbas
 
 > **jsonPrettyStringify**(`obj`): `string`
 
-Defined in: [src/vbase/utils.ts:54](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/utils.ts#L54)
+Defined in: [src/vbase/utils.ts:54](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/utils.ts#L54)
 
 Converts an object into a pretty-printed JSON string.
 
@@ -853,7 +853,7 @@ A JSON-formatted string with indentation for readability.
 
 > **serializeBigInts**(`obj`): `any`
 
-Defined in: [src/vbase/utils.ts:14](https://github.com/validityBase/vbase-ts/blob/83c945084f61493e3d7d8ef052fcf8168d94f62c/src/vbase/utils.ts#L14)
+Defined in: [src/vbase/utils.ts:14](https://github.com/validityBase/vbase-ts/blob/b23a15421878ffbf0f3677e30be9eb3366060190/src/vbase/utils.ts#L14)
 
 Recursively serializes BigInt values within an object, array, or nested structure.
 
