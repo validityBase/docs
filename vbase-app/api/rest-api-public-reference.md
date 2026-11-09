@@ -14,6 +14,57 @@ Base URLs:
 
 - HTTP Authentication, scheme: bearer Enter your vBase API key. The key is opaque, not a JWT.
 
+* API Key (cookieAuth)
+    - Parameter Name: **sessionid**, in: cookie. 
+
+<h1 id="vbase-api-billing">Billing</h1>
+
+## billing_credits_retrieve
+
+<a id="opIdbilling_credits_retrieve"></a>
+
+### Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://app.vbase.com/api/v1/billing/credits \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer {access-token}'
+
+```
+
+`GET /api/v1/billing/credits`
+
+*Get account stamp credits*
+
+Return stored credits for the authenticated account. Results are cached per user for 10 seconds and may lag spending, purchases, or renewals. This read does not renew credits. subscription_plan is free for free plans, the existing slug for paid plans, or null when no plan exists. next_renewal_date is the UTC date, or null when unknown. Missing balances return zero credits. Credit counts may be negative. These balances are separate from request rate limits.
+
+> Example responses
+
+> Current account billing summary
+
+```json
+{
+  "subscription_plan": "free",
+  "next_renewal_date": "2026-10-25",
+  "free_stamp_credits": 0,
+  "paid_stamp_credits": 200,
+  "total_stamp_credits": 200
+}
+```
+
+<h3 id="billing_credits_retrieve-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Current account billing summary|[BillingCredits](#schemabillingcredits)|
+|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Missing or invalid bearer API key|None|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer
+</aside>
+
 <h1 id="vbase-api-collections">Collections</h1>
 
 ## List Collections
@@ -204,8 +255,11 @@ curl -X POST https://app.vbase.com/api/v1/collections/verify \
 *Verify a user collection against the blockchain*
 
 Verify a collection of stamped objects against the blockchain.
+POST submits the collection payload in the request body without creating stamps.
+GET is not supported.
 
-Use the request `Content-Type` to choose the payload format:
+Send a JSON object with `Content-Type: application/json`. Other request media
+types, including CSV and multipart uploads, return HTTP 415.
 
 **Raw JSON body**
 ```json
@@ -221,26 +275,8 @@ Use the request `Content-Type` to choose the payload format:
 }
 ```
 
-**Raw CSV body**
-Send the CSV string directly with `Content-Type: text/csv`, for example:
-
-```csv
-collection_name,user_address
-vb-test,0x4A281DdC750359d5C0D2D51A890cefA43485EF2d
-t,c,f
-2025-07-23 11:42:15+00:00,0x6f3328cba0ffde8429e66008708419751921bf41737e32a0fcd173849e325561,application-logs2025-07-15T19_46_13.098Z-2025-07-16T19_46_13.098Z_2025-07-23_11-42-15+0000.json
-2025-07-23 20:34:58+00:00,0xaeda4cf7d65f9d67b128bf795b5f237183550a814c9d4aa83c7e84f027d4aeec,attribcache140_2025-07-23_20-34-58+0000.bin
-```
-
 `collection_name` and `user_address` are optional in JSON requests. When
 omitted, the backend will try to infer metadata from the payload.
-
-For CSV requests, the leading metadata section
-`collection_name,user_address` is optional.
-
-**Multipart/form-data (legacy)**
-Upload a `.csv` or `.json` file in the `file` field. The payload is normalized
-to the same validated API model as raw JSON and raw CSV requests.
 
 `Accept` controls the response type. This endpoint currently returns JSON.
         
@@ -263,18 +299,6 @@ to the same validated API model as raw JSON and raw CSV requests.
 }
 ```
 
-```yaml
-collection_cid: null
-collection_name: null
-user_address: null
-objects:
-  - cid: string
-    timestamp: string
-    file_name: null
-context: null
-
-```
-
 <h3 id="collections_verify_create-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
@@ -287,7 +311,6 @@ context: null
 
 ```json
 {
-  "display_timezone": "UTC",
   "collections": [
     {
       "name": "my-collection",
@@ -330,6 +353,7 @@ context: null
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Verification result|[VerifyCollectionResponse](#schemaverifycollectionresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid input data|[Error](#schemaerror)|
+|415|[Unsupported Media Type](https://tools.ietf.org/html/rfc7231#section-6.5.13)|Unsupported media type; use application/json|[Error](#schemaerror)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -708,7 +732,9 @@ Bearer
 # You can also use wget
 curl -X POST https://app.vbase.com/api/v1/stamps/certificate \
   -H 'Content-Type: application/json' \
-  -H 'Accept: application/pdf'
+  -H 'Accept: application/pdf' \
+  -H 'X-CSRFToken: string' \
+  -H 'Authorization: Bearer {access-token}'
 
 ```
 
@@ -716,7 +742,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps/certificate \
 
 *Download a stamp certificate PDF (public)*
 
-Resolve the exact receipt and return generated PDF bytes directly.
+POST receipt selectors as JSON. GET is not supported. Validate public stamp evidence and reuse a matching current saved certificate when available. Otherwise generate a PDF in memory without saving it. Generation attempts are limited per account or anonymous client IP; saved downloads do not consume this allowance. Authentication is optional. Invalid Bearer keys return 401. Session-authenticated POST requests require a valid X-CSRFToken header. All responses retain Cache-Control: no-store.
 
 ### Body parameter
 
@@ -734,6 +760,7 @@ Resolve the exact receipt and return generated PDF bytes directly.
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
+|X-CSRFToken|header|string|false|Required for session-authenticated POST requests; not needed for anonymous or Bearer requests.|
 |body|body|[CertificateSelectorRequest](#schemacertificateselectorrequest)|true|none|
 
 > Example responses
@@ -755,12 +782,22 @@ Resolve the exact receipt and return generated PDF bytes directly.
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|PDF attachment|string|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid selectors|[Error](#schemaerror)|
+|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Invalid Bearer credentials|[Error](#schemaerror)|
+|403|[Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)|Session CSRF validation failed|[Error](#schemaerror)|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Stamp not found|[Error](#schemaerror)|
 |409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Ambiguous stamp|[Error](#schemaerror)|
+|429|[Too Many Requests](https://tools.ietf.org/html/rfc6585#section-4)|Generation limit exceeded; Retry-After contains seconds|[Error](#schemaerror)|
 |503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Certificate temporarily unavailable|[Error](#schemaerror)|
 
-<aside class="success">
-This operation does not require authentication
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|429|Retry-After|integer||Seconds to wait before retrying certificate generation.|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer, cookieAuth, None
 </aside>
 
 ## Upload Stamped File
@@ -932,6 +969,11 @@ curl -X POST https://app.vbase.com/api/v1/stamps/verify \
         This endpoint checks whether Content IDs (SHA3 hash) have previously been
         stamped on the blockchain using vBase. If a match is found, the api returns the full stamp details,
         including the timestamp, blockchain address, and other stamp details.
+        POST keeps batches and optional user filtering in the request body.
+        This operation does not create stamps; GET is not supported.
+        JSON, multipart forms, and URL-encoded forms are supported.
+        In forms, repeat the cids field for each CID. Send filter_by_user once.
+        Use true or false for a form boolean. The filter defaults to false.
         
 
 ### Body parameter
@@ -943,6 +985,13 @@ curl -X POST https://app.vbase.com/api/v1/stamps/verify \
   ],
   "filter_by_user": false
 }
+```
+
+```yaml
+cids:
+  - string
+filter_by_user: false
+
 ```
 
 <h3 id="stamps_verify_create-parameters">Parameters</h3>
@@ -957,7 +1006,6 @@ curl -X POST https://app.vbase.com/api/v1/stamps/verify \
 
 ```json
 {
-  "display_timezone": "UTC",
   "stamp_list": [
     {
       "transaction_hash": "0xcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
@@ -986,6 +1034,7 @@ curl -X POST https://app.vbase.com/api/v1/stamps/verify \
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[VerificationResult](#schemaverificationresult)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid input data|[Error](#schemaerror)|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Verification service failure|[Error](#schemaerror)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1155,6 +1204,36 @@ Serializer for account settings response
 |last_name|string,null|false|none|none|
 |last_is_verified|boolean,null|false|none|none|
 |storage_type|string,null|false|none|none|
+
+<h2 id="tocS_BillingCredits">BillingCredits</h2>
+<!-- backwards compatibility -->
+<a id="schemabillingcredits"></a>
+<a id="schema_BillingCredits"></a>
+<a id="tocSbillingcredits"></a>
+<a id="tocsbillingcredits"></a>
+
+```json
+{
+  "subscription_plan": "string",
+  "next_renewal_date": "2019-08-24",
+  "free_stamp_credits": 0,
+  "paid_stamp_credits": 0,
+  "total_stamp_credits": 0
+}
+
+```
+
+Stored account balance response, with nullable plan and renewal date.
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|subscription_plan|string,null|true|none|none|
+|next_renewal_date|string,null(date)|true|none|none|
+|free_stamp_credits|integer|true|none|none|
+|paid_stamp_credits|integer|true|none|none|
+|total_stamp_credits|integer|true|none|none|
 
 <h2 id="tocS_CertificateSelectorRequest">CertificateSelectorRequest</h2>
 <!-- backwards compatibility -->
@@ -1642,7 +1721,6 @@ or
 
 ```json
 {
-  "display_timezone": "string",
   "stamp_list": [
     {
       "transaction_hash": "string",
@@ -1663,7 +1741,6 @@ Serializer for stamp verification response
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|display_timezone|string,null|false|none|none|
 |stamp_list|array,null|false|none|none|
 
 <h2 id="tocS_VerifyCIDModelRequest">VerifyCIDModelRequest</h2>
@@ -1768,7 +1845,6 @@ Serializer for slim collection in verification responses
 
 ```json
 {
-  "display_timezone": "string",
   "collections": [
     {
       "name": "string",
@@ -1812,7 +1888,6 @@ Serializer for collection verification response
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|display_timezone|string|false|none|none|
 |collections|[[VerifyCollection](#schemaverifycollection)]|false|none|[Serializer for slim collection in verification responses]|
 
 <h2 id="tocS_VerifyUserCollectionRequestSchemaRequest">VerifyUserCollectionRequestSchemaRequest</h2>
