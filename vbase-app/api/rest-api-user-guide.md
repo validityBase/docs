@@ -504,5 +504,8 @@ generated; freshly rendered public PDFs use the current display information and 
 hash guidance. Anonymous access and `Cache-Control: no-store` remain unchanged.
 
 Certificate generation is rate-limited; honor `Retry-After` on HTTP 429.
+By default, generation allows 10 attempts per authenticated account or anonymous
+IP in a rolling minute. Anonymous visitors sharing a public IP share this allowance.
+Downloads of usable saved PDFs do not consume generation attempts.
 Authentication and CSRF requirements are described in the
 [OpenAPI documentation](#about-the-openapi-description-for-the-rest-api).
