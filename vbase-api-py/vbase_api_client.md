@@ -199,7 +199,8 @@ stamp details including timestamp, blockchain address, and other stamp details.
   * **cids** – Array of CIDs to verify
   * **filter_by_user** – When true, only return results owned by the current user
 * **Returns:**
-  VerificationResult with display timezone and stamp list
+  VerificationResult with stamp list. Its display_timezone attribute is
+  deprecated and may be None; use receipt timestamp timezone information.
 * **Raises:**
   [**VBaseAPIError**](#vbase_api.vbase_api_client.VBaseAPIError) – If the request fails
 

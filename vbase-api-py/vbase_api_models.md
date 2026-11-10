@@ -345,18 +345,21 @@ Optional file object metadata
 
 Create a StampCreatedResponse from a dictionary.
 
-## *class* vbase_api.VerificationResult(display_timezone: str, stamp_list: List[[CommitmentReceipt](#vbase_api.CommitmentReceipt)])
+## *class* vbase_api.VerificationResult(display_timezone: str | None, stamp_list: List[[CommitmentReceipt](#vbase_api.CommitmentReceipt)])
 
 Bases: `object`
 
 Result from verifying CIDs.
 
+The display_timezone attribute is deprecated and retained for compatibility.
+Use the timezone information in each receipt’s timestamp instead.
+
 ### display_timezone
 
-Timezone for display
+Deprecated legacy API timezone, or None when absent
 
 * **Type:**
-  str
+  str | None
 
 ### stamp_list
 
@@ -365,7 +368,7 @@ List of commitment receipts for verified stamps
 * **Type:**
   List[[vbase_api.CommitmentReceipt](#vbase_api.CommitmentReceipt)]
 
-### display_timezone *: str*
+### display_timezone *: str | None*
 
 ### *classmethod* from_dict(data: dict) → [VerificationResult](#vbase_api.VerificationResult)
 
