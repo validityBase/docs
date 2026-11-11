@@ -562,6 +562,15 @@ Every certificate response uses `Cache-Control: no-store`, including failures.
 Do not cache a generated PDF or an error response.
 Changing the HTTP method alone would not enable caching under this policy.
 
+The signed-in stamp creation page uses
+`POST /api/v1/stamps/certificate/created` with JSON receipt selectors. The
+`chain_id` field is optional on this authenticated route because the owner's
+saved receipt supplies it; the public certificate route still requires it.
+It renders the current user's successful saved stamp on demand, without waiting
+for public indexing or saving the PDF to S3. Session requests require CSRF.
+This does not change the public Verify certificate endpoint or the background
+certificate materialization job.
+
 ## Saved certificate downloads
 
 `POST /api/v1/stamps/certificate` validates the selected stamp, then loads a matching
