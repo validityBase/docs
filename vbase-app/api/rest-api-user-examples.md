@@ -8,6 +8,19 @@ export VBASE_API_KEY='your-api-key'
 
 Replace the placeholder with your key. Do not commit the key to source control.
 
+<a id="one-operation-at-a-time"></a>
+## Blockchain Write Examples
+
+**Run one blockchain write at a time per user.** Coordinate stamp creation and
+on-chain collection creation across collections and clients.
+Reads and uploads of already-stamped files may run concurrently with a blockchain
+write. This includes the verification POST examples below.
+
+**Warning:** Overlapping blockchain writes can create duplicate commitments or
+fail on blockchain nonce conflicts. Use the [retry procedure and result
+checks](rest-api-user-guide.md#one-blockchain-write-at-a-time-per-user) after an
+uncertain write response.
+
 ## Stamp Endpoint
 
 ### Curl Examples

@@ -4,6 +4,76 @@
 
 The REST API provides a programmatic interface to interact with our services, allowing you to stamp files, inline data, or existing CIDs. This API is designed to be flexible and secure, supporting various data formats and authentication methods.
 
+<a id="one-stamp-operation-at-a-time-per-user"></a>
+## One Blockchain Write at a Time per User
+
+**Finish one blockchain write before starting another for the same user.**
+The rule applies across collections and clients:
+
+| Blockchain write | POST path |
+| --- | --- |
+| Stamp creation | `/api/v1/stamps` or deprecated `/api/v1/stamp/` |
+| On-chain collection creation | `/api/v1/collections` when it creates a blockchain collection |
+
+Uploads of already-stamped files (`POST /api/v1/stamps/upload-stamped-file`) and
+reads may run concurrently, including during a blockchain write. This includes
+`POST /api/v1/stamps/verify` and `POST /api/v1/collections/verify`.
+The blockchain effect determines the rule, not the HTTP method.
+Different users can submit blockchain writes concurrently.
+
+**Warning:** Overlapping blockchain writes can create duplicate commitments or
+fail on blockchain nonce conflicts.
+
+### Current Stamp Creation Guard
+
+When `OPERATION_GUARD_ENABLED` is enabled, the guard checks a lease for stamp
+creation. Collection creation does not acquire that lease; clients must coordinate
+its blockchain writes with stamp creation.
+
+| Status | `error_code` | Meaning |
+| --- | --- | --- |
+| 409 | `stamp_in_progress` | An unexpired lease is held. This request creates no stamp job or external write. |
+| 503 | `operation_guard_unavailable` | The guard cannot coordinate this stamp request. |
+
+These responses include `Retry-After`, in seconds. An expired lease can admit a
+new request while the original operation continues. Neither this delay nor lease
+expiry proves completion. Clients must confirm completion even when the guard is disabled.
+A legacy `stamp_reconciliation_required` response requires checking the original
+outcome. The current guard does not emit it because a lease expired.
+
+### Stamp Creation Retry Procedure
+
+1. Send the first stamp request with `idempotent=true`.
+2. Wait for the response.
+3. If `Retry-After` is present, wait for its delay.
+4. After an uncertain response, establish that the original operation has ended.
+5. Resolve the original outcome using the checks below.
+6. Retry the same stamp request only after completion and outcome resolution.
+7. Start another blockchain write only after completion and outcome resolution.
+
+A timeout, connection loss or HTTP 5xx can leave the outcome uncertain.
+`idempotent=true` checks indexed receipts; it does not exclude an active request.
+If completion or outcome remains unknown, contact support before another
+blockchain write. These prerequisites apply with or without the guard.
+Keep the content, collection, storage options and `idempotency_window` unchanged
+on a retry. **Warning:** A matching stamp outside the window can permit another
+commitment.
+
+### Result Checks
+
+| Check | What it establishes |
+| --- | --- |
+| Find the matching `commitment_receipt`. | The stamp exists. It does not confirm file availability. |
+| If storage is required, download the expected file. | A successful download confirms file availability. |
+| Find the expected collection. | The collection exists. |
+
+These checks do not establish that the original request has stopped.
+An absent result does not prove failure.
+A stamp creation replay returns HTTP 200 with `commitment_receipt` only.
+It omits `file_object` and does not repair file storage.
+Collection creation and existing-stamp upload do not accept the stamp endpoint's
+idempotency fields. For file recovery, use [Upload Stamped File](#upload-stamped-file).
+
 ## Getting Started with the REST API
 
 To begin using the REST API, you need to have a valid API token for authentication. The API is accessible via standard HTTP methods and returns JSON responses.
@@ -85,7 +155,7 @@ and [Bash quoting rules](https://www.gnu.org/software/bash/manual/html_node/Quot
 ## Request Body Formats
 
 Swagger UI offers a request content-type selector for JSON, multipart, and
-URL-encoded stamp writes. Choose `application/json` for inline data or a CID,
+URL-encoded stamp creation and file-upload requests. Choose `application/json` for inline data or a CID,
 and `multipart/form-data` to upload a file. The downloadable schema is OpenAPI
 3.1.0; it uses full `/api/v1` paths, `components`, and response `content`.
 
