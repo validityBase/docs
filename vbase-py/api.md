@@ -278,8 +278,12 @@ stored in a .env file or in environment variables.
 ### get_commitment_service_data() → dict
 
 Get commitment service data from the API server.
-This returns the node_rpc_url and the commitment_service_address
-for the web3 commitment service abstracted by the forwarder.
+This returns the commitment_service_address of the contract the
+forwarder uses and a node_rpc_url that clients can use to read the
+chain directly.
+
+For indexing service construction and endpoint requirements, see
+[`vbase.IndexingService.create_instance_from_commitment_service()`](#vbase.IndexingService.create_instance_from_commitment_service).
 
 * **Returns:**
   The commitment service data for the API server.
@@ -512,16 +516,24 @@ Bases: `ABC`
 Base indexing operations.
 Various indexing services may provide a subset of the below operations that they support.
 
-### static create_instance_from_commitment_service(commitment_service: CommitmentService) → [IndexingService](#vbase.IndexingService)
+### static create_instance_from_commitment_service(commitment_service: CommitmentService, node_rpc_url: str | None = None) → [IndexingService](#vbase.IndexingService)
 
-Creates an instance initialized from a commitment service.
-Handles the complexities of initializing an IndexingService
-using a forwarded commitment service.
-We need to query this service for the information needed to connect to a commitment
-service directly, and this method abstracts this initialization.
+Create an indexing service from a commitment service.
+
+For a forwarder, read the contract address from
+`get_commitment_service_data()` and query events directly through
+the selected node. For a Web3 commitment service, reuse its connection.
+See [Indexing and Node Requirements](https://github.com/validityBase/vbase-py/blob/main/README.md#indexing-and-node-requirements)
+for endpoint requirements.
 
 * **Parameters:**
-  **commitment_service** – The commitment service used.
+  * **commitment_service** – The commitment service used.
+  * **node_rpc_url** – Optional node RPC URL to use instead of the one
+    returned by the forwarder. Applies only to forwarder commitment
+    services; a Web3 commitment service already uses its own node.
+    The caller is responsible for supplying a node on the forwarder’s
+    chain. The SDK does not check this; a node on another chain
+    returns empty query results rather than an error.
 * **Returns:**
   The IndexingService created.
 
@@ -633,6 +645,88 @@ for a given user.
   **user** – The address for the user who made the commitments.
 * **Returns:**
   The list of commitment receipts for all user set commitments.
+
+## class vbase.ProblemDetails(type: str, title: str, status: int, detail: str, instance: str | None = None, extensions: Mapping[str, ~typing.Any]=<factory>)
+
+Bases: `object`
+
+A vBase Problem Details document with structural and basic URI checks.
+
+### property code: str
+
+Return the required vBase machine-readable code extension.
+
+### detail: str
+
+### property details: Dict[str, Any] | None
+
+Return the optional vBase diagnostic details extension.
+
+### extensions: Mapping[str, Any]
+
+### classmethod from_dict(payload: object) → [ProblemDetails](#vbase.ProblemDetails) | None
+
+Parse a problem, or return `None` if SDK consumer checks fail.
+
+### instance: str | None = None
+
+### status: int
+
+### title: str
+
+### to_dict() → Dict[str, Any]
+
+Serialize the problem document.
+
+### type: str
+
+## exception vbase.ProblemDetailsError(response: Response, problem: [ProblemDetails](#vbase.ProblemDetails))
+
+Bases: `HTTPError`
+
+HTTP failure carrying a problem that passed SDK consumer checks.
+
+The exception remains compatible with callers that catch
+`requests.HTTPError` and preserves the original response.
+The message omits the server-supplied `type` URI and redacts URL
+credentials, paths, and queries in `detail`; the attributes keep the
+original values.
+
+### property code: str
+
+Return the required vBase code extension.
+
+### property detail: str
+
+Return the occurrence-specific explanation.
+
+### property details: Dict[str, Any] | None
+
+Return the optional vBase details extension.
+
+### property extensions: Mapping[str, Any]
+
+Return all Problem Details extension members.
+
+### classmethod from_response(response: Response) → [ProblemDetailsError](#vbase.ProblemDetailsError) | None
+
+Build an error after checking the response’s media type and profile.
+
+### property instance: str | None
+
+Return the optional occurrence correlation URI reference.
+
+### property status: int
+
+Return the HTTP status from the problem document.
+
+### property title: str
+
+Return the short problem title.
+
+### property type: str
+
+Return the problem type URI reference.
 
 ## class vbase.SQLIndexingService(db_url: str, indexing_stale_threshold_seconds: int = 60)
 
@@ -1123,6 +1217,10 @@ Only supported by test contracts.
 
 Get commitment receipts for dataset records.
 
+Uses `self.indexing_service` if it is set. Otherwise, creates one
+with [`vbase.IndexingService.create_instance_from_commitment_service()`](#vbase.IndexingService.create_instance_from_commitment_service).
+Assign a configured indexing service before calling to customize queries.
+
 * **Returns:**
   Commitment receipts for dataset records.
 
@@ -1204,6 +1302,9 @@ The function should always attempt to do the right thing by default,
 but long-term options can get complex. The following work remains:
 - How should records with identical CIDs be treated?
 - When multiple commitments exist for a given CID, what is the order of pairing?
+
+Reads commitment receipts with [`get_commitment_receipts()`](#vbase.VBaseDataset.get_commitment_receipts); see
+that method for indexing service selection.
 
 * **Returns:**
   A tuple containing success and log:

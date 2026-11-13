@@ -12,6 +12,8 @@
   * [`FuzzySetMatchingService`](api.md#vbase.FuzzySetMatchingService)
   * [`HeadBasedSetMatchingService`](api.md#vbase.HeadBasedSetMatchingService)
   * [`IndexingService`](api.md#vbase.IndexingService)
+  * [`ProblemDetails`](api.md#vbase.ProblemDetails)
+  * [`ProblemDetailsError`](api.md#vbase.ProblemDetailsError)
   * [`SQLIndexingService`](api.md#vbase.SQLIndexingService)
   * [`SetMatch`](api.md#vbase.SetMatch)
   * [`SetMatchingCriteria`](api.md#vbase.SetMatchingCriteria)
@@ -33,3 +35,4 @@
   * [`Web3HTTPCommitmentServiceTest`](api.md#vbase.Web3HTTPCommitmentServiceTest)
   * [`Web3HTTPIndexingService`](api.md#vbase.Web3HTTPIndexingService)
   * [`get_default_logger()`](api.md#vbase.get_default_logger)
+* [Forwarder errors](errors.md)
