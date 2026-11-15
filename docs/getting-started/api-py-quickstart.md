@@ -27,7 +27,7 @@ keys.
 pip install vbase-api
 ```
 
-Requires Python 3.8 or later. The package installs as `vbase-api` and imports as
+Requires Python 3.11 or later. The package installs as `vbase-api` and imports as
 `vbase_api`. The similarly named `vbase` package is the lower-level core SDK.
 
 
