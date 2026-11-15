@@ -76,7 +76,7 @@ For technical information about how vBase audit trail records verify data proven
 
 - [How vBase Works](../getting-started/how-vbase-works.md)
 - [Why Public Blockchains?](why-blockchains.md)
-- [Independent Blockchain Verification](independent-verification.md)
+- [Smart Contract Addresses](../technical-reference/addresses.md)
 - [Python API Client](../getting-started/api-py-quickstart.md)
 - [REST API](../../vbase-app/api/rest-api-user-guide.md)
 - [Interactive API Reference](https://app.vbase.com/swagger/)

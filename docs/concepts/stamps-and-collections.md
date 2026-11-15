@@ -20,7 +20,7 @@ By default, vBase uses the NIST-standard **SHA3-256** hashing algorithm. A Conte
 
 The same data always produces the same Content ID. Changing even a single byte of the underlying data produces a different Content ID.
 
-This means a Content ID identifies the exact data it represents without revealing the underlying data itself.
+A Content ID identifies the data without including the underlying content in the Stamp. Hashing is not encryption: someone who can guess the exact content can hash candidate values and compare them with a public Content ID. For predictable or low-entropy data, see the privacy limits in [Private Stamping with Delayed Reveal](../use-cases/private-stamping.md).
 
 Content IDs can be calculated using standard, widely available hashing libraries. Depending on the workflow, vBase can calculate the Content ID from the underlying data or receive a Content ID calculated locally by the producer. Because Content IDs can be calculated locally, the underlying data never needs to be sent to vBase.
 
