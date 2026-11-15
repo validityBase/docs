@@ -95,7 +95,7 @@ The following steps guide you through this process of setting up vBase Python To
    - `VBASE_API_KEY` is the private API key for accessing the vBase API service.
    - `VBASE_COMMITMENT_SERVICE_PRIVATE_KEY` is the (private) cryptographic key suitable for signing Ethereum transactions.
      It can be generated using any of the mature key generation tools (https://ethereum.org/en/developers/docs/accounts/#account-creation, https://support.metamask.io/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key).
-     Please keep the key private and do not disclose it to PitLabs or anyone else.
+     Please keep the key private and do not disclose it to PIT Labs or anyone else.
      Only the public address associated with the key is required for validation.
      The private key secures your access to vBase.
    - `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` must be defined for AWS operations
