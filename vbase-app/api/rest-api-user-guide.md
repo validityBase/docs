@@ -5,6 +5,7 @@
 The REST API provides a programmatic interface to interact with our services, allowing you to stamp files, inline data, or existing CIDs. This API is designed to be flexible and secure, supporting various data formats and authentication methods.
 
 <a id="one-stamp-operation-at-a-time-per-user"></a>
+<a id="one-blockchain-write-at-a-time-per-user"></a>
 ## One Blockchain Write at a Time per User
 
 **Finish one blockchain write before starting another for the same user.**
@@ -26,7 +27,7 @@ fail on blockchain nonce conflicts.
 
 ### Current Stamp Creation Guard
 
-When `OPERATION_GUARD_ENABLED` is enabled, the guard checks a lease for stamp
+When the stamp creation guard is enabled, it checks a lease for stamp
 creation. Collection creation does not acquire that lease; clients must coordinate
 its blockchain writes with stamp creation.
 
@@ -120,7 +121,9 @@ with `"openapi": "3.1.0"`. ReDoc is available at
 
 Protected API operations require your API key in the `Authorization` header.
 The OpenAPI description identifies which operations require authentication;
-public operations, including stamp certificate download, remain anonymous.
+the public `/api/v1/stamps/certificate` operation permits anonymous downloads.
+The `/api/v1/stamps/certificate/created` operation requires authentication and
+also accepts an authenticated session with CSRF protection.
 Use this header format for protected operations:
 
 ```
@@ -568,8 +571,6 @@ The signed-in stamp creation page uses
 saved receipt supplies it; the public certificate route still requires it.
 It renders the current user's successful saved stamp on demand, without waiting
 for public indexing or saving the PDF to S3. Session requests require CSRF.
-This does not change the public Verify certificate endpoint or the background
-certificate materialization job.
 
 ## Saved certificate downloads
 

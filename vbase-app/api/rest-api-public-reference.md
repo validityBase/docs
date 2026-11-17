@@ -235,7 +235,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-## collections_verify_create
+## Verify a Collection
 
 <a id="opIdcollections_verify_create"></a>
 
@@ -722,7 +722,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-## stamps_certificate_create
+## Download Stamp Certificate
 
 <a id="opIdstamps_certificate_create"></a>
 
@@ -947,7 +947,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer
 </aside>
 
-## Create Stamp
+## Verify Stamps
 
 <a id="opIdstamps_verify_create"></a>
 

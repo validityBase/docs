@@ -9,7 +9,8 @@ export VBASE_API_KEY='your-api-key'
 Replace the placeholder with your key. Do not commit the key to source control.
 
 <a id="one-operation-at-a-time"></a>
-## Blockchain Write Examples
+<a id="blockchain-write-examples"></a>
+## Blockchain Write Coordination
 
 **Run one blockchain write at a time per user.** Coordinate stamp creation and
 on-chain collection creation across collections and clients.
