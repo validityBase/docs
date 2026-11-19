@@ -182,19 +182,45 @@ and API requests select a collection with `collection_cid`. Receipts retain
 
 ## Paginating Collections
 
-`GET /v1/collections` returns every collection as a JSON array by default. To
-page through the list, pass `limit` (1–1000) and optionally `offset` (requires
-`limit`). Paged responses keep the array shape and add an `X-Total-Count`
-header, plus a `Link: <url>; rel="next"` header while more results remain.
-With `is_pinned=false`, blockchain-only collections follow database collections
-in collection-hash order and have no database ID or creation timestamp. The next
-link is relative to the API host. Database collections are ordered newest first; a
-collection created while you page can shift later pages by one item.
+`GET /api/v1/collections` returns one page of collections as a JSON array.
+**Change:** this endpoint previously returned every collection. It now returns
+at most `limit` items, so clients with more collections must follow `Link`.
+The page size `limit` has a default and a maximum; read them from the
+`default` and `maximum` of the `limit` parameter in the
+[OpenAPI description](#about-the-openapi-description-for-the-rest-api).
+`offset` is at least 0 and defaults to 0. Invalid `limit` or `offset` values
+return `400` with `{"error": "..."}`, where the message names the parameter. An
+`offset` at or past the total returns `200` with `[]`.
+
+Every successful response includes an `X-Total-Count` header with the unpaged
+total, plus a `Link` header while more results remain. The next URL is a path
+from the server root, for example
+`</api/v1/collections?limit=100&offset=100>; rel="next"`. Prefix it with
+`https://app.vbase.com`, not the base URL. It keeps your other query
+parameters, so do not add them again. Follow the next link until it is absent
+to read the full list.
+
+The optional `is_pinned` query parameter selects which collections are listed.
+Without it, the response lists the collections registered in your vBase
+account, newest first. `is_pinned=true` returns only pinned ones.
+`is_pinned=false` returns unpinned registered collections, followed by
+collections that exist on the blockchain but are not registered in your
+account; those come last, sorted by `cid`, with `id` and `created_at` set to
+`null`, and are included in `X-Total-Count`. If your account has no active
+blockchain address, `is_pinned=false` returns `404` with
+`{"error": "User address not found"}`.
+
+Pages are computed per request, not from a snapshot. A collection created while
+you page can make an item appear twice; a deleted one can make you miss an
+item, and `X-Total-Count` can change between pages. De-duplicate by `cid`; for
+an exact list, restart if `X-Total-Count` changed.
 
 ```bash
 curl -i 'https://app.vbase.com/api/v1/collections?limit=100' \
--H "Authorization: Bearer $VBASE_API_KEY"
+  -H "Authorization: Bearer $VBASE_API_KEY"
 ```
+
+`-i` prints the response headers, including `X-Total-Count` and `Link`.
 
 ## Request Validation Rules
 
