@@ -119,6 +119,8 @@ Get user collections with optional filtering
 ```json
 {
   "error": "string",
+  "error_code": "string",
+  "commitment_receipt": null,
   "details": "string"
 }
 ```
@@ -177,7 +179,17 @@ curl -X POST https://app.vbase.com/api/v1/collections \
 
 `POST /api/v1/collections`
 
-Create a new user collection
+        **One blockchain write at a time per user.** Requests that can create
+        a collection on-chain must be coordinated with other blockchain writes
+        for the same user. Reads and uploads of already-stamped files may run
+        concurrently with that write.
+        This endpoint does not acquire the stamp creation guard.
+        After an uncertain response, retry only after the original operation has
+        ended and its outcome is resolved. A matching collection confirms existence only.
+        This endpoint does not accept idempotent or idempotency_window.
+
+        Create a new user collection.
+        
 
 ### Body parameter
 
@@ -228,7 +240,7 @@ is_pinned: true
 |---|---|---|---|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Collection created successfully|[Collection](#schemacollection)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad request - validation error|[Error](#schemaerror)|
-|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict - collection already exists|[Error](#schemaerror)|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Collection already exists.|[Error](#schemaerror)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -343,6 +355,8 @@ omitted, the backend will try to infer metadata from the payload.
 ```json
 {
   "error": "string",
+  "error_code": "string",
+  "commitment_receipt": null,
   "details": "string"
 }
 ```
@@ -379,6 +393,23 @@ curl --request POST "${VBASE_API_URL:-https://app.vbase.com}/api/v1/stamp/" \
 *[DEPRECATED] Stamp a file, inline data, or CID*
 
         **DEPRECATED**: This endpoint is deprecated. Please use `/api/v1/stamps` instead.
+
+        **One blockchain write at a time per user.** Coordinate stamp creation
+        and on-chain collection creation across collections and clients.
+        Reads, including verification POSTs, and uploads of already-stamped files
+        may run concurrently with a blockchain write.
+
+        The enabled stamp creation guard uses an expiring lease. Lease expiry
+        does not stop the original operation. After a timeout, connection loss
+        or 5xx, retry only after the original operation has ended and its outcome
+        is resolved.
+        This requirement applies with or without the guard. Retry-After and
+        idempotent=true do not prove completion.
+        Use idempotent=true from the first request. Keep the content, collection,
+        options and idempotency_window unchanged on retry. A matching stamp
+        outside the window can permit another commitment.
+        See the [REST API guide](https://docs.vbase.com/rest-api/rest-api-user-guide#one-blockchain-write-at-a-time-per-user)
+        for the retry procedure and result checks.
 
         This endpoint allows users to stamp a file, inline data, or an existing CID.
         Accepts file, inline data, or CID and returns a stamp record with metadata.
@@ -533,10 +564,19 @@ data: hello
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Idempotent request - returning previous stamp.|[IdempotentStampResponse](#schemaidempotentstampresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns the existing commitment_receipt. Omits file_object. Does not repair file storage.|[IdempotentStampResponse](#schemaidempotentstampresponse)|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Stamp created successfully|[StampCreatedResponse](#schemastampcreatedresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad request - invalid input or idempotent conflict|[Error](#schemaerror)|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|An unexpired stamp creation lease is held. Retry-After is a delay hint, not proof of completion.|[Error](#schemaerror)|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error|[Error](#schemaerror)|
+|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Operation coordination unavailable.|[Error](#schemaerror)|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|409|Retry-After|integer||Retry delay in seconds. Neither the delay nor lease expiry proves completion.|
+|503|Retry-After|integer||Retry delay in seconds. Neither the delay nor lease expiry proves completion.|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -558,6 +598,23 @@ curl --request POST "${VBASE_API_URL:-https://app.vbase.com}/api/v1/stamps" \
 `POST /api/v1/stamps`
 
 *Stamp a file, inline data, or CID*
+
+        **One blockchain write at a time per user.** Coordinate stamp creation
+        and on-chain collection creation across collections and clients.
+        Reads, including verification POSTs, and uploads of already-stamped files
+        may run concurrently with a blockchain write.
+
+        The enabled stamp creation guard uses an expiring lease. Lease expiry
+        does not stop the original operation. After a timeout, connection loss
+        or 5xx, retry only after the original operation has ended and its outcome
+        is resolved.
+        This requirement applies with or without the guard. Retry-After and
+        idempotent=true do not prove completion.
+        Use idempotent=true from the first request. Keep the content, collection,
+        options and idempotency_window unchanged on retry. A matching stamp
+        outside the window can permit another commitment.
+        See the [REST API guide](https://docs.vbase.com/rest-api/rest-api-user-guide#one-blockchain-write-at-a-time-per-user)
+        for the retry procedure and result checks.
 
         This endpoint allows users to stamp a file, inline data, or an existing CID.
         Accepts file, inline data, or CID and returns a stamp record with metadata.
@@ -712,10 +769,19 @@ data: hello
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Idempotent request - returning previous stamp.|[IdempotentStampResponse](#schemaidempotentstampresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Returns the existing commitment_receipt. Omits file_object. Does not repair file storage.|[IdempotentStampResponse](#schemaidempotentstampresponse)|
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Stamp created successfully|[StampCreatedResponse](#schemastampcreatedresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad request - invalid input or idempotent conflict|[Error](#schemaerror)|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|An unexpired stamp creation lease is held. Retry-After is a delay hint, not proof of completion.|[Error](#schemaerror)|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error|[Error](#schemaerror)|
+|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|PostgreSQL operation coordination unavailable.|[Error](#schemaerror)|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|409|Retry-After|integer||Retry delay in seconds. Neither the delay nor lease expiry proves completion.|
+|503|Retry-After|integer||Retry delay in seconds. Neither the delay nor lease expiry proves completion.|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -772,6 +838,8 @@ POST receipt selectors as JSON. GET is not supported. Validate public stamp evid
 ```json
 {
   "error": "string",
+  "error_code": "string",
+  "commitment_receipt": null,
   "details": "string"
 }
 ```
@@ -800,6 +868,85 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer, cookieAuth, None
 </aside>
 
+## Download Created Stamp Certificate
+
+<a id="opIdstamps_created_certificate_create"></a>
+
+### Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://app.vbase.com/api/v1/stamps/certificate/created \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/pdf' \
+  -H 'X-CSRFToken: string' \
+  -H 'Authorization: Bearer {access-token}'
+
+```
+
+`POST /api/v1/stamps/certificate/created`
+
+*Download a newly created stamp certificate PDF*
+
+Requires authentication. Resolves the exact successful stamp from the current user's saved receipt and renders a PDF without using the public index or writing to S3. Session requests require CSRF.
+
+### Body parameter
+
+```json
+{
+  "object_cid": "string",
+  "transaction_hash": "string",
+  "chain_id": null,
+  "collection_cid": null
+}
+```
+
+<h3 id="stamps_created_certificate_create-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|X-CSRFToken|header|string|false|Required for session-authenticated POST requests; not needed for anonymous or Bearer requests.|
+|body|body|[CreatedCertificateSelectorRequest](#schemacreatedcertificateselectorrequest)|true|none|
+
+> Example responses
+
+> 200 Response
+
+> 400 Response
+
+```json
+{
+  "error": "string",
+  "error_code": "string",
+  "commitment_receipt": null,
+  "details": "string"
+}
+```
+
+<h3 id="stamps_created_certificate_create-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|PDF attachment|string|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid selectors|[Error](#schemaerror)|
+|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Authentication required|[Error](#schemaerror)|
+|403|[Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)|Session CSRF validation failed|[Error](#schemaerror)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Stamp not found|[Error](#schemaerror)|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Ambiguous stamp|[Error](#schemaerror)|
+|429|[Too Many Requests](https://tools.ietf.org/html/rfc6585#section-4)|Generation limit exceeded|[Error](#schemaerror)|
+|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Certificate temporarily unavailable|[Error](#schemaerror)|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|429|Retry-After|integer||Seconds to wait before retrying certificate generation.|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+Bearer, cookieAuth
+</aside>
+
 ## Upload Stamped File
 
 <a id="opIdstamps_upload-stamped-file_create"></a>
@@ -817,6 +964,14 @@ curl --request POST "${VBASE_API_URL:-https://app.vbase.com}/api/v1/stamps/uploa
 `POST /api/v1/stamps/upload-stamped-file`
 
 *Upload a stamped file*
+
+        Uploading an already-stamped file does not submit a blockchain
+        transaction or acquire the stamp creation guard. It may run
+        concurrently with blockchain writes and reads. Upload and recovery share
+        a 120-second claim per receipt. Retry a busy receipt after Retry-After.
+        After an uncertain upload response, check file availability before
+        repeating the upload. A successful download confirms availability.
+        This endpoint does not accept idempotent or idempotency_window.
 
         This endpoint allows users to upload a file or inline data that has been
         previously stamped.
@@ -940,7 +1095,16 @@ file_name: example.txt
 |201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|File uploaded and associated with matching commitment(s)|[StampCreatedResponse](#schemastampcreatedresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid input or validation failed|[Error](#schemaerror)|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Collection not found or no blockchain records found|[Error](#schemaerror)|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Receipt upload is busy. Retry after the indicated delay.|[Error](#schemaerror)|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|File processing, blockchain, or upload errors|[Error](#schemaerror)|
+|503|[Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)|Receipt coordination is unavailable.|[Error](#schemaerror)|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|409|Retry-After|integer||Seconds to wait before retrying this receipt.|
+|503|Retry-After|integer||Seconds to wait before retrying this receipt.|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1024,6 +1188,8 @@ filter_by_user: false
 ```json
 {
   "error": "string",
+  "error_code": "string",
+  "commitment_receipt": null,
   "details": "string"
 }
 ```
@@ -1086,6 +1252,8 @@ Return only display name, public address, and verified status.
 ```json
 {
   "error": "string",
+  "error_code": "string",
+  "commitment_receipt": null,
   "details": "string"
 }
 ```
@@ -1147,6 +1315,8 @@ Retrieve private account settings for the authenticated user.
 ```json
 {
   "error": "string",
+  "error_code": "string",
+  "commitment_receipt": null,
   "details": "string"
 }
 ```
@@ -1419,6 +1589,63 @@ Serializer for commitment receipt
 |timestamp|string,null|false|none|none|
 |chain_id|integer,null|false|none|none|
 
+<h2 id="tocS_CreatedCertificateSelectorRequest">CreatedCertificateSelectorRequest</h2>
+<!-- backwards compatibility -->
+<a id="schemacreatedcertificateselectorrequest"></a>
+<a id="schema_CreatedCertificateSelectorRequest"></a>
+<a id="tocScreatedcertificateselectorrequest"></a>
+<a id="tocscreatedcertificateselectorrequest"></a>
+
+```json
+{
+  "object_cid": "string",
+  "transaction_hash": "string",
+  "chain_id": null,
+  "collection_cid": null
+}
+
+```
+
+CreatedCertificateSelector
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|object_cid|string|true|none|none|
+|transaction_hash|string|true|none|none|
+|chain_id|any|false|none|none|
+
+anyOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» *anonymous*|integer|false|none|none|
+
+or
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» *anonymous*|null|false|none|none|
+
+continued
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|collection_cid|any|false|none|none|
+
+anyOf
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» *anonymous*|string|false|none|none|
+
+or
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» *anonymous*|null|false|none|none|
+
 <h2 id="tocS_Error">Error</h2>
 <!-- backwards compatibility -->
 <a id="schemaerror"></a>
@@ -1429,6 +1656,8 @@ Serializer for commitment receipt
 ```json
 {
   "error": "string",
+  "error_code": "string",
+  "commitment_receipt": null,
   "details": "string"
 }
 
@@ -1441,6 +1670,8 @@ Serializer for error responses
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |error|string|false|none|none|
+|error_code|string|false|none|none|
+|commitment_receipt|any|false|none|none|
 |details|string|false|none|none|
 
 <h2 id="tocS_FileObject">FileObject</h2>
