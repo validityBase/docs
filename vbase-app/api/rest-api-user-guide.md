@@ -587,6 +587,10 @@ It returns 500 for connection failures, unexpected service failures, or invalid
 service output. Service and model-validation failures use an `error` field.
 
 Certificate download remains public.
+If the certificate contains characters unsupported by the bundled PDF fonts,
+both certificate endpoints return HTTP 422 with an `error` message. The stamp remains valid;
+contact support instead of retrying the same request. Rendering infrastructure
+failures return HTTP 503.
 Every certificate response uses `Cache-Control: no-store`, including failures.
 Do not cache a generated PDF or an error response.
 Changing the HTTP method alone would not enable caching under this policy.
