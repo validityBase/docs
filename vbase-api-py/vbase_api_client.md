@@ -224,13 +224,34 @@ for stamp in result.stamp_list:
     print(f"Found stamp at {stamp.timestamp}")
 ```
 
-## *exception* vbase_api.vbase_api_client.VBaseAPIError(message: str, status_code: int | None = None)
+## *exception* vbase_api.vbase_api_client.VBaseAPIError(message: str, status_code: int | None = None, , error_code: str | None = None, retry_after: str | None = None, commitment_receipt: dict | None = None)
 
 Bases: `Exception`
 
 Base exception for vBase API errors.
 
-### \_\_init_\_(message: str, status_code: int | None = None)
+### message
+
+Human-readable error message.
+
+### status_code
+
+HTTP status code, if the error came from an HTTP response.
+
+### error_code
+
+Machine-readable error code from the response body, if any.
+
+### retry_after
+
+Raw `Retry-After` response header value, if any.
+
+### commitment_receipt
+
+Raw commitment receipt mapping from the response
+body, if any.
+
+### \_\_init_\_(message: str, status_code: int | None = None, , error_code: str | None = None, retry_after: str | None = None, commitment_receipt: dict | None = None)
 
 ### args
 
