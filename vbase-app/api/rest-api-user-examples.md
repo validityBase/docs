@@ -133,7 +133,7 @@ After local lookup succeeds, the backend also validates that the collection has 
 |---|---:|---|---|
 | `collection_cid` is **not found** in the app DB (`UserCollection`) | 400 | `Collection CID is not registered in your vBase app account: {collection_cid}. Stamping with collection_cid requires a known collection name for storage, so on-chain-only collections are not supported.` | Request stops before blockchain stamping. This includes on-chain CIDs that were never registered as app collections. |
 | `collection_cid` exists in app DB but **was not created by the current user** | 400 | `Collection CID has not been created by the current user: {collection_cid}. Please create a collection first.` | File may still be uploaded to `non_confirmed/` and a failed `UserStampedFiles` record is saved when upload is enabled. |
-| `collection_cid` exists in app DB and has been created by the current user | 201 | `commitment_receipt` (+ `file_object` when upload is enabled) | File is stored under `stamped/`. |
+| `collection_cid` exists in app DB and has been created by the current user | 201 | `commitment_receipt` and `file_object` (`null` unless the file was stored) | Stored files use `stamped/`. |
 
 This means **on-chain-only, unknown-name collections are intentionally unsupported** in `POST /api/v1/stamps` when file storage is requested, because current storage paths require a known collection name.
 

@@ -239,10 +239,20 @@ In multipart requests, an empty text `file` field is ignored and can accompany
 `data` or `data_cid`. An uploaded file with a name remains selected even if it
 has zero bytes, so it conflicts with another content source.
 
+For stamp creation and stamped-file uploads, an original filename can have at most
+230 characters (Unicode code points), including the extension. This applies to
+uploaded files and to `file_name` with inline `data`. The stamp routes apply NFKC
+normalization to `file_name` and check the limit again after it. A longer filename
+returns HTTP 400 before storage or blockchain calls; no stamp is created and no
+file is stored. A stored file gains a timestamp before the extension, for example
+`report_2025-01-01_12-00-00+0000.pdf`; accepted names are never shortened.
+
 Stamp idempotency is disabled unless `idempotent=true` is supplied. Storage is
-enabled only when `store_stamped_file=true` is supplied. An idempotent replay
+enabled when `store_stamped_file=true` is supplied or when the account stores
+stamped files, which is the default for new accounts. An idempotent replay
 returns HTTP 200; a new stamp returns HTTP 201. The creation response contains
-`file_object: null` when there is no stored file object.
+`file_object: null` when no stamped file was stored. If final storage succeeds,
+`file_object` contains the final `file_name` and `file_path`.
 
 ## Keeping your API credentials secure
 
@@ -410,9 +420,9 @@ If multiple commitments in the collection match the same object CID, the first s
 |-----------|------|----------|-------------|
 | collection_name | String | No | Collection name (case-insensitive, must not be empty). Provide this or `collection_cid`. |
 | collection_cid | String | No | Collection CID (hex hash). Provide this or `collection_name`. |
-| file | File | No | Previously stamped file to upload. Provide this or `data`, but not both. |
+| file | File | No | Previously stamped file to upload. Provide this or `data`, but not both. Its name can have at most 230 characters, including the extension. |
 | data | String | No | Inline text / JSON data to upload. Provide this or `file`, but not both. |
-| file_name | String | Conditional | Required when `data` is provided. |
+| file_name | String | Conditional | Required when `data` is provided. Maximum 230 characters, including the extension. |
 
 **Note**: User address is automatically determined from the authenticated user's profile, so no `user_address` parameter is needed.
 At least one of `collection_name` or `collection_cid` must be present, and exactly one of `file` or `data` must be present.
@@ -421,7 +431,7 @@ At least one of `collection_name` or `collection_cid` must be present, and exact
 
 The endpoint performs the following validations in sequence:
 
-1. **Input Validation**: Validates collection name is not empty, validates collection identifiers (`collection_name`/`collection_cid`), enforces exactly one content source (`file` xor `data`), and requires `file_name` whenever `data` is provided.
+1. **Input Validation**: Validates collection name is not empty, validates collection identifiers (`collection_name`/`collection_cid`), enforces exactly one content source (`file` xor `data`), requires `file_name` whenever `data` is provided, and rejects filenames longer than the [filename limit](#request-validation-rules).
 2. **User Address Resolution**: Automatically determines user address from authenticated user's profile
 3. **Collection Lookup**: Finds the collection by name or CID for the authenticated user
 4. **CID Calculation**: Calculates object CID from the uploaded file, or from inline data when no file is provided
@@ -437,7 +447,7 @@ Unknown or unrecognized form or JSON fields are rejected with `400 Bad Request`.
 |-------------|-------------|----------------|
 | 200 | File already uploaded | Matching commitment already has an associated file; no duplicate copy is created |
 | 201 | File uploaded successfully | File passes all validations and uploads successfully for one or more matching commitments |
-| 400 | Invalid input or validation failed | Empty collection name or missing required parameters |
+| 400 | Invalid input or validation failed | Empty collection name, missing required parameters, or a filename longer than the [filename limit](#request-validation-rules) |
 | 404 | Collection not found or no blockchain records found | Collection doesn't exist or no matching blockchain records |
 | 409 | `stamp_in_progress` | The receipt is busy, the upload lost its claim, or the file state changed during the upload. |
 | 503 | `operation_guard_unavailable` | Receipt coordination is unavailable. |
