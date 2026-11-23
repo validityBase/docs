@@ -399,6 +399,9 @@ Content must be provided as either `file` or `data`, but not both. `file_name` i
 
 If the same stamped content is uploaded again with a different file name, the endpoint is idempotent: it returns the existing file object with HTTP 200 and does not create another uploaded copy for the same commitment.
 
+An upload that encounters an active claim on the same receipt returns HTTP 409 with `stamp_in_progress`. Scheduled recovery skips that receipt with `receipt_upload_busy`.
+An upload releases its claim on exit, including after failure. If the worker stops or cleanup fails, another attempt can take over after the claim expires.
+
 If multiple commitments in the collection match the same object CID, the first successful upload stores one timestamped file copy for each matching commitment. The API response contains one matching `commitment_receipt` and `file_object`.
 
 #### Request Parameters
@@ -436,7 +439,11 @@ Unknown or unrecognized form or JSON fields are rejected with `400 Bad Request`.
 | 201 | File uploaded successfully | File passes all validations and uploads successfully for one or more matching commitments |
 | 400 | Invalid input or validation failed | Empty collection name or missing required parameters |
 | 404 | Collection not found or no blockchain records found | Collection doesn't exist or no matching blockchain records |
+| 409 | `stamp_in_progress` | The receipt is busy, the upload lost its claim, or the file state changed during the upload. |
+| 503 | `operation_guard_unavailable` | Receipt coordination is unavailable. |
 | 500 | File processing, blockchain, or upload errors | CID calculation fails, blockchain errors, or upload failures |
+
+HTTP 409 and 503 can both arrive after S3 has stored the file. If several receipts match, earlier receipts may already be complete. Wait for the delay in `Retry-After`, then retry with the same content and collection. The service verifies saved destinations before issuing another PUT.
 
 #### Example Requests
 
