@@ -222,6 +222,23 @@ curl -i 'https://app.vbase.com/api/v1/collections?limit=100' \
 
 `-i` prints the response headers, including `X-Total-Count` and `Link`.
 
+## Upload Size and Time Limits
+
+Stamp creation and stamped-file upload accept files up to 10 MiB (10,485,760
+bytes) by default. Deployments can configure `STAMP_MAX_UPLOAD_BYTES`.
+Oversized inputs return HTTP 413 with an `error` message before storage or
+blockchain work. The request body allows another 64 KiB for multipart framing
+and fields; other validation rules still apply. The same cap applies to files
+uploaded by the web stamper, even with storage disabled. To stamp a larger file
+without uploading its bytes, submit its content ID instead.
+
+The hosted service has a 120-second total request deadline, including uploading
+the body. A slow request can time out even below the size limit. Treat a timeout
+as an unknown outcome and check for an existing receipt before submitting a new
+stamp. Use the same input with `idempotent=true` and the applicable idempotency
+window when retrying; the server's longer worker backstop does not guarantee
+completion after a timeout.
+
 ## Request Validation Rules
 
 For endpoints that use strict request schemas, unknown or unrecognized request
