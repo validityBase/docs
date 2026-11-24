@@ -41,7 +41,7 @@ line endings will produce a different CID.
 
 ## Prerequisites
 
-- Python 3.8 or later with `vbase-api` installed (`pip install vbase-api`)
+- Python 3.11 or later with `vbase-api` installed (`pip install vbase-api`)
 - A vBase API key stored in `VBASE_API_KEY`; see
   [Configure your API key](../getting-started/api-py-quickstart.md#configure-your-api-key)
 - An existing Collection. This portfolio example uses `global-macro-2025`.
