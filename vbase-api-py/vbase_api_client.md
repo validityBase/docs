@@ -230,6 +230,9 @@ Bases: `Exception`
 
 Base exception for vBase API errors.
 
+RFC 9457 responses expose `detail` as `message` and `code` as
+`error_code`. Legacy JSON errors use `error` and `error_code`.
+
 ### message
 
 Human-readable error message.
