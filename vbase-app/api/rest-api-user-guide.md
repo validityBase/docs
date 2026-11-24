@@ -427,7 +427,7 @@ Content must be provided as either `file` or `data`, but not both. `file_name` i
 If the same stamped content is uploaded again with a different file name, the endpoint is idempotent: it returns the existing file object with HTTP 200 and does not create another uploaded copy for the same commitment.
 
 An upload that encounters an active claim on the same receipt returns HTTP 409 with `stamp_in_progress`. Scheduled recovery skips that receipt with `receipt_upload_busy`.
-An upload releases its claim on exit, including after failure. If the worker stops or cleanup fails, another attempt can take over after the claim expires.
+Claim cleanup is best effort. A failed upload attempts to delete its claim on exit. If database cleanup fails, the claim remains until expiry; another attempt can then take over.
 
 If multiple commitments in the collection match the same object CID, the first successful upload stores one timestamped file copy for each matching commitment. The API response contains one matching `commitment_receipt` and `file_object`.
 
