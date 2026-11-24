@@ -23,7 +23,7 @@ vBase leaves the producer's existing data sharing workflow unchanged while creat
 
 ### Building the audit trail
 
-As data is produced, vBase helps producers publish a **Stamp** for each update or release. Each Stamp contains a **Content ID**: a cryptographic fingerprint (hash) that identifies the underlying data without revealing it. 
+As data is produced, vBase helps producers publish a **Stamp** for each update or release. Each Stamp contains a **Content ID**: a cryptographic fingerprint (hash) that identifies the underlying data without including that data in the public record. Hashing is not encryption: predictable content can be guessed and checked against its Content ID. See [Private Stamping with Delayed Reveal](../use-cases/private-stamping.md) for the privacy limits.
 
 When a Stamp is published to a public blockchain, the resulting record receives a publicly verifiable publication timestamp. Over time, these records create a point-in-time audit trail showing what data existed by each record's timestamp.
 

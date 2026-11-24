@@ -24,12 +24,14 @@ To verify data, a verifier calculates its Content ID and compares it with the Co
 
 Because SHA3-256 is a public standard, this calculation does not require vBase software. The Web App can hash files directly in the user's browser, and developer integrations can calculate Content IDs locally and submit only the hash, enabling workflows in which the underlying data is never sent to vBase.
 
-For more detail, see [Privacy and Data Handling](privacy-and-data-handling.md).
+A Content ID is not encryption. If the underlying content is predictable, someone can hash candidate values and compare them with the public Content ID. Collision and second-preimage resistance do not prevent this guessing attack. For the privacy limits, see [Private Stamping with Delayed Reveal](../use-cases/private-stamping.md).
+
+For more detail on which workflows send underlying data to vBase, see [Privacy and Data Handling](privacy-and-data-handling.md).
 
 
 ## Collection and dataset completeness
 
-A **Collection** groups the Stamps associated with a particular dataset, strategy, model, portfolio, or other product. It does this by publishing a **Collection ID** as part of each Stamp. Stamps associated with the same Collection ID therefore form a single identifiable audit trail, typically representing a discrete dataset or product.
+A **Collection** groups the Stamps associated with a particular dataset, strategy, model, portfolio, or other product. It does this by publishing a **Collection ID** as part of each Stamp. Stamps created by the same **Stamper address** with the same Collection ID form a single identifiable audit trail, typically representing a discrete dataset or product. The Stamper address and Collection ID together identify the Collection; different addresses using the same Collection ID do not form a single Collection.
 
 By default, vBase uses the SHA3-256 hash of the Collection Name as the Collection ID.
 
@@ -76,7 +78,7 @@ vBase provides tools that automate Content ID calculation, Stamp lookup, Collect
 
 These tools are conveniences, not the source of the underlying public evidence. Technically capable users can inspect the blockchain records independently or build their own software against the public blockchain interfaces.
 
-For instructions on validating blockchain records directly, see [Independent Blockchain Verification](independent-verification.md).
+For deployed contract addresses and blockchain explorer links, see [Smart Contract Addresses](../technical-reference/addresses.md).
 
 ## Trust model at a glance
 
@@ -86,7 +88,7 @@ The most important verification claims and their sources of evidence can be summ
 |---|---|---|
 | **The presented data is the same data that was stamped** | Recalculating the content's SHA3-256 Content ID and matching it to the Content ID in the Stamp | **Yes** |
 | **The data existed by a particular time** | The Stamp's publicly recorded blockchain timestamp | **Yes** |
-| **A dataset is complete relative to its point-in-time audit trail** | Matching the presented objects to the Stamps associated with the Collection ID and accounting for the relevant Collection records | **Yes** |
+| **A dataset is complete relative to its point-in-time audit trail** | Matching the presented objects to the Stamps associated with the same Stamper address and Collection ID and accounting for the relevant Collection records | **Yes** |
 | **The complete vBase activity of a blockchain address** | The complete public blockchain history associated with that address | **Yes** |
 | **One or more blockchain addresses belong to a single vBase identity** | vBase account and identity records linking those addresses | **No** — this linkage is currently provided by vBase |
 | **A vBase identity represents a particular real-world person or organization** | vBase's identity-verification process | **No** — currently provided by vBase |
