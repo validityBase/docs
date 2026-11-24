@@ -467,6 +467,7 @@ Unknown or unrecognized form or JSON fields are rejected with `400 Bad Request`.
 | 400 | Invalid input or validation failed | Empty collection name, missing required parameters, or a filename longer than the [filename limit](#request-validation-rules) |
 | 404 | Collection not found or no blockchain records found | Collection doesn't exist or no matching blockchain records |
 | 409 | `stamp_in_progress` | The receipt is busy, the upload lost its claim, or the file state changed during the upload. |
+| 413 | Stamp input too large | The upload exceeds the configured upload limit. |
 | 503 | `operation_guard_unavailable` | Receipt coordination is unavailable. |
 | 500 | File processing, blockchain, or upload errors | CID calculation fails, blockchain errors, or upload failures |
 
