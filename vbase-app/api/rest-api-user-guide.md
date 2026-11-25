@@ -232,12 +232,41 @@ and fields; other validation rules still apply. The same cap applies to files
 uploaded by the web stamper, even with storage disabled. To stamp a larger file
 without uploading its bytes, submit its content ID instead.
 
+Inline `data`, sent as a JSON field or as a multipart form field, has the same
+limit as a file. Decoded inline data larger than that limit returns HTTP 413.
+
 The hosted service has a 120-second total request deadline, including uploading
-the body. A slow request can time out even below the size limit. Treat a timeout
-as an unknown outcome and check for an existing receipt before submitting a new
-stamp. Use the same input with `idempotent=true` and the applicable idempotency
-window when retrying; the server's longer worker backstop does not guarantee
-completion after a timeout.
+the body. A slow request can time out even below the size limit. A timeout ends
+only the HTTP response; the service can continue and complete the operation after
+it. Treat a timeout, a lost connection or an HTTP 5xx as an unknown outcome.
+
+After a network failure, the service, the blockchain indexer and the blockchain can
+each know something different about the request. No client or server procedure can
+fully reconcile them, and a retry can create a duplicate stamp. The steps below
+reduce that risk; they cannot remove it.
+
+- **Stamp creation:** follow the
+  [Stamp Creation Retry Procedure](#stamp-creation-retry-procedure). Send the first
+  request with `idempotent=true`, and keep the content, collection, storage options
+  and `idempotency_window` unchanged on any retry. Read the responses narrowly:
+  - HTTP 409 `stamp_in_progress` shows only that an operation holds your account's
+    stamp lease. It can be another request, or a lease left after the original
+    finished. It does not show that your request is still running, and its
+    absence does not show that it ended. Wait for `Retry-After`.
+  - HTTP 200 with `commitment_receipt` returns the latest matching indexed receipt
+    inside the window. That receipt can come from an earlier request for the same
+    content rather than the one that timed out.
+  - Elapsed time does not settle the outcome. A blockchain write can complete after
+    the service stops working on it, and indexing can lag.
+
+  Use the [result checks](#result-checks) to find what the original request
+  produced. They cannot show that it ended, and the client has no way to establish
+  that. While the outcome or termination remains unknown, contact support instead
+  of submitting another stamp.
+- **Stamped-file upload:** this endpoint does not accept idempotency fields and
+  makes no blockchain write. Retry with the same content and collection as
+  described in [Upload Stamped File](#upload-stamped-file). The service verifies
+  saved files before it uploads again.
 
 ## Request Validation Rules
 
@@ -469,9 +498,11 @@ Unknown or unrecognized form or JSON fields are rejected with `400 Bad Request`.
 | 409 | `stamp_in_progress` | The receipt is busy, the upload lost its claim, or the file state changed during the upload. |
 | 413 | Stamp input too large | The upload exceeds the configured upload limit. |
 | 503 | `operation_guard_unavailable` | Receipt coordination is unavailable. |
-| 500 | File processing, blockchain, or upload errors | CID calculation fails, blockchain errors, or upload failures |
+| 500 | File processing, blockchain, or upload errors | CID calculation fails, blockchain errors, or upload failures. Also returned when an earlier attempt reserved a file destination that current path rules reject; the stamp stays confirmed, no file is uploaded, and a retry returns the same error; contact support to repair the destination. |
 
-HTTP 409 and 503 can both arrive after S3 has stored the file. If several receipts match, earlier receipts may already be complete. Wait for the delay in `Retry-After`, then retry with the same content and collection. The service verifies saved destinations before issuing another PUT.
+HTTP 409 and 503 can both arrive after S3 has stored the file. If several receipts match, the service processes them in order and an error stops the request at that receipt, so earlier receipts may already be complete. Wait for the delay in `Retry-After`, then retry with the same content and collection. The service verifies saved destinations before issuing another PUT.
+
+A retry reuses the filename that an earlier attempt reserved for the receipt in the same collection, so the stored filename can differ from the name you upload and can be longer than the [filename limit](#request-validation-rules) for new names.
 
 #### Example Requests
 
